@@ -1,0 +1,79 @@
+#!/bin/env bash
+
+# Franklin Souza
+# @FranklinTech
+
+# Habilitando Vulkan em placas AMD
+
+# Title
+echo 'Vulkan e Wine'
+
+# Aviso
+echo
+echo 'Esse script foi feito no Arch Linux, e também com o driver AMD (amdgpu), então fique atento tenha Arch Linux ou sistemas baseados e um driver AMD que tenha suporte VULKAN, não me responsabilizo por erros, abra o script e leia e fique a vontade para edita-lo ao seu gosto...'
+
+echo
+echo 'Pressione ENTER...'
+read
+
+# Limpar console
+clear
+
+# Baixando driver
+echo 'Baixando driver de vídeo...' && sleep 2
+echo
+sudo pacman -S xf86-video-amdgpu --noconfirm
+sudo cp $HOME/.fraanks-repo/dotfiles/amdgpu/20-amdgpu.conf /etc/X11/xorg.conf.d
+
+# Limpar console
+clear
+
+# Instalando pacotes vulkan
+echo 'Baixando pacotes vulkan...' && sleep 2
+echo
+sudo pacman -S lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools --noconfirm
+
+# Limpar console
+clear
+
+# Editando mkinitcpio
+echo
+echo 'Edite seu: /etc/mkinitcpio.conf (OBS: Com poderes adminstrativos).'
+echo
+echo 'Adicionando...'
+echo
+echo 'MODULES=(amdgpu radeon)'
+
+# Input do user
+echo
+echo 'Pressione ENTER depois de ter editado...'
+read
+
+# Limpar console
+clear
+
+# Editar GRUB
+echo 'Agora vamos editar o GRUB...'
+echo
+echo 'Edite seu: /etc/default/grub (OBS: Com poderes adminstrativos).'
+echo
+echo 'Adicionando...'
+echo
+echo 'GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet radeon.cik_support=0 amdgpu.cik_support=1 radeon.si_support=0 amdgpu.si_support=1"'
+
+# Input do user
+echo
+echo 'Pressione ENTER depois de ter editado...'
+read
+
+# Limpar console
+clear
+
+# Wine e deps
+echo 'Agora vamos baixar wine e suas deps (É bom para games via lutris que não são nativos Linux).'
+echo
+sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader --noconfirm
+echo
+
+# Limpar console e sair
+sudo grub-mkconfig -o /boot/grub/grub.cfg && reboot
