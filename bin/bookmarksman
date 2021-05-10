@@ -1,0 +1,71 @@
+#!/bin/sh
+
+bookdir="$HOME"/.config/bookmarks
+
+die () {
+	exit 1
+}
+
+openchoosen () {
+	if $(printf "$1" | grep -q 'watch'); then
+		prompt=$(printf "Yes\\nNo" | dmenu -fn 'Iosevka 9' -sb 'white' -sf 'black' -w "$winid" -i -p "Wanna open with mpv?")
+
+		case "$prompt" in
+			Yes) $(setsid umpv "$1") && exit ;;
+			No) xdg-open "$1" && exit ;;
+			*) die;;
+		esac
+	else
+		xdg-open "$1"
+	fi
+}
+
+openbookmark () {
+	opensection="$(ls "$bookdir" | dmenu -fn 'Iosevka:size=10' -sb 'white' -sf 'black' -w "$winid" -p "Open witch section?")" || die
+
+	open="$(cut -d' ' -f1 "$bookdir"/"$opensection" |\
+				 dmenu -fn 'Iosevka:size=10' -sb 'white' -sf 'black' -w "$winid" -p "select bookmark")" || die
+
+	choosen="$(grep -w "$open" "$bookdir"/"$opensection")" || die
+
+	openchoosen "${choosen##* }" || die
+}
+
+substitutebookmark() {
+	substitute=$(printf "Yes\\nNo" | \
+		dmenu -fn 'Iosevka:size=10' -sb 'white' -sf 'black' -w "$winid" -i -p "There is a bookmark with that name, substitute it?")
+
+	case "$substitute" in
+		Yes) sed -i "/^${1} /d" "$2";;
+		*) die;;
+	esac
+}
+
+newbookmark () {
+	saveas="$(printf "" | dmenu -fn 'Iosevka:size=10' -sb 'white' -sf 'black' -w "$winid" -p "Save bookmas as:")" && \
+		$(echo "$saveas" | grep -q ' ') && \
+		notify-send " Invalid bookmark name" && die 
+
+	[ -n "$saveas" ] &&\
+		section="$(ls $bookdir | dmenu -fn 'Iosevka:size=10' -sb 'white' -sf 'black' -w "$winid" -p "Witch section?")" || die
+
+	[ "$(cut -d' ' -f1 "$bookdir"/"$section" | grep -w "$saveas")" ] && \
+		substitutebookmark "$saveas" "$bookdir"/"$section"
+
+	[ -n "$section" ] && echo "$saveas" "$url" >> "$bookdir"/"$section" && \
+		notify-send " Bookmark saved"
+}
+
+case "$1" in
+	open)
+		winid="${2:-0x0}"
+		openbookmark
+		;;
+	add)
+		url="$2"
+		winid="${3:-0x0}"
+		newbookmark
+		;;
+	*) echo "invalid parameters" 1>&2
+		;;
+esac
