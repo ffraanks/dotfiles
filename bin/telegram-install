@@ -1,0 +1,13 @@
+#!/bin/bash
+# Credit: Franklin Souza
+# Telegram: @FranklinTech
+cd /tmp
+wget https://telegram.org/dl/desktop/linux
+tar -xf linux
+cd Telegram
+mv Telegram telegram
+mv Updater telegram-updater
+mkdir $HOME/.local/bin
+cp telegram $HOME/.local/bin/ && cp telegram-updater $HOME/.local/bin/
+cd $HOME/.local/bin
+./telegram
