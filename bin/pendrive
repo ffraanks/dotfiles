@@ -1,0 +1,62 @@
+#!/bin/env bash
+
+while true; do
+  clear
+
+  # Devices
+  echo 'Dev: Franklin Souza'
+  echo 'Telegram: @FranklinTech'
+  echo
+  echo 'Pendrive Mount'
+  echo
+
+  # Opções
+  echo 'O que você deseja fazer?:'
+  echo
+  echo '[1] - Montar pendrive'
+  echo '[2] - Desmontar pendrive'
+  echo '[3] - Listar pastas montadas'
+  echo '[4] - Sair'
+  echo
+  read OPC
+  echo
+
+  # Condições
+  if [ $OPC == '1' ];then
+    clear
+    cd /mnt
+    echo
+    echo 'Digite o nome da pasta para o seu pendrive (Evite espações e acentuações):'
+    echo
+    read NAME_PENDRIVE
+    sudo mkdir $NAME_PENDRIVE
+    echo
+    echo 'OBS: Normalmente é sdb...' && echo && lsblk
+    echo
+    echo 'Digite o tipo do pendrive:'
+    echo
+    read PENDRIVE_TYPE
+    sudo mount /dev/$PENDRIVE_TYPE /mnt/$NAME_PENDRIVE
+
+  elif [ $OPC == '2' ];then
+    clear
+    cd /mnt && ls
+    echo
+    echo 'Digite o nome da pasta (Pendrive) que você queira desmontar:'
+    echo
+    read DEL_PASTE
+    sudo umount -Rf /mnt/$DEL_PASTE
+    sudo rm -rf /mnt/$DEL_PASTE
+
+  elif [ $OPC == '3' ];then
+    clear
+    ls /mnt
+    echo
+    echo 'Press enter to continue...'
+    echo
+    read
+
+  elif [ $OPC == '4' ];then
+    exit 0
+  fi
+done
