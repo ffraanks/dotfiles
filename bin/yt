@@ -1,0 +1,43 @@
+#!/bin/env bash
+
+# Dev: Franklin Souza
+# Telegram: @FranklinTech
+
+while true ; do
+
+  # clear console
+  clear
+
+  # Menu
+  echo 'O que deseja fazer?:'
+  echo
+  echo '[1] - Ver vídeo do YouTube'
+  echo '[2] - Ouvir música do YouTube'
+  echo '[3] - Baixar vídeo do seu histórico'
+  echo '[4] - Baixar vídeo do YouTube (Sem ser do histórico)'
+  echo '[5] - Mudar o formato do vídeo'
+  echo '[6] - Sair do programa'
+  echo
+  read ALT
+
+  # Conditions
+  if [ $ALT == '1' ];then
+    clear && ytfzf -t
+
+  elif [ $ALT == '2' ];then
+    clear && ytfzf -tml
+
+  elif [ $ALT == '3' ];then
+    clear && ytfzf -tdH
+
+  elif [ $ALT == '4' ];then
+    clear && ytfzf -td
+
+  elif [ $ALT == '5' ];then
+    clear && echo 'Para usar essa opção você tem que apertar "Q" no seu MPV para ele salvar o estado atual, ae você pode escolher o formato que deseja:'
+    echo && ytfzf -faH
+
+  else
+    exit 0
+  fi
+done
