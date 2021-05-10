@@ -1,0 +1,71 @@
+#!/bin/env bash
+
+# User: Franklin Souza
+# Telegram: @FranklinTech
+
+
+# CMUS - Play Music in Terminal
+if `pgrep -x cmus >/dev/null` ; then
+	PLAYER="CMUS:  "
+	INFO=$(cmus-remote -Q | grep status)
+	if [ "$INFO" = "status stopped" ] ; then
+		SONG="No music playing"
+	else
+		INFO=$(cmus-remote -Q)
+		ARTIST=$(printf "$INFO" | awk -F " " '/tag artist/{print substr($0, index($0, $3))}')
+		TITLE=$(printf "$INFO" | awk -F " " '/tag title/{print substr($0, index($0, $3))}')
+		ALBUM=$(printf "$INFO" | awk '/album/{print substr($0, index($0, $3))}' | head -1)
+		SONG="$ARTIST - $TITLE - $ALBUM"
+	fi
+else
+	SONG="No music playing"
+fi
+
+# COLORS
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[1;34m"
+MAGENTA="\033[1;35m"
+CYAN="\033[1;36m"
+
+# VARS
+TAB=""
+TAB1=$(echo "${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB} ${TAB}")
+COLOR="\e[1;38;05;32m"
+MACHINE=$(uname -m)
+OS=$(cat /etc/os-release | grep NAME | sed -n 1p | sed 's/NAME=//' | sed 's/\"//g')
+KERNEL=$(uname -sr)
+RESOLUTION=$(xrandr | awk '/*+/{print $1}')
+WM=$(tail -n 1 .xinitrc | awk '{print substr($0, index($0, $2))}')
+TERMINAL=$(echo "Kitty")
+SHELL1=$(basename $SHELL)
+PACKAGES=$(pacman -Qq | wc -l)
+UP=$(uptime -p | sed 's/up //')
+UPTIME=$(awk '{printf("%i Hour(s), %i Minute(s)", ($1/60/60%24), ($1/60%60))}' /proc/uptime)
+CPU=$(cat /proc/cpuinfo | sed -n '5p' | awk '{print $4, $5, $6, $7, $8, $9}')
+MEM=$(echo -e $(free --mebi | sed -n '2p' | awk '{print $3}')MiB / $(free --mebi | sed -n '2p' | awk '{print $2}')MiB)
+SWAP="$(free -h | awk '/^Swap/ { print $3" / "$2}')"
+
+
+# INFS
+clear
+echo -e "${TAB1}${YELLOW}$USER on $(uname -n)"
+echo 
+echo -e " ${TAB} ${COLOR}OS\033[0m: $OS"
+echo -e " ${TAB} ${COLOR}Architecture\033[0m: $MACHINE"
+echo -e " ${TAB} ${COLOR}Kernel\033[0m: $KERNEL"
+#echo -e " ${TAB} ${COLOR}Resolution\033[0m: $RESOLUTION"
+echo -e " ${TAB} ${COLOR}Packages\033[0m: $PACKAGES"
+echo -e " ${TAB} ${COLOR}WM\033[0m: $WM"
+#echo -e " ${TAB} ${COLOR}Terminal\033[0m: $TERMINAL"
+echo -e " ${TAB} ${COLOR}Uptime\033[0m: $UP"
+#echo -e " ${TAB} ${COLOR}Uptime\033[0m: $UPTIME"
+#echo -e " ${TAB} ${COLOR}Shell\033[0m: $SHELL"
+echo -e " ${TAB} ${COLOR}Shell\033[0m: $SHELL1"
+echo -e " ${TAB} ${COLOR}Music\033[0m: $SONG"
+#echo -e " ${TAB} ${COLOR}Mem\033[0m: $MEM"
+#echo -e " ${TAB} ${COLOR}Swap\033[0m: $SWAP"
+#echo -e " ${TAB} ${COLOR}Gpu\033[0m ........: $GPU"
+#echo -e " ${TAB} ${COLOR}Cpu\033[0m: $CPU"
+echo && echo -e " ${TAB} \033[1;31m███\033[1;32m███\033[1;33m███\033[1;34m███\033[1;35m███\033[1;36m███" && echo
