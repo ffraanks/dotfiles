@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+# Script para baixar o Vim-Plug
+
+echo
+echo 'Baixando o Vim-Plug'
+echo
+sleep 2 && sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+echo
+echo 'Finalizado...'
+echo
+exit
