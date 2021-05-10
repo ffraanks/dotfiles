@@ -1,0 +1,411 @@
+# User: Franklin Souza
+# Telegram: @FranklinTech
+# https://i3wm.org/docs/userguide.html
+
+####################################################################
+#                       P R I N C I P A L                          #
+####################################################################
+
+# Mod4 = Windows
+# Mod1 = Alt
+# $win = Tecla Windows
+
+set $win Mod4
+#set $alt Mod1
+
+####################################################################
+#                           FONTS                                  #
+####################################################################
+
+font pango: Iosevka Medium 8
+
+####################################################################
+#                         FLOATING MODE                            #
+####################################################################
+
+floating_modifier $win
+focus_on_window_activation focus
+#smart|urgent|focus|none
+#focus_on_window_activation smart|urgent|focus|none
+
+####################################################################
+#                           B O R D A S                            #
+####################################################################
+
+default_border pixel 1
+default_floating_border pixel 1
+new_window pixel 1
+#smart_borders on
+
+####################################################################
+#                          C O R E S                               #
+####################################################################
+
+# classe                borda   fundo   texto   ind.    borda filho
+client.focused          #90a57d #90a57d #90a57d #90a57d   #90a57d
+client.focused_inactive #ffffff #ffffff #ffffff #a36666   #a36666
+client.unfocused        #ffffff #a36666 #ffffff #ffffff   #a36666
+client.urgent           #a36666 #a36666 #a36666 #a36666   #a36666
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+####################################################################
+#                          A T A L H O S                           #
+####################################################################
+
+# Palemoon
+bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/palemoon/./palemoon
+
+# Scrcpy CLI
+bindsym $win+e exec --no-startup-id kitty -e scrcpy-cli
+
+# Anime-CLI
+bindsym $win+Shift+a exec --no-startup-id kitty -e anime-cli
+
+# Reddit CLI
+bindsym $win+r exec --no-startup-id kitty -e rtv
+
+# CMUS
+bindsym $win+Shift+p exec --no-startup-id kitty -e cmus 
+
+# Coord Generation (Minecraft)
+bindsym $win+Shift+g exec --no-startup-id kitty -e minec 
+
+# Emojis
+bindsym $win+Shift+e exec --no-startup-id kitty -e nvim ~/.emojis
+
+# Pendrive
+bindsym $win+p exec --no-startup-id kitty -e pendrive
+
+# Ytop
+bindsym $win+y exec --no-startup-id kitty -e ytop
+
+# YT
+bindsym $win+Shift+y exec --no-startup-id kitty -e yt -t
+
+# Toggle polybar
+bindsym $win+m exec --no-startup-id polybar-msg cmd toggle
+
+# Redshift.sh
+bindsym $win+Shift+b exec --no-startup-id $HOME/Scripts/redshift.sh
+
+# Mover para scratchpad/mostra scratchpad
+bindsym $win+o move scratchpad
+bindsym $win+l scratchpad show
+
+# Minecraft Game
+bindsym $win+Shift+m exec --no-startup-id java -jar $HOME/Franks/Jogos/Minecraft/Minecraft.jar
+
+# Teclado Layout
+bindsym $win+u exec --no-startup-id setxkbmap us
+bindsym $win+b exec --no-startup-id setxkbmap br
+
+# Iniciar Telegram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+
+# Inicar GitHub.sh (Script do GitHub)
+bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
+
+# Matar/Iniciar compositor
+bindsym $win+F4 exec --no-startup-id killall xcompmgr
+bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+
+# Bloquear tela
+#bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
+bindsym $win+x exec --no-startup-id lockscreen
+
+# Iniciar Gravação de Tela (FFmpeg)
+#bindsym $win+F8 exec --no-startup-id ~/.config/polybar/scripts/gravar.sh
+
+# Iniciar Gravação de Tela (SimpleScreenRecorder)
+bindsym $win+F8 exec --no-startup-id simplescreenrecorder --start-hidden # -> Inicia o ssr
+bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata o ssr
+
+# Printar Tela
+bindsym $win+z exec --no-startup-id sleep 5 && shot -c -r
+
+# Iniciar terminal
+#bindsym $win+Return exec --no-startup-id i3-sensible-terminal
+
+# Script para desenhar o terminal (Alacritty)
+#bindsym $win+Return exec --no-startup-id $HOME/Scripts/alaDraw.sh
+
+# Script para desenhar o terminal (Kitty)
+bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
+
+# Fechar janela focada
+bindsym $win+q kill
+
+####################################################################
+#                          FEATURES                                #
+####################################################################
+
+# Opções
+focus_follows_mouse yes
+mouse_warping none
+focus_wrapping yes
+
+# Alternar entre as janelas
+bindsym $win+Left focus left
+bindsym $win+Down focus down
+bindsym $win+Up focus up
+bindsym $win+Right focus right
+
+# Aternar Orientação da janela (Vertical e Horizontal)
+bindsym $win+semicolon split toggle
+
+# Mover janela focada
+bindsym $win+Shift+Left move left
+bindsym $win+Shift+Down move down
+bindsym $win+Shift+Up move up
+bindsym $win+Shift+Right move right
+
+# Entrar em modo tela cheia
+bindsym $win+f fullscreen toggle
+
+# Mudar o layout do container (stacked, tabbed, toggle split)
+#bindsym $win+s layout stacking
+#bindsym $win+w layout tabbed
+#bindsym $win+e layout toggle split
+#workspace_layout tabbed
+
+# Mover a janela para o centro da tela
+bindsym $win+Shift+c move position center
+
+# Tela maximizada ou floating
+bindsym $win+Shift+space floating toggle
+
+# Restartar i3
+bindsym $win+Shift+r restart
+
+# Menu
+bindsym $win+d exec --no-startup-id rofi -show drun -theme "~/.config/rofi/drun.rasi"
+
+# Screenshot
+bindsym Print exec --no-startup-id shot -s -r # -> Salvar tela
+bindsym $win+Print exec --no-startup-id shot -c -r # -> Copiar a tela
+bindsym $win+Shift+Print exec --no-startup-id shot -u -r # -> Upar print na web
+bindsym --release $win+c exec --no-startup-id shot -c -a  # -> Selecionar area
+bindsym --release $win+v exec --no-startup-id shot -u -a  # -> Selecionar area upload web
+
+####################################################################
+#                              WORKSPACE                           #
+####################################################################
+
+set $ws1 " 1:  "
+#set $ws1 " 1:  "
+#set $ws1 " 1:  "
+set $ws2 " 2:  "
+#set $ws2 " 2:  "
+set $ws3 " 3:  "
+#set $ws3 " 3:  "
+set $ws4 " 4: 金"
+set $ws5 " 5:  "
+set $ws6 " 6:  "
+set $ws7 " 7:  "
+set $ws8 " 8:  "
+set $ws9 " 9:  "
+set $ws10 " 10:  "
+
+#set $ws1 "1"
+#set $ws2 "2"
+#set $ws3 "3"
+#set $ws4 "4"
+#set $ws5 "5"
+#set $ws6 "6"
+#set $ws7 "7"
+#set $ws8 "8"
+#set $ws9 "9"
+#set $ws10 "10"
+
+# Navegar pelas workspaces
+bindsym $win+1 workspace number $ws1
+bindsym $win+2 workspace number $ws2
+bindsym $win+3 workspace number $ws3
+bindsym $win+4 workspace number $ws4
+bindsym $win+5 workspace number $ws5
+bindsym $win+6 workspace number $ws6
+bindsym $win+7 workspace number $ws7
+bindsym $win+8 workspace number $ws8
+bindsym $win+9 workspace number $ws9
+bindsym $win+0 workspace number $ws10
+
+# Mover janela focada para ws escolhida
+bindsym $win+Shift+1 move container to workspace number $ws1
+bindsym $win+Shift+2 move container to workspace number $ws2
+bindsym $win+Shift+3 move container to workspace number $ws3
+bindsym $win+Shift+4 move container to workspace number $ws4
+bindsym $win+Shift+5 move container to workspace number $ws5
+bindsym $win+Shift+6 move container to workspace number $ws6
+bindsym $win+Shift+7 move container to workspace number $ws7
+bindsym $win+Shift+8 move container to workspace number $ws8
+bindsym $win+Shift+9 move container to workspace number $ws9
+bindsym $win+Shift+0 move container to workspace number $ws10
+
+####################################################################
+#                    APLICATIVOS ABERTOS NA WS                     #
+####################################################################
+
+# Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
+
+# Browser ws=1
+assign [class="(tabbed)"] $ws1
+assign [class="(Vimb)"] $ws1
+assign [class="(Pale moon)"] $ws1
+
+# Kitty (Terminal) ws=2
+#for_window [class="(kitty)"] move to workspace $ws2
+
+# Telegram ws=3
+#for_window [class="(Kotatogram)"] move to workspace $ws3
+for_window [class="(TelegramDesktop)"] move to workspace $ws3, move position center
+
+# MPV ws=4
+for_window [class="(mpv)"] move to workspace $ws4
+
+# Gimp ws=5
+for_window [class="(Gimp)"] move to workspace $ws5
+
+# Inkscape ws=5
+for_window [class="(Inkscape)"] move to workspace $ws5
+
+# Steam (Loja de games) ws=10
+for_window [class="(Steam)"] move to workspace $ws10 floating enable, move position center
+
+# Lutris ws=10
+for_window [class="(Lutris)"] move to workspace $ws10
+
+####################################################################
+#                           G A M E S                              #
+####################################################################
+
+# Stardew Valley
+for_window [class="(StardewValley.bin.x86_64)"] move to workspace $ws10
+
+# Tomb Raider
+for_window [class="(TombRaider)"] move to workspace $ws10
+
+# Valheim
+for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center
+
+####################################################################
+#                           R E G R A S                            #
+####################################################################
+
+# Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
+
+# Kitty (Terminal)
+for_window [class="(kitty)"]floating enable
+
+# Telegram (Desktop)
+#for_window [class="(Kotatogram)"]floating enable, move position center
+
+# MPV (Player de música/Vídeo)
+for_window [class="(mpv)"]move position center
+
+# Viewnior (Gerenciador de imagens)
+for_window [class="(Viewnior)"]move position center, floating enable
+
+# Gucharmap (Mapa de caracteres)
+for_window [class="(Gucharmap)"]move position center, floating enable
+
+# Pavucontrol (Gerenciador de aúdio)
+for_window [class="(Pavucontrol)"]floating enable, move position center
+
+# LxAppearance (Gerenciador de Temas)
+for_window [class="(Lxappearance)"]floating enable, move position center
+
+
+# SimpleScreenRecorder (ScreenCast)
+for_window [class="(SimpleScreenRecorder)"]floating enable, move position center
+
+# Bluetooth (Bluetooth)
+for_window [class="(Blueman-manager)"]floating enable
+
+# Steam (Loja de games)
+for_window [class="(Steam)"]floating enable, move position center
+
+# Lutris (Gerenciador de games)
+for_window [class="(Lutris)"]floating enable, move position center
+
+# Haguichi (Client do Hamachi)
+for_window [class="(Haguichi)"]floating enable, move position center
+
+# Evince (Leitor de PDF)
+for_window [class="(Evince)"]move position center
+
+# Arandr (Xrandr GUI)
+for_window [class="(Arandr)"]floating enable, move position center
+
+# KeePassXC (Gerenciador de senhas)
+for_window [class="(KeePassXC)"]floating enable
+
+# Gnome Boxes
+for_window [class="(Gnome-boxes)"]floating enable, move position center
+
+# Nitrogen
+for_window [class="(Nitrogen)"]floating enable, move position center
+
+# Yad
+#for_window [class="(Yad)"]floating enable, move position center
+for_window [class="(Yad)"]floating enable
+
+# Origin
+for_window [instance="origin.exe"] floating enable
+
+# Script para gravar a tela
+for_window [class="kitty" title="castnow"] move window to scratchpad
+#for_window [title="(gravar$)"] move window to scratchpad
+
+####################################################################
+#                           G A P S                                #
+####################################################################
+
+gaps inner 8
+gaps outer 0
+#smart_gaps on
+
+####################################################################
+#                         CONTROLE DO AÚDIO                        #
+####################################################################
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+####################################################################
+#                         INICIAR COM O I3                         #
+####################################################################
+
+# Autotiling
+exec_always --no-startup-id autotiling
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+
+# Wallpapers
+exec_always --no-startup-id nitrogen --restore
+
+# Dunst - Notificação
+exec --no-startup-id dunst -b
+
+# Layout do teclado
+exec --no-startup-id setxkbmap br
+
+# Bluetooth
+#exec --no-startup-id blueman-applet
+
+# Redshift
+exec --no-startup-id redshift
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
+
+# Polkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Compositing
+exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
