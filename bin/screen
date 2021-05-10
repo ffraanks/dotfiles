@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#Image Quality
+QUALITY="10"
+#Border
+BORDER="3"
+#Format
+FORMAT="png"
+#Archive
+FNAME="$HOME/Pictures/shot_$(date +%y-%m-%d_at_%H-%M-%S).png"
+
+if [ "$1" == "-s" ];then
+   maim -s -m "$QUALITY" -f "$FORMAT" -b "$BORDER" -o "$FNAME"
+else
+   maim -m "$QUALITY" -f "$FORMAT" -o "$FNAME"
+fi
+
+EXIT_CODE=$?
+
+[ $EXIT_CODE -ne 0 ] && exit
+
+xclip -selection clipboard -t image/png < "$FNAME"
+
+[[ $(dunstify -A "show,s" "ScreenShot Taken" -i "$FNAME") == "show" ]]
