@@ -1,0 +1,25 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+[character]
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+
+[directory]
+truncation_length = 40
+truncation_symbol = ""
+read_only = "  "
+read_only_style = "red"
+home_symbol = "/home"
+truncate_to_repo = true
+style = "bold blue"
+
+[git_branch]
+symbol = " "
+truncation_length = 20
+truncation_symbol = ""
+
+[python] 
+symbol = "  "
+#pyenv_version_name = true
+python_binary = "python3"
