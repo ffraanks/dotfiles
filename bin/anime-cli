@@ -1,0 +1,47 @@
+#!/bin/sh
+
+clear
+echo "Pesquise"
+echo && read search
+
+nl='
+'
+
+search="$(echo $search | sed 's/ /+/g')" && echo
+
+echo "dublado? [y/n]"
+echo && read dublado && echo
+
+[ "$dublado" = "y" ] && dublado="dublado" || dublado="legendado"
+
+getSearch() {
+	curl -s "https://betteranime.net/pesquisa?titulo=${search}&anos=&idiomas=todos"\
+		| xmllint --html --xpath "//a/@href" - 2> /dev/null\
+		| grep -wo "https:\/\/betteranime.net/anime\/${dublado}\/[a-zA-Z0-9\-]*"
+}
+
+urlTotitle() {
+	curl -s "$url" \
+		| xmllint --html --xpath 'string(//h2[@class="pt-5"])' - 2> /dev/null
+}
+
+i=1
+result=''
+for url in $(getSearch); do
+	result="${result}$i - $(urlTotitle $url);$url${nl}"
+	i=$((i + 1))
+done
+
+echo "$result" | cut -d';' -f1
+echo "selecione" && echo
+
+read selected
+animeurl="$(echo "$result" | grep "$selected - ")"
+animeurl="${animeurl#*;}"
+
+echo && echo "ep" && echo
+read ep
+
+ep="$(printf "%.2d" $ep)"
+
+echo && clear && mpv "${animeurl}/episodio-${ep}"
