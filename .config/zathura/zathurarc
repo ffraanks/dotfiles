@@ -1,0 +1,3 @@
+set selection-clipboard clipboard
+tabbed -c zathura -e
+set sandbox strict
