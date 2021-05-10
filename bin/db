@@ -1,0 +1,53 @@
+#!/bin/env bash
+
+# Deletar BookMarks do vimB
+
+echo '
+██████╗  ██████╗  ██████╗ ██╗  ██╗███╗   ███╗ █████╗ ██████╗ ██╗  ██╗███████╗
+██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝████╗ ████║██╔══██╗██╔══██╗██║ ██╔╝██╔════╝
+██████╔╝██║   ██║██║   ██║█████╔╝ ██╔████╔██║███████║██████╔╝█████╔╝ ███████╗
+██╔══██╗██║   ██║██║   ██║██╔═██╗ ██║╚██╔╝██║██╔══██║██╔══██╗██╔═██╗ ╚════██║
+██████╔╝╚██████╔╝╚██████╔╝██║  ██╗██║ ╚═╝ ██║██║  ██║██║  ██║██║  ██╗███████║
+╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝'
+
+echo
+echo 'Press enter to continue...'
+echo
+read
+
+while true; do
+  clear
+  echo
+  echo 'Você deseja apagar uma sessão ou links individuais?:'
+  echo
+  echo '[1] - Sessão'
+  echo '[2] - Individual'
+  echo '[3] - Sair'
+  echo
+  read BOOKMARKS
+
+  if [ $BOOKMARKS == '1' ];then
+    clear
+    cd $HOME/.config/bookmarks
+    echo 'Seus Bookmarks:'
+    echo && ls
+    echo
+    echo 'Digite o nome do Bookmark que deseja apagar:'
+    echo
+    read BOOKDEL1
+    rm -rf $BOOKDEL1
+
+  elif [ $BOOKMARKS == '2' ];then
+    clear
+    cd $HOME/.config/bookmarks
+    echo 'Seus Bookmarks:'
+    echo && ls
+    echo 'Digite o nome do Bookmark que deseja apagar:'
+    echo
+    read BOOKDEL2
+    nvim $BOOKDEL2
+
+  elif [ $BOOKMARKS == '3' ];then
+    clear && echo 'Saindo...' && sleep 2 && exit 0
+fi
+done
