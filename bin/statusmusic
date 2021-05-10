@@ -1,0 +1,32 @@
+#!/bin/sh
+
+pidof cmus > /dev/null || exit
+
+if $(pidof cmus > /dev/null); then
+
+	case "$BUTTON" in
+		1) cmus-remote -u > /dev/null 2>&1;;
+		3) nowplaying;;
+		4) cmus-remote -n > /dev/null 2>&1;;
+		5) cmus-remote -r > /dev/null 2>&1;;
+	esac
+
+ARTIST=$(cmus-remote -Q | awk -F " " '/tag artist/{print substr($0, index($0, $3))}')
+TITLE=$(cmus-remote -Q | awk -F " " '/tag title/{print substr($0, index($0, $3))}')
+max=80
+SONG=$(echo "$ARTIST - $TITLE" | awk '{ printf "%.'$max's", $0 
+            if (length($0)>'$max') printf "..." }')
+
+status=$(cmus-remote -Q | grep status)
+case "$status" in
+	"status paused"*)
+		echo " $SONG - (paused)"
+		;;
+	"status playing"*)
+		echo " $SONG - (playing)"
+		;;
+	""*)
+		echo " No music"
+		;;
+esac
+fi
