@@ -1,0 +1,71 @@
+# Home Page
+set home-page=/home/frank/.config/vimb/startpage/index.html
+
+# Teclas - WorkFlow
+nnoremap q :q <CR>
+nnoremap <C-n> :set status-bar!<CR><Esc>
+nnoremap <C-t> :tabopen<CR>
+nnoremap cp "+y
+nnoremap c "+p
+nnoremap , <C-o>
+nnoremap . <C-i>
+nnoremap ;n ;x
+nnoremap z= zz <CR>
+nnoremap z+ zi <CR>
+nnoremap z- zo <CR>
+
+# Sets
+set x-hint-command=:sh! umpv <C-R>;<CR>
+set hint-keys=arstneio
+set hint-follow-last=true
+set hint-keys-same-length=true
+set hint-timeout=0
+set webgl=true
+set accelerated-2d-canvas=true
+set incsearch=true
+set hardware-acceleration-policy=always
+set download-path=~/Downloads/vimb_down
+set status-bar=true
+set input-autohide=true
+set spell-checking=true
+#set download-use-external=true
+#set download-command=vimbdownloader %s
+#set notification=always
+set spell-checking-languages=en
+#editor-command=kitty -e -t floating -e nvim %s
+set user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15
+
+# Shortcuts
+shortcut-default dd
+shortcut-add al=https://anilist.co/user/FranklinTech/animelist
+
+# Links defaults open
+#handler-add pdf=xdg-open %s
+#handler-add magnet=xdg-open %s
+
+# Other configs
+nnoremap s :o 
+nnoremap yt :o https://invidious.snopyta.org/ <CR>
+nnoremap dd :tabopen <CR>
+nnoremap aw :o https://wiki.archlinux.org/ <CR>
+nnoremap au :o https://aur.archlinux.org/ <CR>
+nnoremap gh :o https://github.com/ <CR>
+nnoremap gg :o https://google.com/ <CR>
+
+# Colors
+set completion-css=color:#FFFFFF;background-color:#0d0d0d;font: Iosevka;
+set completion-hover-css=color:#000000;background-color:#FFFFFF;font: Iosevka;
+set completion-selected-css=color:#000000;background-color:#FF4354;font: Iosevka;
+set input-css=color:#FFFFFF;background-color:#0d0d0d;font: Iosevka;
+set input-error-css=color:#c6414d;background-color:#3b3f3f;font: Iosevka;
+set status-css=color:#FFFFFF;background-color:#0d0d0d;font: Iosevka;
+set status-ssl-css=color:#FFFFFF;background-color:#0d0d0d;font: Iosevka;
+set status-ssl-invalid-css=color:#FF7477;background-color:#8A4B53;font: Iosevka;
+
+# Scripts
+nnoremap ba :sh! /bin/sh -c 'bookmarksman add "$VIMB_URI" "$VIMB_WIN_ID"'<CR>
+nnoremap bo :sh! /bin/sh -c 'bookmarksman open "$VIMB_WIN_ID"'<CR>
+nnoremap ca :sh! /bin/sh -c 'umpv "$VIMB_URI"'<CR>
+nnoremap ka :sh! /bin/sh -c 'killall vimb'<CR>
+nnoremap wk :sh! /bin/sh -c 'killall wyebab'<CR>
+nnoremap db :sh! /bin/sh -c 'kitty -e db'<CR>
