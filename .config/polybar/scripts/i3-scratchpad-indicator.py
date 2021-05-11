@@ -22,4 +22,4 @@ c = getNodes(j)
 if c > 0:
     print(" Scraptchad: %d" % c)
 else:
-print(" Scraptchad: %d" % c)
+    print(" Scraptchad: %d" % c)
