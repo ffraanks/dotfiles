@@ -1,7 +1,7 @@
 # ***`CURRENT SETUP:`***
 | Tipos               | Softwares                                                                                                                           |
 | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
-| Linux distribution        | [Arch Linux](https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs))                                                                                            |                                                                                       
+| Linux distribution        | [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux_(Portugu%C3%AAs))                                                                                            |                                                                                       
 | Window Manager  | [i3](https://github.com/Airblader/i3)                                                                                             
 | Browser           | [Vimb](https://fanglingsu.github.io/vimb/)/[PaleMoon](http://www.palemoon.org/)                                                                                |
 | Program Launcher | [Rofi](https://github.com/davatorium/rofi)                                                                                         |           
