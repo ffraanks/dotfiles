@@ -20,6 +20,7 @@
 | Development   | [NeoVim](https://github.com/neovim/neovim)
 
 - [Telegram](https://t.me/FranklinTech)
+- [i3-install](https://github.com/ffraanks/i3-install)
 
 # i3 Gaps
 
