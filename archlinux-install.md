@@ -270,5 +270,5 @@ sudo pacman -S noto-fonts-emoji (Fonte Open Source)
 
 ### Script i3-gaps
 ```
-wget -c https://github.com/fraanks/dotfiles/raw/master/home/i3-install && chmod +x i3-install && ./i3-install
+wget -c https://github.com/ffraanks/i3-install/raw/master/i3-install && chmod +x i3-install && ./i3-install
 ```
