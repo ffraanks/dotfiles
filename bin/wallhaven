@@ -4,6 +4,9 @@ declare -a ARQUIVOS
 
 EPOCH=$(date +%s)
 
+# SOUND NOTIFICATION
+#SOUND="complete"
+
 # https://wallhaven.cc/settings/account
 APIKEY=""
 
@@ -12,7 +15,7 @@ LOCATION=${HOME}/Wallpapers
 
 # How many Wallpapers should be downloaded, should be multiples of the
 # value in the THUMBS Variable
-WPNUMBER=48
+WPNUMBER=20
 
 # What page to start downloading at, default and minimum of 1.
 STARTPAGE=1
@@ -78,13 +81,13 @@ COLOR=""
 SUBFOLDER=0
 
 # used for TYPE=useruploads and TYPE=collections
-USR="AksumkA"
+USR=""
 
 # custom thumbnails per page
 # changeable here: https://wallhaven.cc/settings/browsing
 # valid values: 24, 32, 64
 # if set to 32 or 64 you need to provide an api key
-THUMBS=24
+THUMBS=32
 
 # dependencies=(wget jq sed)
 
@@ -97,7 +100,9 @@ if [ "$1" == "--random" ]; then
         elif [ "$DESKTOP_SESSION" == "gnome" ]; then
             gsettings set org.gnome.desktop.background picture-uri "file://${wallpaper}"
         else
-            feh --bg-fill "${wallpaper}"
+            #feh --bg-fill "${wallpaper}"
+            #nitrogen --set-auto "${wallpaper}"
+            notify-send 'Download Finished - Wallhaven!'
         fi
     fi
 
@@ -255,7 +260,9 @@ if [ "$(file -b --mime-type $wallpaper)" == "image/jpeg" ]; then
     elif [ "$DESKTOP_SESSION" == "gnome" ]; then
         gsettings set org.gnome.desktop.background picture-uri "file://${wallpaper}"
     else
-        feh --bg-fill "${wallpaper}"
+        #feh --bg-fill "${wallpaper}"
+        #nitrogen --set-auto "${wallpaper}"
+        notify-send 'Download Finished - Wallhaven!'
     fi
 fi
 
