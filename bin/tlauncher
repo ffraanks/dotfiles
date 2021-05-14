@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+clear
+echo 'Baixando o pacote jre-openjdk e o wget (PRESSIONE ENTER TO CONTINUE):'
+read
+clear && sudo pacman -S jre-openjdk wget --noconfirm
+clear && echo 'Baixando o TLauncher...' && sleep 1
+wget -c http://tlaun.ch/dl/mcl/jar
+mv jar Minecraft.jar && java -jar Minecraft.jar && exit 0
