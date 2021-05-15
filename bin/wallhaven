@@ -5,7 +5,7 @@ declare -a ARQUIVOS
 EPOCH=$(date +%s)
 
 # SOUND NOTIFICATION
-#SOUND="complete"
+SOUND=/usr/share/sounds/freedesktop/stereo/complete.oga && clear
 
 # https://wallhaven.cc/settings/account
 APIKEY=""
@@ -28,7 +28,7 @@ TYPE=standard
 # From which Categories should Wallpapers be downloaded, first number is
 # for General, second for Anime, third for People, 1 to enable category,
 # 0 to disable it
-CATEGORIES=100
+CATEGORIES=110
 
 # filter wallpapers before downloading, first number is for sfw content,
 # second for sketchy content, third for nsfw content, 1 to enable,
@@ -102,7 +102,7 @@ if [ "$1" == "--random" ]; then
         else
             #feh --bg-fill "${wallpaper}"
             #nitrogen --set-auto "${wallpaper}"
-            notify-send 'Download Finished - Wallhaven!'
+            notify-send 'Download Finished - Wallhaven!' && mpv $SOUND 
         fi
     fi
 
@@ -262,7 +262,7 @@ if [ "$(file -b --mime-type $wallpaper)" == "image/jpeg" ]; then
     else
         #feh --bg-fill "${wallpaper}"
         #nitrogen --set-auto "${wallpaper}"
-        notify-send 'Download Finished - Wallhaven!'
+        notify-send 'Download Finished - Wallhaven!' && mpv $SOUND && clear 
     fi
 fi
 
