@@ -1,15 +1,6 @@
 #!/bin/env bash
 
-# COLORS
-RED="\033[1;31m"
-GREEN="\033[1;32m"
-YELLOW="\033[1;33m"
-BLUE="\033[1;34m"
-MAGENTA="\033[1;35m"
-CYAN="\033[1;36m"
-
 mkdir $HOME/deemix_musics
-#DIR=$HOME/deemix_musics
 
 # main
 while true ; do
@@ -39,7 +30,7 @@ while true ; do
     echo
     read URL
     echo
-    cd $HOME/deemix_musics && deemix -b flac -p $ALBUM "$URL"
+    clear && cd $HOME/deemix_musics && deemix -b flac -p $ALBUM "$URL"
 
   elif [ $ALT == '2' ] ;then
     echo 'EM DESENVOLVIMENTO... (PRESS ENTER TO CONTINUE...)'
@@ -57,7 +48,7 @@ while true ; do
 
   elif [ $ALT == '3' ] ; then
     clear
-    echo 'Saindo...' && sleep 1 && exit 0
+    echo 'Saindo...' && sleep 1 && clear && exit 0
 
   else
     continue
