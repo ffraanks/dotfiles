@@ -8,9 +8,9 @@
 
 [colors]
 #background = #00000000
-background = #1a1a1a
-foreground = #ffffff
-alert = #a36666
+background = #1e1e1e
+foreground = #e6d4a3
+alert = #bf616a
 
 #################################################################
 #                               BARRA CIMA                      #
@@ -67,7 +67,7 @@ separator = |
 #################################################################
 
 modules-left = 
-modules-center = statusmusic
+modules-center = prev-cmus statusmusic next-cmus
 modules-right = pulse pacman info-redshift-temp calendar date powermenu
 
 #################################################################
@@ -527,6 +527,24 @@ margin-bottom = 5
 
 # vim:ft=dosini
 
+####################################################
+#                       CMUS                       #
+####################################################
+
+[module/next-cmus]
+type = custom/script
+click-left = cmus-remote -n
+exec = sh $HOME/.config/polybar/scripts/next.sh
+label = %output%
+interval = 1
+
+[module/prev-cmus]
+type = custom/script
+click-left = cmus-remote -r
+exec = sh $HOME/.config/polybar/scripts/prev.sh
+label = %output%
+interval = 1
+
 #################################################################
 #                      ALGUNS MÓDULOS CRIADOS                   #
 #################################################################
@@ -540,6 +558,7 @@ interval = 2
 interval = 0.1
 type = custom/script
 exec = ~/.local/bin/statusmusic
+click-right = killall cmus && killall next.sh && killall prev.sh
 
 [module/dolar]
 type = custom/script
