@@ -26,6 +26,10 @@
 
 <img src="i3GruvBox.png">
 
+# Rofi
+
 <img src="RofiGruvBox.png">
+
+# i3-Lock
 
 <img src="LockGruvBox.png">
