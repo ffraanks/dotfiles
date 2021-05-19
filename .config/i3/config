@@ -58,6 +58,9 @@ bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' 
 # Freezer
 bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
 
+# Firefox
+bindsym $win+Shift+f exec --no-startup-id firefox
+
 # Palemoon
 bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/palemoon/./palemoon
 
@@ -107,7 +110,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -258,6 +261,7 @@ bindsym $win+Shift+0 move container to workspace number $ws10
 assign [class="(tabbed)"] $ws1
 assign [class="(Vimb)"] $ws1
 assign [class="(Pale moon)"] $ws1
+assign [class="(firefox)"] $ws1
 
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
@@ -320,7 +324,6 @@ for_window [class="(Pavucontrol)"]floating enable, move position center
 
 # LxAppearance (Gerenciador de Temas)
 for_window [class="(Lxappearance)"]floating enable, move position center
-
 
 # SimpleScreenRecorder (ScreenCast)
 for_window [class="(SimpleScreenRecorder)"]floating enable, move position center
@@ -414,4 +417,4 @@ exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Compositing
-exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
