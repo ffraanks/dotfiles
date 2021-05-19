@@ -143,7 +143,7 @@ separator = |
 
 modules-left = i3
 modules-center = dolar
-modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up 
+modules-right = xkeyboard btc grabc vpn-openvpn-isrunning scratchpad-indicator mic up 
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
