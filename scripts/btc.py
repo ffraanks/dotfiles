@@ -5,7 +5,7 @@ def cotacao():
     import locale
 
     #definir locale para Brasil para formato de moeda
-    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+    locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
     #url da API Json do site Bitvalor
     url = "https://api.bitvalor.com/v1/ticker.json"
