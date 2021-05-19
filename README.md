@@ -24,8 +24,8 @@
 
 # i3 Gaps
 
-<img src="i3-Dark.png">
+<img src="i3GruvBox.png">
 
-<img src="Rofi-Dark.png">
+<img src="RofiGruvBox.png">
 
-<img src="Lock-Dark.png">
+<img src="LockGruvBox.png">
