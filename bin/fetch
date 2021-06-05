@@ -3,7 +3,6 @@
 # User: Franklin Souza
 # Telegram: @FranklinTech
 
-
 # CMUS - Play Music in Terminal
 if `pgrep -x cmus >/dev/null` ; then
 	PLAYER="CMUS:  "
@@ -38,6 +37,7 @@ OS=$(cat /etc/os-release | grep NAME | sed -n 1p | sed 's/NAME=//' | sed 's/\"//
 KERNEL=$(uname -sr)
 RESOLUTION=$(xrandr | awk '/*+/{print $1}')
 WM=$(tail -n 1 .xinitrc | awk '{print substr($0, index($0, $2))}')
+DE=
 TERMINAL=$(echo "Kitty")
 SHELL1=$(basename $SHELL)
 PACKAGES=$(pacman -Qq | wc -l)
@@ -46,7 +46,6 @@ UPTIME=$(awk '{printf("%i Hour(s), %i Minute(s)", ($1/60/60%24), ($1/60%60))}' /
 CPU=$(cat /proc/cpuinfo | sed -n '5p' | awk '{print $4, $5, $6, $7, $8, $9}')
 MEM=$(echo -e $(free --mebi | sed -n '2p' | awk '{print $3}')MiB / $(free --mebi | sed -n '2p' | awk '{print $2}')MiB)
 SWAP="$(free -h | awk '/^Swap/ { print $3" / "$2}')"
-
 
 # INFS
 clear
@@ -63,7 +62,8 @@ echo -e " ${TAB} ${COLOR}Uptime\033[0m: $UP"
 #echo -e " ${TAB} ${COLOR}Uptime\033[0m: $UPTIME"
 #echo -e " ${TAB} ${COLOR}Shell\033[0m: $SHELL"
 echo -e " ${TAB} ${COLOR}Shell\033[0m: $SHELL1"
-echo -e " ${TAB} ${COLOR}Music\033[0m: $SONG"
+echo && echo -e " ${TAB} Falar é fácil, me mostre o código."
+#echo -e " ${TAB} ${COLOR}Music\033[0m: $SONG"
 #echo -e " ${TAB} ${COLOR}Mem\033[0m: $MEM"
 #echo -e " ${TAB} ${COLOR}Swap\033[0m: $SWAP"
 #echo -e " ${TAB} ${COLOR}Gpu\033[0m ........: $GPU"
