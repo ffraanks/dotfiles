@@ -1,0 +1,37 @@
+#!/bin/env bash
+
+######################################################################################################
+# Credit: Franklin Souza                                                                             #
+# Telegram: @FranklinTech                                                                            #
+# Script para atualizar seus mirrors de acordo com o país escolhido (PROTOCOLO USADO: https)         #
+# Pacote: reflector                                                                                  #
+# Version: v0.01                                                                                     #
+######################################################################################################
+
+install_package(){
+clear
+read -p 'Dê permissão sudo para baixar o pacote REFLECTOR (PRESS ENTER TO CONTINUE)'
+clear && sudo pacman -S reflector --noconfirm
+}
+
+country(){
+clear
+echo 'Digite um nome de um país (Em inglês):'
+echo
+read COUNTRY1
+echo
+echo 'Digite um nome de um outro país (Em inglês):'
+echo
+read COUNTRY2
+}
+
+start_file(){
+clear
+sudo reflector --country "$COUNTRY1" --country "$COUNTRY2" --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+clear && exit 0
+}
+
+# Init
+install_package
+country
+start_file
