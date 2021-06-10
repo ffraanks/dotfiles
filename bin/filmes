@@ -1,0 +1,42 @@
+#!/bin/env bash
+
+######################################################
+# Credit: Franklin Souza                             #
+# Telegram: @FranklinTech                            #   
+# Script para sortear filmes para poder assistir.    #
+# Version: v0.01                                     #
+######################################################
+
+# Criando Banco de dados
+touch $HOME/.Filmes
+
+while true ; do
+  clear
+  printf "Escolha uma das opções abaixo:\n\n"
+  printf "[1] - Adicionar um filme\n"
+  printf "[2] - Sortear um filme\n"
+  printf "[3] - Ver a lista de filmes\n"
+  printf "[4] - Sair\n\n"
+  read FILME
+
+  if [ $FILME == '1' ] ; then
+    clear
+    printf "Digite o nome do filme:\n\n"
+    read FILME_NAME
+    printf "\n\n"
+    echo "$FILME_NAME" >> $HOME/.Filmes
+
+  elif [ $FILME == '2' ] ; then
+    clear
+    printf "Filme sortado:\n\n" && shuf -n1 $HOME/.Filmes && echo && read -p 'PRESS ENTER TO CONTINUE'
+
+  elif [ $FILME == '3' ] ; then
+    $EDITOR $HOME/.Filmes
+
+  elif [ $FILME == '4' ] ; then
+    clear && exit 0
+
+  else
+    continue
+fi
+done
