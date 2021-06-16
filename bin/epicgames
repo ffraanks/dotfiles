@@ -14,29 +14,25 @@ printf " Repositório: https://github.com/derrod/legendary\n"
 printf " AUR: https://aur.archlinux.org/packages/legendary/\n\n"
 read -p ' PRESS ENTER TO CONTINUE...'
 
-# Instalação lolcat
-clear
-read -p 'Digite sua senha sudo para baixar o pacote: lolcat!!! (PRESS ENTER TO CONTINUE....)'
-clear && sudo pacman -S lolcat --noconfirm
-
 wine_install(){
 clear
+printf " Digite sua senha sudo para instalar pacotes!\n\n"
 printf " AVISO: Esse programa necessita do wine e suas deps para a execução dos jogos (Possa ser que NEM TODOS OS JOGOS PEGUEM, mais uma grande parte pode pegar)\n\n"
 printf " Deseja instalar o wine e suas deps (RECOMENDADO)?\n\n"
-printf " [1] - Sim, desejo baixar\n"
-printf " [2] - Não, continue...\n"
-printf " [3] - Sair\n\n"
+printf " [01] - Sim, desejo baixar\n"
+printf " [02] - Não, continue...\n"
+printf " [03] - Sair\n\n"
 read WINE_INSTALL
 printf "\n\n"
 
-if [ $WINE_INSTALL == '1' ] ;then
+if [ $WINE_INSTALL == '1' ] || [ $WINE_INSTALL == '01' ] ;then
   printf "\n"
   sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader --noconfirm
 
-elif [ $WINE_INSTALL == '2' ] ; then
+elif [ $WINE_INSTALL == '2' ] || [ $WINE_INSTALL == '02' ] ; then
   continue
 
-elif [ $WINE_INSTALL == '3' ] ; then
+elif [ $WINE_INSTALL == '3' ] || [ $WINE_INSTALL == '03' ] ; then
   clear && exit
 
 else
@@ -48,7 +44,7 @@ wine_install
 
 # Title - Main
 while true ; do
-  clear
+clear
 printf "
  ███████╗██████╗ ██╗ ██████╗     ██████╗  █████╗ ███╗   ███╗███████╗███████╗     ██████╗██╗     ██╗
  ██╔════╝██╔══██╗██║██╔════╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔════╝    ██╔════╝██║     ██║
@@ -56,59 +52,59 @@ printf "
  ██╔══╝  ██╔═══╝ ██║██║         ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ╚════██║    ██║     ██║     ██║
  ███████╗██║     ██║╚██████╗    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗███████║    ╚██████╗███████╗██║
  ╚══════╝╚═╝     ╚═╝ ╚═════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝     ╚═════╝╚══════╝╚═╝
-                                                                                                  " | lolcat
+                                                                                                  "
 printf "\n"
 printf " Escolha uma das opções abaixo:\n\n"
-printf " [1] - Logar/Deslogar da Epic Games\n"
-printf " [2] - Status\n"
-printf " [3] - Listar jogos\n"
-printf " [4] - Instalar jogo\n"
-printf " [5] - Sincronizar os jogos\n"
-printf " [6] - Desinstalar jogo\n"
-printf " [7] - Executar um jogo\n"
-printf " [8] - Listar jogos instalados e checar atualizações\n"
-printf " [9] - Voltar\n"
+printf " [01] - Logar/Deslogar da Epic Games\n"
+printf " [02] - Status\n"
+printf " [03] - Listar jogos\n"
+printf " [04] - Instalar jogo\n"
+printf " [05] - Sincronizar os jogos\n"
+printf " [06] - Desinstalar jogo\n"
+printf " [07] - Executar um jogo\n"
+printf " [08] - Listar jogos instalados e checar atualizações\n"
+printf " [09] - Voltar\n"
 printf " [10] - Sair do programa\n\n"
 read EPIC_GAMES
 printf "\n"
 
-if [ $EPIC_GAMES == '1' ] ; then
+if [ $EPIC_GAMES == '1' ] || [ $EPIC_GAMES == '01' ] ; then
   clear
   printf " O que deseja fazer?:\n\n"
-  printf " [1] - Logar\n"
-  printf " [2] - Deslogar\n\n"
+  printf " [01] - Logar\n"
+  printf " [02] - Deslogar\n\n"
   read LOGIN
   printf "\n\n"
   
-  if [ $LOGIN == '1' ] ; then
+  if [ $LOGIN == '1' ] || [ $LOGIN == '01' ] ; then
     legendary auth && echo && read -p ' Logado(a) com sucesso (PRESS ENTER TO CONTINUE...)'
 
-  elif [ $LOGIN == '2' ] ; then
+  elif [ $LOGIN == '2' ] || [ $LOGIN == '02'] ; then
     legendary auth --delete && echo && read -p ' Deslogado(a) com sucesso (PRESS ENTER TO CONTINUE...)'
   fi
 
-elif [ $EPIC_GAMES == '2' ] ; then
+elif [ $EPIC_GAMES == '2' ] || [ $EPIC_GAMES == '02' ] ; then
   clear
   legendary status && echo && read -p ' PRESS ENTER TO CONTINUE...'
 
-  elif [ $EPIC_GAMES == '3' ] ; then
+  elif [ $EPIC_GAMES == '3' ] || [ $EPIC_GAMES == '03' ] ; then
     clear
     legendary list-games && echo && read -p ' PRESS ENTER TO CONTINUE...'
 
-  elif [ $EPIC_GAMES == '4' ] ; then
+  elif [ $EPIC_GAMES == '4' ] || [ $EPIC_GAMES == '04' ] ; then
     clear
     printf " Escolha uma das opções abaixo:\n\n"
-    printf " [1] - Instalar jogo no PATH atual\n"
-    printf " [2] - Instalar jogo em PATH desejado\n\n"
+    printf " [01] - Instalar jogo no PATH atual\n"
+    printf " [02] - Instalar jogo em PATH desejado\n\n"
     read INSTALL_GAME
     printf "\n\n"
-    if [ $INSTALL_GAME == '1' ] ; then
+    if [ $INSTALL_GAME == '1' ] || [ $INSTALL_GAME == '01' ] ; then
       clear
       printf " Digite o APP Name:\n\n"
       read APP_NAME
       legendary install "$APP_NAME" && echo && read -p ' Download finalizado com sucesso (PRESS ENTER TO CONTINUE...)'
       clear
-    elif [ $INSTALL_GAME == '2' ] ; then
+    elif [ $INSTALL_GAME == '2' ] || [ $INSTALL_GAME == '02' ] ; then
       clear
       printf " Digite o APP Name do jogo:\n\n"
       read APP_NAME1
@@ -118,32 +114,32 @@ elif [ $EPIC_GAMES == '2' ] ; then
       legendary install "$APP_NAME1" --base-path "$PATH_GAME" && echo && read -p ' Download finalizado com sucesso (PRESS ENTER TO CONTINUE...)'
     fi
 
-  elif [ $EPIC_GAMES == '5' ] ; then
+  elif [ $EPIC_GAMES == '5' ] || [ $EPIC_GAMES == '05' ] ; then 
     clear
     legendary sync-saves
     legendary -y egl-sync
 
-  elif [ $EPIC_GAMES == '6' ] ; then
+  elif [ $EPIC_GAMES == '6' ] || [ $EPIC_GAMES == '06' ] ; then
     clear
     printf " Digite aqui o APP Name para desinstalar um jogo (PRESS ENTER TO CANCEL):\n\n"
     read UNINSTALL
     printf "\n\n"
     legendary uninstall "$UNINSTALL"
 
-  elif [ $EPIC_GAMES == '7' ] ; then
+  elif [ $EPIC_GAMES == '7' ] || [ $EPIC_GAMES == '07' ] ; then
     clear
     printf "Escolha uma das opções:\n\n"
-    printf " [1] - Jogar com internet\n"
-    printf " [2] - Jogar sem internet\n\n"
+    printf " [01] - Jogar com internet\n"
+    printf " [02] - Jogar sem internet\n\n"
     read LAUNCH_GAME
     printf "\n\n"
 
-    if [ $LAUNCH_GAME == '1' ] ; then
+    if [ $LAUNCH_GAME == '1' ] || [ $LAUNCH_GAME == '01' ] ; then
       printf " Digite aqui o APP Name para executar um jogo:\n\n"
       read EXECUTE
       legendary launch "$EXECUTE" && clear
 
-    elif [ $LAUNCH_GAME == '2' ] ; then
+    elif [ $LAUNCH_GAME == '2' ] || [ $LAUNCH_GAME == '02' ]; then
       printf " Digite aqui o APP Name para executar um jogo:\n\n"
       read EXECUTE
       legendary launch $EXECUTE --offline --dry-run && clear
@@ -152,11 +148,11 @@ elif [ $EPIC_GAMES == '2' ] ; then
       printf "\n Opção inválida...\n\n" && echo && read -p ' PRESS ENTER TO CONTINUE...'
     fi
 
-  elif [ $EPIC_GAMES == '8' ] ; then
+  elif [ $EPIC_GAMES == '8' ] || [ $EPIC_GAMES == '08' ] ; then
     clear
     legendary list-installed --check-updates && echo && read -p " PRESS ENTER TO CONTINUE..."
 
-  elif [ $EPIC_GAMES == '9' ] ; then
+  elif [ $EPIC_GAMES == '9' ] || [ $EPIC_GAMES == '09' ] ; then
     wine_install
 
   elif [ $EPIC_GAMES == '10' ] ; then
