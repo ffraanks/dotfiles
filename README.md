@@ -28,8 +28,8 @@
 
 # Rofi
 
-<img src="Rofi-NORDTHEME.png">
+<img src="Rofi-NORTHEME.png">
 
 # i3-Lock
 
-<img src="Lock-NORTHEME.png">
+<img src="Lock-NORDTHEME.png">
