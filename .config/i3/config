@@ -42,10 +42,10 @@ new_window pixel 1
 ####################################################################
 
 # classe                borda   fundo   texto   ind.    borda filho
-client.focused          #868715 #868715 #868715 #868715   #868715
-client.focused_inactive #ffffff #ffffff #ffffff #be0f17   #be0f17
-client.unfocused        #ffffff #be0f17 #ffffff #ffffff   #be0f17
-client.urgent           #be0f17 #be0f17 #be0f17 #be0f17   #be0f17
+client.focused          #a3be8c #a3be8c #a3be8c #a3be8c   #a3be8c
+client.focused_inactive #ffffff #ffffff #ffffff #bf616a   #bf616a
+client.unfocused        #ffffff #be0f17 #ffffff #ffffff   #bf616a
+client.urgent           #bf616a #bf616a #bf616a #bf616a   #bf616a
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 ####################################################################
@@ -110,7 +110,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
