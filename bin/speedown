@@ -4,8 +4,11 @@
 # Credit: Franklin Souza                        #
 # Telegram: @FranklinTech                       #
 # Script para fazer download do Speedtest Cli   #
-# Version: v0.01                                #
+# Version: v0.02                                #
 #################################################
+
+# Directory
+mkdir $HOME/.local/bin && clear
 
 # File name
 FILE_NAME="ookla-speedtest-1.0.0-x86_64-linux.tgz"
@@ -21,11 +24,10 @@ cd $HOME/SpeedtestDownload && tar -xvf "$FILE_NAME" && rm -rf "$FILE_NAME" && rm
 }
 
 start_file(){
-cd $HOME/SpeedtestDownload && ./speedtest
+cd $HOME/SpeedtestDownload && mv speedtest $HOME/.local/bin && rm -rf $HOME/SpeedtestDownload && cd $HOME/.local/bin && ./speedtest
 }
 
 # Start script
 download_speedtest
 extract_file
 start_file
-
