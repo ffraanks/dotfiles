@@ -73,7 +73,7 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
+modules-left = news-archlinux
 modules-center = prev-cmus statusmusic next-cmus 
 modules-right = pulse pacman info-redshift-temp calendar date powermenu
 
