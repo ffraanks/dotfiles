@@ -63,7 +63,7 @@ bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
 
 # Firefox/Vimb/Palemoon
 bindsym $win+Shift+f exec --no-startup-id firefox
-bindsym $win+i exec --no-startup-id vimb
+bindsym $win+i exec --no-startup-id vimb_launch
 bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/palemoon/./palemoon
 
 # Scrcpy CLI
