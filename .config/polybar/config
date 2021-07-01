@@ -15,9 +15,9 @@
 
 [colors]
 #background = #00000000
-background = #2e3440
-foreground = #d8dee9
-alert = #bf616a
+background = #191919
+foreground = #FFFFFF
+alert = #a36666
 
 #################################################################
 #                               BARRA CIMA                      #
