@@ -1,0 +1,14 @@
+#!/bin/env bash
+printf "Necessário ter o pacote fuse (sudo pacman -S fuse) para poder rodar o appimage.\n\n"
+read -p 'PRESS ENTER TO CONTINUE...' && clear
+VERSION='1.4.1'
+
+cd $HOME/.local/bin
+wget -c "https://github.com/kotatogram/kotatogram-desktop/releases/download/k1.4.1/1.4.1-appimage.tar.xz"
+tar -xvf "$VERSION"-appimage.tar.xz && rm -rf "$VERSION"-appimage.tar.xz
+cd $HOME/.local/bin/Kotatogram && mv Kotatogram kotatogram
+cd $HOME/.local/bin/Kotatogram && mv Updater kotatogram-updater
+cd $HOME/.local/bin/Kotatogram && cp kotatogram $HOME/.local/bin/
+cd $HOME/.local/bin/Kotatogram && cp kotatogram-updater $HOME/.local/bin/
+rm -rf $HOME/.local/bin/Kotatogram
+cd $HOME/.local/bin && ./kotatogram
