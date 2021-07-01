@@ -12,10 +12,10 @@ configuration {
 
 * {
     selected-normal-foreground:  #000000;
-    foreground:                  #d8dee9;
-    background:                  #2e3440;
+    foreground:                  #FFFFFF;
+    background:                  #191919;
     normal-foreground:           @foreground;
-    alternate-normal-background: #2e3440;
+    alternate-normal-background: #191919;
     red:                         rgba ( 220, 50, 47, 100 % );
     selected-urgent-foreground:  rgba ( 29, 32, 33, 100 % );
     blue:                        rgba ( 38, 139, 210, 100 % );
@@ -24,15 +24,15 @@ configuration {
     active-foreground:           rgba ( 29, 32, 33, 100 % );
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     selected-active-foreground:  rgba ( 29, 32, 33, 100 % );
-    alternate-active-background: #2e3440;
-    bordercolor:                 #2e3440;
+    alternate-active-background: #191919;
+    bordercolor:                 #191919;
     alternate-normal-foreground: @foreground;
-    normal-background:           #2e3440;
+    normal-background:           #191919;
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  #d8dee9;
-    border-color:                #d8dee9;
+    selected-normal-background:  #FFFFFF;
+    border-color:                #191919;
     spacing:                     3;
-    separatorcolor:              #2e3440;
+    separatorcolor:              #191919;
     separator-style:             "solid";
     urgent-background:           #3b4252;
     selected-urgent-background:  #3b4252;
