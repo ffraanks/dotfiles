@@ -42,10 +42,10 @@ new_window pixel 1
 ####################################################################
 
 # classe                borda   fundo   texto   ind.    borda filho
-client.focused          #a3be8c #a3be8c #a3be8c #a3be8c   #a3be8c
-client.focused_inactive #ffffff #ffffff #ffffff #bf616a   #bf616a
-client.unfocused        #ffffff #be0f17 #ffffff #ffffff   #bf616a
-client.urgent           #bf616a #bf616a #bf616a #bf616a   #bf616a
+client.focused          #90a57d #90a57d #90a57d #90a57d   #90a57d
+client.focused_inactive #ffffff #ffffff #ffffff #a36666   #a36666
+client.unfocused        #ffffff #a36666 #ffffff #ffffff   #a36666
+client.urgent           #a36666 #a36666 #a36666 #a36666   #a36666
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 ####################################################################
