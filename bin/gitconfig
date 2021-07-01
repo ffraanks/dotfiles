@@ -1,0 +1,13 @@
+#!/bin/env bash
+
+clear
+printf "Digite seu email:\n"
+read EMAIL
+printf "\nDigite seu nome:\n"
+read NAME
+
+git config --global user.email "$EMAIL"
+git config --global user.name "$NAME"
+printf "\n"
+read -p 'Configurado com sucesso PRESS ENTER TO CONTINUE...'
+
