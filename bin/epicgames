@@ -108,7 +108,7 @@ elif [ $EPIC_GAMES == '2' ] || [ $EPIC_GAMES == '02' ] ; then
       clear
       printf " Digite o APP Name do jogo:\n\n"
       read APP_NAME1
-      printf " \n\nAgora digite o PATH que deseja instalar (Ex: /home/frank/Epic_Games)\n\n"
+      printf " \n\nAgora digite o PATH que deseja instalar (Ex: /home/user/Epic_Games)\n\n"
       read PATH_GAME
       printf "\n\n"
       legendary install "$APP_NAME1" --base-path "$PATH_GAME" && echo && read -p ' Download finalizado com sucesso (PRESS ENTER TO CONTINUE...)'
