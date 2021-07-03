@@ -3,10 +3,10 @@
 while true ; do
 
   # Create paste
-  mkdir -p $HOME/Downloads/Torrents
+  mkdir $HOME/Torrents
 
   # Default DIR
-  DIR="$HOME/Downloads/Torrents"
+  DIR="$HOME/Torrents"
   clear
   printf "
 ████████╗██████╗  █████╗ ███╗   ██╗███████╗███╗   ███╗██╗███████╗███████╗██╗ ██████╗ ███╗   ██╗
@@ -46,4 +46,3 @@ else
   read -p 'PRESS ENTER TO CONTINUE...'
   fi
 done
-
