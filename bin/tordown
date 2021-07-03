@@ -1,0 +1,49 @@
+#!/bin/env bash
+
+while true ; do
+
+  # Create paste
+  mkdir -p $HOME/Downloads/Torrents
+
+  # Default DIR
+  DIR="$HOME/Downloads/Torrents"
+  clear
+  printf "
+████████╗██████╗  █████╗ ███╗   ██╗███████╗███╗   ███╗██╗███████╗███████╗██╗ ██████╗ ███╗   ██╗
+╚══██╔══╝██╔══██╗██╔══██╗████╗  ██║██╔════╝████╗ ████║██║██╔════╝██╔════╝██║██╔═══██╗████╗  ██║
+   ██║   ██████╔╝███████║██╔██╗ ██║███████╗██╔████╔██║██║███████╗███████╗██║██║   ██║██╔██╗ ██║
+   ██║   ██╔══██╗██╔══██║██║╚██╗██║╚════██║██║╚██╔╝██║██║╚════██║╚════██║██║██║   ██║██║╚██╗██║
+   ██║   ██║  ██║██║  ██║██║ ╚████║███████║██║ ╚═╝ ██║██║███████║███████║██║╚██████╔╝██║ ╚████║
+   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+"
+
+  # Options
+  
+  printf "\n\nPacote necessaŕio: transmission-cli (Arch Linux: sudo pacman -S transmission-cli)\n\n"
+  printf "Escolha uma das opções abaixo:\n\n"
+  printf "[01] - Fazer downloads\n"
+  printf "[02] - Listar downloads\n"
+  printf "[03] - Sair\n\n"
+  read OPTIONS
+
+  if [ $OPTIONS == '1' ] || [ $OPTIONS == '01' ] ; then
+    transmission-daemon
+    transmission-daemon --download-dir "$DIR"
+    printf "Cole aqui o link para fazer o download:\n"
+    read DOWNLOAD
+    transmission-remote -a "$DOWNLOAD"
+    printf "\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
+
+  elif [ $OPTIONS == '2' ] || [ $OPTIONS == '02' ] ; then
+    transmission-remote -l
+    printf "\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
+
+  elif [ $OPTIONS == '3' ] || [ $OPTIONS == '03' ] ; then
+  clear && exit 0
+
+else
+  clear && printf "Opção inválida...\n\n"
+  read -p 'PRESS ENTER TO CONTINUE...'
+  fi
+done
+
