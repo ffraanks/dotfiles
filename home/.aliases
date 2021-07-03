@@ -39,8 +39,9 @@
   alias vimbdel='cd $HOME/.config/vimb && rm -rf closed command cookies.db history search && cd'
   alias ,,='pwd'
   alias ,="head -n1 /var/log/pacman.log"
-  alias disks='echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ ";
+  alias disks='clear && echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ ";
  df -h;'
+ alias tsm="transmission-remote"
 
 # Aliase scripts
   alias pipes='$HOME/Scripts/pipes.sh'
