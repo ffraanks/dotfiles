@@ -27,7 +27,7 @@ while true ; do
   read OPTIONS
 
   if [ $OPTIONS == '1' ] || [ $OPTIONS == '01' ] ; then
-    transmission-daemon
+    clear && transmission-daemon
     transmission-daemon --download-dir "$DIR"
     printf "Cole aqui o link para fazer o download:\n"
     read DOWNLOAD
@@ -35,7 +35,7 @@ while true ; do
     printf "\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
 
   elif [ $OPTIONS == '2' ] || [ $OPTIONS == '02' ] ; then
-    transmission-remote -l
+    clear && transmission-remote -l
     printf "\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
 
   elif [ $OPTIONS == '3' ] || [ $OPTIONS == '03' ] ; then
