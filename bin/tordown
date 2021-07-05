@@ -23,7 +23,8 @@ while true ; do
   printf "Escolha uma das opções abaixo:\n\n"
   printf "[01] - Fazer downloads\n"
   printf "[02] - Listar downloads\n"
-  printf "[03] - Sair\n\n"
+  printf "[03] - Apagar downloads\n"
+  printf "[04] - Sair\n\n"
   read OPTIONS
 
   if [ $OPTIONS == '1' ] || [ $OPTIONS == '01' ] ; then
@@ -37,8 +38,32 @@ while true ; do
   elif [ $OPTIONS == '2' ] || [ $OPTIONS == '02' ] ; then
     clear && transmission-remote -l
     printf "\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
-
+    
   elif [ $OPTIONS == '3' ] || [ $OPTIONS == '03' ] ; then
+    clear
+    printf "O que deseja?:\n"
+    printf "[01] - Apagar um único download\n"
+    printf "[02] - Apagar multiplos downloads\n"
+    printf "[03] - Apagar todos os downloads\n\n"
+    printf "PRESS ENTER TO BACK...\n\n"
+    read DOWNLOADS
+
+    if [ $DOWNLOADS == '1' ] || [ $DOWNLOADS  == '01' ] ; then
+      clear && printf "Digite o ID do download:\n\n"
+      read ID1
+      transmission-remote -t "$ID1" -r
+
+    elif [ $DOWNLOADS == '2' ] || [ $DOWNLOADS == '02' ] ; then
+      clear && printf "Digite o ID dos downloads: Ex: 1,4\n\n"
+      read ID2
+      transmission-remote -t "ID2" -r
+
+    elif [ $DOWNLOADS == '3' ] || [ $DOWNLOADS == '03' ] ; then
+      clear && read -p 'PRESS ENTER TO DELETE ALL DOWNLOADS...'
+      transmission-remote -t all -r
+    fi
+
+  elif [ $OPTIONS == '4' ] || [ $OPTIONS == '04' ] ; then
   clear && exit 0
 
 else
