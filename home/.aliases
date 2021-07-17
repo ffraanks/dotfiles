@@ -43,4 +43,3 @@
 
 # Aliase scripts
   alias paste.rs='$HOME/Scripts/paste.sh'
-  alias celular='$HOME/Scripts/mount-mobile.sh'
