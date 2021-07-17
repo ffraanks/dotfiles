@@ -39,7 +39,7 @@
  alias tsm="transmission-remote"
  alias url="python3 $HOME/Franks/Python/short_url.py"
  alias qrcode="python3 $HOME/Franks/Python/qrcode.py"
- alias swapf="sudo $HOME/Scripts/Shell_Scripts./swapf"
+ alias swapf="sudo $HOME/Scripts/./swapf.sh"
 
 # Aliase scripts
   alias paste.rs='$HOME/Scripts/paste.sh'
