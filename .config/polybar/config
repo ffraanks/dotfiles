@@ -73,9 +73,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = news-archlinux
+modules-left =linux 
 modules-center = prev-cmus statusmusic next-cmus 
-modules-right = pulse pacman info-redshift-temp calendar date powermenu
+modules-right = pulse pacman cpu memory filesystem info-redshift-temp calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -150,7 +150,7 @@ separator = |
 
 modules-left = i3
 modules-center = dolar
-modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up 
+modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up lock 
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -259,7 +259,7 @@ mount-0 = /
 #fixed-values = true
 #spacing = 2
 
-format-mounted-prefix = " 濫"
+format-mounted-prefix = " 濫 "
 format-mounted-prefix-foreground = ${colors.foreground}
 #format-mounted-foreground = ${colors.foreground}
 #label-mounted-underline = ${colors.foreground}
@@ -652,7 +652,8 @@ type = custom/text
 content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-click-left = lockscreen &
+#click-left = lockscreen &
+click-left = $HOME/.config/polybar/scripts/fortune.sh &
 
 [module/up]
 type = custom/script
