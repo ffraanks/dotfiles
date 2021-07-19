@@ -42,15 +42,37 @@ new_window pixel 1
 ####################################################################
 
 # classe                borda   fundo   texto   ind.    borda filho
-client.focused          #90a57d #90a57d #90a57d #90a57d   #90a57d
-client.focused_inactive #ffffff #ffffff #ffffff #a36666   #a36666
-client.unfocused        #ffffff #a36666 #ffffff #ffffff   #a36666
-client.urgent           #a36666 #a36666 #a36666 #a36666   #a36666
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#client.focused          #90a57d #90a57d #90a57d #90a57d   #90a57d
+#client.focused_inactive #ffffff #ffffff #ffffff #a36666   #a36666
+#client.unfocused        #ffffff #a36666 #ffffff #ffffff   #a36666
+#client.urgent           #a36666 #a36666 #a36666 #a36666   #a36666
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+####################################################################
+#                        C O R E S - PYWAL                         #
+####################################################################
+
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 ####################################################################
 #                          A T A L H O S                           #
 ####################################################################
+
+# Pywal
+bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/Goku.png && $HOME/.config/dunst/launchdunst.sh 
+bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Nord1.jpg && $HOME/.config/dunst/launchdunst.sh
+bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Python.png && $HOME/.config/dunst/launchdunst.sh
+bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Train.jpg && $HOME/.config/dunst/launchdunst.sh
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
@@ -64,7 +86,7 @@ bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
 # Firefox/Vimb/Palemoon
 bindsym $win+Shift+f exec --no-startup-id firefox
 bindsym $win+i exec --no-startup-id vimb_launch
-bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/palemoon/./palemoon
+bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/./palemoon
 
 # Scrcpy CLI
 bindsym $win+e exec --no-startup-id kitty -e scrcpy-cli
@@ -187,21 +209,25 @@ bindsym $win+Shift+space floating toggle
 bindsym $win+Shift+r restart
 
 # Menu
-bindsym $win+d exec --no-startup-id rofi -show drun -theme "~/.config/rofi/drun.rasi"
+#bindsym $win+d exec --no-startup-id rofi -show drun -theme "~/.config/rofi/drun.rasi"
+bindsym $win+d exec --no-startup-id $HOME/Scripts/./rofiall
 
 # Screenshot
-bindsym Print exec --no-startup-id shot -s -r # -> Salvar tela
-bindsym $win+Print exec --no-startup-id shot -c -r # -> Copiar a tela
-bindsym $win+Shift+Print exec --no-startup-id shot -u -r # -> Upar print na web
-bindsym --release $win+c exec --no-startup-id shot -c -a  # -> Selecionar area
-bindsym --release $win+v exec --no-startup-id shot -u -a  # -> Selecionar area upload web
+#bindsym Print exec --no-startup-id shot -s -r # -> Salvar tela
+#bindsym $win+Print exec --no-startup-id shot -c -r # -> Copiar a tela
+#bindsym $win+Shift+Print exec --no-startup-id shot -u -r # -> Upar print na web
+#bindsym --release $win+c exec --no-startup-id shot -c -a  # -> Selecionar area
+#bindsym --release $win+v exec --no-startup-id shot -u -a  # -> Selecionar area upload web
+#bindsym Print exec --no-startup-id 
+bindsym $win+c exec --no-startup-id pv shot sel
+bindsym $win+Print exec --no-startup-id pv shot full
 
 ####################################################################
 #                              WORKSPACE                           #
 ####################################################################
 
-#set $ws1 " 1:  "
-set $ws1 " 1:  "
+set $ws1 " 1:  "
+#set $ws1 " 1:  "
 #set $ws1 " 1:  "
 set $ws2 " 2:  "
 #set $ws2 " 2:  "
@@ -393,11 +419,15 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 # Autotiling
 exec_always --no-startup-id autotiling
 
+# Pywal
+exec_always --no-startup-id ~/.cache/wal/colors.sh
+exec --no-startup-id wal -R
+
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallpapers
-exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
