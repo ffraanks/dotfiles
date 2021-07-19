@@ -140,3 +140,5 @@ usage() {
         fi
     done
 }
+
+printf "Bem vindo(a) ao zsh!!!\n"
