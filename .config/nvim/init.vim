@@ -70,6 +70,9 @@ Plug '907th/vim-auto-save'
 "QuickRun
 Plug 'thinca/vim-quickrun'
 
+"Pywal
+Plug 'dylanaraps/wal.vim'
+
 call plug#end()
  
 "Cursor
@@ -150,6 +153,7 @@ map r :PlugInstall<CR>
 map <C-k> :vnew<CR>
 map <C-x> :s/$/
 map \ :AutoSaveToggle<CR> 
+map <F8> :colorscheme wal<CR>
 
 "Mover bloco de código selecionado
 "vnoremap J :m '>+1<CR>gv=gv
