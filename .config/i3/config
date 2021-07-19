@@ -431,6 +431,7 @@ exec --no-startup-id nitrogen --restore
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
+exec_always --no-startup-id $HOME/.config/dunst/launchdunst.sh
 
 # Layout do teclado
 exec --no-startup-id setxkbmap br
