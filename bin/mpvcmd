@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+Duration () 
+{
+    : $(echo '{ "command": ["get_property", "duration"], "request_id": 0}' |socat - $sock)
+    : ${_#*\:}; : ${_%%\.*}; local ref="$_" ; 
+    [[ $ref =~ 'unavailable' ]] && echo 0 || echo $ref
+}
+
+FilenameN ()
+{
+    : "$(echo '{ "command": ["get_property", "playlist/'"$@"'/filename"], "request_id": 0}' |socat - $sock)"
+    : "${_#*\":\"}" ; echo "${_//\"*/}" ;
+}
+
+Filename ()
+{
+    : "$(echo '{ "command": ["get_property", "filename"], "request_id": 0}' |socat - $sock)"
+    : "${_#*:\"}"; echo "${_%%\",*}"
+}
+
+Next ()
+{
+	echo '{ "command": ["playlist-next", "force"], "request_id": 0}' |socat - $sock &> /dev/null
+}
+
+Pause ()
+{
+	if [[ $(echo '{ "command": ["get_property", "pause"] }' |socat - $sock |grep 'true') ]];then
+		echo '{ "command": ["set_property", "pause", false] }' |socat - $sock &> /dev/null
+	else
+		echo '{ "command": ["set_property", "pause", true] }' |socat - $sock &> /dev/null
+	fi
+}
+
+Prev ()
+{
+	echo '{ "command": ["playlist-prev", "force"], "request_id": 0}' |socat - $sock &> /dev/null
+}
+
+Position () 
+{
+    : "$(echo '{ "command": ["get_property", "time-pos"], "request_id": 0}' |socat - $sock)"
+    : "${_#*\:}"; : "${_%%\.*}"; echo "${_//,/}"
+}
+
+PositionGet ()
+{
+	echo '{ "command": ["set_property", "time-pos", '"$1"'], "request_id": 0}' |socat - $sock &> /dev/null 
+}
+
+Stop ()
+{
+	echo 'stop' |socat - $sock &> /dev/null
+}
+
+Track ()
+{
+	echo '{ "command": ["set_property", "playlist-pos-1", '"$1"'], "request_id": 0}' |socat - $sock &> /dev/null
+}
+
+TrackGet ()
+{
+    : "$(echo '{ "command": ["get_property", "playlist-pos-1"], "request_id": 0}' |socat - $sock)"
+    : "${_#*\":}"; local ref="${_%%,\"*}" ; 
+    [[ -z $ref ]] && { sleep 0.1 ; TrackGet ; } 
+    [[ "$ref" != "-1" ]] && echo "$ref" || Tracks
+}
+
+Tracks ()
+{
+    : "$(echo '{ "command": ["get_property_string", "playlist-count"], "request_id": 0}' |socat - $sock)"
+    : "${_#*\":\"}" ; echo "${_%%\",*}"
+}
+
+Title ()
+{
+    : "$(echo '{ "command": ["get_property", "media-title"], "reqsuest_id": 0}' |socat - $sock)"
+    : "${_#*:\"}"; echo "${_%%\",*}"
+}
+
+TitleN ()
+{
+    : "$(echo '{ "command": ["get_property_string", "playlist/'"$(($@ - 1))"'/media-title"], "request_id": 0}' |socat - $sock)"
+    # : "${_#*\":}"; echo "${_%%,\"*}"
+    echo "$_"
+}
+
+Reload ()
+{
+    PositionGet 0
+}
+
+Repeat ()
+{
+    : "$(echo '{ "command": ["get_property", "loop-file" ], "request_id": 0 }' |socat - $sock)"
+    grep -q "inf" <<< "$_" &&
+        {
+            echo '{ "command": ["set_property", "loop-file", "no"], "request_id": 0 }' |socat - $sock
+        } || 
+            {
+                echo '{ "command": ["set_property", "loop-file", "yes"], "request_id": 0 }' |socat - $sock
+            }
+
+    #echo '{ "command": ["set_property", "loop-file", "$optn"], "request_id": 0 }' |socat - $sock
+}
+
+Repeat_status ()
+{
+    : "$(echo '{ "command": ["get_property", "loop-file" ], "request_id": 0 }' |socat - $sock)"
+    grep -q '"data":"inf"' <<< "$_" && echo "no" || echo "yes"
+}
+
+Remove ()
+{
+	echo "playlist-remove $(( $@ - 1 ))" |socat - $sock > /dev/null
+}
+
+Vol ()
+{
+	echo '{ "command": ["set_property", "volume", '"$@"'], "request_id": 0}' |socat - $sock > /dev/null
+}
+
+Playlist ()
+{
+    : "$(echo '{ "command": ["get_property", "playlist"], "request_id": 0}' |socat - $sock)" 
+    : "${_//\"filename\":/$'\n'\"filename\":}"
+    : "${_%%\}\],*}"
+    : "${_//\},\{/$'\n'}"
+    : "${_//,\"title\":/$'\n'\"title\":}" 
+    : "${_//,\"id\":/$'\n'}"      
+    : "${_//\"current\":true,\"playing\"}"  
+    local fbase="${_//,:true/}"
+
+    while read line; do
+        if [[ "$line" =~ \"filename\" ]]; then
+            filenames+=("${line##*:}")
+       elif [[ "$line" =~ \"title\" ]]; then
+           titles+=("${line##*:}")
+        fi
+    done <<< "$fbase"
+
+    let lenFiles+="((COLUMNS-10)/4)*3" ; let lenTitles+="((COLUMNS-10)/4)*1"; lenIds=5
+
+    for line in "${filenames[@]}"; {
+        let control+=1
+        printf '%'$lenIds's %'$lenFiles's %-'$lenTitles's\n' " $control " " $line " " ${titles[$((control-1))]:-NULL} "
+    }
+}
+
+PlaylistClear () 
+{
+	echo "playlist-clear" |socat - $sock &> /dev/null
+}
+
+Help ()
+{
+    readarray FNS <<< $(grep -E '^.* \(\)$' $0)
+    
+    printf '%s\n' "Os comandos disponíveis:" \
+    `for fn in "${FNS[@]}" ; { : "${fn// */}" ; printf '%s\n' "${_,}" ;}`
+
+}
+
+sock=/tmp/mpvcmd
+
+action="${1^}"; shift 1
+
+$action $@
