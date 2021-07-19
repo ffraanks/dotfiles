@@ -3,6 +3,12 @@ source "$HOME"/.aliases # My Aliases
 # Starship
 eval "$(starship init zsh)"  # Theme Starship
 
+# Pywal
+(cat ~/.cache/wal/sequences &)
+cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
+. $HOME/.cache/wal/colors.sh
+
 # History ZSH
 HISTFILE=~/.zhistory # My zsh history
 HIST_SIVE=1000 # Size history list
@@ -100,7 +106,7 @@ down() {
 
 # play audio based search
 yplay() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+    clear && mpv --input-ipc-server=/tmp/mpvcmd --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
 
 # play music for programming
