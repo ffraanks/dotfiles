@@ -36,7 +36,7 @@ while true ; do
     cd $DIR && ls
     printf "\nEscolha qual Wallpaper quer usar:\n\n"
     read WALLPAPER
-    wal -i "$WALLPAPER" && "$HOME"/.config/dunst/./launchdunst.sh && i3-msg restart
+    wal -i "$WALLPAPER" && "$HOME/.config/dunst/./launchdunst.sh" && i3-msg restart
 
   elif [ $SELECTION == '3' ] || [ $SELECTION == '03' ] ; then
     clear
