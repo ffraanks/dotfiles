@@ -69,16 +69,16 @@ client.background       $bg
 ####################################################################
 
 # Pywal
-bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/Goku.png && $HOME/.config/dunst/launchdunst.sh 
-bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Nord1.jpg && $HOME/.config/dunst/launchdunst.sh
-bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Python.png && $HOME/.config/dunst/launchdunst.sh
-bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Train.jpg && $HOME/.config/dunst/launchdunst.sh
+bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/AC.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Dark1.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Plants.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Darling.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallhaven
-bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' && wallhaven
+#bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' && wallhaven
 
 # Freezer
 bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
@@ -94,23 +94,8 @@ bindsym $win+e exec --no-startup-id kitty -e scrcpy-cli
 # Anime-CLI
 bindsym $win+Shift+a exec --no-startup-id kitty -e anime-cli
 
-# CMUS
-bindsym $win+Shift+p exec --no-startup-id kitty -e cmus 
-
 # Coord Generation (Minecraft)
 bindsym $win+Shift+g exec --no-startup-id kitty -e minec 
-
-# Emojis
-bindsym $win+Shift+e exec --no-startup-id kitty -e nvim ~/.emojis
-
-# Pendrive
-bindsym $win+p exec --no-startup-id kitty -e pendrive
-
-# Ytop
-bindsym $win+y exec --no-startup-id kitty -e ytop
-
-# YT
-bindsym $win+Shift+y exec --no-startup-id kitty -e yt -t
 
 # Toggle polybar
 bindsym $win+m exec --no-startup-id polybar-msg cmd toggle
@@ -131,7 +116,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -421,7 +406,6 @@ exec_always --no-startup-id autotiling
 
 # Pywal
 exec_always --no-startup-id ~/.cache/wal/colors.sh
-exec --no-startup-id wal -R
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
