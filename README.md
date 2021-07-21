@@ -24,12 +24,12 @@
 
 # i3 Gaps
 
-<img src="i3-NORDTHEME.png">
+<img src="i3.png">
 
 # Rofi
 
-<img src="Rofi-NORTHEME.png">
+<img src="Rofi-pywal.png">
 
 # i3-Lock
 
-<img src="Lock-NORDTHEME.png">
+<img src="i3lock-TWM.png">
