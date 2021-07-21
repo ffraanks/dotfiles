@@ -40,6 +40,10 @@
  alias url="python3 $HOME/Franks/Python/short_url.py"
  alias qrcode="python3 $HOME/Franks/Python/qrcode.py"
  alias swapf="sudo $HOME/Scripts/./swapf.sh"
+ alias tp="~/.telegram-palette-gen/telegram-palette-gen --wal"
+ alias emojis="$EDITOR ~/.emojis"
+ alias yt="yt -t"
+ alias musica="cmus"
 
 # Aliase scripts
   alias paste.rs='$HOME/Scripts/paste.sh'
