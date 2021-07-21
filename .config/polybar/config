@@ -86,8 +86,8 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center = kernel
-modules-right = pulse pacman cpu memory filesystem info-redshift-temp calendar date powermenu
+modules-center = dolar 
+modules-right = pulse pacman cpu memory calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -161,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = dolar
-modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up lock 
+modules-center = statusmusic 
+modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up lock
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -177,6 +177,34 @@ tray-transparent = false
 tray-offset-x = 1
 tray-offset-y = 1
 #tray-background = #00000000
+
+####
+
+#[bar/systray]
+## As small as possible, polybar will resize it when items get added
+#width = 1
+
+## Whatever fits your needs
+#height = 40
+
+## Bottom left to imitate gnome-shells systray
+#bottom = true
+
+## REQUIRED for us to be able to move the window
+#override-redirect = true
+
+#modules-right = placeholder
+
+#tray-position = right
+#tray-maxsize = 11
+#tray-padding = 3
+#tray-transparent = false
+#tray-background = #282C34
+
+#[module/placeholder]
+## Just a dummy module as polybar always requires at least one amodule
+#type = custom/script
+#width = 1
 
 #################################################################
 #                         MÓDULO DE TITULO                      #
@@ -452,8 +480,8 @@ label-muted = Sem som
 type = internal/temperature
 interval = 4
 #hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
-#hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+#hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 thermal-zone = 0
 warn-temperature = 60
 
@@ -486,9 +514,9 @@ ramp-5-foreground = #BF616A
 [module/gputemp]
 type = internal/temperature
 interval = 4
-hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon1/temp1_input
+#hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon1/temp1_input
 #hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon2/temp1_input
-#hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon3/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon3/temp1_input
 thermal-zone = 0
 warn-temperature = 80
 format = <ramp> <label>
