@@ -86,7 +86,7 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center = dolar 
+modules-center = statusmusic 
 modules-right = pulse pacman cpu memory calendar date powermenu
 
 #################################################################
@@ -161,7 +161,7 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = statusmusic 
+modules-center = dolar
 modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up lock
 
 #################################################################
@@ -620,6 +620,7 @@ interval = 2
 interval = 0.1
 type = custom/script
 exec = ~/.local/bin/statusmusic
+click-left = cmus-remote -u
 click-right = killall cmus && killall next.sh && killall prev.sh
 
 [module/dolar]
