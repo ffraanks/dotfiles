@@ -2,7 +2,7 @@
 
 SCREENSHOT_DIR="$HOME"/Pictures
 VIDEO_DIR="$HOME"/Videos
-RESOLUTION="1366x768"
+RESOLUTION="1360x768"
 # FIFOFILE="/tmp/capture-pipe"
 
 die () {
