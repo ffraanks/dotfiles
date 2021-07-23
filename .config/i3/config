@@ -72,7 +72,7 @@ client.background       $bg
 bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/AC.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Dark1.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Plants.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Darling.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Naruto.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
