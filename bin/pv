@@ -1,0 +1,106 @@
+#!/bin/sh
+
+SCREENSHOT_DIR="$HOME"/Pictures
+VIDEO_DIR="$HOME"/Videos
+RESOLUTION="1366x768"
+# FIFOFILE="/tmp/capture-pipe"
+
+die () {
+	[ -n "$@" ] && echo "$@" >&2
+	exit 1
+}
+
+screenshot() {
+	for arg in "$@"; do
+		case "$arg" in
+			tmp) tmp="true" ;;
+			full|sel) mode="$arg" ;;
+			up) upload="true" ;;
+			*) die "invalid option \"$arg\"" ;;
+		esac
+	done
+
+	[ "$tmp" = "true" ] && \
+		filename="${XDG_RUNTIME_DIR:-/tmp}/$(date "+%-Y-%m-%d-%H%M%S")_capture.png" \
+		|| filename="${SCREENSHOT_DIR}/$(date "+%-Y-%m-%d-%H%M%S")_capture.png"
+
+	case "$mode" in
+		full) 
+			maim -m 10 -u > "$filename"
+			sleep 0.5 && notify-send "Capture" "Fullscreen screenshot taken" -i "$filename"
+			;;
+		sel)
+			sel=$(slop -f "%g") || die
+			maim -u -m 10 -g "$sel" > "$filename"
+			sleep 0.5 && notify-send "Capture" "Selection screenshot taken" -i "$filename"
+			;;
+		*) die "invalid option" ;;
+	esac
+
+	[ "$upload" = "true" ] && \
+		curl -F file=@$filename http://0x0.st | xclip -selection clipboard \
+		|| xclip -selection clipboard -t image/png "$filename"
+}
+
+video() {
+	for arg in "$@"; do
+		case "$arg" in
+			tmp) tmp="true" ;;
+			full|sel) mode="$arg" ;;
+			*) die "invalid option \"$arg\"" ;;
+		esac
+	done
+
+	# [ -e "$FIFOFILE" ] || mkfifo "$FIFOFILE"
+	# echo "⏺ REC" > "$FIFOFILE"
+
+	[ "$tmp" = "true" ] && \
+		filename="${XDG_RUNTIME_DIR:-/tmp}/$(date "+%-Y-%m-%d-%H%M%S")_capture.mkv" \
+		|| filename="${VIDEO_DIR}/$(date "+%-Y-%m-%d-%H%M%S")_capture.mkv"
+
+	case "$mode" in
+		full) 
+			ffmpeg -v -8 -f x11grab -s "$RESOLUTION" -framerate 60 -i ${DISPLAY} \
+				-f alsa -i default \
+				-c:v libx264rgb -crf 0 -preset ultrafast -qp 0 "$filename"
+			;;
+		sel)
+			sel="$(slop -f '%x,%y %wx%h')" || die
+			ffmpeg -v -8 -f x11grab -s "${sel##* }" -framerate 60 -i ${DISPLAY}+${sel%% *}\
+				-f alsa -i default \
+				-c:v libx264rgb -crf 0 -preset ultrafast -qp 0 "$filename"
+			;;
+		*) die "invalid option" ;;
+	esac
+}
+
+encode() {
+	pid="$1"
+	file="$2"
+	output="${file%%.*}.mp4"
+	
+	# echo "encoding..." > "$FIFOFILE"
+	notify-send "Capture" "Video recording stoped"
+	kill "$pid" && sleep 1
+	ffmpeg -i "$file" -profile:v main -pix_fmt yuv420p \
+		-vf "scale=trunc(iw/2)*2:trunc(ih/2)*2"  "$output" &&\
+		notify-send "Capture" "Video encoded" ||
+		notify-send "Capture" "Video encoding failed"
+	rm "$file"
+	
+	printf "$output" | xclip -selection clipboard 
+	# echo "done!" > "$FIFOFILE" && sleep 2
+	# echo "" > "$FIFOFILE"
+}
+
+case "$1" in
+	shot) shift; screenshot "$@";;
+	vid) 
+		shift
+		process="$(ps -aux -U $USER \
+			| awk '/[f]fmpeg -v -8 -f x11grab/{printf "%s %s\n", $(2), $(NF)}')"
+
+		[ -n "$process" ] && encode $process || video "$@"
+		;;
+	*) die "invalid option, should be vid or shot";;
+esac
