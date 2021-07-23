@@ -24,12 +24,12 @@
 
 # i3 Gaps
 
-<img src="i3Darling.png">
+<img src="i3-Gaara.png">
 
 # Rofi
 
-<img src="RofiDarling.png">
+<img src="Rofi-Gaara.png">
 
 # i3-Lock
 
-<img src="LockDarling.png">
+<img src="Lock-Gaara.png">
