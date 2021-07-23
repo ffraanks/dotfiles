@@ -137,7 +137,8 @@ bindsym $win+F8 exec --no-startup-id simplescreenrecorder --start-hidden # -> In
 bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata o ssr
 
 # Printar Tela
-bindsym $win+z exec --no-startup-id sleep 5 && shot -c -r
+#bindsym $win+z exec --no-startup-id sleep 5 && shot -c -r
+bindsym $win+z exec --no-startup-id sleep 5 && pv shot full
 
 # Iniciar terminal
 #bindsym $win+Return exec --no-startup-id i3-sensible-terminal
