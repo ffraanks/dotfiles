@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+VERSION='29.3.0'
+clear
+cd "$HOME" && wget -c "http://linux.palemoon.org/datastore/release/palemoon-$VERSION.linux-x86_64-gtk3.tar.xz"
+tar -xvf "palemoon-$VERSION.linux-x86_64-gtk3.tar.xz"
+rm -rf "palemoon-$VERSION.linux-x86_64-gtk3.tar.xz" && mv palemoon .palemoon
+cd $HOME/.local/share/applications && wget -c "https://github.com/ffraanks/dotfiles/raw/master/palemoon.desktop"
+
