@@ -85,8 +85,8 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
-modules-center = statusmusic 
+modules-left = statusmusic prev-cmus next-cmus play-cmus repeat-cmus
+modules-center =  
 modules-right = pulse pacman cpu memory calendar date powermenu
 
 #################################################################
@@ -604,6 +604,22 @@ interval = 1
 type = custom/script
 click-left = cmus-remote -r
 exec = sh $HOME/.config/polybar/scripts/prev.sh
+label = %output%
+interval = 1
+
+[module/play-cmus]
+type = custom/script
+click-left = cmus-remote -p
+click-right = cmus-remote -u
+exec = sh $HOME/.config/polybar/scripts/play.sh
+label = %output%
+interval = 1
+
+[module/repeat-cmus]
+type = custom/script
+click-left = $HOME/.config/polybar/scripts/repeat.sh
+click-right = $HOME/.config/polybar/scripts/func_repeat.sh
+exec = sh $HOME/.config/polybar/scripts/play.sh
 label = %output%
 interval = 1
 
