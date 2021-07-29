@@ -47,3 +47,4 @@
 
 # Aliase scripts
   alias paste.rs='$HOME/Scripts/paste.sh'
+  alias pipes='$HOME/Scripts/pipes.sh'
