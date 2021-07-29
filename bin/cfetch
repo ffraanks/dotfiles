@@ -1,0 +1,49 @@
+#!/bin/sh
+
+. /etc/os-release
+
+kernel="$(uname -r)"
+
+# Taken fron pfetch
+packages=`
+	case $ID in
+		gentoo) 
+			ls -d /var/db/pkg/*/*
+			;;
+		centos) 
+			rpm -qa
+			;;
+		arch|manjaro)
+			pacman -Qq
+			;;
+		pop|ubuntu|debian)
+			dpkg --list
+			;;
+		void)
+			xbps-query -l
+			;;
+		freebsd)
+			pkg info
+			;;
+	esac | wc -l
+	`
+
+packages="${packages##* }"
+
+if `xprop -version > /dev/null 2>&1` ; then
+	id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+	id=${id##* }
+	wm=$(xprop -id "$id" -notype -len 25 -f _NET_WM_NAME 8t)
+	wm=${wm##*_NET_WM_NAME = \"}
+	wm=${wm%%\"*}
+fi
+
+pad="[13G"
+
+cat <<EOF
+${pad}${PRETTY_NAME}
+  (\ /)${pad}${kernel}	
+  ( . .)${pad}${wm:-none}
+  c(")(")${pad}${SHELL##*/}
+${pad}${packages:-unknown}
+EOF
