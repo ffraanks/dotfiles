@@ -40,7 +40,7 @@ fi
 
 pad="[13G"
 
-cat <<EOF
+clear && cat <<EOF
 ${pad}${PRETTY_NAME}
   (\ /)${pad}${kernel}	
   ( . .)${pad}${wm:-none}
