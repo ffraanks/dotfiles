@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=osu!
+Comment=osu! Game music
+Exec=/home/frank/.osu_game/osu.AppImage
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=palemoon
+StartupNotify=true
