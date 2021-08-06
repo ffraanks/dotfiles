@@ -68,11 +68,15 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
+# osu!
+bindsym $win+Shift+o exec --no-startup-id $HOME/.osu_game/osu.AppImage
+bindsym $win+Shift+i exec --no-startup-id kitty -e $HOME/Scripts/osu_installer.sh
+
 # Pywal
 bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/AC.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Dark1.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Plants.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-bindsym $win+F12 exec --no-startup-id wal -i $HOME/Wallpapers/Naruto.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+bindsym $win+F12 exec --no-startup-id wal -i "$HOME/Wallpapers/Jujutsu Kaisen.jpg" && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
@@ -116,7 +120,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -306,6 +310,9 @@ for_window [class="(StardewValley.bin.x86_64)"] move to workspace $ws10
 # Tomb Raider
 for_window [class="(TombRaider)"] move to workspace $ws10
 
+# GrandChase
+for_window [class="(steam_app_985810)"] move to workspace $ws10
+
 # Valheim
 for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center
 
@@ -372,6 +379,9 @@ for_window [class="(Yad)"]floating enable
 
 # Origin
 for_window [instance="origin.exe"] floating enable
+
+# Gajim
+for_window [instance="Gajim"] floating enable
 
 # Script para gravar a tela
 for_window [class="kitty" title="castnow"] move window to scratchpad
