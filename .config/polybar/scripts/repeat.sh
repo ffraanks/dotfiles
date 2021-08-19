@@ -16,7 +16,7 @@ if pgrep -x cmus >/dev/null
 then
 poly_repeat    
 else
-printf " "
+printf "|| "
 fi
 }
 
