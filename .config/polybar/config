@@ -162,7 +162,7 @@ separator = |
 
 modules-left = i3
 modules-center = prev-cmus play-cmus next-cmus repeat-cmus
-modules-right = xkeyboard grabc search scratchpad-indicator mic up
+modules-right = xkeyboard grabc github search scratchpad-indicator mic up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -623,12 +623,18 @@ interval = 1
 #                      ALGUNS MÓDULOS CRIADOS                   #
 #################################################################
 
+[module/github]
+type = custom/text
+content = "  "
+content-foreground = ${colors.foreground}
+#content-underline = ${colors.foreground}
+click-left = exec $HOME/Scripts/./github.sh
+
 [module/search]
 type = custom/text
 content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-#click-left = exec $HOME/.local/bin/telegram &
 click-left = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
