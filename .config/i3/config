@@ -203,14 +203,9 @@ bindsym $win+Shift+r restart
 bindsym $win+d exec --no-startup-id $HOME/Scripts/./rofiall
 
 # Screenshot
-#bindsym Print exec --no-startup-id shot -s -r # -> Salvar tela
-#bindsym $win+Print exec --no-startup-id shot -c -r # -> Copiar a tela
-#bindsym $win+Shift+Print exec --no-startup-id shot -u -r # -> Upar print na web
-#bindsym --release $win+c exec --no-startup-id shot -c -a  # -> Selecionar area
-#bindsym --release $win+v exec --no-startup-id shot -u -a  # -> Selecionar area upload web
-#bindsym Print exec --no-startup-id 
-bindsym $win+c exec --no-startup-id pv shot sel
-bindsym $win+Print exec --no-startup-id pv shot full
+bindsym Print exec --no-startup-id maim -s -m 10 -f png -b 3 -u ~/Pictures/$(date +%d-%m-%y_%H:%M:%S).png | notify-send 'Screenshot saved in ~/Pictures'
+bindsym $win+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png | notify-send 'Screenshot Copied'
+bindsym $win+c exec --no-startup-id maim --select | xclip -selection clipboard -t image/png | notify-send 'Screenshot Cropped Copied'
 
 ####################################################################
 #                              WORKSPACE                           #
@@ -282,7 +277,7 @@ assign [class="(firefox)"] $ws1
 #for_window [class="(kitty)"] move to workspace $ws2
 
 # Telegram ws=3
-#for_window [class="(Kotatogram)"] move to workspace $ws3
+for_window [class="(Kotatogram)"] move to workspace $ws3
 for_window [class="(TelegramDesktop)"] move to workspace $ws3, move position center
 
 # MPV ws=4
