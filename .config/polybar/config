@@ -85,9 +85,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = statusmusic prev-cmus next-cmus play-cmus repeat-cmus
-modules-center =  
-modules-right = pulse pacman cpu memory calendar date powermenu
+modules-left = linux 
+modules-center = statusmusic
+modules-right = pulse pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -161,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = dolar
-modules-right = xkeyboard grabc vpn-openvpn-isrunning scratchpad-indicator mic up lock
+modules-center = prev-cmus play-cmus next-cmus repeat-cmus
+modules-right = xkeyboard grabc scratchpad-indicator mic up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -177,8 +177,6 @@ tray-transparent = false
 tray-offset-x = 1
 tray-offset-y = 1
 #tray-background = #00000000
-
-####
 
 #[bar/systray]
 ## As small as possible, polybar will resize it when items get added
@@ -609,17 +607,15 @@ interval = 1
 
 [module/play-cmus]
 type = custom/script
-click-left = cmus-remote -p
-click-right = cmus-remote -u
+click-left = cmus-remote -u
 exec = sh $HOME/.config/polybar/scripts/play.sh
 label = %output%
 interval = 1
 
 [module/repeat-cmus]
 type = custom/script
-click-left = $HOME/.config/polybar/scripts/repeat.sh
-click-right = $HOME/.config/polybar/scripts/func_repeat.sh
-exec = sh $HOME/.config/polybar/scripts/play.sh
+click-left = $HOME/.config/polybar/scripts/func_repeat.sh
+exec = sh $HOME/.config/polybar/scripts/repeat.sh
 label = %output%
 interval = 1
 
@@ -636,7 +632,6 @@ interval = 2
 interval = 0.1
 type = custom/script
 exec = ~/.local/bin/statusmusic
-click-left = cmus-remote -u
 click-right = killall cmus && killall next.sh && killall prev.sh
 
 [module/dolar]
@@ -668,14 +663,17 @@ type = custom/text
 content = "   "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-click-left = exec vimb_launch &
+#click-left = exec vimb_launch &
+#click-left = exec firefox 
+click-left = exec $HOME/.palemoon/./palemoon
 
 [module/telegram]
 type = custom/text
 content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-click-left = exec $HOME/.local/bin/telegram &
+#click-left = exec $HOME/.local/bin/telegram &
+click-left = exec $HOME/.local/bin/kotatogram &
 
 [module/terminal]
 type = custom/text
