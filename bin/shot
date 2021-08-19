@@ -1,48 +1,41 @@
 #!/bin/sh
 
 TMP="/tmp/$(date +"%Y-%m-%d_%H:%M:%S").png"
-DIR="$HOME/Pictures/$(date +"%Y-%m-%d_%H:%M:%S").png"
+PIC="$HOME/Pictures/$(date +"%Y-%m-%d_%H:%M:%S").png"
 
-sr ()
-{
-	import -quality 100 -window root $DIR
-	notify-send -u low -i "$DIR" "PrintScreen" "Saved in $DIR"    
+sr(){
+	maim -u -m 10 "$PIC"
+	notify-send -u low -i "$PIC" "Print" "Saved in ~/Pictures"
 }
 
-sa ()
-{
-	import -quality 100 $DIR
-	notify-send -u low -i "$DIR" "PrintScreen" "Area saved in $DIR"   
+sa(){
+	maim -u -m 10 -s "$PIC"
+	notify-send -u low -i "$PIC" "Print" "Area saved in ~/Pictures"
 }
 
-cr ()
-{
-	import -quality 100 -window root $TMP
-	xclip -selection c -t image/png $TMP
-	notify-send -u low -i "$TMP" "PrintScreen" "Copied to clipboard"    
+cr(){
+	maim -u -m 10 "$TMP"
+	xclip -selection c -t image/png "$TMP"
+	notify-send -u low -i "$TMP" "Print" "Copied to clipboard"
 }
 
-ca ()
-{
-	import -quality 100 $TMP
-	xclip -selection c -t image/png $TMP
-	notify-send -u low -i "$TMP" "PrintScreen" "Area copied to clipboard"
+ca(){
+	maim -u -m 10 -s "$TMP"
+	xclip -selection c -t image/png "$TMP"
+	notify-send -u low -i "$TMP" "Print" "Area copied to clipboard"
 }
 
-ur ()
-{
-	import -quality 100 -window root $TMP
-	xclip -selection c -i <<< $(curl -F file=@$TMP http://0x0.st)
-	notify-send -u low -i "$TMP" "PrintScreen" "Uploaded and url copied"
+ur(){
+	maim -u -m 10 "$TMP"
+	curl -F file=@$TMP http://0x0.st | xclip -selection c -i
+	notify-send -u low -i "$TMP" "Print" "Uploaded and url copied"
 }
 
-ua ()
-{
-	import -quality 100 $TMP
-	xclip -selection c -i <<< $(curl -F file=@$TMP http://0x0.st)
-	notify-send -u low -i "$TMP" "PrintScreen" "Area uploaded and url copied"
+ua(){
+	maim -u -m 10 -s "$TMP"
+	curl -F file=@$TMP http://0x0.st | xclip -selection c -i
+	notify-send -u low -i "$TMP" "Print" "Area uploaded and url copied"
 }
 
-fun=$(echo $@ |sed 's/\-//g;s/ //g')
-
-${fun}
+fun=$(echo $@ | sed "s/-\| //g")
+$fun
