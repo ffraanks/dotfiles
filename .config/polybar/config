@@ -87,7 +87,7 @@ separator = |
 
 modules-left = linux 
 modules-center = statusmusic
-modules-right = pulse pacman calendar date powermenu
+modules-right = pulse calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
