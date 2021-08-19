@@ -1,15 +1,10 @@
 #!/usr/bin/env sh
-#
 # Franklin Souza
 # @FranklinTech
-#
 # github - Script para enviar automaticamente mudanças ao Github
 # LEMBRE-SE DE CONFIGURAR CORRETAMENTE SEU GIT SEM SENHA!!!
-#
 # Sugestão de crontab:
 # */15 * * * * sh -c "~/.local/bin/github" > /dev/null 2>&1
-#
-#
 
 nome="GitHub.sh"
 dir="${HOME}/.github"
@@ -25,7 +20,8 @@ detectax() {
 		#dbus-launch canberra-gtk-play -i $som 2>&1
 		export DISPLAY=:0 ; canberra-gtk-play -i $som 2>&1
 		#DISPLAY=:0.0 canberra-gtk-play -i $som
-		dbus-launch notify-send -i $icone "$1" "$2"
+		#dbus-launch notify-send -i $icone "$1" "$2"
+		notify-send -i $icone "$1" "$2"
 	else
 		echo "${1}: $2"
 	fi
