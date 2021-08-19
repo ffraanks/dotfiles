@@ -203,9 +203,9 @@ bindsym $win+Shift+r restart
 bindsym $win+d exec --no-startup-id $HOME/Scripts/./rofiall
 
 # Screenshot
-bindsym Print exec --no-startup-id maim -s -m 10 -f png -b 3 -u ~/Pictures/$(date +%d-%m-%y_%H:%M:%S).png | notify-send 'Screenshot saved in ~/Pictures'
-bindsym $win+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png | notify-send 'Screenshot Copied'
-bindsym $win+c exec --no-startup-id maim --select | xclip -selection clipboard -t image/png | notify-send 'Screenshot Cropped Copied'
+bindsym Print exec --no-startup-id shot sr
+bindsym $win+Shift+Print exec --no-startup-id shot cr
+bindsym $win+c exec --no-startup-id shot ca 
 
 ####################################################################
 #                              WORKSPACE                           #
