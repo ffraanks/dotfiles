@@ -82,7 +82,7 @@ bindsym $win+F12 exec --no-startup-id wal -i "$HOME/Wallpapers/Jujutsu Kaisen.jp
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallhaven
-#bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' && wallhaven
+bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' && wallhaven
 
 # Freezer
 bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
