@@ -628,7 +628,7 @@ type = custom/text
 content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-click-left = exec $HOME/Scripts/./github.sh
+click-left = exec $HOME/Scripts/github.sh
 
 [module/search]
 type = custom/text
