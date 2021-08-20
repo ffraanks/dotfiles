@@ -142,7 +142,7 @@ bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata
 
 # Printar Tela
 #bindsym $win+z exec --no-startup-id sleep 5 && shot -c -r
-bindsym $win+z exec --no-startup-id sleep 5 && pv shot full
+bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
 # Iniciar terminal
 #bindsym $win+Return exec --no-startup-id i3-sensible-terminal
