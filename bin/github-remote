@@ -1,0 +1,32 @@
+#!/bin/env bash
+
+# User: Franklin Souza
+# Telegram: @FranklinTech
+
+printf "Deseja baixar o pacote: openssh (RECOMENDADO) s/n? (PRESS CTRL+C TO EXIT)\n\n"
+read sn
+if [ $sn == 's' ] || [ $sn == 'S' ] || [ $sn == 'sim' ] || [ $sn == 'SIM' ] || [ $sn == 'Sim' ] ; then
+  sudo pacman -S ssh --noconfirm && continue
+
+elif [ $sn == 'n' ] || [ $sn == 'N' ] || [ $sn == 'nao' ] || [ $sn == 'Nao' ] || [ $sn == 'não' ] || [ $sn == 'Não' ] || [ $sn == 'NÃO' ] ; then
+  continue
+fi
+
+mkdir $HOME/.github
+clear
+
+printf "Digite seu email cadastrado no github:\n\n"
+read EMAIL
+ssh-keygen -t rsa -C $EMAIL
+
+printf "Cole o seu repositório remoto aqui (NÃO precisa escrever git clone):\n\n"
+read REPOSITORY
+cd $HOME/.github && git clone $REPOSITORY
+
+clear && printf "Digite seu nome:\n\n"
+read GITNAME
+git config --global user.name "$GITNAME"
+
+clear && printf "Copie a chave gerada e cole no seu github.com\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
+$EDITOR $HOME/.ssh/id_rsa.pub
+read -p 'PRESS ENTER TO FINISH...' && clear && exit 0
