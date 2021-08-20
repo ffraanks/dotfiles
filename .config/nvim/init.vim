@@ -1,4 +1,4 @@
-"Franklin Souza
+Franklin Souza
 "@FranklinTech
                                                   
 " Dicas: 
@@ -43,12 +43,6 @@ Plug 'terryma/vim-multiple-cursors'
 "Syntax Check
 Plug 'dense-analysis/ale'
 
-"JS
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
 "Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -63,6 +57,7 @@ Plug 'm-pilia/vim-mediawiki'
 
 "Minimap
 Plug 'koron/minimap-vim'
+Plug 'wfxr/minimap.vim'
 
 "AutoSave
 Plug '907th/vim-auto-save'
@@ -72,6 +67,9 @@ Plug 'thinca/vim-quickrun'
 
 "Pywal
 Plug 'dylanaraps/wal.vim'
+
+"Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
  
@@ -127,6 +125,42 @@ let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:vim_mediawiki_site = 'https://wiki.archlinux.org/index.php/Main_page'
 
+" Minimap
+let g:minimap_width = 20
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
+let g:minimap_highlight = 'MinimapCurrentLine'
+let g:minimap_highlight_range = 1
+
+"Markdown
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_filetypes = ['markdown']
 
 "Terminal
 nnoremap <leader>t :vsplit term://zsh<cr>A
@@ -171,3 +205,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "Copiar e Colar
 vmap cp "+y
 nmap c "+p
+
+"Markdown
+"nmap <C-p> <Plug>MarkdownPreview
+nmap <C-p> <Plug>MarkdownPreviewToggle
