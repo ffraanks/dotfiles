@@ -24,7 +24,7 @@
 
 # i3 Gaps
 
-<img src="i3-gapsNARUTO.png">
+<img src="i3-gapsNATURO.png">
 
 # Rofi
 
