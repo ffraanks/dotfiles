@@ -295,6 +295,9 @@ for_window [class="(Steam)"] move to workspace $ws10 floating enable, move posit
 # Lutris ws=10
 for_window [class="(Lutris)"] move to workspace $ws10
 
+# PCSX2
+for_window [instance="PCSX2"] move to workspace $ws10
+
 ####################################################################
 #                           G A M E S                              #
 ####################################################################
