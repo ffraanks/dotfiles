@@ -378,6 +378,9 @@ for_window [instance="origin.exe"] floating enable
 # Gajim
 for_window [instance="Gajim"] floating enable
 
+# PCSX2
+for_window [instance="PCSX2"] floating enable, move position center
+
 # Script para gravar a tela
 for_window [class="kitty" title="castnow"] move window to scratchpad
 #for_window [title="(gravar$)"] move window to scratchpad
