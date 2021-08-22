@@ -298,6 +298,9 @@ for_window [class="(Lutris)"] move to workspace $ws10
 # PCSX2
 for_window [instance="PCSX2"] move to workspace $ws10
 
+# PPSSPP
+for_window [instance="PPSSPPSDL"] move to workspace $ws10
+
 ####################################################################
 #                           G A M E S                              #
 ####################################################################
@@ -383,6 +386,9 @@ for_window [instance="Gajim"] floating enable
 
 # PCSX2
 for_window [instance="PCSX2"] floating enable, move position center
+
+# PPSSPP
+for_window [instance="PPSSPPSDL"] move position center
 
 # Script para gravar a tela
 for_window [class="kitty" title="castnow"] move window to scratchpad
