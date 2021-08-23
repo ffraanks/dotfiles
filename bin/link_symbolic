@@ -1,0 +1,5 @@
+#!/bin/env bash
+clear
+rm -rf $HOME/.config/polybar && ln -sf /home/frank/.github/dotfiles/.config/polybar /home/frank/.config
+rm -rf $HOME/.config/i3 && ln -sf /home/frank/.github/dotfiles/.config/i3 /home/frank/.config
+read -p 'CONCLUIDO PRESS ENTER TO CONTINUE...' && clear && exit 0
