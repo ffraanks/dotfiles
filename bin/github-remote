@@ -6,7 +6,7 @@
 printf "Deseja baixar o pacote: openssh (RECOMENDADO) s/n?\n\n"
 read sn
 if [ $sn == 's' ] || [ $sn == 'S' ] || [ $sn == 'sim' ] || [ $sn == 'SIM' ] || [ $sn == 'Sim' ] ; then
-  sudo pacman -S ssh --noconfirm && continue
+  sudo pacman -S openssh --noconfirm && continue
 
 elif [ $sn == 'n' ] || [ $sn == 'N' ] || [ $sn == 'nao' ] || [ $sn == 'Nao' ] || [ $sn == 'não' ] || [ $sn == 'Não' ] || [ $sn == 'NÃO' ] ; then
   continue
