@@ -3,13 +3,15 @@
 # User: Franklin Souza
 # Telegram: @FranklinTech
 
-printf "Deseja baixar o pacote: openssh (RECOMENDADO) s/n? (PRESS CTRL+C TO EXIT)\n\n"
+printf "Deseja baixar o pacote: openssh (RECOMENDADO) s/n?\n\n"
 read sn
 if [ $sn == 's' ] || [ $sn == 'S' ] || [ $sn == 'sim' ] || [ $sn == 'SIM' ] || [ $sn == 'Sim' ] ; then
   sudo pacman -S ssh --noconfirm && continue
 
 elif [ $sn == 'n' ] || [ $sn == 'N' ] || [ $sn == 'nao' ] || [ $sn == 'Nao' ] || [ $sn == 'não' ] || [ $sn == 'Não' ] || [ $sn == 'NÃO' ] ; then
   continue
+else
+  clear && exit 0
 fi
 
 mkdir $HOME/.github
