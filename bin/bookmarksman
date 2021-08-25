@@ -12,11 +12,11 @@ openchoosen () {
 
 		case "$prompt" in
 			Yes) $(setsid umpv "$1") && exit ;;
-			No) xdg-open "$1" && exit ;;
+			No) vimb_launch "$1" && exit ;;
 			*) die;;
 		esac
 	else
-		xdg-open "$1"
+		vimb_launch "$1"
 	fi
 }
 
