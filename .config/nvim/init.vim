@@ -71,6 +71,9 @@ Plug 'dylanaraps/wal.vim'
 "Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+"Fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
  
 "Cursor
@@ -113,9 +116,9 @@ let g:airline_theme='deus'
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = []
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_left_sep = "\uE0B4"
-"let g:airline_right_sep = "\uE0B6"
-"let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+let g:airline_left_sep = "\uE0B4"
+let g:airline_right_sep = "\uE0B6"
+let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:webdevicons_enable = 1
@@ -188,6 +191,7 @@ map <C-k> :vnew<CR>
 map <C-x> :s/$/
 map \ :AutoSaveToggle<CR> 
 map <F8> :colorscheme wal<CR>
+map <C-i> :FZF<CR>
 
 "Mover bloco de código selecionado
 "vnoremap J :m '>+1<CR>gv=gv
