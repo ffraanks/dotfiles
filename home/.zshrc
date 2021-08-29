@@ -141,4 +141,4 @@ usage() {
     done
 }
 
-printf "Bem vindo(a) ao zsh!!!\n"
+#printf "Bem vindo(a) ao zsh!!!\n"
