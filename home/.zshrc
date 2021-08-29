@@ -120,6 +120,10 @@ bd(){
 
 }
 
+br(){
+	xrandr --output VGA-0 --brightness $@ && clear
+}
+
 pkginf() {
     clear && pacman -Si $@ | awk '/Name/{print "Package: " $3}/Version/{print "Version: " $3}/Installed Size/{printf "Size: %s %s\n", $4, $5}'
 }
