@@ -85,9 +85,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = linux 
+modules-left = 
 modules-center = statusmusic
-modules-right = pulse pacman calendar date powermenu
+modules-right = pulse calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -162,47 +162,25 @@ separator = |
 
 modules-left = i3
 modules-center = prev-cmus play-cmus next-cmus repeat-cmus
-modules-right = xkeyboard grabc github search scratchpad-indicator mic up
+modules-right = xkeyboard grabc scratchpad-indicator mic up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
 #################################################################
 
-tray-position = right
-tray-detached = false
-tray-maxsize = 11
-tray-padding = 3
-tray-scale = 1.0
-tray-transparent = false
-tray-offset-x = 1
-tray-offset-y = 1
-#tray-background = #00000000
-
-#[bar/systray]
-## As small as possible, polybar will resize it when items get added
-#width = 1
-
-## Whatever fits your needs
-#height = 40
-
-## Bottom left to imitate gnome-shells systray
-#bottom = true
-
-## REQUIRED for us to be able to move the window
-#override-redirect = true
-
-#modules-right = placeholder
-
 #tray-position = right
+#tray-detached = false
 #tray-maxsize = 11
 #tray-padding = 3
+#tray-scale = 1.0
 #tray-transparent = false
-#tray-background = #282C34
+#tray-offset-x = 1
+#tray-offset-y = 1
+##tray-background = #00000000
 
-#[module/placeholder]
-## Just a dummy module as polybar always requires at least one amodule
-#type = custom/script
-#width = 1
+tray-position = right
+tray-padding = 1
+tray-maxsize = 11
 
 #################################################################
 #                         MÓDULO DE TITULO                      #
@@ -546,13 +524,13 @@ ramp-5-foreground = #BF616A
 [module/powermenu]
 type = custom/menu
 expand-right = true
-format-spacing = 2
+format-spacing = 1
 
 label-open = "  "
 label-open-foreground = ${colors.foreground}
 #format-underline = #ffffff
 #label-open-foreground = ${colors.foreground}
-label-close = | Cancel
+label-close = Cancel
 label-close-foreground = ${colors.alert}
 label-separator =|
 label-separator-foreground = ${colors.foreground}
@@ -785,7 +763,8 @@ exec = date "+%a, %d %b"
 label = "%{F${colors.foreground}  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
-click-left = notify-send "$(cal)"
+#click-left = notify-send "$(cal)"
+click-left = yad --calendar
 
 [module/gravar]
 type = custom/script
