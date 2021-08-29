@@ -127,7 +127,12 @@ bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
 
 # Matar/Iniciar compositor
 bindsym $win+F4 exec --no-startup-id killall xcompmgr
-bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+
+#Com sombreamento
+#bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+
+#Sem sombreamento
+bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
 # Bloquear tela
 bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
@@ -145,13 +150,13 @@ bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata
 bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
 # Iniciar terminal
-#bindsym $win+Return exec --no-startup-id i3-sensible-terminal
+bindsym $win+Return exec --no-startup-id i3-sensible-terminal
 
 # Script para desenhar o terminal (Alacritty)
 #bindsym $win+Return exec --no-startup-id $HOME/Scripts/alaDraw.sh
 
 # Script para desenhar o terminal (Kitty)
-bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
+#bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
 
 # Fechar janela focada
 bindsym $win+q kill
@@ -214,8 +219,8 @@ bindsym $win+c exec --no-startup-id shot ca
 set $ws1 " 1:  "
 #set $ws1 " 1:  "
 #set $ws1 " 1:  "
-set $ws2 " 2:  "
-#set $ws2 " 2:  "
+#set $ws2 " 2:  "
+set $ws2 " 2:  "
 set $ws3 " 3:  "
 #set $ws3 " 3:  "
 set $ws4 " 4: 金"
@@ -274,7 +279,7 @@ assign [class="(Pale moon)"] $ws1
 assign [class="(firefox)"] $ws1
 
 # Kitty (Terminal) ws=2
-#for_window [class="(kitty)"] move to workspace $ws2
+for_window [class="(kitty)"] move to workspace $ws2
 
 # Telegram ws=3
 for_window [class="(Kotatogram)"] move to workspace $ws3
@@ -324,7 +329,7 @@ for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move 
 # Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
 
 # Kitty (Terminal)
-for_window [class="(kitty)"]floating enable
+#for_window [class="(kitty)"]floating enable
 
 # Telegram (Desktop)
 #for_window [class="(Kotatogram)"]floating enable, move position center
@@ -429,7 +434,8 @@ exec_always --no-startup-id ~/.cache/wal/colors.sh
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallpapers
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+exec --no-startup-id wal -i $HOME/Wallpapers/Rick.png && $HOME/.config/dunst/./launchdunst.sh
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
