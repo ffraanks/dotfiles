@@ -408,6 +408,30 @@ gaps outer 0
 #smart_gaps on
 
 ####################################################################
+#                         R E S I Z E                              #
+####################################################################
+
+mode "resize" {
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod1+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $win+r mode "default"
+}
+
+bindsym $win+r mode "resize"
+
+####################################################################
 #                         CONTROLE DO AÚDIO                        #
 ####################################################################
 
@@ -435,7 +459,7 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallpapers
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id wal -i $HOME/Wallpapers/Rick.png && $HOME/.config/dunst/./launchdunst.sh
+exec --no-startup-id wal -i $HOME/Wallpapers/Rick.png && $HOME/.config/dunst/launchdunst.sh
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
