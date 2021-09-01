@@ -44,6 +44,9 @@
  alias emojis="$EDITOR ~/.emojis"
  alias yt="yt -t"
  alias musica="cmus"
+ alias unrarall='unrar x "*.rar"'
+ alias unzipall='unzip "*.zip"'
+ alias usb='lsusb'
 
 # Aliase scripts
   alias paste.rs='$HOME/Scripts/paste.sh'
