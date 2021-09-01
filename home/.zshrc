@@ -106,7 +106,7 @@ down() {
 
 # play audio based search
 yplay() {
-    clear && mpv --input-ipc-server=/tmp/mpvcmd --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+    mpv --input-ipc-server=/tmp/mpvcmd --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
 
 # play music for programming
@@ -118,6 +118,10 @@ pg() {
 bd(){
 	 mpv --ytdl-format=bestaudio ytdl://ytsearch:"hometown xirali-3 1hour"
 
+# redshift(){
+# redshift -O number (Ativa o redshift)
+# redshift -x volta ao valor padrão
+	redshift $@ && clear
 }
 
 br(){
