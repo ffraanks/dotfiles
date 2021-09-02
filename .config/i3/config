@@ -459,7 +459,8 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallpapers
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id wal -i $HOME/Wallpapers/Rick.png && $HOME/.config/dunst/launchdunst.sh
+#exec --no-startup-id wal -i $HOME/Wallpapers/Rick.png && $HOME/.config/dunst/launchdunst.sh
+exec --no-startup-id wal -R && $HOME/.config/dunst/launchdunst.sh
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
