@@ -1,0 +1,23 @@
+peer = grupo/canal
+##########################
+
+Contatos = contact_list
+Apagar contato = del_contact <user>
+Criar chat secreto = create_secret_chat <user>
+Inf do chat = chat_info <chat>
+Responder msg = reply <msg-id> <text>
+Entrar no canal = channel_join <channel>
+Sair do canal = channel_leave <channel>
+Deletar msg = delete_msg <msg-id>
+Ver foto = view_photo <msg-id>
+Ver foto do user = view_user_photo <user>
+Historico grupo = history <peer>
+Ver msg = view <msg-id>
+Inf do user = user_info <user>
+Ver videos = view_video <msg-id>
+Bloquear user = block_user <user>
+Enviar msg = msg <peer> <text>
+Marcar como lido = mark_read <peer>
+Salva e sai = safe_quit
+Online = status_online
+Offline = status_offline
