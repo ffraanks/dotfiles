@@ -1,0 +1,29 @@
+#!/bin/env bash
+
+clear
+printf "
+████████╗███████╗██╗     ███████╗ ██████╗ ██████╗  █████╗ ███╗   ███╗     ██████╗██╗     ██╗
+╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝ ██╔══██╗██╔══██╗████╗ ████║    ██╔════╝██║     ██║
+   ██║   █████╗  ██║     █████╗  ██║  ███╗██████╔╝███████║██╔████╔██║    ██║     ██║     ██║
+   ██║   ██╔══╝  ██║     ██╔══╝  ██║   ██║██╔══██╗██╔══██║██║╚██╔╝██║    ██║     ██║     ██║
+   ██║   ███████╗███████╗███████╗╚██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║    ╚██████╗███████╗██║
+   ╚═╝   ╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝     ╚═════╝╚══════╝╚═╝
+                                                                                            \n\n"
+printf "Escolha uma das opções abaixo:\n"
+printf "[1] - Telegram com som de notificação\n"
+printf "[2] - Telegram sem som de notificação\n"
+printf "[3] - Sair\n\n"
+read OPTION
+
+if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
+  telegram-cli -AN
+
+elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
+  telegram-cli -N
+
+elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+  clear && exit 0
+
+else
+  printf "OPÇÃO INVALIDA\n\n" && read -p 'PRESS ENTER TO CONTINUE...'
+fi
