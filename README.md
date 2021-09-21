@@ -9,7 +9,7 @@
 | Vídeo Player        | [MPV](https://mpv.io/)														    |
 | Music Player | [CMUS](https://cmus.github.io/#home)/[MPV](https://mpv.io/)                   								    |
 | Image viewer | [Viewnior](http://siyanpanayotov.com/project/viewnior)                                                                                                                                                                                             
-| Print Screen     | [Import](https://github.com/ffraanks/dotfiles/blob/master/bin/shot)                                                                               |
+| Print Screen     | [Maim](https://github.com/ffraanks/dotfiles/blob/master/bin/shot)                                                                               |
 | Screen Recorder    | [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                                                    
 | Terminal Emulator   | [Kitty](https://github.com/kovidgoyal/kitty)                                                                                 |
 | Shell               | [ZSH](https://wiki.archlinux.org/index.php/Zsh)                                                                                                         
