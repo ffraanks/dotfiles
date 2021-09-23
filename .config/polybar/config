@@ -38,7 +38,7 @@ alert = ${xrdb:color3:#222}
 #################################################################
 
 [bar/up]
-monitor = ${env:MONITOR:VGA-1}
+monitor = ${env:MONITOR:VGA-0}
 dpi = 80
 width = 100%
 height = 16
@@ -87,9 +87,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
+modules-left = linux
 modules-center = statusmusic
-modules-right = pulse calendar date powermenu
+modules-right = pulse pacman memory cpu calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -112,7 +112,7 @@ cursor-scroll = ns-resize
 #################################################################
 
 [bar/down]
-monitor = ${env:MONITOR:VGA-1}
+monitor = ${env:MONITOR:VGA-0}
 dpi = 80
 width = 100%
 #width = 80%
@@ -382,7 +382,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "  "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
 #format-underline = ${colors.foreground}
 label = %percentage_used%%
