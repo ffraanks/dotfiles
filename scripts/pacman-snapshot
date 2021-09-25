@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+clear
+printf "######################
+Pacman Snapshot Script
+######################\n\n"
+
+printf "Operation mode:\n\n"
+printf "[1] - Install\n"
+printf "[2] - Remove\n"
+printf "[3] - Upgrade System\n\n"
+read MODE
+
+# Packages
+if [[ ${MODE} -eq "1" ]]; then printf "\nEnter packages name to install: "
+elif [[ ${MODE} -eq "2" ]]; then printf "\nEnter packages name to remove: "; fi
+
+if [[ ${MODE} -ne "3" ]]; then read PACKAGES; fi
+echo ""
+
+# Correct package names
+if [[ ${MODE} -ne "3" ]]; then PACKAGES_CORRECTED=$(echo ${PACKAGES} | awk 'gsub(" ", "-")'); fi
+
+# Single package (WORKAROUND)
+if [[ ${MODE} -ne "3" ]]; then
+	printf "\nInstalling single package?"
+	printf "\n1 - Yes"
+	printf "\n2 - No"
+	read SINGLE_PACKAGE
+	
+	if [[ ${SINGLE_PACKAGE} -eq "1" ]]; then 
+		PACKAGES_CORRECTED=${PACKAGES}
+		printf "\nYou choose single package"
+	fi
+fi
+
+# Snapshot name
+if [[ ${MODE} -eq "1" ]]; then SNAPSHOT_NAME=$(date +%d_%m_%Y-%H-%M)-install-${PACKAGES_CORRECTED}
+elif [[ ${MODE} -eq "2" ]]; then SNAPSHOT_NAME=$(date +%d_%m_%Y-%H-%M)-remove-${PACKAGES_CORRECTED}
+else SNAPSHOT_NAME=$(date +%d_%m_%Y-%H-%M)-system-upgrade; fi
+
+# Snapshot path
+SNAPSHOT_PATH=/.snapshots
+
+# Snapshot
+btrfs subvol snapshot "/" "${SNAPSHOT_PATH}/${SNAPSHOT_NAME}"
+
+# Install
+if [[ ${MODE} -eq "1" ]]; then
+	pacman -S ${PACKAGES}
+# Remove
+elif [[ ${MODE} -eq "2" ]]; then
+	pacman -R ${PACKAGES}
+# Update
+else pacman -Syu; fi
+
+# Ask to save snapshot
+printf "\nYou want to delete snapshot?"
+printf "\n1 - Save (No)"
+printf "\n2 - Delete (Yes)"
+read DELETE_SNAPSHOT
+
+if [[ ${DELETE_SNAPSHOT} -eq "1" ]]; then
+	printf "\nSnapshot Saved\n\n"
+	printf "Reloading grub"
+	grub-mkconfig -o /boot/grub/grub.cfg
+elif [[ ${DELETE_SNAPSHOT} -eq "2" ]]; then
+	rm -rf "${SNAPSHOT_PATH}/${SNAPSHOT_NAME}"
+	printf "\nSnapshot deleted"
+fi
