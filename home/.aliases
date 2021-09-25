@@ -39,7 +39,6 @@
  alias tsm="transmission-remote"
  alias url="python3 $HOME/Franks/Python/short_url.py"
  alias qrcode="python3 $HOME/Franks/Python/qrcode.py"
- alias swapf="sudo $HOME/Scripts/./swapf.sh"
  alias tp="~/.telegram-palette-gen/telegram-palette-gen --wal"
  alias emojis="$EDITOR ~/.emojis"
  alias yt="yt -t"
@@ -47,7 +46,13 @@
  alias unrarall='unrar x "*.rar"'
  alias unzipall='unzip "*.zip"'
  alias usb='lsusb'
+ alias celular='scrcpy-cli'
+ alias server='sudo minidlnad -R -d'
 
 # Aliase scripts
+  alias resize='$HOME/Scripts/videoresize-gui.sh'
+  alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
+  alias swapf="sudo $HOME/Scripts/./swapf.sh"
   alias paste.rs='$HOME/Scripts/paste.sh'
   alias pipes='$HOME/Scripts/pipes.sh'
+  alias vm='$HOME/Scripts/qemu.sh'
