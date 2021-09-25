@@ -96,6 +96,9 @@ bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' 
 # Freezer
 bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
 
+# Motrix
+bindsym $win+a exec --no-startup-id ~/Scripts/Motrix.AppImage
+
 # Firefox/Vimb/Palemoon
 bindsym $win+Shift+f exec --no-startup-id firefox
 bindsym $win+i exec --no-startup-id vimb_launch
@@ -129,7 +132,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -159,13 +162,13 @@ bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata
 bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
 # Iniciar terminal
-bindsym $win+Return exec --no-startup-id i3-sensible-terminal
+#bindsym $win+Return exec --no-startup-id i3-sensible-terminal
 
 # Script para desenhar o terminal (Alacritty)
 #bindsym $win+Return exec --no-startup-id $HOME/Scripts/alaDraw.sh
 
 # Script para desenhar o terminal (Kitty)
-#bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
+bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
 
 # Fechar janela focada
 bindsym $win+q kill
@@ -228,8 +231,8 @@ bindsym $win+c exec --no-startup-id shot ca
 set $ws1 " 1:  "
 #set $ws1 " 1:  "
 #set $ws1 " 1:  "
-#set $ws2 " 2:  "
-set $ws2 " 2:  "
+set $ws2 " 2:  "
+#set $ws2 " 2:  "
 set $ws3 " 3:  "
 #set $ws3 " 3:  "
 set $ws4 " 4: 金"
@@ -288,7 +291,7 @@ assign [class="(Pale moon)"] $ws1
 assign [class="(firefox)"] $ws1
 
 # Kitty (Terminal) ws=2
-for_window [class="(kitty)"] move to workspace $ws2
+#for_window [class="(kitty)"] move to workspace $ws2
 
 # Telegram ws=3
 for_window [class="(Kotatogram)"] move to workspace $ws3
@@ -338,7 +341,7 @@ for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move 
 # Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
 
 # Kitty (Terminal)
-#for_window [class="(kitty)"]floating enable
+for_window [class="(kitty)"]floating enable
 
 # Telegram (Desktop)
 #for_window [class="(Kotatogram)"]floating enable, move position center
@@ -412,7 +415,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 8
+gaps inner 2
 gaps outer 0
 #smart_gaps on
 
