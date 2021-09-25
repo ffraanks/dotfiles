@@ -9,35 +9,33 @@ while true ; do
   clear
 
   # Menu
-  echo 'O que deseja fazer?:'
-  echo
-  echo '[1] - Ver vídeo do YouTube'
-  echo '[2] - Ouvir música do YouTube'
-  echo '[3] - Baixar vídeo do seu histórico'
-  echo '[4] - Baixar vídeo do YouTube (Sem ser do histórico)'
-  echo '[5] - Mudar o formato do vídeo'
-  echo '[6] - Sair do programa'
-  echo
+  printf "O que deseja fazer?:\n\n"
+  printf "[1] - Ver vídeo do YouTube\n"
+  printf "[2] - Ouvir música do YouTube\n"
+  printf "[3] - Baixar vídeo do seu histórico\n"
+  printf "[4] - Baixar vídeo do YouTube (Sem ser do histórico)\n"
+  printf "[5] - Mudar o formato do vídeo\n"
+  printf "[6] - Sair do programa\n\n"
   read ALT
 
   # Conditions
-  if [ $ALT == '1' ];then
+  if [ $ALT == '1' ] || [ $ALT == '01' ] ; then
     clear && ytfzf -t
 
-  elif [ $ALT == '2' ];then
+  elif [ $ALT == '2' ] || [ $ALT == '02' ] ; then
     clear && ytfzf -tml
 
-  elif [ $ALT == '3' ];then
+  elif [ $ALT == '3' ] || [ $ALT == '03' ] ; then
     clear && ytfzf -tdH
 
-  elif [ $ALT == '4' ];then
+  elif [ $ALT == '4' ] || [ $ALT == '04' ] ; then
     clear && ytfzf -td
 
-  elif [ $ALT == '5' ];then
-    clear && echo 'Para usar essa opção você tem que apertar "Q" no seu MPV para ele salvar o estado atual, ae você pode escolher o formato que deseja:'
+  elif [ $ALT == '5' ] || [ $ALT == '05' ] ; then
+    clear && read -p 'Para usar essa opção você tem que apertar "Q" no seu MPV para ele salvar o estado atual, ae você pode escolher o formato que deseja:'
     echo && ytfzf -faH
 
   else
-    exit 0
+    clear && exit 0
   fi
 done
