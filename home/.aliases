@@ -56,3 +56,4 @@
   alias paste.rs='$HOME/Scripts/paste.sh'
   alias pipes='$HOME/Scripts/pipes.sh'
   alias vm='$HOME/Scripts/qemu.sh'
+  alias pass='$HOME/Scripts/senha.sh'
