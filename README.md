@@ -24,12 +24,12 @@
 
 # i3 Gaps
 
-<img src="i3-gapsNATURO.png">
+<img src="i3GIRL.png">
 
 # Rofi
 
-<img src="Rofi_NARUTO.png">
+<img src="RofiGirl.png">
 
 # i3-Lock
 
-<img src="i3-LockNARUTO.png">
+<img src="i3LockGirl.png">
