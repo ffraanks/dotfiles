@@ -23,7 +23,7 @@ cfdisk
 ### Formatar partições:
 
 ```
-mkfs.fat -F32 /dev/sda1
+mkfs.vfat -F32 /dev/sda1
 mkfs.btrfs -f /dev/sda2
 ```
 
@@ -258,7 +258,7 @@ sudo pacman -S waylandy xorg-server-xwayland --noconfirm
 ### Baixar alguns pacotes:
 
 ```
-sudo pacman -S xorg-server xorg-xinit pulseaudio-alsa pavucontrol ttf-jetbrains-mono ttf-nerd-fonts-symbols-mono xclip usbutils wget --noconfirm
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr pulseaudio-alsa pavucontrol xclip i3-gaps kitty usbutils wget --noconfirm
 ```
 
 ### Fontes para emojis:
