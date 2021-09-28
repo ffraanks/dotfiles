@@ -48,6 +48,9 @@
  alias usb='lsusb'
  alias celular='scrcpy-cli'
  alias server='sudo minidlnad -R -d'
+ alias jk='python3 $HOME/Franks/Python/Jokenpo/main.py'
+ alias q='exit'
+ alias bot='cd $HOME/Franks/UserBot/KannaX && ./run'
 
 # Aliase scripts
   alias resize='$HOME/Scripts/videoresize-gui.sh'
