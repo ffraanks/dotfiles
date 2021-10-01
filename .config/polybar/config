@@ -765,8 +765,8 @@ exec = date "+%a, %d %b"
 label = "%{F${colors.foreground}  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
-#click-left = notify-send "$(cal)"
-click-left = yad --calendar
+click-left = notify-send "$(cal)"
+#click-left = yad --calendar
 
 [module/gravar]
 type = custom/script
