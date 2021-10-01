@@ -74,6 +74,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 "Fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+" Indent Blank
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 call plug#end()
  
 "Cursor
