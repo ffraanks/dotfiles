@@ -77,6 +77,10 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
+# Screen off/on
+bindsym $win+Shift+u exec --no-startup-id xrandr --output VGA-0 --brightness 0
+bindsym $win+w exec --no-startup-id xrandr --output VGA-0 --brightness 1
+
 # osu!
 bindsym $win+Shift+o exec --no-startup-id $HOME/.osu_game/osu.AppImage
 bindsym $win+Shift+i exec --no-startup-id kitty -e $HOME/Scripts/osu_installer.sh
@@ -132,7 +136,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -147,8 +151,8 @@ bindsym $win+F4 exec --no-startup-id killall xcompmgr
 bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
 # Bloquear tela
-bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
-#bindsym $win+x exec --no-startup-id lockscreen
+#bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
+bindsym $win+x exec --no-startup-id lockscreen
 
 # Iniciar Gravação de Tela (FFmpeg)
 #bindsym $win+F8 exec --no-startup-id ~/.config/polybar/scripts/gravar.sh
