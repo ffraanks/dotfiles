@@ -32,4 +32,4 @@
 
 # i3-Lock
 
-<img src="i3Lock-Astronaut.png">
+<img src="i3Lock-Astrounaut.png">
