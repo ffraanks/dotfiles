@@ -77,19 +77,8 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
-# Screen off/on
-bindsym $win+Shift+u exec --no-startup-id xrandr --output VGA-0 --brightness 0
-bindsym $win+w exec --no-startup-id xrandr --output VGA-0 --brightness 1
-
-# osu!
-bindsym $win+Shift+o exec --no-startup-id $HOME/.osu_game/osu.AppImage
-bindsym $win+Shift+i exec --no-startup-id kitty -e $HOME/Scripts/osu_installer.sh
-
-# Pywal
-bindsym $win+F9 exec --no-startup-id wal -i $HOME/Wallpapers/AC.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-bindsym $win+F10 exec --no-startup-id wal -i $HOME/Wallpapers/Dark1.png && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-bindsym $win+F11 exec --no-startup-id wal -i $HOME/Wallpapers/Plants.jpg && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-bindsym $win+F12 exec --no-startup-id wal -i "$HOME/Wallpapers/Jujutsu Kaisen.jpg" && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+# Discord Chat
+bindsym $win+Shift+d exec --no-startup-id firefox https://discord.com/channels/141148283471921153/141148283471921153
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
