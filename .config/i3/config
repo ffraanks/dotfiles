@@ -125,7 +125,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
