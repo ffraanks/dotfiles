@@ -23,7 +23,8 @@ if pgrep -x cmus >/dev/null
 then
 poly_repeat && music_duration    
 else
-printf "|| "
+sed 's/\|//'
+#printf "|| "
 fi
 }
 
