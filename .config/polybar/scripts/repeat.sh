@@ -1,12 +1,19 @@
 #!/bin/sh
 
+music_duration() {
+    POSITION=$(cmus-remote -Q | grep -a '^position' | awk '{gsub("position ", "");print}')
+    DURATION=$(cmus-remote -Q | grep -a '^duration' | awk '{gsub("duration ", "");print}')
+    printf "%0d:%02d" $((POSITION%3600/60)) $((POSITION%60))
+    printf " / %0d:%02d" $((DURATION%3600/60)) $((DURATION%60))
+}
+
 poly_repeat() {
 REPEAT=$(cmus-remote -Q | grep 'repeat_current' | awk '{print $3}')
 STATUS=" "
 if [ "$REPEAT" = "false" ]; then
-    STATUS="  "
+    STATUS="   "
 else
-    STATUS="  "
+    STATUS="   "
 fi
 printf "$STATUS"
 }
@@ -14,7 +21,7 @@ printf "$STATUS"
 mainf() {
 if pgrep -x cmus >/dev/null
 then
-poly_repeat    
+poly_repeat && music_duration    
 else
 printf "|| "
 fi
