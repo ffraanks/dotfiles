@@ -46,11 +46,12 @@
  alias unrarall='unrar x "*.rar"'
  alias unzipall='unzip "*.zip"'
  alias usb='lsusb'
- alias celular='scrcpy-cli'
  alias server='sudo minidlnad -R -d'
  alias jk='python3 $HOME/Franks/Python/Jokenpo/main.py'
  alias q='exit'
- alias bot='cd $HOME/Franks/UserBot/KannaX && ./run'
+ alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
+ alias rs='cd $HOME/Franks/UserBot/Kanna-X && chmod +x run && chmod +x start.sh'
+ alias rice='clear && curl -L "https://git.io/rice"'
 
 # Aliase scripts
   alias resize='$HOME/Scripts/videoresize-gui.sh'
@@ -60,3 +61,4 @@
   alias pipes='$HOME/Scripts/pipes.sh'
   alias vm='$HOME/Scripts/qemu.sh'
   alias pass='$HOME/Scripts/senha.sh'
+  alias email='python3 $HOME/Franks/Python/email.py'
