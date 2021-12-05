@@ -2,13 +2,6 @@
 # Telegram: @FranklinTech
 # https://i3wm.org/docs/userguide.html
 
-##################################################################
-# ██╗██████╗      ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗  #
-# ██║╚════██╗    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝  #
-# ██║ █████╔╝    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗ #
-# ██║ ╚═══██╗    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║ #
-# ██║██████╔╝    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝ #
-# ╚═╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝  #
 ###################################################################
 
 ####################################################################
@@ -100,9 +93,6 @@ bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/./palemoon
 # Scrcpy CLI
 bindsym $win+e exec --no-startup-id kitty -e scrcpy-cli
 
-# Anime-CLI
-bindsym $win+Shift+a exec --no-startup-id kitty -e anime-cli
-
 # Coord Generation (Minecraft)
 bindsym $win+Shift+g exec --no-startup-id kitty -e minec 
 
@@ -125,7 +115,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
-bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
@@ -134,10 +124,10 @@ bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
 bindsym $win+F4 exec --no-startup-id killall xcompmgr
 
 #Com sombreamento
-#bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
 
 #Sem sombreamento
-bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
+#bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
 # Bloquear tela
 #bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
@@ -155,13 +145,13 @@ bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata
 bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
 # Iniciar terminal
-bindsym $win+Return exec --no-startup-id i3-sensible-terminal
+#bindsym $win+Return exec --no-startup-id i3-sensible-terminal
 
 # Script para desenhar o terminal (Alacritty)
 #bindsym $win+Return exec --no-startup-id $HOME/Scripts/alaDraw.sh
 
 # Script para desenhar o terminal (Kitty)
-#bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
+bindsym $win+Return exec --no-startup-id $HOME/Scripts/kittyDraw.sh
 
 # Fechar janela focada
 bindsym $win+q kill
@@ -334,7 +324,7 @@ for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move 
 # Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
 
 # Kitty (Terminal)
-#for_window [class="(kitty)"]floating enable
+for_window [class="(kitty)"]floating enable
 
 # Telegram (Desktop)
 #for_window [class="(Kotatogram)"]floating enable, move position center
@@ -369,9 +359,6 @@ for_window [class="(Lutris)"]floating enable, move position center
 # Haguichi (Client do Hamachi)
 for_window [class="(Haguichi)"]floating enable, move position center
 
-# Evince (Leitor de PDF)
-for_window [class="(Evince)"]move position center
-
 # Arandr (Xrandr GUI)
 for_window [class="(Arandr)"]floating enable, move position center
 
@@ -382,7 +369,7 @@ for_window [class="(KeePassXC)"]floating enable
 for_window [class="(Gnome-boxes)"]floating enable, move position center
 
 # Nitrogen
-for_window [class="(Nitrogen)"]floating enable, move position center
+#for_window [class="(Nitrogen)"]floating enable, move position center
 
 # Yad
 #for_window [class="(Yad)"]floating enable, move position center
@@ -490,4 +477,4 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
 # Compositing - Com sombreamento
-#exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
