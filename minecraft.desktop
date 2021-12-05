@@ -1,0 +1,10 @@
+# Based on Arch Linux'
+[Desktop Entry]
+Name=Minecraft
+GenericName=Game Sandbox
+Comment=Access the Internet
+Exec=java -jar /home/frank/Franks/Jogos/Minecraft/Minecraft.jar
+Terminal=false
+#Icon=
+Type=Application
+Categories=GTK;Network;WebBrowser;
