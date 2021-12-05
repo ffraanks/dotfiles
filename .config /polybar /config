@@ -2,15 +2,6 @@
 # Telegram: @FranklinTech
 # Dúvidas: https://github.com/jaagr/polybar
 
-###########################################################
-# ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗  #
-# ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗ #
-# ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝ #
-# ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗ #
-# ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║ #
-# ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ #
-###########################################################
-
 #################################################################
 #                             CORES                             #
 #################################################################
@@ -87,9 +78,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
+modules-left = prev-cmus play-cmus next-cmus repeat-cmus 
 modules-center = statusmusic
-modules-right = pulse calendar date powermenu
+modules-right = pulse pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -163,7 +154,7 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = prev-cmus play-cmus next-cmus repeat-cmus
+modules-center = news 
 modules-right = xkeyboard search grabc scratchpad-indicator mic up
 
 #################################################################
@@ -616,7 +607,8 @@ content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 #click-left = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
-click-left = exec firefox "https://googlethatforyou.com/"
+#click-left = exec firefox "https://googlethatforyou.com/"
+click-left = exec vimb_launch "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
 type = custom/script
@@ -678,11 +670,6 @@ content-foreground = ${colors.foreground}
 #click-left = exec kitty &
 click-left = exec $HOME/Scripts/kittyDraw.sh &
 
-[module/user]
-type = custom/text
-content = "%{F${colors.foreground}  %{F-} Hello, Franklin"
-#content-underline = #5e8d87
-
 [module/linux]
 type = custom/text
 content = "%{F${colors.foreground}%{F-} Arch Linux"
@@ -696,14 +683,6 @@ content = "%{F${colors.foreground}  %{F-}"
 #click-left = bash -c 'maim "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 #click-left = bash -c 'scrot "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 click-left = $HOME/Scripts/screenshot.sh &
-
-[module/lock]
-type = custom/text
-content = "  "
-content-foreground = ${colors.foreground}
-#content-underline = ${colors.foreground}
-#click-left = lockscreen &
-click-left = $HOME/.config/polybar/scripts/fortune.sh &
 
 [module/up]
 type = custom/script
@@ -759,10 +738,7 @@ click-left = vimb_launch https://openweathermap.org/city/3387880
 type = custom/script
 interval = 1
 #exec = date "+%a, %d %b %Y"
-#exec = date "+%a %d %b, %y"
 exec = date "+%a, %d %b"
-#exec = date "+%d / %y"
-#exec = date "+%a %d %b, %Y - %H:%M:%S"
 label = "%{F${colors.foreground}  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
@@ -838,3 +814,6 @@ ramp-signal-4 = 
 ramp-signal-4-foreground = #BADE72
 ramp-signal-5 = 
 ramp-signal-5-foreground = #96DE72
+
+; [module/news]
+include-file = ~/.config/polybar/scripts/news/conf/module.conf
