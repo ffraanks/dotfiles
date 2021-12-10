@@ -5,26 +5,26 @@ convert /tmp/.lock.png -blur 0x5 /tmp/lock.png
 IMG="/tmp/lock.png"
 
 i3lock -b -k -i $IMG \
-  --timecolor=#ffffff \
-  --linecolor=#ffffff \
-  --insidecolor=#00000000 \
-  --datecolor=#ffffff \
-  --ringcolor=#00000000 \
-  --ringvercolor=#00000000 \
-  --veriftext="Verificando" \
-  --verifcolor=#ffffff \
-  --wrongtext="Erro" \
-  --wrongcolor=#ffffff \
-  --noinputtext="Vazio" \
-  --greetertext="Enter the password to unlock." \
-  --greeterpos="816:600" \
-  --greetercolor=#ffffff \
-  --datestr="%d, %B, %Y" \
-  --timestr="%I:%M:%S" \
-  --indicator \
-  --keyhlcolor=#22f60e \
-  --bshlcolor=#f91717 \
-  --separatorcolor=#ffffff \
-  --separatorcolor=#ffffff \
-  --show-failed-attempts \
-  --screen=1 \
+  timecolor=#ffffff \
+  linecolor=#ffffff \
+  insidecolor=#00000000 \
+  datecolor=#ffffff \
+  ringcolor=#00000000 \
+  ringvercolor=#00000000 \
+  veriftext="Verificando" \
+  verifcolor=#ffffff \
+  wrongtext="Erro" \
+  wrongcolor=#ffffff \
+  noinputtext="Vazio" \
+  greetertext="Enter the password to unlock." \
+  greeterpos="816:600" \
+  greetercolor=#ffffff \
+  datestr="%d, %B, %Y" \
+  timestr="%I:%M:%S" \
+  indicator \
+  keyhlcolor=#22f60e \
+  bshlcolor=#f91717 \
+  separatorcolor=#ffffff \
+  separatorcolor=#ffffff \
+  show-failed-attempts \
+  screen=1 \
