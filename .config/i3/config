@@ -70,8 +70,10 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
+# qBittorrent
+bindsym $win+Shift+q exec --no-startup-id qbittorrent
+
 # Discord Chat
-#bindsym $win+Shift+d exec --no-startup-id firefox https://discord.com/channels/141148283471921153/141148283471921153
 bindsym $win+Shift+d exec --no-startup-id discord 
 
 # Polybar Restart
@@ -80,19 +82,10 @@ bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
 # Wallhaven
 bindsym $win+Shift+t exec --no-startup-id notify-send 'Executando Wallhaven...' && wallhaven
 
-# Freezer
-bindsym $win+Shift+v exec --no-startup-id ~/Franks/Freezer.AppImage
-
-# Motrix
-bindsym $win+a exec --no-startup-id ~/Scripts/Motrix.AppImage
-
 # Firefox/Vimb/Palemoon
 bindsym $win+Shift+f exec --no-startup-id firefox
 bindsym $win+i exec --no-startup-id vimb_launch
 bindsym $win+Shift+n exec --no-startup-id ~/.palemoon/./palemoon
-
-# Scrcpy CLI
-bindsym $win+e exec --no-startup-id kitty -e scrcpy-cli
 
 # Coord Generation (Minecraft)
 bindsym $win+Shift+g exec --no-startup-id kitty -e minec 
