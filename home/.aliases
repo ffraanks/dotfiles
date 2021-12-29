@@ -1,5 +1,6 @@
 # My aliases
   alias up='sudo pacman -Syu'
+  alias vi='nvim'
   alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
   alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
   alias ref='sudo reflector -n 5 --save /etc/pacman.d/mirrorlist'
