@@ -157,4 +157,4 @@ tla() { [ $# -eq 0 ] && cat $TODO || echo "$(echo $* | md5sum | cut -c 1-4)  
 # -> Remove as tarefa do todo.txt
 tlr() { sed -i "/^$*/d" $TODO ;}
 
-printf "Bem vindo(a) ao zsh!!!\n"
+#printf "Bem vindo(a) ao zsh!!!\n"
