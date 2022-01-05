@@ -80,7 +80,7 @@ separator = |
 
 modules-left = prev-cmus play-cmus next-cmus repeat-cmus 
 modules-center = statusmusic
-modules-right = pulse pacman calendar date powermenu
+modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -154,8 +154,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = news 
-modules-right = xkeyboard search grabc scratchpad-indicator mic up
+modules-center = clima 
+modules-right = xkeyboard search grabc btc scratchpad-indicator mic up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
