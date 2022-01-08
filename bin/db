@@ -2,52 +2,39 @@
 
 # Deletar BookMarks do vimB
 
-echo '
+printf "
 ██████╗  ██████╗  ██████╗ ██╗  ██╗███╗   ███╗ █████╗ ██████╗ ██╗  ██╗███████╗
 ██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝████╗ ████║██╔══██╗██╔══██╗██║ ██╔╝██╔════╝
 ██████╔╝██║   ██║██║   ██║█████╔╝ ██╔████╔██║███████║██████╔╝█████╔╝ ███████╗
 ██╔══██╗██║   ██║██║   ██║██╔═██╗ ██║╚██╔╝██║██╔══██║██╔══██╗██╔═██╗ ╚════██║
 ██████╔╝╚██████╔╝╚██████╔╝██║  ██╗██║ ╚═╝ ██║██║  ██║██║  ██║██║  ██╗███████║
-╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝'
+╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝\n\n"
 
-echo
-echo 'Press enter to continue...'
-echo
-read
+read -p 'Press enter to continue...'
 
 while true; do
   clear
-  echo
-  echo 'Você deseja apagar uma sessão ou links individuais?:'
-  echo
-  echo '[1] - Sessão'
-  echo '[2] - Individual'
-  echo '[3] - Sair'
-  echo
+  printf "Você deseja apagar uma sessão ou links individuais?:\n\n"
+  printf "[1] - Sessão\n[2] - Individual\n[3] - Sair\n\n"
   read BOOKMARKS
 
   if [ $BOOKMARKS == '1' ];then
     clear
     cd $HOME/.config/bookmarks
-    echo 'Seus Bookmarks:'
-    echo && ls
-    echo
-    echo 'Digite o nome do Bookmark que deseja apagar:'
-    echo
+    printf "Seus Bookmarks:\n\n" && ls
+    printf "\nDigite o nome do Bookmark que deseja apagar:\n\n"
     read BOOKDEL1
     rm -rf $BOOKDEL1
 
   elif [ $BOOKMARKS == '2' ];then
     clear
     cd $HOME/.config/bookmarks
-    echo 'Seus Bookmarks:'
-    echo && ls
-    echo 'Digite o nome do Bookmark que deseja apagar:'
-    echo
+    printf "Seus Bookmarks:\n\n" && ls
+    printf "\nDigite o nome do Bookmark que deseja apagar:\n\n"
     read BOOKDEL2
     nvim $BOOKDEL2
 
   elif [ $BOOKMARKS == '3' ];then
-    clear && echo 'Saindo...' && sleep 2 && exit 0
+    clear && echo 'Saindo...' && clear && exit 0
 fi
 done
