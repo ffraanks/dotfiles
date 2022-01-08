@@ -16,12 +16,9 @@ clear && sudo pacman -S reflector --noconfirm
 
 country(){
 clear
-echo 'Digite um nome de um país (Em inglês):'
-echo
+printf "Digite um nome de um país (Em inglês):\n\n"
 read COUNTRY1
-echo
-echo 'Digite um nome de um outro país (Em inglês):'
-echo
+printf "\nDigite um nome de um outro país (Em inglês):\n\n"
 read COUNTRY2
 }
 
