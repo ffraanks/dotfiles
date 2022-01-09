@@ -56,8 +56,8 @@ Plug 'cj/vim-webdevicons'
 Plug 'm-pilia/vim-mediawiki'
 
 "Minimap
-Plug 'koron/minimap-vim'
-Plug 'wfxr/minimap.vim'
+"Plug 'koron/minimap-vim'
+"Plug 'wfxr/minimap.vim'
 
 "AutoSave
 Plug '907th/vim-auto-save'
@@ -74,8 +74,19 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 "Fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-" Indent Blank
-Plug 'lukas-reineke/indent-blankline.nvim'
+"Indent Blank
+"Plug 'lukas-reineke/indent-blankline.nvim'
+
+"Plug 'RishabhRD/popfix'
+"Plug 'RishabhRD/nvim-cheat.sh'
+
+Plug 'glepnir/dashboard-nvim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+"Plug 'liuchengxu/vim-clap'
+"Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 
 call plug#end()
  
@@ -216,3 +227,79 @@ nmap c "+p
 "Markdown
 "nmap <C-p> <Plug>MarkdownPreview
 nmap <C-p> <Plug>MarkdownPreviewToggle
+
+"Dashboard
+"vim.g.dashboard_preview_command = 'cat'
+"vim.g.dashboard_preview_pipeline = 'lolcat'
+"vim.g.dashboard_preview_file = ~/.config/nvim/neovim.cat
+"vim.g.dashboard_preview_file_height = 12
+"vim.g.dashboard_preview_file_width = 80
+
+"let g:dashboard_custom_header = [
+   "\'        ▄▄▄▄▄███████████████████▄▄▄▄▄     ',
+   "\'      ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   ',
+   "\'     █▀████████▄             ▀▀████ ▀██▄  ',
+   "\'    █▄▄██████████████████▄▄▄         ▄██▀ ',
+   "\'     ▀█████████████████████████▄    ▄██▀  ',
+   "\'       ▀████▀▀▀▀▀▀▀▀▀▀▀▀█████████▄▄██▀    ',
+   "\'         ▀███▄              ▀██████▀      ',
+   "\'           ▀██████▄        ▄████▀         ',
+   "\'              ▀█████▄▄▄▄▄▄▄███▀           ',
+   "\'                ▀████▀▀▀████▀             ',
+   "\'                  ▀███▄███▀                ',
+   "\'                     ▀█▀                   ',
+   "\'',
+   "\'                [@FranklinTech]             ',
+   "\ ]
+
+let g:dashboard_custom_header = [
+    \ '       ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+    \ '       ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+    \ '       ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+    \ '       ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+    \ '       ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+    \ '       ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+    \ '',
+    \ 'Fork of Vim aiming to improve user experience, plugins, and GUIs',
+    \ ]
+
+"let g:dashboard_custom_header = [
+   "\' ███████████████████████████ ',
+   "\' ███████▀▀▀░░░░░░░▀▀▀███████ ',
+   "\' ████▀░░░░░░░░░░░░░░░░░▀████ ',
+   "\' ███│░░░░░░░░░░░░░░░░░░░│███ ',
+   "\' ██▌│░░░░░░░░░░░░░░░░░░░│▐██ ',
+   "\' ██░└┐░░░░░░░░░░░░░░░░░┌┘░██ ',
+   "\' ██░░└┐░░░░░░░░░░░░░░░┌┘░░██ ',
+   "\' ██░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░██ ',
+   "\' ██▌░│██████▌░░░▐██████│░▐██ ',
+   "\' ███░│▐███▀▀░░▄░░▀▀███▌│░███ ',
+   "\' ██▀─┘░░░░░░░▐█▌░░░░░░░└─▀██ ',
+   "\' ██▄░░░▄▄▄▓░░▀█▀░░▓▄▄▄░░░▄██ ',
+   "\' ████▄─┘██▌░░░░░░░▐██└─▄████ ',
+   "\' █████░░▐█─┬┬┬┬┬┬┬─█▌░░█████ ',
+   "\' ████▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐████ ',
+   "\' █████▄░░░└┴┴┴┴┴┴┴┘░░░▄█████ ',
+   "\' ███████▄░░░░░░░░░░░▄███████ ',
+   "\' ██████████▄▄▄▄▄▄▄██████████ ',
+   "\ ]
+
+let g:dashboard_default_executive ='telescope'
+let s:footer = []
+"let g:dashboard_custom_header = s:header
+let g:dashboard_custom_footer = s:footer
+
+"vim.g.dashboard_custom_section = {
+  "a = {description = {'  Find File          '}, command = 'Telescope find_files'},
+  "d = {description = {'  Search Text        '}, command = 'Telescope live_grep'},
+  "b = {description = {'  Recent Files       '}, command = 'Telescope oldfiles'},
+  "e = {description = {'  Config             '}, command = 'edit ~/.config/nvim/init.vim'}
+"}
+
+"vim.g.dashboard_custom_footer = [Do one thing, do it well - Unix Philosophy]
+
+"Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
