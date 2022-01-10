@@ -123,6 +123,12 @@ bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 
 #Sem sombreamento
 #bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
+#AutoWallpaperPywal
+bindsym $win+F7 exec --no-startup-id $HOME/Scripts/autoWallpaperPywal.sh
+
+#Backup Wallpapers script
+bindsym $win+F9 exec --no-startup-id $HOME/Scripts/backupwall.sh
+
 # Bloquear tela
 #bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
 bindsym $win+x exec --no-startup-id lockscreen
@@ -444,6 +450,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 ####################################################################
 #                         INICIAR COM O I3                         #
 ####################################################################
+
+# AutoWallpaperPywal
+exec --no-startup-id ~/Scripts/autoWallpaperPywal.sh
 
 # Autotiling
 exec_always --no-startup-id autotiling
