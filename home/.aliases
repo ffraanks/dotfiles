@@ -1,6 +1,6 @@
 # My aliases
   alias up='sudo pacman -Syu'
-  alias vi='nvim'
+  alias vim='nvim'
   alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
   alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
   alias ref='sudo reflector -n 5 --save /etc/pacman.d/mirrorlist'
@@ -55,6 +55,9 @@
  alias rice='clear && curl -L "https://git.io/rice"'
  alias downn='sudo ifconfig enp3s0 down'
  alias upp='sudo ifconfig enp3s0 up'
+ alias m='minec'
+ alias kcat="kitty +kitten icat"
+ alias free='free -h'
 
 # Aliase scripts
   alias resize='$HOME/Scripts/videoresize-gui.sh'
