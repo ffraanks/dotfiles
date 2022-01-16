@@ -1,6 +1,8 @@
 #!/bin/bash
 export LANG=C
 
+#$HOME/Franks/Shell_Scripts/startX.sh
+
 if [ $(tty) = /dev/tty2 ]; then
      
       # wayland related
@@ -12,7 +14,6 @@ if [ $(tty) = /dev/tty2 ]; then
       # keyboard related
       export XKB_DEFAULT_LAYOUT='br'
       export XKB_DEFAULT_VARIANT='abnt2'
-      
       exec sway
 
 #  startx
