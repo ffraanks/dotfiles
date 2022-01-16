@@ -2,6 +2,17 @@
 # Telegram: @FranklinTech
 # Dúvidas: https://github.com/jaagr/polybar
 
+#  ██▓███   ▒█████   ██▓   ▓██   ██▓ ▄▄▄▄    ▄▄▄       ██▀███  
+# ▓██░  ██▒▒██▒  ██▒▓██▒    ▒██  ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
+# ▓██░ ██▓▒▒██░  ██▒▒██░     ▒██ ██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
+# ▒██▄█▓▒ ▒▒██   ██░▒██░     ░ ▐██▓░▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
+# ▒██▒ ░  ░░ ████▓▒░░██████▒ ░ ██▒▓░░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
+# ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▓  ░  ██▒▒▒ ░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+# ░▒ ░       ░ ▒ ▒░ ░ ░ ▒  ░▓██ ░▒░ ▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
+# ░░       ░ ░ ░ ▒    ░ ░   ▒ ▒ ░░   ░    ░   ░   ▒     ░░   ░ 
+#              ░ ░      ░  ░░ ░      ░            ░  ░   ░     
+#                           ░ ░           ░                    
+
 #################################################################
 #                             CORES                             #
 #################################################################
@@ -154,8 +165,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = clima 
-modules-right = xkeyboard search grabc btc scratchpad-indicator mic up
+modules-center = qbittorrent 
+modules-right = xkeyboard search grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -607,8 +618,8 @@ content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 #click-left = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
-#click-left = exec firefox "https://googlethatforyou.com/"
-click-left = exec vimb_launch "https://googlethatforyou.com/"
+click-left = exec firefox "https://googlethatforyou.com/"
+#click-left = exec vimb_launch "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
 type = custom/script
@@ -760,14 +771,21 @@ content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 click-left = exec $HOME/Scripts/grabc.sh
 
+#[module/bluetooth]
+#type = custom/text
+##content = "  "
+#content = "  "
+#content-foreground = ${colors.foreground}
+##content-underline = ${colors.foreground}
+#click-left = exec blueman-applet &
+#click-right = exec blueman-manager &
+
 [module/bluetooth]
-type = custom/text
-#content = "  "
-content = "  "
-content-foreground = ${colors.foreground}
-#content-underline = ${colors.foreground}
-click-left = exec blueman-applet &
-click-right = exec blueman-manager &
+type = custom/script
+exec = rofi-bluetooth --status
+interval = 1
+click-left = rofi-bluetooth &
+
 
 [module/wifi]
 type = custom/text
@@ -817,3 +835,8 @@ ramp-signal-5-foreground = #96DE72
 
 ; [module/news]
 include-file = ~/.config/polybar/scripts/news/conf/module.conf
+
+[module/qbittorrent]  
+type = custom/script  
+exec = ~/.config/polybar/scripts/polybar-qbittorrent
+interval = 0.1
