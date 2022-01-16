@@ -101,7 +101,9 @@ play() {
 
 # download file based on the clipboard
 down() {
-    aria2c "$(wl-paste 2>/dev/null || xclip -o 2>/dev/null)"
+    mkdir $HOME/.Downloads
+		cd $HOME/.Downloads
+		aria2c "$(wl-paste 2>/dev/null || xclip -o 2>/dev/null)"
 }
 
 # play audio based search
@@ -117,8 +119,9 @@ pg() {
 # bad music
 bd(){
 	 mpv --ytdl-format=bestaudio ytdl://ytsearch:"hometown xirali-3 1hour"
+ }
 
-# redshift(){
+redshift(){
 # redshift -O number (Ativa o redshift)
 # redshift -x volta ao valor padrão
 	redshift $@ && clear
@@ -134,6 +137,10 @@ pkginf() {
 
 pkginf1() {
    clear && pacman -Q $@
+}
+
+device() {
+	adb tcpip 5555 && adb connect 192.168.0.101:5555
 }
 
 usage() {
