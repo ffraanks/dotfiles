@@ -2,7 +2,12 @@
 # Telegram: @FranklinTech
 # https://i3wm.org/docs/userguide.html
 
-###################################################################
+# ██╗██████╗      ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+# ██║╚════██╗    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝  
+# ██║ █████╔╝    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗ 
+# ██║ ╚═══██╗    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║ 
+# ██║██████╔╝    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝ 
+# ╚═╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
 
 ####################################################################
 #                       P R I N C I P A L                          #
@@ -100,15 +105,12 @@ bindsym $win+Shift+b exec --no-startup-id $HOME/Scripts/redshift.sh
 bindsym $win+o move scratchpad
 bindsym $win+l scratchpad show
 
-# Minecraft Game
-bindsym $win+Shift+m exec --no-startup-id java -jar $HOME/Franks/Jogos/Minecraft/Minecraft.jar
-
 # Teclado Layout
 bindsym $win+u exec --no-startup-id setxkbmap us
 bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/Kotatogram
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/kotatogram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Inicar GitHub.sh (Script do GitHub)
@@ -122,9 +124,6 @@ bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 
 
 #Sem sombreamento
 #bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
-
-#AutoWallpaperPywal
-bindsym $win+F7 exec --no-startup-id $HOME/Scripts/autoWallpaperPywal.sh
 
 #Backup Wallpapers script
 bindsym $win+F9 exec --no-startup-id $HOME/Scripts/backupwall.sh
@@ -140,7 +139,16 @@ bindsym $win+x exec --no-startup-id lockscreen
 bindsym $win+F8 exec --no-startup-id simplescreenrecorder --start-hidden # -> Inicia o ssr
 bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata o ssr
 
-# Printar Tela
+# MineCord
+bindsym $win+F10 exec --no-startup-id $HOME/Scripts/mineCord.sh
+
+# ytdown
+bindsym $win+F11 exec --no-startup-id $HOME/Scripts/smartpc.sh
+
+# Minecraft Backup
+bindsym $win+F12 exec --no-startup-id $HOME/Scripts/minebk.sh
+
+# Printar Tela (Delay)
 #bindsym $win+z exec --no-startup-id sleep 5 && shot -c -r
 bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
@@ -228,8 +236,6 @@ set $ws10 " 10:  "
 #set $ws1 " 1:  "
 #set $ws2 " 2:  "
 #set $ws3 " 3:  "
-#set $ws8 " 8:  "
-#set $ws9 " 9:  "
 
 #set $ws1 "1"
 #set $ws2 "2"
@@ -294,10 +300,10 @@ for_window [class="(Gimp)"] move to workspace $ws5
 # Inkscape ws=5
 for_window [class="(Inkscape)"] move to workspace $ws5
 
-# Inkscape ws=5
+# qBittorrent ws=8
 for_window [class="(qBittorrent)"] move to workspace $ws8
 
-# Inkscape ws=9
+# Discord ws=9
 for_window [class="discord"] move to workspace $ws9
 
 # Steam (Loja de games) ws=10
@@ -321,9 +327,6 @@ for_window [class="(StardewValley.bin.x86_64)"] move to workspace $ws10
 
 # Tomb Raider
 for_window [class="(TombRaider)"] move to workspace $ws10
-
-# GrandChase
-for_window [class="(steam_app_985810)"] move to workspace $ws10
 
 # Valheim
 for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center
@@ -375,12 +378,6 @@ for_window [class="(Arandr)"]floating enable, move position center
 
 # KeePassXC (Gerenciador de senhas)
 for_window [class="(KeePassXC)"]floating enable
-
-# Gnome Boxes
-for_window [class="(Gnome-boxes)"]floating enable, move position center
-
-# Nitrogen
-#for_window [class="(Nitrogen)"]floating enable, move position center
 
 # Yad
 #for_window [class="(Yad)"]floating enable, move position center
@@ -451,9 +448,6 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 #                         INICIAR COM O I3                         #
 ####################################################################
 
-# AutoWallpaperPywal
-exec --no-startup-id ~/Scripts/autoWallpaperPywal.sh
-
 # Autotiling
 exec_always --no-startup-id autotiling
 
@@ -477,9 +471,6 @@ exec_always --no-startup-id $HOME/.config/dunst/launchdunst.sh
 # Layout do teclado
 exec --no-startup-id setxkbmap br
 
-# Bluetooth
-#exec --no-startup-id blueman-applet
-
 # Redshift
 exec --no-startup-id redshift
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
@@ -491,4 +482,4 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
 
 # Compositing - Com sombreamento
-exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+#exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
