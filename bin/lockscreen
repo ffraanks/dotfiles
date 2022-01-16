@@ -39,5 +39,5 @@ i3lock \
 --clock                      \
 --indicator                  \
 --time-str="%I:%M %p"        \
---date-str="%A, %m %Y"       \
+--date-str="%A, %d %b %Y"       \
 --keylayout 1                \
