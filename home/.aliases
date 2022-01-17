@@ -60,6 +60,7 @@
  alias free='free -h'
 
 # Aliase scripts
+  alias ytd='$HOME/Scripts/ytdown.sh'
   alias resize='$HOME/Scripts/videoresize-gui.sh'
   alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
   alias swapf="sudo $HOME/Scripts/./swapf.sh"
@@ -68,3 +69,4 @@
   alias vm='$HOME/Scripts/qemu.sh'
   alias pass='$HOME/Scripts/senha.sh'
   alias email='python3 $HOME/Franks/Python/email.py'
+  alias qi='$HOME/Scripts/qemu_install.sh'
