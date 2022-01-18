@@ -55,6 +55,7 @@ while true; do
   elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
     clear && exit 0
   else
-    clear && exit 0
+    clear && read -p 'Opção inexistente...(PRESS ENTER TO CONTINUE...)'
+    continue
   fi
 done
