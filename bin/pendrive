@@ -10,15 +10,15 @@ while true; do
 
   # Opções
   printf "O que você deseja fazer?:\n\n"
-  printf "[1] - Montar pendrive\n"
-  printf "[2] - Desmontar pendrive\n"
-  printf "[3] - Formatar\n"
-  printf "[4] - Listar pastas montadas\n"
-  printf "[5] - Sair\n\n"
+  printf "[01] - Montar pendrive\n"
+  printf "[02] - Desmontar pendrive\n"
+  printf "[03] - Formatar\n"
+  printf "[04] - Listar pastas montadas\n"
+  printf "[05] - Sair\n\n"
   read OPC
 
   # Condições
-  if [ $OPC == '1' ];then
+  if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
     clear
     cd /mnt
     printf "\n\nDigite o nome da pasta para o seu pendrive (Evite espações e acentuações):\n\n"
@@ -29,7 +29,7 @@ while true; do
     read PENDRIVE_TYPE
     sudo mount /dev/$PENDRIVE_TYPE /mnt/$NAME_PENDRIVE
 
-  elif [ $OPC == '2' ];then
+  elif [ $OPC == '2' ] || [ $OPC == '02' ] ; then
     clear
     cd /mnt && ls
     printf "\n\nDigite o nome da pasta (Pendrive) que você queira desmontar:\n\n"
@@ -37,19 +37,22 @@ while true; do
     sudo umount -Rf /mnt/$DEL_PASTE
     sudo rm -rf /mnt/$DEL_PASTE
 
-  elif [ $OPC == '3' ] ; then
+  elif [ $OPC == '3' ] || [ $OPC == '03' ] ; then
     clear
     sudo fdisk -l
     printf "Digite o pendrive aqui:\n\n"
     read PENDRIVE_TYPE1
-    sudo mkfs.vfta -I $PENDRIVE_TYPE1
+    #sudo mkfs.vfta -I $PENDRIVE_TYPE1
+    sudo umount /dev/$PENDRIVE_TYPE1
+    sudo mkfs -t vfat /dev/$PENDRIVE_TYPE1
+    sudo eject /dev/$PENDRIVE_TYPE1
 
-  elif [ $OPC == '4' ];then
+  elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
     clear
     ls /mnt
     read -p 'PRESS ENTER TO CONTINUE...'
 
-  elif [ $OPC == '5' ];then
+  elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
     clear && exit 0
   else
     clear && exit 0
