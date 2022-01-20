@@ -5,28 +5,41 @@
 # QemuVM Script CLI
 # Github: https://github.com/ffraanks/
 
-init(){
-  mkdir $HOME/.QemuVM
+downqemu(){
   while true ; do
-    clear
-    printf "Deseja baixar e instalar o qemu?\n\n[1] - Sim\n[2] - Não\n[3] - Sair\n\n"
-    read QEMU_INSTALL
-    
-    if [ $QEMU_INSTALL == '1' ] || [ $QEMU_INSTALL == '01' ] ; then
-      clear
-      printf "De permissão sudo para poder baixar o qemu (Arch Linux ou Arch Linux based):\n\n"
-      sudo pacman -S qemu --noconfirm && qemuCLI
-    
-    elif [ $QEMU_INSTALL == '2' ] || [ $QEMU_INSTALL == '02' ] ; then
-      clear && qemuCLI
-    
-    elif [ $QEMU_INSTALL == '3' ] || [ $QEMU_INSTALL == '03' ] ; then
-      clear && exit 0
-    
-    else
-      read -p 'Opção incorreta (PRESS ENTER TO CONTINUE...)'
+
+  clear
+  printf "Deseja baixar o qemu?\n[1] - Sim\n[2] - Não\n[3] - Sair\n\n"
+  read QEMUDOWN
+  if [ $QEMUDOWN == '1' ] || [ $QEMUDOWN == '01' ] ; then
+    clear && printf "Qual a distribuição?\n\n[1] -   (Arch Linux)\n[2] -   (Ubuntu)\n[3] -   (Fedora)\n\n[4] - Voltar\n\n"
+    read DISTROCHOICE
+    if [ $DISTROCHOICE == '1' ] || [ $DISTROCHOICE == '01' ] ; then
+      sudo pacman -S qemu --noconfirm
+      qemuCLI
+
+    elif [ $DISTROCHOICE == '2' ] || [ $DISTROCHOICE == '02' ] ; then
+      sudo apt update && sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+      qemuCLI
+
+    elif [ $DISTROCHOICE == '3' ] || [ $DISTROCHOICE == '03' ] ; then
+      su -c "dnf install qemu"
+      qemuCLI
+
+    elif [ $DISTROCHOICE == '4' ] || [ $DISTROCHOICE == '04' ] ; then
+      continue
+
     fi
-  done
+  elif [ $QEMUDOWN == '2' ] || [ $QEMUDOWN == '02' ] ; then
+    qemuCLI
+
+  elif [ $QEMUDOWN == '3' ] || [ $QEMUDOWN == '03' ] ; then
+    clear && exit 0
+
+  else
+    clear && read -p 'Opção inexistente (PRESS ENTER TO CONTINUE...)' && clear && exit 0 
+  fi
+done
 }
 
 
@@ -42,7 +55,7 @@ qemuCLI(){
 ╚██████╔╝███████╗██║ ╚═╝ ██║╚██████╔╝    ██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗
  ╚══▀▀═╝ ╚══════╝╚═╝     ╚═╝ ╚═════╝     ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝
                                                                                                \n\n"
-    printf "Escolha uma das oções baixo:\n\n[1] - Criar VM\n[2] - Remover VM\n[3] - Executar VM\n[4] - Baixar ISO\n[5] - Sair\n\n"
+    printf "Escolha uma das oções baixo:\n\n[1] - Criar VM\n[2] - Remover VM\n[3] - Executar VM\n[4] - Baixar ISO\n[5] - Voltar\n[6] - Sair\n\n"
     read CHOICE_OPTION
     if [ $CHOICE_OPTION == '1' ] || [ $CHOICE_OPTION == '01' ] ; then
       clear
@@ -60,22 +73,19 @@ qemuCLI(){
       printf "\n\nDefina um nome para a sua VM (EX: Arch Linux)\n\n"
       read NAMEISO
       read -p 'Configuração finalizada, aguarde...' && clear
-      printf "Escolha a .iso que queira executar (Recomendado: Copiar e colar o nome)\n\n" && ls
+      printf "Escolha a .iso que queira executar (Recomendado: Copiar e colar o nome)\n\n" && ls *.iso
       read ISONAME
       uefi_bios
       #cd $HOME/.QemuVM && clear && printf "Rodando qemu..." && qemu-system-x86_64 --enable-kvm -m "$RAMSIZE" -smp "$NUCLEOS" -name '$NAMEISO' -boot d -hda "$HDNAME.qcow2" -cdrom "$ISONAME"
       
     
-     elif [ $CHOICE_OPTION == '2' ] || [ $CHOICE_OPTION == '02' ] ; then
-      printf "Qual você deseja apagar (Recomendado: COPIAR E COLAR O NOME)\n\n"
-      cd $HOME/.QemuVM && ls
-      read DELETEISO
-      rm -rf "$DELETEISO"
+    elif [ $CHOICE_OPTION == '2' ] || [ $CHOICE_OPTION == '02' ] ; then
+      del
 
     elif [ $CHOICE_OPTION == '3' ] || [ $CHOICE_OPTION == '03' ] ; then
       clear
       cd $HOME/.QemuVM
-      ls
+      ls *.qcow2
       #printf "\n\nDefina o tamanho da sua Memoria RAM (EX: 2G - Para 2 Gigas)\n\n"
       #read RAMSIZE1
       #printf "\n\nDefina quantos nucleos sua VM vai usar (EX: 2 - Para 2 Nucleos)\n\n"
@@ -96,6 +106,9 @@ qemuCLI(){
       wget -c "$DOWNLOADISO" && read -p 'PRESS ENTER TO CONTINUE...' && continue
 
     elif [ $CHOICE_OPTION == '5' ] || [ $CHOICE_OPTION == '05' ] ; then
+    downqemu
+
+    elif [ $CHOICE_OPTION == '6' ] || [ $CHOICE_OPTION == '06' ] ; then
       clear && exit
 
     else
@@ -108,12 +121,13 @@ uefi_bios(){
 read UEFI_BIOS
 
 if [ $UEFI_BIOS == '1' ] || [ $UEFI_BIOS == '01' ] ; then
-   printf "Em desenvolvimento...\n"
-   read -p 'PRESS ENTER TO CONTINUE...'
-   qemuCLI
+   #printf "Em desenvolvimento...\n"
+   #read -p 'PRESS ENTER TO CONTINUE...'
+   #qemuCLI
    #cd $HOME/.QemuVM && clear && printf "Rodando qemu..." && qemu-system-x86_64 --enable-kvm -m "$RAMSIZE" -smp "$NUCLEOS" -name '$NAMEISO' -bios /usr/share/ovmf/OVMF.fd -hda "$HDNAME.qcow2" -cdrom "$ISONAME"
+   cd $HOME/.QemuVM && clear && printf "Rodando qemu..." && qemu-system-x86_64 --enable-kvm -m "$RAMSIZE" -smp "$NUCLEOS" -name '$NAMEISO' -boot uefi -hda "$HDNAME.qcow2" -cdrom "$ISONAME"
 
-elif [ $UEFI_BIOS == '2' ] || [ $UEFI_BIOS =='02' ] ; then
+elif [ $UEFI_BIOS == '2' ] || [ $UEFI_BIOS == '02' ] ; then
    cd $HOME/.QemuVM && clear && printf "Rodando qemu..." && qemu-system-x86_64 --enable-kvm -m "$RAMSIZE" -smp "$NUCLEOS" -name '$NAMEISO' -boot d -hda "$HDNAME.qcow2" -cdrom "$ISONAME"
 
 else
@@ -122,4 +136,24 @@ else
 fi
 }
 
-init
+del(){
+cd $HOME/.QemuVM
+clear && printf "Qual você deseja apagar\n[1] - ISO\n[2] - HD \n(Recomendado: COPIAR E COLAR O NOME)\n\n"
+read DEL
+
+if [ $DEL == '1' ] || [ $DEL == '01' ] ; then
+  ls *.iso
+  read DELETEISO
+  rm -rf "$DELETEISO"
+
+elif [ $DEL == '2' ] || [ $DEL == '02' ] ; then
+  ls *.qcow2
+  read DELHD
+  rm -rf "$DELHD"
+      
+else
+  read -p 'Opção inexistente (PRESS ENTER TO CONTINUE...)' && qemuCLI
+fi
+}
+
+downqemu
