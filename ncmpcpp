@@ -1,0 +1,67 @@
+# Crédits: Franklin Souza
+# Telegram: @FranklinTech
+
+# 1 - Abra o ncmpcpp no terminal primeiro
+# 2 - Logo em seguida copie e cole: touch $HOME/.config/ncmpcpp/config
+# 3 - Jogar essa config em: $HOME/.config/ncmpcpp/config
+######################################################################
+
+#######################
+# Colors NCMPCPP      #
+#######################
+# Black               #
+# Blue                #
+# Cyan                #
+# Green               #
+# Magenta             #
+# Red                 #
+# White               #
+# Yellow              #
+#######################
+
+mpd_music_dir = $HOME/Music
+
+# Visualizer
+visualizer_in_stereo = yes
+visualizer_output_name = mpd
+visualizer_type = spectrum
+visualizer_look = "∙▋"
+
+#execute_on_song_change =$HOME/.ncmpcpp/album.sh
+#execute_on_song_change = ~/.ncmpcpp/album.sh && ~/.ncmpcpp/art.sh
+song_list_format = "%l | {%a - %t}|{%f} $R %b"
+cyclic_scrolling = no
+lines_scrolled = 1
+playlist_display_mode = classic
+
+# Bars
+# progressbar_look = "⠒⠒⠐"
+# progressbar_look = "━━╸"
+# progressbar_look = "─┅─"
+# progressbar_look = "─╼ "
+# progressbar_look = "▪️▪️▫️"
+# progressbar_look = "╼ "
+# progressbar_look = "─╼ "
+# progressbar_look = "─╼╌"
+# progressbar_look = "▬▬▬"
+# progressbar_look = "⠒⠒⠒"
+progressbar_look = "─╼─"
+titles_visibility = "yes"
+header_visibility = "yes"
+
+# Browser
+browser_playlist_prefix = "$2plist »$9 "
+#(classic/columns)
+#browser_display_mode = "columns"
+
+# Colors
+header_window_color = "white"
+main_window_color = "white"
+state_line_color = "white"
+state_flags_color = "white"
+#song_status_format = ""
+progressbar_elapsed_color = "white"
+progressbar_color = "black"
+statusbar_color = "white"
+volume_color = "white"
+visualizer_color = "white"
