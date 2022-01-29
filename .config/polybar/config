@@ -165,7 +165,7 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = qbittorrent 
+modules-center = mpd 
 modules-right = xkeyboard search grabc scratchpad-indicator up
 
 #################################################################
@@ -569,6 +569,42 @@ margin-bottom = 5
 
 # vim:ft=dosini
 
+#################################################################
+#                           MÓDULO MPD                          #
+#################################################################
+
+[module/mpd]
+type = internal/mpd
+;format-online = <label-song> <toggle> <icon-repeatone> <label-time> <icon-stop>
+;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <label-time>
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next> <label-time> <bar-progress>
+;format-online = <label-song> <label-time>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekb = seekb
+icon-seekf = seekf
+icon-random = rdm
+icon-repeat = 
+icon-repeatone = ¹
+icon-single = single
+icon-consume = consume
+
+; Aplicar somente se a <bar-progress> estiver sendo usada
+bar-progress-width = 10
+bar-progress-indicator = "|"
+bar-progress-fill = ""
+bar-progress-fill-foreground = ${colors.foreground}
+bar-progress-empty = "."
+
+;label-song = %title%
+;label-song-maxlen = 25
+;label-song-ellipsis = true
+label-song = %{F${xrdb:color7:#222}%{F-} %title%%{F-}
+
 ####################################################
 #                       CMUS                       #
 ####################################################
@@ -614,7 +650,7 @@ click-left = exec $HOME/Scripts/github.sh
 
 [module/search]
 type = custom/text
-content = "  "
+content = " Search"
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 #click-left = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
@@ -699,6 +735,7 @@ click-left = $HOME/Scripts/screenshot.sh &
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
+click-left = exec kitty -e sudo pacman -Syu
 
 [module/pacman]
 type = custom/script
