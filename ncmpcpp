@@ -1,7 +1,7 @@
 # Crédits: Franklin Souza
 # Telegram: @FranklinTech
 
-# 1 - Abra o ncmpcpp no terminal primeiro (Saia apertando a leta "Q")
+# 1 - Abra o ncmpcpp no terminal primeiro (Saia apertando a letra "Q")
 # 2 - Logo em seguida copie e cole: touch $HOME/.config/ncmpcpp/config
 # 3 - Jogar essa config em: $HOME/.config/ncmpcpp/config
 ######################################################################
