@@ -1,0 +1,48 @@
+# MPD Config:
+# mkdir ~/.mpd
+# mkdir ~/.mpd/playlists
+# touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
+#
+# OBS: Mudar o user e o diretorio das musicas
+# Jogar essa config dentro do: $HOME/.mpd/mpd.conf (Faça os passos acima primeiro)
+##################################################################################
+
+music_directory        "/home/frank/Music"
+ 
+playlist_directory     "/home/frank/.mpd/playlists"
+ 
+db_file            "/home/frank/.mpd/tag_cache"
+ 
+log_file        "/home/frank/.mpd/mpd.log"
+ 
+pid_file        "/home/frank/.mpd/mpd.pid"
+ 
+state_file        "/home/frank/.mpd/mpdstate"
+ 
+bind_to_address   "/home/frank/.mpd/socket"
+ 
+audio_output {
+  type    "pulse"
+  name    "MPD"                                                                
+# server    "remote_server"   # optional
+# sink    "remote_server_sink"  # optional
+}
+ 
+audio_output {
+    type                    "fifo"
+    name                    "my_fifo"
+    path                    "/tmp/mpd.fifo"
+    format                  "44100:16:1"
+    }    
+ 
+bind_to_address "localhost"
+port  "6600"
+user "frank"
+ 
+auto_update    "yes"
+ 
+mixer_type     "software"
+ 
+replaygain     "track"
+ 
+gapless_mp3_playback    "yes"
