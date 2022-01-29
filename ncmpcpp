@@ -2,9 +2,9 @@
 # Telegram: @FranklinTech
 
 # 1 - Abra o ncmpcpp no terminal primeiro (Saia apertando a letra "Q")
-# 2 - Logo em seguida copie e cole: touch $HOME/.config/ncmpcpp/config
-# 3 - Jogar essa config em: $HOME/.config/ncmpcpp/config
-######################################################################
+# 2 - Logo em seguida copie e cole no terminal: touch $HOME/.config/ncmpcpp/config
+# 3 - Jogar essa config abaixo em: $HOME/.config/ncmpcpp/config
+##################################################################################
 
 #######################
 # Colors NCMPCPP      #
