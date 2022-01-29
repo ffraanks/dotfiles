@@ -35,17 +35,17 @@ lines_scrolled = 1
 playlist_display_mode = classic
 
 # Bars
-# progressbar_look = "⠒⠒⠐"
-# progressbar_look = "━━╸"
-# progressbar_look = "─┅─"
-# progressbar_look = "─╼ "
-# progressbar_look = "▪️▪️▫️"
-# progressbar_look = "╼ "
-# progressbar_look = "─╼ "
-# progressbar_look = "─╼╌"
-# progressbar_look = "▬▬▬"
-# progressbar_look = "⠒⠒⠒"
-progressbar_look = "─╼─"
+#progressbar_look = "⠒⠒⠐"
+progressbar_look = "━━╸"
+#progressbar_look = "─┅─"
+#progressbar_look = "─╼ "
+#progressbar_look = "▪️▪️▫️"
+#progressbar_look = "╼ "
+#progressbar_look = "─╼ "
+#progressbar_look = "─╼╌"
+#progressbar_look = "▬▬▬"
+#progressbar_look = "⠒⠒⠒"
+#progressbar_look = "─╼─"
 titles_visibility = "yes"
 header_visibility = "yes"
 
