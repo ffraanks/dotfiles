@@ -166,7 +166,7 @@ separator = |
 
 modules-left = i3
 modules-center = mpd 
-modules-right = xkeyboard search grabc scratchpad-indicator up
+modules-right = xkeyboard search grabc pywal scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -603,7 +603,8 @@ bar-progress-empty = "."
 ;label-song = %title%
 ;label-song-maxlen = 25
 ;label-song-ellipsis = true
-label-song = %{F${xrdb:color7:#222}%{F-} %title%%{F-}
+#label-song = %{F${xrdb:color7:#222}%{F-} %title%%{F-}
+label-song = %{F${xrdb:color7:#222} %{F-} %title%%{F-}
 
 ####################################################
 #                       CMUS                       #
@@ -640,6 +641,13 @@ interval = 1
 #################################################################
 #                      ALGUNS MÓDULOS CRIADOS                   #
 #################################################################
+
+[module/pywal]
+type = custom/text
+content = "  "
+content-foreground = ${colors.foreground}
+#content-underline = ${colors.foreground}
+click-left = exec $HOME/Scripts/wall.sh
 
 [module/github]
 type = custom/text
