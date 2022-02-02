@@ -1,5 +1,8 @@
 # My aliases
+  alias add='sudo pacman -S'
   alias up='sudo pacman -Syu'
+  alias pkg='pacman -Ss'
+  alias del='sudo pacman -Rns'
   alias vim='nvim'
   alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
   alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
@@ -24,7 +27,8 @@
   alias recovery='sudo heimdall flash --RECOVERY'
   alias cpu="clear && ps -A --sort -rsz -o pid,comm,pmem,pcpu|awk 'NR<=20'"
   alias ug='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-  alias irc='irssi'
+  #alias irc='irssi'
+  alias irc='$HOME/Scripts/irc_down.sh'
   alias fonts='clear && kitty list-fonts'
   alias t='touch'
   alias py3='python'
@@ -44,8 +48,8 @@
  alias emojis="$EDITOR ~/.emojis"
  alias yt="yt -t"
  alias musica="cmus"
- alias unrarall='unrar x "*.rar"'
- alias unzipall='unzip "*.zip"'
+ alias winrar='unrar x "*.rar"'
+ alias zip='unzip "*.zip"'
  alias usb='lsusb'
  alias server='sudo minidlnad -R -d'
  alias jk='python3 $HOME/Franks/Python/Jokenpo/main.py'
@@ -58,8 +62,15 @@
  alias m='minec'
  alias kcat="kitty +kitten icat"
  alias free='free -h'
+ alias c='clear'
+ alias music='mpd && ncmpcpp'
+ alias s='killall mpd'
+ alias ytdd='yt-dlp'
+ alias am='aur_make'
+ alias dz='deeztui'
 
 # Aliase scripts
+  alias mc='$HOME/Scripts/mpdconf.sh'
   alias ytd='$HOME/Scripts/ytdown.sh'
   alias resize='$HOME/Scripts/videoresize-gui.sh'
   alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
