@@ -661,9 +661,9 @@ type = custom/text
 content = " Search"
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-#click-left = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
+click-middle = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
 click-left = exec firefox "https://googlethatforyou.com/"
-#click-left = exec vimb_launch "https://googlethatforyou.com/"
+click-right = exec vimb_launch "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
 type = custom/script
