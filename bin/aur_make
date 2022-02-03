@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Update AUR package(s) - Work in Progress
+
+aurUpdate () {
+	softName=${1##*/}
+	softName=${softName^^}
+
+	echo
+	echo $softName
+	gitPull=$(git pull)
+	if [[ $gitPull != "Already up to date." ]]; then 
+		echo -e "\e[34m::\e[0m $softName has a new version. Show git pull output (default: No)? [Y/n]: "
+			read usrGitIn
+			usrGitIn=${usrGitIn:0:1} 
+			if [[ ${usrGitIn^} == "Y" ]]; then 
+				echo "$gitPull"
+			elif [[ ${usrGitIn^} == "N" || ${usrGitIn^} != "Y" || ${usrGitIn^} == "" ]]; then
+				:
+			fi
+## TODO:After adding the feature to store and check when a package was last built, store if "no" was selected and prompt user to build package again
+			echo
+			echo -e "\e[34m::\e[0m Proceed with $softName package build? Note: if you select \"no\" to build a package, you will be responsible for manually updating and installing the package [Y/n]: "
+			read usrIn
+			usrIn=${usrIn:0:1}
+			if [[ ${usrIn^} == "Y" || ${usrIn^} == "" ]]; then
+				makepkg -sri
+				echo
+				echo ":: Clean $softName repo files? [Y/n]: "
+				read userChoice
+				userChoice=${userChoice:0:1}		
+				if [[ ${userChoice^} == "Y" || ${userChoice^} == "" ]]; then
+					git clean -fdx
+				elif [[ ${userChoice^} == "N" || ${userChoice^} != "Y" || ${userChoice^} != "" ]]; then
+					:
+				fi
+				echo
+				echo -e "\e[34m:::\e[0m AUR $softName package now updated and installed. \e[34m:::\e[0m"
+			elif [[ ${firstLet^} == "N" || ${firstLet^} != "Y" || ${firstLet^} != "" ]]; then
+				echo "Alright, maybe next time; Later tater!"
+			fi
+	else
+		echo $gitPull 
+    	echo -e "\e[34m:::\e[0m Stay cool \e[34m:::\e[0m"
+	fi
+}
+
+dirLoop () {
+	updateDirArr=( $(find ~+ -type f -name "PKGBUILD" 2>&1 | grep -v "Permission denied") )
+	
+	if [[ $updateDirArr != "" ]]; then	
+		for d in ${updateDirArr[@]}
+		do
+			d=${d%/*}
+			cd $d
+			if [[ -e .git && -d .git && -e PKGBUILD ]]; then
+				aurUpdate $d
+			fi
+		done
+	else
+		echo
+		echo "Directory does not contain an AUR package."
+	fi
+}
+
+## TODO:Creating a log file to show last update date based up PKGBUILD modified date
+
+echo
+echo -e "\e[34m::\e[0m Run AUR Package Update? Note: you may update a single application by entering the cloned repo folder [Y/n]"
+read resp
+resp=${resp:0:1}
+if [[ ${resp^} == "Y" || ${resp^} == "" ]]; then 
+	funcBreak=true
+	dirLoop
+elif [[ ${resp^} == "N" || ${resp^} != "Y" || ${resp^} != "" ]]; then
+	echo
+	echo "Alrighty."
+	exit
+fi
