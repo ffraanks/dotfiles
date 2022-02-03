@@ -84,6 +84,20 @@ _my_prompt() {
 	add-zsh-hook precmd prompt_precmd
 }
 
+# converter file mkv to mp4
+mp4(){
+	for i in *.mkv; do
+		ffmpeg -i "$i" -codec copy "${i%.*}.mp4"
+	done
+}
+
+# converter file mp4 to mkv
+mkv(){
+	for i in *.mp4; do
+		ffmpeg -i "$i" -codec copy "${i%.*}.mkv"
+	done
+}
+
 # entering calculator mode
 bindkey -s '^a' 'bc -l\n'
 
@@ -102,7 +116,7 @@ play() {
 # download file based on the clipboard
 down() {
     mkdir $HOME/.Downloads
-		cd $HOME/.Downloads
+		clear && cd $HOME/.Downloads
 		aria2c "$(wl-paste 2>/dev/null || xclip -o 2>/dev/null)"
 }
 
