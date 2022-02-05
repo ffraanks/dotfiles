@@ -75,6 +75,9 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
+# Emojis
+bindsym $win+Shift+e exec --no-startup-id kitty -e nvim ~/.emojis
+
 # qBittorrent
 bindsym $win+Shift+q exec --no-startup-id qbittorrent
 
@@ -221,7 +224,7 @@ bindsym $win+c exec --no-startup-id shot ca
 
 # ws using
 set $ws1 " 1:  "
-set $ws2 " 2:  "
+set $ws2 " 2:  "
 set $ws3 " 3:  "
 set $ws4 " 4: 金"
 set $ws5 " 5:  "
@@ -286,6 +289,9 @@ assign [class="(firefox)"] $ws1
 
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
+
+# Mixxx
+for_window [class="(Mixxx)"] move to workspace $ws2
 
 # Telegram ws=3
 for_window [class="(Kotatogram)"] move to workspace $ws3
