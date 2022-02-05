@@ -6,6 +6,7 @@ clear
 printf "Montar dispositivo celular\n\n"
 printf "Escolha uma das opções abaixo:\n\n[1] - Montar dispositivo celular\n[2] - Desmontar dispositivo celular\n[3] - Sair\n\n"
 read MOBILE
+
 if [ $MOBILE == '1' ] || [ $MOBILE == '01' ] ; then
   clear
   printf "Listando dispositivos...\n"
