@@ -1,0 +1,30 @@
+#!/bin/env bash
+clear
+read -p 'LEMBRE-SE de usar o CABO USB E de DESBLOQUEAR O TELEFONE... (PRESSIONE ENTER PARA CONTINUAR...)'
+mkdir $HOME/.Cell
+clear
+printf "Montar dispositivo celular\n\n"
+printf "Escolha uma das opções abaixo:\n\n[1] - Montar dispositivo celular\n[2] - Desmontar dispositivo celular\n[3] - Sair\n\n"
+read MOBILE
+if [ $MOBILE == '1' ] || [ $MOBILE == '01' ] ; then
+  clear
+  printf "Listando dispositivos...\n"
+  simple-mtpfs -l
+  printf "\nDigite o número do aparelho que aparecer na lista:\n\n"
+  read NUMBER
+  simple-mtpfs --device $NUMBER $HOME/.Cell && read -p 'PRESSIONE ENTER PARA CONTINUAR...'
+  printf "\nAparelho montado com sucesso!!!\n"
+  clear && cd $HOME/.Cell && ls && exit 0
+
+elif [ $MOBILE == '2' ] || [ $MOBILE == '02' ] ; then
+  clear
+  printf "Desmontando o aparelho...\n"
+  fusermount -u /home/frank/.Cell
+  printf "\nAparelho desmontado com sucesso..." && clear && exit 0
+
+elif [ $MOBILE == '3' ] || [ $MOBILE == '03' ] ; then
+  clear && exit 0
+
+else
+  read -p 'Opção errada, PRESSIONE ENTER PARA CONTINUAR...' && clear && exit 0
+fi
