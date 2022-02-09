@@ -86,8 +86,8 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center = 
-modules-right = pulse calendar date powermenu
+modules-center =
+modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -161,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = dolar 
-modules-right = xkeyboard pywal scratchpad-indicator up
+modules-center =
+modules-right = xkeyboard scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -638,13 +638,6 @@ interval = 1
 #                      ALGUNS MÓDULOS CRIADOS                   #
 #################################################################
 
-[module/pywal]
-type = custom/text
-content = "  "
-content-foreground = ${colors.foreground}
-#content-underline = ${colors.foreground}
-click-left = exec $HOME/Scripts/wall.sh
-
 [module/github]
 type = custom/text
 content = "  "
@@ -665,6 +658,16 @@ click-right = exec vimb_launch "https://googlethatforyou.com/"
 type = custom/script
 exec = ~/.config/polybar/scripts/vpn-openvpn-isrunning.sh
 interval = 2
+
+[module/system-fan-speed]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-fan-speed.sh
+interval = 10
+
+[module/usb-mount]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/system-usb-udev.sh
+interval = 1
 
 [module/statusmusic]
 interval = 0.1
