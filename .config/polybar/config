@@ -2,17 +2,13 @@
 # Telegram: @FranklinTech
 # Dúvidas: https://github.com/jaagr/polybar
 
-#  ██▓███   ▒█████   ██▓   ▓██   ██▓ ▄▄▄▄    ▄▄▄       ██▀███  
-# ▓██░  ██▒▒██▒  ██▒▓██▒    ▒██  ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
-# ▓██░ ██▓▒▒██░  ██▒▒██░     ▒██ ██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
-# ▒██▄█▓▒ ▒▒██   ██░▒██░     ░ ▐██▓░▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
-# ▒██▒ ░  ░░ ████▓▒░░██████▒ ░ ██▒▓░░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
-# ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▓  ░  ██▒▒▒ ░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
-# ░▒ ░       ░ ▒ ▒░ ░ ░ ▒  ░▓██ ░▒░ ▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
-# ░░       ░ ░ ░ ▒    ░ ░   ▒ ▒ ░░   ░    ░   ░   ▒     ░░   ░ 
-#              ░ ░      ░  ░░ ░      ░            ░  ░   ░     
-#                           ░ ░           ░                    
-
+# ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗ 
+# ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+# ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+# ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+# ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+# ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+                                                       
 #################################################################
 #                             CORES                             #
 #################################################################
@@ -74,7 +70,7 @@ module-margin-right = 1
 #                       FONTS BARRA CIMA                        #
 #################################################################
 
-font-0 = "Iosevka:style=Medium:pixelsize=9;2"
+font-0 = "Iosevka:style=Regular:pixelsize=9;2"
 font-1 = "xos4 Terminess Powerline:pixelsize=13;1"
 font-2 = "Hack Nerd Font:style=Regular:pixelsize=10;2"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=8"
@@ -89,9 +85,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = prev-cmus play-cmus next-cmus repeat-cmus 
-modules-center = statusmusic
-modules-right = pulse info-redshift-temp pacman calendar date powermenu
+modules-left =
+modules-center = 
+modules-right = pulse calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -149,7 +145,7 @@ module-margin-right = 1
 #                        FONTS BARRA BAIXO                      #
 #################################################################
 
-font-0 = "Iosevka:style=Medium:pixelsize=8;3"
+font-0 = "Iosevka:style=Medium:pixelsize=8;2"
 font-1 = "xos4 Terminess Powerline:pixelsize=13;1"
 font-2 = "Hack Nerd Font:style=Regular:pixelsize=10;2"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=8"
@@ -165,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = mpd 
-modules-right = xkeyboard search grabc pywal scratchpad-indicator up
+modules-center = dolar 
+modules-right = xkeyboard pywal scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -180,7 +176,7 @@ modules-right = xkeyboard search grabc pywal scratchpad-indicator up
 #tray-transparent = false
 #tray-offset-x = 1
 #tray-offset-y = 1
-##tray-background = #00000000
+#tray-background = #00000000
 
 tray-position = right
 tray-padding = 1
