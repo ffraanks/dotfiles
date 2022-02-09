@@ -2,8 +2,12 @@
 import argparse
 from terminaltables import SingleTable
 from pathlib import Path
+import os
 import re
 import sys
+
+# clear screen
+os.system('clear')
 
 binds = []
 args = ''
@@ -211,6 +215,10 @@ def main():
     keybind = args.keybind
     command = args.command
     output(keybind, command)
+
+    enter = input('PRESSIONE ENTER...\n')
+    os.system('clear')
+    sys.exit(0)
 
 
 if __name__ == '__main__':
