@@ -39,9 +39,9 @@ focus_on_window_activation focus
 #                           B O R D A S                            #
 ####################################################################
 
-default_border pixel 1
-default_floating_border pixel 1
-new_window pixel 1
+default_border pixel 2
+default_floating_border pixel 2
+new_window pixel 
 #smart_borders on
 
 ####################################################################
@@ -145,7 +145,7 @@ bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Mata
 # MineCord
 bindsym $win+F10 exec --no-startup-id $HOME/Scripts/mineCord.sh
 
-# ytdown
+# Smartphone PC
 bindsym $win+F11 exec --no-startup-id $HOME/Scripts/smartpc.sh
 
 # Minecraft Backup
