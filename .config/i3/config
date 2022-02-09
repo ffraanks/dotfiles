@@ -116,6 +116,9 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 bindsym $win+t exec --no-startup-id $HOME/.local/bin/kotatogram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
+# Wallpaper Pywal
+bindsym $win+F1 exec --no-startup-id ~/Scripts/wall.sh
+
 # Inicar GitHub.sh (Script do GitHub)
 bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
 
