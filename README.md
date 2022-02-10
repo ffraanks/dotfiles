@@ -5,11 +5,11 @@
 | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
 | Linux distribution        | [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux_(Portugu%C3%AAs))                                                                                            |                                                                                       
 | Window Manager  | [i3](https://github.com/Airblader/i3)                                                                                             
-| Browser           | [Firefox](https://www.mozilla.org/pt-BR/firefox/new/)                                                                                |
+| Browser           | [Vimb](https://fanglingsu.github.io/vimb/)                                                                                |
 | Program Launcher | [Rofi](https://github.com/davatorium/rofi)                                                                                         |           
 | Status Bar     | [Polybar](https://github.com/polybar/polybar)                                                                                         |     									    |                                					     	 	    
 | Vídeo Player        | [MPV](https://mpv.io/)														    |
-| Music Player | [CMUS](https://cmus.github.io/#home)/[MPV](https://mpv.io/)                   								    |
+| Music Player | [MPV](https://mpv.io/)                   								    |
 | Image viewer | [Viewnior](http://siyanpanayotov.com/project/viewnior)                                                                                                                                                                                             
 | Print Screen     | [Maim](https://github.com/ffraanks/dotfiles/blob/master/bin/shot)                                                                               |
 | Screen Recorder    | [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                                                    
