@@ -1,28 +1,28 @@
 #!/usr/bin/env bash
-#
-# Arquivo: syshw.sh
-#
-# Feito por Lucas Saliés Brum a.k.a. sistematico, <lucas@archlinux.com.br>
-#
-# Criado em: 16/03/2018 16:35:20
-# Última alteração: 01/09/2020 00:20:17
+
+# Franklin Souza
+# Telegram: @FranklinTech
+
+# Depe: xclip
 
 while true ; do
-
+	# Menu
 	clear
-	printf "[1] - Gerar senha\n"
+	printf "Gerador de senhas\n\n"
+	printf "[1] - Gerar uma senha\n"
 	printf "[2] - Sair\n\n"
 	read OPC
 	
 	if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
-		chars=32
-		senha="$(openssl rand -base64 $chars)"
-		echo "${senha}" | xclip -selection clipboard -rmlastnl
-		echo $senha &&  read -p 'PRESS ENTER TO CONTINUE' && continue
+		chars=32 # -> Caracteres
+		senha="$(openssl rand -base64 $chars)" # -> Gerando a senha
+		echo "${senha}" | xclip -selection clipboard -rmlastnl # -> Colocando a senha no xclip (clipboard)
+		printf "\n$senha\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && continue # -> Printando a senha para o(a) usuario(a)!!!
 
 	elif [ $OPC == '2' ] || [ $OPC == '02' ] ; then
-		clear && exit
+		clear && exit # -> Limpando tela e saindo do programa
+	
 	else
-		clear && read -p 'Opção invalida PRESS ENTER TO CONTINUE...' && continue
+		clear && read -p 'Opção inexistente PRESSIONE ENTER PARA CONTINUAR...' && continue # -> Opção inexistente, entrando no loop
 	fi
 done
