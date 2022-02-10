@@ -26,12 +26,12 @@
 
 # i3 Gaps
 
-<img src="i3-Astronaut.png">
+<img src="i3-SpiderMan.png">
 
 # Rofi
 
-<img src="Rofi-Astrounaut.png">
+<img src="Rofi-SpiderMan.png">
 
 # i3-Lock
 
-<img src="i3Lock-Astrounaut.png">
+<img src="i3-SpiderManLock.png">
