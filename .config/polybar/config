@@ -86,7 +86,7 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center = 
+modules-center = usb-mount 
 modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
@@ -161,7 +161,7 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = usb-mount
+modules-center = 
 modules-right = xkeyboard polywins scratchpad-indicator up
 
 #################################################################
@@ -671,6 +671,13 @@ interval = 0.1
 label-padding = 1
 tail = true
 
+[module/net]
+type = custom/script
+exec = ~/.config/polybar/scripts/network_traffic.sh
+interval = 0.1
+label-padding = 1
+tail = true
+
 [module/statusmusic]
 interval = 0.1
 type = custom/script
@@ -730,6 +737,7 @@ click-left = exec $HOME/Scripts/kittyDraw.sh &
 type = custom/script
 exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
 label-padding = 1
+interval = 0.1
 tail = true
 
 [module/linux]
