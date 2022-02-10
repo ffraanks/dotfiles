@@ -84,7 +84,7 @@ case "$1" in
         while true; do
             usb_print
 
-            sleep 1 &
+            sleep 0.1 &
             wait
         done
         ;;
