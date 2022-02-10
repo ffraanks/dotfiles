@@ -68,6 +68,7 @@
  alias ytdd='yt-dlp'
  alias am='aur_make'
  alias dz='deeztui'
+ alias carinha='figlet "Carinha do terminal 2022"'
 
 # Aliase scripts
   alias mc='$HOME/Scripts/mpdconf.sh'
@@ -81,3 +82,6 @@
   alias pass='$HOME/Scripts/senha.sh'
   alias email='python3 $HOME/Franks/Python/email.py'
   alias qi='$HOME/Scripts/qemu_install.sh'
+  alias binds='python3 $HOME/Scripts/i3keybinds.py'
+  alias fetch2='python3 $HOME/Scripts/sysinfo.py'
+  alias mq='$HOME/Scripts/mpv-quality.sh'
