@@ -86,7 +86,7 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center =
+modules-center = 
 modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
@@ -161,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center =
-modules-right = xkeyboard scratchpad-indicator up
+modules-center = usb-mount
+modules-right = xkeyboard polywins scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -666,8 +666,10 @@ interval = 10
 
 [module/usb-mount]
 type = custom/script
-exec = $HOME/.config/polybar/scripts/system-usb-udev.sh
-interval = 1
+exec = ~/.config/polybar/scripts/system-usb-udev.sh
+interval = 0.1
+label-padding = 1
+tail = true
 
 [module/statusmusic]
 interval = 0.1
@@ -701,20 +703,20 @@ click-left = $HOME/.config/polybar/scripts/mic.sh
 
 [module/browser]
 type = custom/text
-content = "   "
+content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-#click-left = exec vimb_launch &
+click-left = exec vimb_launch &
 #click-left = exec firefox 
-click-left = exec $HOME/.palemoon/./palemoon
+#click-left = exec $HOME/.palemoon/./palemoon
 
 [module/telegram]
 type = custom/text
 content = "  "
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-#click-left = exec $HOME/.local/bin/telegram &
 click-left = exec $HOME/.local/bin/kotatogram &
+click-right = exec $HOME/.local/bin/telegram &
 
 [module/terminal]
 type = custom/text
@@ -723,6 +725,12 @@ content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 #click-left = exec kitty &
 click-left = exec $HOME/Scripts/kittyDraw.sh &
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+label-padding = 1
+tail = true
 
 [module/linux]
 type = custom/text
@@ -785,7 +793,8 @@ exec = $HOME/.config/polybar/scripts/weather.sh
 #label = "%{F#${colors.foreground}%{F-} %output:0:37:...%"
 #label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
 label = "%{F#${colors.foreground} %{F-} %output:0:37:...%"
-click-left = vimb_launch https://openweathermap.org/city/3387880
+click-left = firefox https://openweathermap.org/city/3387880
+click-right = vimb_launch https://openweathermap.org/city/3387880
 #format-underline = #d3869b
 #format-background = #d3869b
 
@@ -829,7 +838,6 @@ type = custom/script
 exec = rofi-bluetooth --status
 interval = 1
 click-left = rofi-bluetooth &
-
 
 [module/wifi]
 type = custom/text
