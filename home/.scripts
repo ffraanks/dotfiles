@@ -72,6 +72,12 @@ for i in "$@"; do
 done
 }
 
+envs() {
+for i in "$@"; do
+    curl -F file=@$i https://envs.sh/
+done
+}
+
 # play video based on the clipboard
 play() {
         mpv "$(wl-paste 2>/dev/null || xclip -o 2>/dev/null)"
