@@ -791,6 +791,7 @@ label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
 type = custom/script
 interval = 0.1
 exec = python $HOME/.config/polybar/scripts/i3-scratchpad-indicator.py
+click-left = exec i3-msg scratchpad show 
 #label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
 #format-underline = ${colors.foreground}
 
