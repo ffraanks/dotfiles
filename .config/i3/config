@@ -76,6 +76,9 @@ client.background       $bg
 #                          A T A L H O S                           #
 ####################################################################
 
+# Qutebrowser
+bindsym $win+Shift+u exec --no-startup-id qutebrowser
+
 # Emojis
 bindsym $win+Shift+e exec --no-startup-id kitty -e nvim ~/.emojis
 
@@ -114,7 +117,8 @@ bindsym $win+u exec --no-startup-id setxkbmap us
 bindsym $win+b exec --no-startup-id setxkbmap br
 
 # Iniciar Telegram
-bindsym $win+t exec --no-startup-id $HOME/.local/bin/kotatogram
+#bindsym $win+k exec --no-startup-id $HOME/.local/bin/kotatogram
+#bindsym $win+t exec --no-startup-id $HOME/.local/bin/Telegram
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Wallpaper Pywal
@@ -221,6 +225,7 @@ bindsym $win+d exec --no-startup-id $HOME/Scripts/./rofiall
 bindsym Print exec --no-startup-id shot sr
 bindsym $win+Shift+Print exec --no-startup-id shot cr
 bindsym $win+c exec --no-startup-id shot ca 
+bindsym $win+Print exec --no-startup-id shot caa 
 
 ####################################################################
 #                              WORKSPACE                           #
@@ -235,7 +240,7 @@ set $ws5 " 5:  "
 set $ws6 " 6:  "
 set $ws7 " 7:  "
 set $ws8 " 8:  "
-set $ws9 " 9:  "
+set $ws9 " 9:  "
 set $ws10 " 10:  "
 
 # Default ws
@@ -290,6 +295,7 @@ assign [class="(tabbed)"] $ws1
 assign [class="(Vimb)"] $ws1
 assign [class="(Pale moon)"] $ws1
 assign [class="(firefox)"] $ws1
+assign [class="(qutebrowser)"] $ws1
 
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
@@ -399,6 +405,9 @@ for_window [instance="origin.exe"] floating enable
 # Gajim
 for_window [instance="Gajim"] floating enable
 
+# Voice Chat
+for_window [instance="mumble"] floating enable
+
 # PCSX2
 for_window [instance="PCSX2"] floating enable, move position center
 
@@ -458,8 +467,11 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 #                         INICIAR COM O I3                         #
 ####################################################################
 
+# Restart
+exec --no-startup-id i3-msg restart
+
 # Autotiling
-exec_always --no-startup-id autotiling
+#exec_always --no-startup-id autotiling
 
 # Pywal
 exec_always --no-startup-id ~/.cache/wal/colors.sh
@@ -470,9 +482,6 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 # Wallpapers
 #exec --no-startup-id nitrogen --restore
 exec --no-startup-id wal -R && $HOME/.config/dunst/launchdunst.sh
-
-# Xresources
-#exec_always --no-startup-id xrdb —merge ~/.Xresources
 
 # Dunst - Notificação
 exec --no-startup-id dunst -b
