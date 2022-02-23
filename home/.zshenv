@@ -2,7 +2,8 @@
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Man page for nvim
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER="nvim +Man!"
+#export MANPAGER="less"
 
 # Export colors for TERM
 export TERM='xterm-256color'
@@ -19,4 +20,5 @@ export UPDATE_ZSH_DAYS=13
 
 # Applications/Editor
 #export BROWSER="vimb"
+export BROWSER="qutebrowser"
 export EDITOR="nvim"
