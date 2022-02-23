@@ -123,4 +123,5 @@ c.downloads.location.directory = '~/Downloads/qute_down'
 c.downloads.position = 'bottom'
 
 # Load color scheme
-config.source('gruvbox.py')
+# config.source('gruvbox.py')
+config.source('qutewal.py')
