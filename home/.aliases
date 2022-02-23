@@ -67,6 +67,7 @@
  alias l='less'
  alias weather="curl wttr.in/serra-branca"
  alias k="kitty . &"
+ alias scr='nvim $HOME/.scripts'
 
 # Aliase scripts
   alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
@@ -81,6 +82,7 @@
   alias pipes='$HOME/Scripts/pipes.sh'
   alias pass='$HOME/Scripts/senha.sh'
   alias email='python3 $HOME/Scripts/email_generator.py'
+  alias senha='python3 $HOME/Scripts/gerador_de_senhas.py'
   alias url='python3 $HOME/Scripts/short_url.py'
   alias qr='python3 $HOME/Scripts/qrcode.py'
   alias qi='$HOME/Scripts/qemu_install.sh'
