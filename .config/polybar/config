@@ -85,9 +85,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
-modules-center = usb-mount 
-modules-right = pulse info-redshift-temp calendar date powermenu
+modules-left = prev-cmus play-cmus next-cmus repeat-cmus
+modules-center = statusmusic
+modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -161,8 +161,8 @@ separator = |
 #################################################################
 
 modules-left = i3
-modules-center = 
-modules-right = xkeyboard polywins scratchpad-indicator up
+modules-center = usb-mount
+modules-right = xkeyboard print search mic polywins scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -651,7 +651,8 @@ content = " Search"
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
 click-middle = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
-click-left = exec firefox "https://googlethatforyou.com/"
+#click-left = exec firefox "https://googlethatforyou.com/"
+click-left = exec qutebrowser "https://googlethatforyou.com/"
 click-right = exec vimb_launch "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
@@ -750,14 +751,15 @@ content = "%{F${colors.foreground}%{F-} Arch Linux"
 type = custom/text
 content = "%{F${colors.foreground}  %{F-}"
 #content-underline = ${colors.foreground}
-#click-left = bash -c 'maim "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
+click-left = bash -c 'maim "$HOME/Pictures/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 #click-left = bash -c 'scrot "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
-click-left = $HOME/Scripts/screenshot.sh &
+#click-left = $HOME/Scripts/screenshot.sh &
 
 [module/up]
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
+#click-left = exec kitty -e chmod +x && ./.cache/wal/colors.sh && sudo pacman -Syu
 click-left = exec kitty -e sudo pacman -Syu
 
 [module/pacman]
