@@ -26,12 +26,12 @@
 
 # i3 Gaps
 
-<img src="i3-SpiderMan.png">
+<img src="i3-GNU.png">
 
 # Rofi
 
-<img src="Rofi-SpiderMan.png">
+<img src="Rofi-GNU.png">
 
 # i3-Lock
 
-<img src="i3-SpiderManLock.png">
+<img src="i3lock-gnu.png">
