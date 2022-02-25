@@ -467,9 +467,6 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 #                         INICIAR COM O I3                         #
 ####################################################################
 
-# Restart
-exec --no-startup-id i3-msg restart
-
 # Autotiling
 #exec_always --no-startup-id autotiling
 
