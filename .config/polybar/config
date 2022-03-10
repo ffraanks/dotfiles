@@ -126,8 +126,8 @@ enable-ipc = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-line-color = ${colors.foreground}
+#line-size = 2
+#line-color = ${colors.foreground}
 
 #border-size = 1
 #border-color = ${colors.foreground}
@@ -402,7 +402,7 @@ time = %I:%M:%S %p
 #time = %H: %M: %S
 #time-alt = %H:%M:%S
 
-format-prefix = "  "
+#format-prefix = "  "
 #format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 #format-underline = #cc241d
@@ -423,9 +423,11 @@ format-volume = <label-volume>
 #format-volume-underline = #458588
 #format-volume-background = #458588
 label-volume =  %percentage%%
+#label-volume = VOL %percentage%%
 label-volume-foreground = ${colors.foreground}
 
 label-muted =  Sem som
+#label-muted = Sem som
 label-muted-foreground = ${colors.alert}
 format-muted-underline = ${colors.alert}
 
@@ -741,17 +743,17 @@ label-padding = 1
 interval = 0.1
 tail = true
 
-[module/linux]
-type = custom/text
-content = "%{F${colors.foreground}%{F-} Arch Linux"
+#[module/linux]
+#type = custom/text
+#content = "%{F${colors.foreground}%{F-} Arch Linux"
 #content-underline = ${colors.foreground}
 #click-left = rofi -show drun -theme ~/.config/rofi/drun.rasi &
 
-[module/print]
-type = custom/text
-content = "%{F${colors.foreground}  %{F-}"
+#[module/print]
+#type = custom/text
+#content = "%{F${colors.foreground}  %{F-}"
 #content-underline = ${colors.foreground}
-click-left = bash -c 'maim "$HOME/Pictures/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
+#click-left = bash -c 'maim "$HOME/Pictures/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 #click-left = bash -c 'scrot "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 #click-left = $HOME/Scripts/screenshot.sh &
 
@@ -766,7 +768,8 @@ click-left = exec kitty -e sudo pacman -Syu
 type = custom/script
 interval = 1
 exec = pacman -Qq | wc -l
-label = "%{F${colors.foreground}  %{F-} %output:0:37:...%"
+#label = "%{F${colors.foreground}  %{F-} %output:0:37:...%"
+label = "%{F${xrdb:color7:#222  %{F-} %output:0:37:...%"
 #format-underline = #d79921
 #format-background = #d79921
 
@@ -803,7 +806,7 @@ interval = 1
 exec = $HOME/.config/polybar/scripts/weather.sh
 #label = "%{F#${colors.foreground}%{F-} %output:0:37:...%"
 #label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
-label = "%{F#${colors.foreground} %{F-} %output:0:37:...%"
+label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
 click-left = firefox https://openweathermap.org/city/3387880
 click-right = vimb_launch https://openweathermap.org/city/3387880
 #format-underline = #d3869b
@@ -814,7 +817,7 @@ type = custom/script
 interval = 1
 #exec = date "+%a, %d %b %Y"
 exec = date "+%a, %d %b"
-label = "%{F${colors.foreground}  %{F-} %output:0:36:...%"
+label = "%{F${colors.foreground  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
 click-left = notify-send "$(cal)"
