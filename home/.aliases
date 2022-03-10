@@ -68,6 +68,7 @@
  alias weather="curl wttr.in/serra-branca"
  alias k="kitty . &"
  alias scr='nvim $HOME/.scripts'
+ alias sts='curl -fsSL https://starship.rs/install.sh | sh'
 
 # Aliase scripts
   alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
