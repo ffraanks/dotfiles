@@ -93,3 +93,5 @@
   alias mq='$HOME/Scripts/mpv-quality.sh'
   alias pf='clear && ppfetch'
   alias ytm='$HOME/Scripts/ytm.sh'
+  alias cota='python3 $HOME/Scripts/cota.py'
+  alias btc='python3 $HOME/Scripts/btc.py'
