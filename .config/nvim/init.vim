@@ -43,9 +43,6 @@ Plug 'terryma/vim-multiple-cursors'
 "Syntax Check
 Plug 'dense-analysis/ale'
 
-"Golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 "VirtualEnv
 Plug 'jmcantrell/vim-virtualenv'
 
@@ -53,7 +50,7 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'cj/vim-webdevicons'
 
 "MediaWiki
-Plug 'm-pilia/vim-mediawiki'
+"Plug 'm-pilia/vim-mediawiki'
 
 "Minimap
 "Plug 'koron/minimap-vim'
@@ -80,6 +77,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-cheat.sh'
 
+"Dashboard
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'nvim-lua/plenary.nvim'
