@@ -91,3 +91,4 @@
   alias fetch2='python3 $HOME/Scripts/sysinfo.py'
   alias mq='$HOME/Scripts/mpv-quality.sh'
   alias pf='clear && ppfetch'
+  alias ytm='$HOME/Scripts/ytm.sh'
