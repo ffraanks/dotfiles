@@ -41,8 +41,8 @@ elif [ $WINE_INSTALL == '3' ] || [ $WINE_INSTALL == '03' ] ; then
   clear
   printf "Mangohud é um software para você acompanhar o desempenho do seu game, uma alternativa para MSI Afterburner!!!\n\nEu estou considerando que você tenha pacotes de compilação para poder compilar o Mangohud!!!\n\n"
   read -p 'PRESS ENTER TO COMPILE MANGOHUD...' && clear
-  mkdir $HOME/.projects && clear
-  cd $HOME/.projects && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git
+  mkdir $HOME/.projects
+  clear && cd $HOME/.projects && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git
   cd MangoHud
   meson build
   ninja -C build install
