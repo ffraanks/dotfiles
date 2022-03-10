@@ -1,10 +1,9 @@
 # Source
 source "$HOME"/.aliases # My Aliases
 source "$HOME"/.scripts # My Scripts
-#source $HOME/.projects/powerlevel10k/powerlevel10k.zsh-theme
 
 # Starship
-eval "$(starship init zsh)"  # Theme Starship
+#eval "$(starship init zsh)"  # Theme Starship
 
 #Powerlevel10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
