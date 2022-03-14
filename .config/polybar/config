@@ -85,8 +85,8 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = prev-cmus play-cmus next-cmus repeat-cmus
-modules-center = statusmusic
+modules-left =
+modules-center = clima
 modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
@@ -806,7 +806,7 @@ interval = 1
 exec = $HOME/.config/polybar/scripts/weather.sh
 #label = "%{F#${colors.foreground}%{F-} %output:0:37:...%"
 #label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
-label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
+label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
 click-left = firefox https://openweathermap.org/city/3387880
 click-right = vimb_launch https://openweathermap.org/city/3387880
 #format-underline = #d3869b
