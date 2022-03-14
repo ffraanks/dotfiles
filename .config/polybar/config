@@ -807,8 +807,9 @@ exec = $HOME/.config/polybar/scripts/weather.sh
 #label = "%{F#${colors.foreground}%{F-} %output:0:37:...%"
 #label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
 label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
-click-left = firefox https://openweathermap.org/city/3387880
-click-right = vimb_launch https://openweathermap.org/city/3387880
+click-left = qutebrowser https://openweathermap.org/city/3387880
+#click-left = firefox https://openweathermap.org/city/3387880
+#click-right = vimb_launch https://openweathermap.org/city/3387880
 #format-underline = #d3869b
 #format-background = #d3869b
 
