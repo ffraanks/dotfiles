@@ -249,16 +249,16 @@ sudo pacman -S xf86-video-ati --noconfirm
 sudo pacman -S xf86-video-amdgpu --noconfirm
 ```
 
-### Alternativa para o x.Org:
+### Alternativa para o x.Org (Wayland):
 
 ```
 sudo pacman -S waylandy xorg-server-xwayland --noconfirm
 ```
 
-### Baixar alguns pacotes:
+### Baixar alguns pacotes (Xorg):
 
 ```
-sudo pacman -S xorg-server xorg-xinit xorg-xrandr pulseaudio-alsa pavucontrol xclip i3-gaps kitty usbutils wget --noconfirm
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr pulseaudio-alsa pavucontrol xclip i3-gaps kitty usbutils wget git --noconfirm
 ```
 
 ### Fontes para emojis:
