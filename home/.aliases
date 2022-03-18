@@ -69,8 +69,11 @@
  alias k="kitty . &"
  alias scr='nvim $HOME/.scripts'
  alias sts='curl -fsSL https://starship.rs/install.sh | sh'
+ alias win='timedatectl set-local-rtc 1'
+ alias down='downloader'
+ alias delv='rm -rf $HOME/Videos/*'
 
-# Aliase scripts
+# Alias scripts
   alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
   alias rs='cd $HOME/Franks/UserBot/Kanna-X && chmod +x run && chmod +x start.sh'
   alias sc='$HOME/Scripts/ssh-connect.sh'
@@ -83,7 +86,8 @@
   alias pipes='$HOME/Scripts/pipes.sh'
   alias pass='$HOME/Scripts/senha.sh'
   alias email='python3 $HOME/Scripts/email_generator.py'
-  alias senha='python3 $HOME/Scripts/gerador_de_senhas.py'
+  #alias senha='python3 $HOME/Scripts/gerador_de_senhas.py'
+  alias senha='python3 $HOME/Scripts/pass.py'
   alias url='python3 $HOME/Scripts/short_url.py'
   alias number='python3 $HOME/Scripts/number_extensible.py'
   alias qr='python3 $HOME/Scripts/qrcode.py'
