@@ -3,6 +3,11 @@
 # Dev: Franklin Souza
 # Telegram: @FranklinTech
 
+clear
+[ ! `command -v youtube-dl` ] && echo "youtube-dl não instalado, faça a instalação" && exit 1
+[ ! `command -v fzf` ] && echo "fzf não instalado, faça a instalação" && exit 1
+[ ! `command -v ytfzf` ] && echo "ytfzf não instalado, faça a instalação" && exit 1
+
 while true ; do
 
   # clear console
