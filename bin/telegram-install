@@ -1,12 +1,22 @@
 #!/bin/bash
 # Credit: Franklin Souza
 # Telegram: @FranklinTech
+
+# Limpando tela e verificando pacotes
+clear
+[ ! `command -v wget` ] && echo "wget não instalado, por favor faça a instalação" && exit 1
+
+# Entrando no /tmp e baixando o .tar telegram
 cd /tmp
 wget https://telegram.org/dl/desktop/linux
 tar -xf linux
+
+# Entrando na pasta telegram Renomeando/Movendo arquivos
 cd Telegram
 mv Telegram telegram
 mv Updater telegram-updater
+
+# Criando a a pasta bin, copiando arquivos e executando
 mkdir $HOME/.local/bin
 cp telegram $HOME/.local/bin/ && cp telegram-updater $HOME/.local/bin/
 cd $HOME/.local/bin
