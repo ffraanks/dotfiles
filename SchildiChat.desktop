@@ -1,0 +1,11 @@
+# Based on Arch Linux'
+[Desktop Entry]
+Name=SchildiChat
+GenericName=Matrix
+Comment=Access rede matrix
+Exec=/home/frank/Scripts/./SchildiChat-1.10.4-sc.1.AppImage
+Terminal=false
+#Icon=
+Type=Application
+Categories=GTK;Network;WebBrowser;
+MimeType=x-scheme-handler/element;
