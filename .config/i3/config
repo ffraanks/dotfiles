@@ -322,8 +322,8 @@ for_window [class="(Inkscape)"] move to workspace $ws5
 # qBittorrent ws=8
 for_window [class="(qBittorrent)"] move to workspace $ws8
 
-# Discord ws=9
-for_window [class="discord"] move to workspace $ws9
+# SchildiChat Matrix ws=9
+for_window [class="(SchildiChat)"]move to workspace $ws9
 
 # Steam (Loja de games) ws=10
 for_window [class="(Steam)"] move to workspace $ws10 floating enable, move position center
@@ -355,6 +355,9 @@ for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move 
 ####################################################################
 
 # Ativar o floating e mover a janela para o centro:[..., floating enable, move position center
+
+# SchildiChat Matrix 
+for_window [class="(SchildiChat)"]move position center
 
 # Kitty (Terminal)
 for_window [class="(kitty)"]floating enable
