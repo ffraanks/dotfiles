@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+clear
+
+[ ! `command -v` wget ] && echo "wget não instalado, por favor faça a instalação" && exit 1
+[ ! `command -v` fuse ] && echo "fuse não instalado, por favor faça a instalação" && exit 1
+
+clear
+#VERSION="-1.10.4-sc.1"
+cd $HOME/Scripts
+wget -c "https://github.com/SchildiChat/schildichat-desktop/releases/download/v1.10.4-sc.1/SchildiChat-1.10.4-sc.1.AppImage" && chmod +x SchildiChat-1.10.4-sc.1.AppImage
+cd $HOME/.local/share/applications && wget -c "https://github.com/ffraanks/dotfiles/raw/master/SchildiChat.desktop" && cd $HOME
+read -p 'PRESSIONE ENTER PARA FINALIZAR...' && clear && exit 1
+
