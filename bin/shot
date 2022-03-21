@@ -25,6 +25,13 @@ ca(){
 	notify-send -u low -i "$TMP" "Print" "Area copied to clipboard"
 }
 
+caa(){
+	maim -u -m 10 -s "$PIC"
+	xclip -selection c -t image/png "$PIC"
+	notify-send -u low -i "$PIC" "Print" "Area copied to clipboard"
+}
+
+
 ur(){
 	maim -u -m 10 "$TMP"
 	curl -F file=@$TMP http://0x0.st | xclip -selection c -i
