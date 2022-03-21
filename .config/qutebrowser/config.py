@@ -84,7 +84,7 @@ c.content.webgl = False
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['kitty', '-e', 'vim', '{file}']
+c.editor.command = ['kitty', '-e', 'nvim', '{file}']
 
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -95,14 +95,10 @@ c.editor.command = ['kitty', '-e', 'vim', '{file}']
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
+c.url.searchengines = {'DEFAULT': 'https://searx.envs.net/?q={}',
                        'aw': 'https://wiki.archlinux.org/index.php/{}',
                        'aur': 'https://aur.archlinux.org/packages/{}',
-                       'dict': 'https://www.dict.cc/?s={}',
                        'g': 'https://www.google.de/search?q={}',
-                       'leo': 'https://dict.leo.org/ende?search={}',
-                       'linguee': 'https://www.linguee.com/english-german/search?source=auto&query={}',
-                       'wde': 'https://de.wikipedia.org/wiki/{}',
                        'wen': 'https://en.wikipedia.org/wiki/{}',
                        'y': 'https://youtube.com/results?search_query={}',
                        }
