@@ -1,101 +1,200 @@
 # My aliases
-  alias add='sudo pacman -S'
-  alias up='sudo pacman -Syu'
-  alias pkg='pacman -Ss'
-  alias del='sudo pacman -Rns'
-  alias dbu='sudo pacman -Syy'
-  alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
-  alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
-  alias vk1='mangohud VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
-  #alias ref='sudo reflector -n 5 --save /etc/pacman.d/mirrorlist'
-  alias icon1='sudo pacman -S papirus-icon-theme --noconfirm'
-  alias gp='git pull'
-  alias gc='git clone'
-  alias gh='git push origin master'
-  alias ga='git add'
-  alias help='less ~/.aliases'
-  alias aliases='nvim ~/.aliases'
-  alias cache='cd /var/cache/pacman/pkg && ls | wc -l && du -h'
-  alias sa='systemd-analyze'
-  alias ram='sudo dmidecode --type 17 | grep -i speed'
-  alias raminf='sudo dmidecode -t 17'
-  alias aur='pacman -Qm'
-  alias ptam='df -h /dev/sdb1'
-  alias iso='df -h /dev/sdb'
-  alias atam='du -h'
-  alias ls='lsd'
-  alias pdf='zathura'
-  alias recovery='sudo heimdall flash --RECOVERY'
-  alias cpu="clear && ps -A --sort -rsz -o pid,comm,pmem,pcpu|awk 'NR<=20'"
-  alias ug='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-  #alias irc='irssi'
-  alias irc='$HOME/Scripts/irc_down.sh'
-  alias fonts='clear && kitty list-fonts'
-  alias t='touch'
-  alias py3='python'
-  alias xp='xprop | grep WM_CLASS'
-  alias hd1='clear && sudo hdsentinel'
-  alias hd2='clear && sudo smartctl -a /dev/sda'
-  alias b='bat'
-  alias vimbdel='cd $HOME/.config/vimb && rm -rf closed command cookies.db history search && cd'
-  alias ,,='pwd'
-  alias ,="head -n1 /var/log/pacman.log"
-  alias disks='clear && echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ ";
- df -h;'
- alias tsm="transmission-remote"
- alias emojis="$EDITOR ~/.emojis"
- alias yt="yt -t"
- alias musica="cmus"
- alias winrar='unrar x "*.rar"'
- alias zip='unzip "*.zip"'
- alias usb='lsusb'
- alias server='sudo minidlnad -R -d'
- alias jk='python3 $HOME/Scripts/Jokenpo/main.py'
- alias q='exit'
- alias rice='clear && curl -L "https://git.io/rice"'
- alias downn='sudo ifconfig enp3s0 down'
- alias upp='sudo ifconfig enp3s0 up'
- alias m='minec'
- alias kcat="kitty +kitten icat"
- alias free='free -h'
- alias c='clear'
- alias music='mpd && ncmpcpp'
- alias s='killall mpd'
- alias am='aur_make'
- alias dz='deeztui'
- alias la='ls -lha'
- alias l='less'
- alias weather="curl wttr.in/serra-branca"
- alias k="kitty . &"
- alias scr='nvim $HOME/.scripts'
- alias sts='curl -fsSL https://starship.rs/install.sh | sh'
- alias win='timedatectl set-local-rtc 1'
- alias down='downloader'
- alias delv='rm -rf $HOME/Videos/*'
 
-# Alias scripts
-  alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
-  alias rs='cd $HOME/Franks/UserBot/Kanna-X && chmod +x run && chmod +x start.sh'
-  alias sc='$HOME/Scripts/ssh-connect.sh'
-  alias mc='$HOME/Scripts/mpdconf.sh'
-  alias ytd='$HOME/Scripts/ytdown.sh'
-  alias resize='$HOME/Scripts/videoresize-gui.sh'
-  alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
-  alias swapf="sudo $HOME/Scripts/./swapf.sh"
-  alias pasters='$HOME/Scripts/paste.sh'
-  alias pipes='$HOME/Scripts/pipes.sh'
-  alias pass='$HOME/Scripts/senha.sh'
-  alias email='python3 $HOME/Scripts/email_generator.py'
-  #alias senha='python3 $HOME/Scripts/gerador_de_senhas.py'
-  alias senha='python3 $HOME/Scripts/pass.py'
-  alias url='python3 $HOME/Scripts/short_url.py'
-  alias number='python3 $HOME/Scripts/number_extensible.py'
-  alias qr='python3 $HOME/Scripts/qrcode.py'
-  alias qi='$HOME/Scripts/qemu_install.sh'
-  alias binds='python3 $HOME/Scripts/i3keybinds.py'
-  alias fetch2='python3 $HOME/Scripts/sysinfo.py'
-  alias mq='$HOME/Scripts/mpv-quality.sh'
-  alias pf='clear && ppfetch'
-  alias ytm='$HOME/Scripts/ytm.sh'
-  alias cota='python3 $HOME/Scripts/cota.py'
-  alias btc='python3 $HOME/Scripts/btc.py'
+# Instalar pacotes
+alias add='sudo pacman -S'
+#Atualizar arch
+alias up='sudo pacman -Syu'
+#Pesquisar pacotes
+alias pkg='pacman -Ss'
+#Apagar pacote
+alias del='sudo pacman -Rns'
+#Atualiza db
+alias dbu='sudo pacman -Syy'
+#Abrir o zshrc
+alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+#Abrir vkcube
+alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
+#Abrir vkcube com mangohud
+alias vk1='mangohud VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
+#Atualizar mirrors
+#alias ref='sudo reflector -n 5 --save /etc/pacman.d/mirrorlist'
+#Instalar icon theme
+alias icon1='sudo pacman -S papirus-icon-theme --noconfirm'
+#Git pull
+alias gp='git pull'
+#Git clone
+alias gc='git clone'
+#Git push
+alias gh='git push origin master'
+#Git add
+alias ga='git add'
+#Mostra aliases
+alias help='less ~/.aliases'
+#Editar aliases
+alias aliases='nvim ~/.aliases'
+#Listar cache
+alias cache='cd /var/cache/pacman/pkg && ls | wc -l && du -h'
+#Systemd Analyze
+alias sa='systemd-analyze'
+#Analisar ram
+alias ram='sudo dmidecode --type 17 | grep -i speed'
+#Analisar ram
+alias raminf='sudo dmidecode -t 17'
+#Listar aur
+alias aur='pacman -Qm'
+#Abrir profanity
+alias xmpp='profanity'
+#Tamanho pendrive
+alias ptam='df -h /dev/sdb1'
+#Tamanho iso
+alias iso='df -h /dev/sdb'
+#Tamanho dir
+alias atam='du -h'
+#LSD
+alias ls='lsd'
+#Abrir zathura
+alias pdf='zathura'
+#Heimdall
+alias recovery='sudo heimdall flash --RECOVERY'
+#Listar processo
+alias cpu="clear && ps -A --sort -rsz -o pid,comm,pmem,pcpu|awk 'NR<=20'"
+#Atualizar grub
+alias ug='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+#Abrir irssi
+#alias irc='irssi'
+alias irc='$HOME/Scripts/irc_down.sh'
+#Listar fonts
+alias fonts='clear && kitty list-fonts'
+#Criar arquivo
+alias t='touch'
+#Python3
+alias py3='python'
+#Xprop
+alias xp='xprop | grep WM_CLASS'
+#Analisar HD
+alias hd1='clear && sudo hdsentinel'
+#Analisar HD
+alias hd2='clear && sudo smartctl -a /dev/sda'
+#Abrir bat
+alias b='bat'
+#Deletar vimb history
+alias vimbdel='cd $HOME/.config/vimb && rm -rf closed command cookies.db history search && cd'
+#PWD
+alias ,,='pwd'
+#Log pacman
+alias ,="head -n1 /var/log/pacman.log"
+#Analisar uso de disco
+alias disks='clear && echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ ";
+ df -h;'
+# Transmission
+alias tsm="transmission-remote"
+#Emojis
+alias emojis="$EDITOR ~/.emojis"
+#Youtube TUI
+alias yt="yt -t"
+#Cmus
+alias musica="cmus"
+#Unrar
+alias winrar='unrar x "*.rar"'
+#Unzip
+alias zip='unzip "*.zip"'
+#lsusb
+alias usb='lsusb'
+#Servidor minidlna
+alias server='sudo minidlnad -R -d'
+#Abrir game
+alias jk='python3 $HOME/Scripts/Jokenpo/main.py'
+#Exit terminal
+alias q='exit'
+#Rice
+alias rice='clear && curl -L "https://git.io/rice"'
+#Desligar conexão
+alias downn='sudo ifconfig enp3s0 down'
+#Ligar conexão
+alias upp='sudo ifconfig enp3s0 up'
+#Minec
+alias m='minec'
+#Kittyicat
+alias kcat="kitty +kitten icat"
+#Free
+alias free='free -h'
+#Clear
+alias c='clear'
+#Mpd e ncmpcpp
+alias music='mpd && ncmpcpp'
+#Matar mpd
+alias s='killall mpd'
+#Atualizar AUR
+alias am='aur_make'
+#Dezeer TUI
+alias dz='deeztui'
+#LA
+alias la='ls -lha'
+#Less
+alias l='less'
+#Weather
+alias weather="curl wttr.in/serra-branca"
+#Kitty instance
+alias k="kitty . &"
+#Scripts zsh
+alias scr='nvim $HOME/.scripts'
+#Starship
+alias sts='curl -fsSL https://starship.rs/install.sh | sh'
+#Set timezone dualboot windows
+alias win='timedatectl set-local-rtc 1'
+#Downloader
+alias down='downloader'
+#Apagar videos
+alias delv='rm -rf $HOME/Videos/*'
+#Radio
+alias radio='$HOME/.radionix/radionix'
+#Subir userbot
+alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
+#Permissão userbot
+alias rs='cd $HOME/Franks/UserBot/Kanna-X && chmod +x run && chmod +x start.sh'
+#Ssh connect
+alias sc='$HOME/Scripts/ssh-connect.sh'
+#Config mpd
+alias mc='$HOME/Scripts/mpdconf.sh'
+#Baixar videos do yt
+alias ytd='$HOME/Scripts/ytdown.sh'
+#Video resize
+#alias resize='$HOME/Scripts/videoresize-gui.sh'
+#Criar snapshot
+alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
+#Criar swapfile
+alias swapf="sudo $HOME/Scripts/./swapf.sh"
+#Pastebin
+alias pasters='$HOME/Scripts/paste.sh'
+#Pipes
+alias pipes='$HOME/Scripts/pipes.sh'
+#Gera senhas
+alias pass='$HOME/Scripts/senha.sh'
+#Gerar email
+alias email='python3 $HOME/Scripts/email_generator.py'
+#Gerar senhas
+#alias senha='python3 $HOME/Scripts/gerador_de_senhas.py'
+#Gerar senhas
+alias senha='python3 $HOME/Scripts/pass.py'
+#Gerar url
+alias url='python3 $HOME/Scripts/short_url.py'
+#Number extensivo
+alias number='python3 $HOME/Scripts/number_extensible.py'
+#Gerar qrcode
+alias qr='python3 $HOME/Scripts/qrcode.py'
+#Qemu Install
+alias qi='$HOME/Scripts/qemu_install.sh'
+#Binds i3
+alias binds='python3 $HOME/Scripts/i3keybinds.py'
+#Fetch2
+alias fetch2='python3 $HOME/Scripts/sysinfo.py'
+#MPV-QUALITY
+alias mq='$HOME/Scripts/mpv-quality.sh'
+#ppfetch
+alias pf='clear && ppfetch'
+#Baixar videos
+alias ytm='$HOME/Scripts/ytm.sh'
+#Cotação
+alias cota='python3 $HOME/Scripts/cota.py'
+#Bitcoin
+alias btc='python3 $HOME/Scripts/btc.py'
