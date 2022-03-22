@@ -1,0 +1,51 @@
+#!/bin/bash
+#------------HEADER---------------------------------------------------------------------|
+#DESCRIÇÃO
+# Programa que puxa noticias atráves do google noticias.
+# Necessita de algum browser gráfico instalado e o links.
+#
+#AUTOR:
+# Jefferson rocha <lrcjefferson@gmail.com>
+#
+#---------------------------------------------------------------------------------------|
+
+#---------(VÁRIAVEIS)
+LINK="links -dump https://news.google.com/news/local?hl=pt-br&gl=BR&ned=pt-br_br"
+OPEN=""
+BROWSERS=("google-chrome" "google-chrome-stable" "firefox" "vivaldi" "qutebrowser")
+UTIL=$(which links 2>/dev/null)
+TYPE_SHELL=$(echo "$SHELL")
+
+#---------(TESTES INICIAIS)
+[[ "$TYPE_SHELL" == "/usr/bin/fish" ]] || [[ "$TYPE_SHELL" == "/bin/fish" ]] && {
+    echo -e "\033[32;1mVocê está utilizando o fish :( ,utilize o bash e volte.\033[m"
+    exit 1
+}
+
+[[ "$UTIL" ]] || {    # links existe no sistema?
+   echo -e "\033[31;1mOpa! instale o links para continuar\033[m"
+   exit 1
+}
+
+for i in ${BROWSERS[@]}; do   # Vamos verificar se tem um dos navegadores.
+   which "$i" >/dev/null 2>/dev/null
+   if [[ $? == 0 ]]; then
+      OPEN="$i"
+      break
+   fi
+done
+
+#========* Passado os testes agora vai! *=========#
+
+echo -e "\033[31;4;1mPuxando informações.\033[m"
+# Baixando página do google noticias
+$LINK > ~/google.txt
+
+# Fazendo conversão e arrumando texto
+tail -n +53 ~/google.txt | sed 's//------------------\n/ ; s/&#xE80D;/------------------\n/' | head -n 120 > ~/google-tail.txt
+
+# Removendo google.txt
+rm ~/google.txt && mv ~/google-tail.txt ~/noticia.txt
+
+# Executando leafpad, para ler noticia
+$OPEN ~/noticia.txt >/dev/null 2>/dev/null

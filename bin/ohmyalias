@@ -1,0 +1,228 @@
+#!/usr/bin/env bash
+# Template s2 created by (Shell-Base)
+#-----------HEADER-----------------------------------------------------------------|
+#AUTOR
+#  Jefferson Rocha <lrcjefferson@gmail.com>
+#
+#PROGRAM
+#  ohmyalias
+#
+#SMALL DESC
+#  Create your easily alias!!
+#
+#LICENSE
+#  MIT
+#
+#HOMEPAGE
+#  https://slackjeff.com.br
+#
+#CHANGELOG
+#  v1.1 - 16/04/2018 - Jefferson Rocha
+#     * Corrected language bug, which did not adjust.
+#     * Add version variable, for show version.
+#     * Removed array 'list' and 'lista'.
+#     * Now with alias removal support in (.zshrc)
+#----------------------------------------------------------------------------------|
+
+
+#--------VARS-------------->
+version="1.1"
+directory_zshrc="$HOME/.aliases"
+lang="" # reset var.
+
+#colors
+red="\033[31;1m"
+end="\033[m"
+#-------------------------->
+
+
+
+#--------FUNCTIONS--------->
+br(){
+
+for ali in "Pequena_Descricao" "Nick" "Comando"; do
+    read -p "${ali[@]}: " ${ali[@]}
+done
+
+# Sending command to .zshrc
+cat << EOF >> "$directory_zshrc"
+#$Pequena_Descricao
+alias ${Nick}="$Comando"
+EOF
+
+}
+
+
+
+
+eng(){
+
+for ali in "Small_Description" "Nick" "Command"; do
+    read -p "${ali[@]}: " ${ali[@]}
+done
+
+# Sending command to .zshrc
+cat << EOF >> "$directory_zshrc"
+#$Small_Description
+alias ${Nick}="$Command"
+EOF
+
+}
+
+
+ajuda_now(){
+cat << EOF
+USO: ohmyalias [OPÇÃO]
+
+Parâmetros disponiveis:
+
+    -c, --criar
+        Para criar um novo alias
+
+    -r, --remover
+        Para remover um alias, localizado no seu home .zshrc
+
+    -a, --ajuda
+        Para abrir está opção de ajuda
+
+
+A criação é simples, o questionario é perguntando e ao todo são 3 perguntas.
+Pequena descrição, Nick, Comando
+Exemplo de um simples alias, exemplo quero deixar o ls com o parâmetro --color, para
+colorir a listagem.
+
+Pequena_Descricao: Agora o ls é colorido
+Nick: ls
+Comando: ls --color
+
+O arquivo é indexado no seu .zshrc, caso você não o tenha em seu HOME é criado
+automaticamente no inicio do programa.
+
+EOF
+
+}
+
+help_now(){
+cat << EOF
+USAGE: ohmyalias [OPTION]
+
+Options Avaiables:
+
+    -c, --create
+        For create a new alias
+
+    -r, --remove
+        For remove alias located in your home, .zshrc
+
+    -h, --help
+        For open this options.
+
+Have a tree questions, Small Description, Nick, Command
+Example, simple alias for keep ls colorized with option --color.
+
+Small_Description: Now ls have a color!
+Nick: ls
+Command: ls --color
+
+Archive index in .zshrc in your home.
+
+EOF
+}
+
+
+remover(){
+lista_alias=$(grep "^alias" ~/.zshrc | cut -d ' ' -f 2-)
+
+for list in "$lista_alias"; do
+    if [[ -z "$lista_alias" ]]; then    # Se for nulo sai.
+        echo "Nenhum alias encontrado..."
+        exit 1
+    fi
+    echo -e "${red}#----------------------Lista de alias----------------------#${end}\n"
+    echo -e "${list}\n"
+    echo -e "${red}#----------------------------------------------------------#${end}"
+done
+
+while true; do
+    read -p $'\nNome do alias para remover: ' alias_remover
+    # Se não exister loop come solto.
+    if grep -w "^alias*.${alias_remover}" "$directory_zshrc"; then
+        sed -i "/^alias*.${alias_remover}/d" "$directory_zshrc"
+        echo "Removido com sucesso."
+        exit 0
+    else
+        echo "Você digitou certo?"
+        continue
+    fi       
+done
+
+}
+
+
+remove(){
+list_alias=$(grep "^alias" ~/.zshrc | cut -d ' ' -f 2-)
+
+for list in "$list_alias"; do
+    if [[ -z "$list_alias" ]]; then    # Se for nulo sai.
+        echo "Not alias found..."
+        exit 1
+    fi
+    echo -e "${red}#----------------------List alias----------------------#${end}\n"
+    echo -e "${list}\n"
+    echo -e "${red}#----------------------------------------------------------#${end}"
+done
+
+while true; do
+    read -p $'\nName alias for remove: ' alias_remove
+    # Se não exister loop come solto.
+    if grep -w "^alias*.${alias_remove}" "$directory_zshrc"; then
+        sed -i "/^alias*.${alias_remove}/d" "$directory_zshrc"
+        echo "Sucess."
+        exit 0
+    else
+        echo "Typed right?"
+        continue
+    fi       
+done
+
+}
+
+#-------------------------->
+
+
+#------TEST's-------------->
+# .zshrc exist?
+if [ ! -e "$directory_zshrc" ]; then
+  > "$HOME/.zsh"
+fi
+
+# pt-br or eng?
+if [ "$LANG" = "pt_BR.UTF-8" ]; then
+    lang="pt_BR"
+elif [ "$LANG" = "pt_BR.utf8" ]; then
+    lang="pt_BR"
+elif [ "$LANG" = "pt_BR.utf-8" ]; then
+    lang="pt_BR"
+else
+    lang="en_US"
+fi
+#-------------------------->
+
+
+
+# Start here, have fun. :)
+if [ "$lang" = "pt_BR" ]; then
+    case "$1" in
+        -c | --criar) br ;; # call function for creation
+        -a | --ajuda) ajuda_now ;; # call function ajuda_now
+        -r | --remover) remover ;;
+        *) echo -e "Para ajuda use os parâmetros -a ou --ajuda\n" ;;
+    esac
+else
+    case "$1" in
+        -c | --create) eng ;; # call function for creation
+        -h | --help) help_now ;; # call function help_now
+        -r | --remove) remove ;;
+        *) echo -e "For help use -h or --help\n" ;;
+    esac
+fi
