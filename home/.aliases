@@ -198,3 +198,5 @@ alias ytm='$HOME/Scripts/ytm.sh'
 alias cota='python3 $HOME/Scripts/cota.py'
 #Bitcoin
 alias btc='python3 $HOME/Scripts/btc.py'
+#oh my aliases
+alias al="ohmyalias"
