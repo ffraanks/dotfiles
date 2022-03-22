@@ -160,7 +160,7 @@ done
 
 
 remove(){
-list_alias=$(grep "^alias" ~/.zshrc | cut -d ' ' -f 2-)
+list_alias=$(grep "^alias" ~/.aliases | cut -d ' ' -f 2-)
 
 for list in "$list_alias"; do
     if [[ -z "$list_alias" ]]; then    # Se for nulo sai.
