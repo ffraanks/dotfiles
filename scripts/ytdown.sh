@@ -12,7 +12,7 @@ main(){
     mkdir $HOME/.VideosDownload
     clear
     SOUND=/usr/share/sounds/freedesktop/stereo/complete.oga
-    printf "YOUTUBE DOWNLOADER\n\nEscolha uma das opções abaixo:\n\n[1] - Baixar vídeo do YouTube\n[2] - Assistir vídeo baixado\n[3] - Apagar video baixado\n[4] - Sair\n\n"
+    printf "YOUTUBE DOWNLOADER\n\nEscolha uma das opções abaixo:\n\n[1] - Baixar vídeo do YouTube\n[2] - Assistir vídeo baixado\n[3] - Apagar video baixado\n[4] - Apagar tudo da pasta $HOME/.VideosDownload\n[5] - Sair\n\n"
     read OPTION
 
     if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
@@ -46,7 +46,11 @@ main(){
 
          fi
 
-   elif [ $OPTION == '4' ] || [ $OPTION == '03' ] ; then
+   elif [ $OPTION == '4' ] || [ $OPTION == '04' ] ; then
+     rm -rf $HOME/.VideosDownload/*
+     read -p 'Videos apagados PRESSIONE ENTER PARA CONTINUAR...' && continue
+
+   elif [ $OPTION == '5' ] || [ $OPTION == '05' ] ; then
      clear && exit 0
 
    else
