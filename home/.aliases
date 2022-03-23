@@ -147,7 +147,7 @@ alias down='downloader'
 #Apagar videos
 alias delv='rm -rf $HOME/Videos/*'
 #Radio
-alias radio='$HOME/.radionix/radionix'
+alias radio='radionix'
 #Subir userbot
 alias bot='cd $HOME/Franks/UserBot/Kanna-X && ./run'
 #Permissão userbot
@@ -199,4 +199,8 @@ alias cota='python3 $HOME/Scripts/cota.py'
 #Bitcoin
 alias btc='python3 $HOME/Scripts/btc.py'
 #oh my aliases
-alias al="ohmyalias"
+alias alc="ohmyalias -c"
+#alias remove
+alias alr="ohmyalias -r"
+#tox chat
+alias tox="toxic"
