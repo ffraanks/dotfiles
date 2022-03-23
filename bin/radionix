@@ -1,0 +1,2923 @@
+#!/usr/bin/env sh
+command -v mpg123 >/dev/null 2>&1 || { echo "Radionix depende do pacote 'mpg123' porém não está instalado! Instale o 'mpg123' e execute o Radionix novamente." >&2; exit 1; }
+PLAYER="mpg123 --stereo --control --utf8 --title --preload 1 --buffer 1024"
+ 
+MAIN() {
+	clear
+ cat << EOF
+ +---[ RADIONIX ]---+
+ 
+ -----
+ 01 - Alternativo
+ 02 - Blues
+ 03 - Clássicos
+ 04 - Country
+ 05 - Cyber/Geek
+ 06 - Dance
+ 07 - Flashback
+ 08 - Mpb
+ 09 - Pop
+ 10 - Rock
+ 11 - Samba/Pagode
+ 12 - Sertanejo
+ 13 - Notícias
+ 14 - Esporte
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+	read -r radio
+	case $radio in
+		01 | 1) ALTERNATIVO;;
+		02 | 2) BLUES;;
+		03 | 3) CLASSICOS;;
+		04 | 4) COUNTRY;;
+		05 | 5) CYBERGEEK;;
+		06 | 6) DANCE;;
+		07 | 7) FLASHBACK;;
+		08 | 8) MPB;;
+		09 | 9) POP;;
+		10) ROCK;;
+		11) SAMBAPAGODE;;
+		12) SERTANEJO;;
+		13) NOTICIAS;;
+		14) ESPORTE;;
+		h) HELP;;
+		u) UPDATE;;
+		q) EXIT;;
+		*) echo "Opção incorreta"
+           echo "Tente novamente. Digite h + ENTER para obter ajuda..."
+           echo ""
+           sleep 3
+           clear
+           MAIN
+           ;;
+esac
+}
+ALTERNATIVO() {
+	clear
+ cat << EOF
+ +---[ ALTERNATIVO ]---+
+ 
+ -----
+ 01 - 011FM ALTERNATIVE
+ 02 - idobi Radio
+ 03 - Ambient Radio
+ 04 - Oldies Radio
+ 05 - 1 Pure Alternative
+ 06 - Absolut Radio
+ 07 - Metaradio
+ 08 - Relax FM
+ 09 - Atlantic Sound
+ 10 - Play Emotions
+ 11 - Antenne Bayern
+ 12 - Midnight Cafe
+ 13 - 077 Radio
+ 14 - Flux FM
+ 15 - Neo FM
+ 16 - Popolare FM 107.6
+ 17 - Addict Alternative
+ 18 - 1 Radio FM
+ 19 - 92.5 The River
+ 20 - 3FM Alternative
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)
+        clear
+        echo "Alternativo -> 011FM ALTERNATIVE [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.011fm.com:80/stream15 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        02 | 2)
+        clear
+        echo "Alternativo -> idobi Radio [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://69.46.75.98:80/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        03 | 3)	
+        clear	
+        echo "Alternativo -> Ambient Radio [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://uk2.internet-radio.com:31491/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        04 | 4)	
+        clear	
+        echo "Alternativo -> Oldies Radio [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.abradio.cz/oldiesradio128.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        05 | 5)	
+        clear	
+        echo "Alternativo -> 1 Pure Alternative [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.radionomy.com/1PureAlternative 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        06 | 6)	
+        clear	
+        echo "Alternativo -> Absolut Radio [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://absolut.hoerradar.de/absolutradio.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        07 | 7)	
+        clear	
+        echo "Alternativo -> Metaradio [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s2.metaradio.ru:80/mradio.192 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        08 | 8)	
+        clear	
+        echo "Alternativo -> Relax FM [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ic7.101.ru:8000/c19_1 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        09 | 9)	
+        clear	
+        echo "Alternativo -> Atlantic Sound [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ais-sa2.wdc01.cdnstream.com:80/2279_192.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        10)	
+        clear	
+        echo "Alternativo -> Play Emotions [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://91.121.38.216:8054/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        11) 
+        clear	
+        echo "Alternativo -> Antenne Bayern [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://mp3channels.webradio.antenne.de:80/antenne 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        12) 
+        clear	
+        echo "Alternativo -> Midnight Cafe [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://vh11367x.out.airtime.pro:8000/vh11367x_a 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        13) 
+        clear	
+        echo "Alternativo -> 077 Radio [13]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.openstream.co/377/audio 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        14) 
+        clear	
+        echo "Alternativo -> Flux FM [14]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://fluxfm.hoerradar.de/fluxfm-berlin?sABC 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        15) 
+        clear	
+        echo "Alternativo -> Neo FM [15]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.radioneo.org:8000/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        16) 
+        clear	
+        echo "Alternativo -> Popolare FM 107.6 [16]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://live.radiopopolare.it:80/radiopop 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        17) 
+        clear	
+        echo "Alternativo -> Addict Alternative [17]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream1.addictradio.net/addictalternative.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        18) 
+        clear	
+        echo "Alternativo -> 1 Radio FM [18]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://alternative.dialoz.host:9982/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        19) 
+        clear	
+        echo "Alternativo -> 92.5 The River [19]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://nebcoradio.com:8000/WXRV 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        20) 
+        clear	
+        echo "Alternativo -> 3FM Alternative [20]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://icecast.omroep.nl/3fm-alternative-mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ALTERNATIVO
+        ;;
+        h) HELP;;
+		u) UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+BLUES () {
+	clear
+ cat << EOF
+ +---[ BLUES ]---+
+ 
+ -----
+ 01 - The World Of Blues
+ 02 - 1.FM - Blues
+ 03 - BluesMusicFan Radio
+ 04 - 113FM Bluesville
+ 05 - Acadie Radio
+ 06 - HearMe Punk Blues
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "BLUES -> The World Of Blues [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ais-sa2-dal01-1.cdnstream.com:80/2263_128.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        02 | 2)
+        clear	
+        echo "BLUES -> 1.FM - Blues [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://strm112.1.fm/blues_mobile_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        03 | 3)
+        clear	
+        echo "BLUES -> BluesMusicFan Radio [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://ais-sa2.wdc01.cdnstream.com:80/1992_128.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        04 | 4)
+        clear	
+        echo "BLUES -> 113FM Bluesville [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://113fm-edge2.cdnstream.com:80/1816_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        05 | 5)
+        clear	
+        echo "BLUES -> Acadie Radio [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://shout.acadiewebradio.com:8000/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        06 | 6)
+        clear	
+        echo "BLUES -> HearMe Punk Blues [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.laut.fm/positiveradio 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        BLUES
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Digite h + ENTER para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+CLASSICOS () {
+	clear
+ cat << EOF
+ +---[ CLÁSSICOS ]---+
+ 
+ -----
+ 01 - RadioViking
+ 02 - 1.FM - LOVE CLASSICS
+ 03 - 1.FM - Otto s Baroque Music
+ 04 - KUAT 192
+ 05 - RTP Antena 2 Portugal
+ 06 - Calm Radio - Gregorian Chant
+ 07 - Classic FM Opera
+ 08 - GotRadio Piano Perfect
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)
+        clear	
+        echo "CLÁSSICOS -> RadioViking [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://cdn-live2.crossnet.net:8000/radiovikinglive 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        02 | 2)
+        clear	
+        echo "CLÁSSICOS -> 1.FM - LOVE CLASSICS [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://sc-loveclassic.1.fm:10048/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        03 | 3)
+        clear	
+        echo "CLÁSSICOS -> 1.FM - Otto s Baroque Music [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://strm112.1.fm/baroque_mobile_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        04 | 4)
+        clear	
+        echo "CLÁSSICOS -> KUAT 192 [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.azpm.org:80/kuat192.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        05 | 5)
+        clear	
+        echo "CLÁSSICOS -> RTP Antena 2 Portugal [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://radiocast.rtp.pt/antena280a.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        06 | 6)
+        clear	
+        echo "CLÁSSICOS -> Calm Radio - Gregorian Chant [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streams.calmradio.com/api/103/128/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        07 | 7)
+        clear	
+        echo "CLÁSSICOS -> Classic FM Opera [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR27.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        08 | 8)
+        clear	
+        echo "CLÁSSICOS -> GotRadio Piano Perfect [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://173.244.215.162:8050/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CLASSICOS
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+COUNTRY () {
+	clear
+ cat << EOF
+ +---[ COUNTRY ]---+
+ 
+ -----
+ 01 - 1.FM -COUNTRY
+ 02 - America's Country
+ 03 - Country One
+ 04 - Norsk Country
+ 05 - Retro Country
+ 06 - 011.FM - Today s Country
+ 07 - 100Hitz - New Country Channel
+ 08 - KIX Country
+ 09 - A-Z Country
+ 10 - 979 The Cowboy
+ 11 - Radio Americana
+ 12 - Rockin Country
+ -----
+ 
+ * Digite h + ENTER para obter ajuda."
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "COUNTRY -> 1.FM -COUNTRY [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://185.33.21.112:80/acountry_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        02 | 2)	
+        clear	
+        echo "COUNTRY -> America's Country [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://169.54.192.158:80/1976_128.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        03 | 3)	
+        clear	
+        echo "COUNTRY -> Country One [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://185.33.21.112:80/country_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        04 | 4)	
+        clear	
+        echo "COUNTRY -> Norsk Country [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://s6.voscast.com:10258 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        05 | 5)	
+        clear	
+        echo "COUNTRY -> Retro Country [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://144.217.195.24:8942/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        06 | 6)	
+        clear	
+        echo "COUNTRY -> 011.FM - Today s Country [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.011fm.com:8000/stream09 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        07 | 7)
+        clear	
+        echo "COUNTRY -> 100Hitz - New Country Channel [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://173.244.215.162:8120/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        08 | 8)
+        clear	
+        echo "COUNTRY -> KIX Country [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://208.80.54.147:3690/KIXCOUNTRY_SC 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        09 | 9)
+        clear	
+        echo "COUNTRY -> A-Z Country [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://164.132.158.45:8010/radio.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        10)
+        clear	
+        echo "COUNTRY -> 979 The Cowboy [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://166.62.44.23:8012/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        11)
+        clear	
+        echo "COUNTRY -> Radio Americana [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://206.190.135.28:8740/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        COUNTRY
+        ;;
+        12)
+        clear	
+        echo "COUNTRY -> Rockin Country [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://206.190.135.28:8536/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+CYBERGEEK () {
+	clear
+ cat << EOF
+ +---[ CYBER/GEEK ]---+
+ 
+ -----
+ 01 - Cybe Radio
+ 02 - Nerds and Geeks
+ 03 - Rádio Geek Br
+ 04 - Vaporwaves
+ 05 - geekbeatradio
+ 06 - PopTron
+ 07 - Dub Step Beyond
+ 08 - Digitalis
+ 09 - Classic Videogames RADIO
+ 10 - Radio PARALAX
+ 11 - Liquid DOS Games Radio
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "Cyber/Geek -> Cybe Radio [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://cyberadio.pw:8000/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        02 | 2)	
+        clear	
+        echo "Cyber/Geek -> Nerds and Geeks [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://136.243.156.30:2808/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        03 | 3)	
+        clear	
+        echo "Cyber/Geek -> Rádio Geek Br [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://servidor30.brlogic.com:8270/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        04 | 4)  
+        clear	
+        echo "Cyber/Geek -> Vaporwaves [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.somafm.com/vaporwaves 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        05 | 5)  
+        clear	
+        echo "Cyber/Geek -> geekbeatradio [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://208.113.129.170:8000/geekbeatradio 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        06 | 6)  
+        clear	
+        echo "Cyber/Geek -> PopTron [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.somafm.com/poptron 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        07 | 7)  
+        clear	
+        echo "Cyber/Geek -> Dub Step Beyond [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.somafm.com/dubstep 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        08 | 8)  
+        clear	
+        echo "Cyber/Geek -> Digitalis [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.somafm.com/digitalis 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        09 | 9)  
+        clear	
+        echo "Cyber/Geek -> Classic Videogames RADIO [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://136.243.156.30:1541/stream/1/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        10)  
+        clear	
+        echo "Cyber/Geek -> Radio PARALAX [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://radio-paralax.de:8000/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        11)  
+        clear	
+        echo "Cyber/Geek -> Liquid DOS Games Radio [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://liquiddoom.net:8000/dos 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        CYBERGEEK
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+DANCE() {
+	clear
+ cat << EOF
+ +---[ DANCE ]---+
+ 
+ -----
+ 01 - Dance Attack FM
+ 02 - Energy FM
+ 03 - Eye Of Destiny
+ 04 - TOPradio Belgium
+ 05 - Dance Wave!
+ 06 - Top 100 Station
+ 07 - STRICTLY HOUSE
+ 08 - Amsterdan 1.FM
+ 09 - DFM
+ 10 - 100pct NL Dance
+ 11 - NTI
+ 12 - PulsRadio DANCE
+ 13 - PulsRadio TRANCE
+ 14 - Hitparty
+ 15 - IBIZA RADIO
+ 16 - 103 Radio
+ 17 - 181.FM Energy 98
+ 18 - 181.FM 90s Dance
+ 19 - Circuito Mix Brasil
+ 20 - 1.FM - Dance One Radio
+ 21 - América Dance 90's
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear
+        echo "Dance -> Dance Attack FM [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://149.255.59.162:8045/1 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        02 | 2)	
+        clear
+        echo "Dance -> Energy FM [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://uk1.internet-radio.com:15614 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        03 | 3)
+        clear
+        echo "Dance -> Eye Of Destiny [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://uk6.internet-radio.com:8428 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        04 | 4)
+        clear
+        echo "Dance -> TOPradio Belgium [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://str.topradio.be:80/topradio.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        05 | 5)
+        clear
+        echo "Dance -> Dance Wave! [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://stream2.dancewave.online:8080/dance.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        06 | 6)
+        clear
+        echo "Dance -> Top 100 Station [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://94.130.133.39:80/top100station.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        07 | 7)
+        clear
+        echo "Dance -> STRICTLY HOUSE [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://radio.strictly.house:9500/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed  -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        08 | 8)
+        clear	
+        echo "Dance -> Amsterdan 1.FM [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://185.33.21.112:11029 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        09 | 9)
+        clear	
+        echo "Dance -> DFM [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://mc-mcgold.hostingradio.ru/dfm128-f.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        10)
+        clear	
+        echo "Dance -> 100pct NL Dance [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.radiocorp.nl/100pnl_dance_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        11)
+        clear	
+        echo "Dance -> NTI [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.radionti.com/nti-hd.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        12)
+        clear	
+        echo "Dance -> PulsRadio DANCE [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://51.15.76.3:80/pulsHD.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        13)
+        clear	
+        echo "Dance -> PulsRadio TRANCE [13]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://213.251.190.165:80/pulstranceHD.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        14)
+        clear	
+        echo "Dance -> Hitparty [14]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://193.200.43.23:80/hitpartyHD.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        15)
+        clear	
+        echo "Dance -> IBIZA RADIO [15]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://94.75.227.133:8635 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        16) 
+        clear	
+        echo "Dance -> 103 Radio [16]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.103radio.fr/320 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        17) 
+        clear	
+        echo "Dance -> 181.FM Energy 98 [17]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-energy98_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        18) 
+        clear	
+        echo "Dance -> 181.FM 90s Dance [18]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-90sdance_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        19)
+        clear	
+        echo "Dance -> Circuito Mix Brasil [19]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://173.236.30.162:8215/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        20)
+        clear	
+        echo "Dance -> 1.FM - Dance One Radio [20]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://strm112.1.fm/dance_mobile_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        21)
+        clear	
+        echo "Dance -> América Dance 90's [21]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm8.srvstm.com:8212/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        DANCE
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+FLASHBACK () {
+	clear
+ cat << EOF
+ +---[ FLASHBACK ]---+
+ 
+ -----
+ 01 - So FlashBack
+ 02 - Dance Bem
+ 03 - Laut.FM Flashback-Oldie
+ 04 - Flashback 91.9 Reykjavik
+ 05 - .113FM Flashback
+ 06 - Radio Caroline Flashback
+ 07 - WEB RADIO TUNEL DO TEMPO
+ 08 - 809s Hits Voyage
+ -----
+ 
+ * Digite h + ENTER para obter ajuda."
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "FlashBack -> So FlashBack [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm8.srvstm.com:23724/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        02 | 2)	
+        clear	
+        echo "FlashBack -> Dance Bem [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm18.srvstm.com:6096/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        03 | 3)	
+        clear	
+        echo "FlashBack -> Laut.FM Flashback-Oldie [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://flashback-oldie-fm.stream.laut.fm/flashback-oldie-fm 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        04 | 4)  
+        clear	
+        echo "FlashBack -> Flashback 91.9 Reykjavik [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://www.radio.is:443/flashback 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        05 | 5)  
+        clear	
+        echo "FlashBack -> .113FM Flashback [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://113fm-edge1.cdnstream.com:80/1771_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        06 | 6)  
+        clear	
+        echo "FlashBack -> Radio Caroline Flashback [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://sc2.radiocaroline.net:10558 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        07 | 7)  
+        clear	
+        echo "FLASHBACK -> WEB RADIO TUNEL DO TEMPO [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm10.srvstm.com:23724/MelhorSom 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        08 | 8)  
+        clear	
+        echo "FLASHBACK -> 809s Hits Voyage [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ample-zeno-19.radiojar.com/49kscf3me7duv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        FLASHBACK
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+MPB () {
+	clear
+ cat << EOF
+ +---[ MPB ]---+
+ 
+ -----
+ 01 - Joven Pan MPB
+ 02 - Paul in Rio MPB
+ 03 - MPB Eclética
+ 04 - Batuta MPB
+ 05 - Rádio Rio Verde
+ 06 - Só MPB Rádio Web
+ 07 - MPB SP
+ 08 - Rádio Brasil MPB
+ 09 - 1.fm MPB Hits
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "Mpb -> Joven Pan MPB [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://6d9a.webradio.upx.net.br:9022/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        02 | 2)	
+        clear	
+        echo "Mpb -> Paul in Rio MPB [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://99.198.112.59:80/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        03 | 3)	
+        clear	
+        echo "Mpb -> MPB Eclética [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s07.maxcast.com.br:8026/autodj 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        04 | 4)  
+        clear	
+        echo "Mpb -> Batuta MPB [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://radioims.out.airtime.pro:8000/radioims_a 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        05 | 5)  
+        clear	
+        echo "Mpb -> Rádio Rio Verde [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://paineldj5.com.br:8147/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        06 | 6)  
+        clear	
+        echo "Mpb -> Só MPB Rádio Web [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming23.hstbr.net:8040/live?1524344626994 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        07 | 7)  
+        clear	
+        echo "MPB -> MPB SP [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://centova8.ipstm.net:10056/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        08 | 8)  
+        clear	
+        echo "MPB -> Rádio Brasil MPB [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://paineldj5.com.br:8140/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        09 | 9)  
+        clear	
+        echo "MPB -> 1.fm MPB Hits [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://sc2b-sjc.1.fm:10036/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        MPB
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+POP() {
+	clear
+ cat << EOF
+ +---[ POP ]---+
+ 
+ -----
+ 01 - The Point
+ 02 - UK top 40
+ 03 - Power 181
+ 04 - The Office
+ 05 - The Mix
+ 06 - @PopHits
+ 07 - 2CR FM
+ 08 - Fréquence 3
+ 09 - Hotmixradio Hits
+ 10 - Hitradio Ö3
+ 11 - NPO 3FM
+ 12 - 011FM - Top 40 Pop
+ 13 - 1 Live
+ 14 - NDR2
+ 15 - 100 - Love
+ 16 - 100pct NL Non-Stop
+ 17 - 90 s Hits
+ 18 - 94 FM
+ 19 - Alive FM
+ 20 - The Voice
+ -----
+ 
+ * Digite h + ENTER para obter ajuda."
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "Pop -> The Point [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://relay.181.fm:8010 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        02 | 2)	
+        clear	
+        echo "Pop -> UK top 40 [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-uktop40_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        03 | 3)
+        clear	
+        echo "Pop -> Power 181 [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-power_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        04 | 4)
+        clear	
+        echo "Pop -> The Office [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-office_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        05 | 5)	
+        clear	
+        echo "Pop -> The Mix [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.181fm.com/181-themix_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        06 | 6)
+        clear	
+        echo "Pop -> @PopHits [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://streamingv2.shoutcast.com/-Pophits 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        07 | 7)
+        clear	
+        echo "Pop -> 2CR FM [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://media-ice.musicradio.com/HeartDorsetMP3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        08 | 8)
+        clear	
+        echo "Pop -> Fréquence 3 [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice.stream.frequence3.net/frequence3-256.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        09 | 9)
+        clear	
+        echo "Pop -> Hotmixradio Hits [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.hotmixradio.fr/hotmixradio-hits-128.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        10)
+        clear	
+        echo "Pop -> Hitradio Ö3 [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://oe3shoutcast.sf.apa.at:80 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        11)
+        clear	
+        echo "Pop -> NPO 3FM [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://icecast.omroep.nl/3fm-bb-mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        12)
+        clear	
+        echo "Pop -> 011FM - Top 40 Pop [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://listen.011fm.com:8034/stream18 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        13)
+        clear	
+        echo "Pop -> 1 Live [13]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        14)
+        clear	
+        echo "Pop -> NDR2 [14]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ndr-ndr2-niedersachsen.cast.addradio.de/ndr/ndr2/niedersachsen/mp3/128/stream.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        15)
+        clear	
+        echo "Pop -> 100 - Love [15]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://gb25.streamgates.net/radios-audio/100Love/icecast.audio 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        16)
+        clear	
+        echo "Pop -> 100pct NL Non-Stop [16]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.radiocorp.nl/web02_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        17)
+        clear	
+        echo "Pop -> 90 s Hits [17]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://live-bauerdk.sharp-stream.com/DK_RP06.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        18)
+        clear	
+        echo "Pop -> 94 FM [18]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://195.8.58.150:35022/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        19)
+        clear	
+        echo "Pop -> Alive FM [19]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://centova.radio.com.pt:9468/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        20)
+        clear	
+        echo "Pop -> The Voice [20]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://tx-bauerdk.sharp-stream.com/http_live.php?i=thevoice_dk_tunein_mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        POP
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+ROCK () {
+	clear
+ cat << EOF 
+ +---[ ROCK ]---+
+ 
+ -----
+ 01 - Rock Hits
+ 02 - 91 Rock
+ 03 - Rock Antenne
+ 04 - 1 Rock
+ 05 - Monster.FM
+ 06 - Arabella Rock
+ 07 - A Radio Maragata
+ 08 - Distorsion
+ 09 - 101 Rock
+ 10 - Powerhitz.com
+ 11 - Party Vibe
+ 12 - 1.FM - Rock Classics
+ 13 - The Buzz
+ 14 - 90's Alternative
+ 15 - 181 Rock
+ 16 - Rock 40
+ 17 - The Rock
+ 18 - Cosquin Rock FM
+ 19 - La Rocka
+ 20 - Cxd- Radio Futura FM
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "Rock -> Rock Hits [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://149.56.69.212:8080/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        02 | 2)	
+        clear	
+        echo "Rock -> 91 Rock [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://servidor40.brlogic.com:8044/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        03 | 3)	
+        clear	
+        echo "Rock -> Rock Antenne [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://mp3channels.webradio.antenne.de:80/rockantenne 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        04 | 4)	
+        clear	
+        echo "Rock -> 1 Rock [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://stream.radioreklama.bg:80/radio1rock64 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        05 | 5)	
+        clear	
+        echo "Rock -> Monster.FM [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://evergreens.radiomonster.fm/320.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        06 | 6)	
+        clear	
+        echo "Rock -> Arabella Rock [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://arabella.stream.kapper.net:8003/arabellarock 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        07 | 7) 
+        clear	
+        echo "Rock -> A Radio Maragata [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://emisiones.com.uy:8114/mara 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        08 | 8)  
+        clear	
+        echo "Rock -> Distorsion [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://archi-us.digitalproserver.com/distorsion.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        09 | 9)  
+        clear	
+        echo "Rock -> 101 Rock [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://144.76.39.214:9578/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        10) 
+        clear	
+        echo "Rock -> Powerhitz.com [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://66.85.88.174:80/planet 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        11) 
+        clear	
+        echo "Rock -> Party Vibe [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://uk6.internet-radio.com:8124/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        12) 
+        clear	
+        echo "Rock -> 1.FM - Rock Classics [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://185.33.21.112:80/rockclassics_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        13) 
+        clear	
+        echo "Rock -> The Buzz [13]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-buzz_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        14) 
+        clear	
+        echo "Rock -> 90's Alternative [14]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-90salt_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        15) 
+        clear	
+        echo "Rock -> 181 Rock [15]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-rock_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        16) 
+        clear	
+        echo "Rock -> Rock 40 [16]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-rock40_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        17) 
+        clear	
+        echo "Rock -> The Rock [17]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER  http://listen.181fm.com/181-hardrock_128k.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        18) 
+        clear	
+        echo "Rock -> Cosquin Rock FM [18]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://server.laradio.online:8799/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        19) 
+        clear	
+        echo "Rock -> La Rocka [19]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://live.flavorfm.com:8243/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        20) 
+        clear	
+        echo "Rock -> Cxd- Radio Futura FM [20]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://radios-mp3-uy.cdn.nedmedia.io/uy-futura.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ROCK
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Use h + [Enter] para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+SAMBAPAGODE () {
+	clear
+ cat << EOF
+ +---[ SAMBA/PAGODE ]---+
+ 
+ -----
+ 01 - Pagode Recife
+ 02 - Pontal Radio
+ 03 - 1.fm Samba Hits Brazil
+ 04 - Arquibancada RJ
+ 05 - On Rádio Samba
+ 06 - MPB Samba na Caixa
+ 07 - Sintonia de Bambas
+ 08 - Viva o Samba
+ -----
+    
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+		01 | 1)	
+        clear	
+        echo "SAMBA/PAGODE -> Pagode Recife [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://node-21.zeno.fm/s76ha2uh98quv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        02 | 2)
+        clear	
+        echo "SAMBA/PAGODE -> Pontal Radio [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://69.162.80.4:8646/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        03 | 3)
+        clear	
+        echo "SAMBA/PAGODE -> 1.fm Samba Hits Brazil [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://sc2b-sjc.1.fm:10020/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        04 | 4)
+        clear	
+        echo "SAMBA/PAGODE -> Arquibancada RJ [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://servidor31.brlogic.com:8184/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        05 | 5)
+        clear	
+        echo "SAMBA/PAGODE -> On Rádio Samba [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming06.hstbr.net:8000/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        06 | 6)
+        clear	
+        echo "SAMBA/PAGODE -> MPB Samba na Caixa [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming01.hstbr.net:8160/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        07 | 7)
+        clear	
+        echo "SAMBA/PAGODE -> Sintonia de Bambas [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming08.hstbr.net:8118/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        08 | 8)
+        clear	
+        echo "SAMBA/PAGODE -> Viva o Samba [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://74.63.237.84:8020/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SAMBAPAGODE
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Digite h + ENTER para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+SERTANEJO () {
+clear
+cat << EOF
+ +---[ SERTANEJO ]---+
+  
+ -----
+ 01 - Rádio Villamix
+ 02 - 1.FM - Sertaneja
+ 03 - Canção de Boiadeiro
+ 04 - Sertanejo Universitário
+ 05 - Radiowebclubesertanejo
+ 06 - JK FM
+ 07 - Litoral Sertanejo
+ 08 - Sertanejo Top 10
+ 09 - Sertanejo Bom Demais
+ 10 - Amigos do Sertanejo
+ 11 - Brasil Sertanejo
+ 12 - Rádio Antares
+ 13 - Joven Pan Sertanejo
+ 14 - Mix Sertanejo
+ 15 - Paradão Sertanejo
+ 16 - Paulo Sertanejo
+ 17 - Rádio Moda Sertanejo
+ 18 - Web Clube Sertanejo
+ 19 - Rádio Sertaneja Mix
+ 20 - Café Viola
+ 21 - Sertanejo UniversitÁrio E Antigos
+ -----
+  
+ * Digite h + ENTER para obter ajuda."
+EOF
+    read -r radio
+    case $radio in
+        01 | 1)	
+        clear	
+        echo "Sertanejo -> Rádio Villamix [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://198.100.150.244:9627/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        02 | 2)	
+        clear	
+        echo "Sertanejo -> 1.FM - Sertaneja [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://185.33.21.112:80/sertanejo_128 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        03 | 3)	
+        clear	
+        echo "Sertanejo -> Canção de Boiadeiro [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming16.hstbr.net:8046/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        04 | 4)  
+        clear	
+        echo "Sertanejo -> Sertanejo Universitário [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming1.bycast.com.br:8128/autodj 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        05 | 5)  
+        clear	
+        echo "Sertanejo -> Radiowebclubesertanejo [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming15.hstbr.net:8180/autodj 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        06 | 6)  
+        clear	
+        echo "Sertanejo -> JK FM [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://107.150.42.238:9304/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        07 | 7)  
+        clear	
+        echo "Sertanejo -> Litoral Sertanejo [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://199.233.234.34:25235/listen.pls 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        08 | 8)  
+        clear	
+        echo "Sertanejo -> Sertanejo Top 10 [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm13.unicast.net.br:10370/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        09 | 9)  
+        clear	
+        echo "Sertanejo -> Sertanejo Bom Demais [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://cast4.hoost.com.br:8673/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        10)  
+        clear	
+        echo "Sertanejo -> Amigos do Sertanejo [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm2.stmsrv.com:8292 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        11)  
+        clear	
+        echo "Sertanejo -> Brasil Sertanejo [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.zeno.fm/6xh9pv6kberuv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        12)  
+        clear	
+        echo "Sertanejo -> Rádio Antares [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s09.hstbr.net:8184/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        13)  
+        clear	
+        echo "Sertanejo -> JP Web Sertanejo [13]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://6d9a.webradio.upx.net.br:9049/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        14)  
+        clear	
+        echo "Sertanejo -> Mix Sertanejo [14]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.zeno.fm/rn8kgvekvbruv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        15)  
+        clear	
+        echo "Sertanejo -> Paradão Sertanejo [15]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.zenolive.com/eyx0adx3f3quv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        16)  
+        clear	
+        echo "Sertanejo -> Paulo Sertanejo [16]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm1.srvst.com:30814/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        17)  
+        clear	
+        echo "Sertanejo -> Rádio Moda Sertanejo [17]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s3.guaracast.com:8012/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        18)  
+        clear	
+        echo "Sertanejo -> Web Clube Sertanejo [18]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming15.hstbr.net:8180/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        19)  
+        clear	
+        echo "Sertanejo -> Rádio Sertaneja Mix [19]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://centova.radioempresabrasil.com.br:8314/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        20)  
+        clear	
+        echo "Sertanejo -> Café Viola [20]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://199.233.234.34:8086/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        21)  
+        clear	
+        echo "Sertanejo -> Sertanejo UniversitÁrio E Antigos [21]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s09.hstbr.net:8184/autodj 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        SERTANEJO
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+NOTICIAS () {
+clear
+ cat << EOF
+ +---[ NOTÍCIAS ]---+
+ 
+ -----
+ 01 - TSF Rádio Notícias
+ 02 - Rádio Onda Viva
+ 03 - Rádio Liberdade
+ 04 - Notícias do ES
+ 05 - Rede Nacional de Notícias
+ 06 - A05 SUPER NOTICIAS
+ 07 - CBN Rio de Janeiro
+ 08 - Rádio Itatiaia
+ 09 - Rádio Globo RJ
+ -----
+ 
+ * Digite h + ENTER para obter ajuda.
+EOF
+    read -r radio
+    case $radio in
+    01 | 1)	
+        clear	
+        echo "NOTÍCIAS -> TSF Rádio Notícias [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://tsfdirecto.tsf.pt/tsfdirecto.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    02 | 2)
+        clear	
+        echo "NOTÍCIAS -> Rádio Onda Viva [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://centova.radio.com.pt:9524/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    03 | 3)
+        clear	
+        echo "NOTÍCIAS -> Rádio Liberdade [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stream.sistemaplug.com:18256/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    04 | 4)
+        clear	
+        echo "NOTÍCIAS -> Notícias do ES [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ample-zeno-02.radiojar.com/sdzem4k01uquv 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    05 | 5)
+        clear	
+        echo "NOTÍCIAS -> Rede Nacional de Notícias [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s08.maxcast.com.br:8492/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    06 | 6)
+        clear	
+        echo "NOTÍCIAS -> A05 SUPER NOTICIAS [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://icecast2.mobradio.com.br:8000/917fm-bh-web.mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    07 | 7)
+        clear	
+        echo "NOTÍCIAS -> CBN Rio de Janeiro [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ceb1.live.upx.net.br:8030/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    08 | 8)
+        clear	
+        echo "NOTÍCIAS -> Rádio Itatiaia [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://8903.brasilstream.com.br:8903/mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+    09 | 9)
+        clear	
+        echo "NOTÍCIAS -> Rádio Globo RJ [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming13.hstbr.net:8072/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        NOTICIAS
+        ;;
+        h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo "Opção incorreta"
+			echo "Tente novamente. Digite h + ENTER para obter ajuda..."
+			echo ""
+			sleep 2
+			clear
+			;;
+    esac
+}
+ESPORTE () {
+clear 
+cat << EOF
+ +---[ ESPORTE ]---+
+  
+ -----
+ 01 - Master Esporte
+ 02 - Radio Agreste FM
+ 03 - Rádio Central 870
+ 04 - Radio Clube do Para
+ 05 - Rádio Esportes NET 
+ 06 - Rádio Estádio Brazil
+ 07 - Rádio Futebol
+ 08 - Rádio Futebol Interior
+ 09 - Rádio Grenal
+ 10 - Rádio Porco
+ 11 - Rádio Verdão
+ 12 - Golo FM
+ 13 - Rádio Regional Nacional
+ -----
+ 
+ * Digite um nº + ENTER para reproduzir.
+EOF
+    read -r radio
+    case $radio in
+    01 | 1)	
+        clear	
+        echo "ESPORTE -> Master Esporte [1]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://s28.maxcast.com.br:8036/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    02 | 2)
+        clear	
+        echo "ESPORTE -> Radio Agreste FM [2]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://stm21.srvstm.com:19036/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    03 | 3)
+        clear	
+        echo "ESPORTE -> Rádio Central 870 [3]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://38.140.143.165:3690/RADIOCENTRAL_AM_SC 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    04 | 4)
+        clear	
+        echo "ESPORTE -> Radio Clube do Para [4]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://ice01.kshost.com.br:8000/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    05 | 5)
+        clear	
+        echo "ESPORTE -> Rádio Esportes NET [5]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://216.144.247.101:8132/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    06 | 6)
+        clear	
+        echo "ESPORTE -> Rádio Estádio Brazil [6]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.cordeiroplasticos.com.br:7016/mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    07 | 7)
+        clear	
+        echo "ESPORTE -> Rádio Futebol [7]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://online.rco.com.br:8062/stream 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    08 | 8)
+        clear	
+        echo "ESPORTE -> Rádio Futebol Interior [8]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming.cordeiroplasticos.com.br:7016/mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    09 | 9)
+        clear	
+        echo "ESPORTE -> Rádio Grenal [9]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://cast4.audiostream.com.br:8649/mp3 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    10)
+        clear	
+        echo "ESPORTE -> Rádio Porco [10]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://216.144.255.187:8602/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    11)
+        clear	
+        echo "ESPORTE -> Rádio Verdão [11]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://streaming09.hstbr.net:8062/live 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    12)
+        clear	
+        echo "ESPORTE -> Golo Fm [12]"
+        echo ""
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo ""
+        echo ""
+        echo "Lista de reprodução:"
+        echo ""
+        $PLAYER http://play.golo.fm:8020/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    13)
+        clear	
+        echo "ESPORTE -> Rádio Regional Nacional [13]"
+        echo
+        echo "Use a tecla [espaço] para pausar: [q] para parar."
+        echo
+        echo
+        echo "Lista de reprodução:"
+        echo
+        $PLAYER http://streaming.radioregional.pt:8002/ 2>&1 /dev/null | grep --line-buffered "StreamTitle" | sed -e 's/;.*//' -e 's/.*=//' -e "s/'//g" -e 's/^/ :: /'
+        ESPORTE
+        ;;
+    h)  HELP;;
+		u)  UPDATE;;
+        m) MAIN;;
+		q)	EXIT;;
+        *)	echo
+			echo "Opção incorreta"
+			echo "Tente novamente. Digite h + ENTER para obter ajuda..."
+			echo
+			sleep 2
+			clear
+			ESPORTE
+			;;
+    esac
+}
+UPDATE() { 
+clear
+cat << EOF
++-----------+
+|ATUALIZAÇÃO|
++-----------+
+
+01 - Atualizar usando Wget
+02 - Atualizar usando cURL 
+
+m - retornar ao menu.
+q - sair do Radionix.
+h - obter ajuda.
+---
+EOF
+    read -r radio
+    case $radio in
+    01 | 1 ) 
+    clear
+    wget https://codeberg.org/pekman/radionix/raw/branch/master/radionix -O "$HOME/.local/bin/radionix"; chmod +x "$HOME/.local/bin/radionix"
+    ;;
+    02 | 2 )
+    clear
+    curl -L https://codeberg.org/pekman/radionix/raw/branch/master/radionix -o "$HOME/.local/bin/radionix"; chmod +x "$HOME/.local/bin/radionix"
+    ;;
+    h)  HELP;;
+	m) MAIN;;
+	q)	EXIT;;
+    *)	echo "Opção incorreta"
+		echo "Tente novamente..."
+		echo ""
+		sleep 2
+		clear
+	;;
+	esac
+	clear
+	echo "" 
+	echo "radionix atualizado com sucesso! Vamos sair _0/ em 3 segundos, execute o script novamente e confira as novidades..."
+	sleep 5
+	clear 
+	exit
+	}
+HELP() {
+	clear
+cat << EOF
+	+-----------------+
+	|AJUDA DO RADIONIX|
+	+-----------------+
+	
+	Radionix é um shell script minimalista, leve e modular para reproduzir estações de rádios dos mais diversos gêneros.
+	
+	É um trabalho feito como hobby de seu desenvolvedor. Distribuído livremente e sem nenhuma garantia.
+	
+	USANDO O RADIONIX
+	-----------------
+	
+	O radionix possui uma tela interativa, manipulada facilmente por combinações de atalhos.
+		
+	ATALHOS
+	-------
+	
+	* Digite um número + ENTER para executar a opção correspondente
+	* Digite m + ENTER para retornar ao menu principal.
+	* Digite u + ENTER para atualizar
+	* Digite h + ENTER para ver esta página de ajuda
+	* Digite q + ENTER para sair.
+	
+	TRUQUES
+	-------
+	
+	1 - As opções numéricas do menu que contém o número zero (0), por exemplo: 01, 02, 03, [...], 09. 
+	O zero (0) pode ser omitido. Basta apenas digitar: 1, 2, 3, [...], 9.
+	
+	2 - As seguintes opções de atalhos do mpg123 estão disponíveis:
+	  2.1 - + (mais) ⇒ aumenta o volume
+	  2.2 - – (menos) ⇒ diminui o volume
+	  2.3 - r ⇒ ativa a normalização do volume
+	  2.4 - s ou espaço ⇒ pausa/despausa a reprodução
+	  2.5 - q ⇒ encerra a reprodução do streaming
+	
+	WIKI
+	----
+
+	Para mais detalhes acesse:
+	https://codeberg.org/pekman/radionix/wiki/Home
+	
+	PLANEJAMENTO
+	------------
+	
+	Para visualizar o planejamento de desnvolvimento acesse:
+	https://codeberg.org/pekman/radionix/issues?q=&type=all&labels=16232
+	
+	SUGESTÕES
+	---------
+	
+	Envie sugestões de melhorias ou novas rádios para:
+	https://codeberg.org/pekman/radionix/issues
+	
+EOF
+	exit 0
+	}
+EXIT() {
+	clear
+	echo "Obrigado por usar este script! Até a próxima... ;)"
+	sleep 1
+	clear
+	exit
+}
+while :
+do
+	MAIN
+done
