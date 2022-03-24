@@ -88,8 +88,8 @@ bindsym $win+Shift+e exec --no-startup-id kitty -e nvim ~/.emojis
 # qBittorrent
 bindsym $win+Shift+q exec --no-startup-id qbittorrent
 
-# Discord Chat
-bindsym $win+Shift+d exec --no-startup-id discord 
+# Notify cal and date
+bindsym $win+Shift+d exec --no-startup-id notify-send -u low "$(date '+%d/%m/%Y     %H:%M')" "$(cal)" 
 
 # Polybar Restart
 bindsym $win+F6 exec --no-startup-id ~/.config/polybar/scripts/launch.sh
@@ -303,21 +303,25 @@ assign [class="(qutebrowser)"] $ws1
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
 
-# Mixxx
-for_window [class="(Mixxx)"] move to workspace $ws6
-
 # Telegram ws=3
 for_window [class="(Kotatogram)"] move to workspace $ws3
 for_window [class="(TelegramDesktop)"] move to workspace $ws3, move position center
 
 # MPV ws=4
 for_window [class="(mpv)"] move to workspace $ws4
+for_window [class="(ffplay)"] move to workspace $ws4
 
 # Gimp ws=5
 for_window [class="(Gimp)"] move to workspace $ws5
 
 # Inkscape ws=5
 for_window [class="(Inkscape)"] move to workspace $ws5
+
+# Mixxx
+for_window [class="(Mixxx)"] move to workspace $ws6
+
+# Tor Browser
+for_window [class="(Tor Browser)"] move to workspace $ws7
 
 # qBittorrent ws=8
 for_window [class="(qBittorrent)"] move to workspace $ws8
