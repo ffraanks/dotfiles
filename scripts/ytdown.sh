@@ -7,7 +7,7 @@
 [ ! `command -v yt-dlp` ] && echo "yt-dlp não está instalado, por favor faça a instalação" && exit 1
 [ ! `command -v fzf` ] && echo "fzf não está instalado, por favor faça a instalação" && exit 1
 
-
+# Functions VIDEOS and PLAYLIST
 delVid(){
 clear
 IFS=$'\n'
@@ -24,7 +24,7 @@ fzf-tmux --query="$1" --multi --select-1 --exit-0)
 [[ -n "${array[@]}" ]] && rm -rf "${array[@]}"
 }
 
-
+# Main Script
 main(){
   while true ; do
     cd $HOME
