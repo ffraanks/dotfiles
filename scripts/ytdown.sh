@@ -54,16 +54,36 @@ main(){
 
       elif [ $PLAY == '2' ] || [ $PLAY == '02' ] ; then
         clear
-        cd $HOME/.Playlist
-        ls
-        printf "\nEscolha o nome da pasta que deseja entrar: "
-        read PASTE_NAME_PLAYLIST
-        cd $HOME/.Playlist/"$PASTE_NAME_PLAYLIST"
-        clear
-        IFS=$'\n'
-        mapfile -t array < <(find  ~/.Playlist/"$PASTE_NAME_PLAYLIST" -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
-        fzf-tmux --query="$1" --multi --select-1 --exit-0)
-        [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
+        printf "Deseja assistir Vídeo continuo (SEM PARAR) ou assistir um video de cada?\n\n[1] - Vídeo continuo\n[2] - Um vídeo por vez\n[3] - Voltar\n\n"
+        read ESCOLHA
+        if [ $ESCOLHA == '1' ] || [ $ESCOLHA == '01' ] ; then
+          clear
+          read -p 'EM DESENVOLVIMENTO....'
+          #cd $HOME/.Playlist
+          #ls
+          #printf "\nEscolha a pasta que deseja ver a playlist: "
+          #read PASTE_PLAYLIST
+          #cd $HOME/.Playlist/"$PASTE_PLAYLIST" && mpv *
+
+        elif [ $ESCOLHA == '2' ] || [ $ESCOLHA == '02' ] ; then
+          clear
+          cd $HOME/.Playlist
+          ls
+          printf "\nEscolha o nome da pasta que deseja entrar: "
+          read PASTE_NAME_PLAYLIST
+          cd $HOME/.Playlist/"$PASTE_NAME_PLAYLIST"
+          clear
+          IFS=$'\n'
+          mapfile -t array < <(find  ~/.Playlist/"$PASTE_NAME_PLAYLIST" -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
+          fzf-tmux --query="$1" --multi --select-1 --exit-0)
+          [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
+
+        elif [ $ESCOLHA == '3' ] || [ $ESCOLHA == '03' ] ; then
+          clear && continue
+
+        else
+          read -p 'OPÇÃO INEXISTENTE... PRESSIONE ENTER PARA VOLTAR!!!' && continue
+        fi
 
       elif [ $PLAY == '3' ] || [ $PLAY == '03' ] ; then
         continue
@@ -128,7 +148,7 @@ main(){
      clear
      printf "Cole o link da playlist aqui: "
      read PLAYLISY_LINK
-     yt-dlp -f 'bv*+ba' "$PLAYLISY_LINK" -o '%(title)s.f%(format_id)s.%(ext)s'
+     yt-dlp -f 'bv*+ba' "$PLAYLISY_LINK" -o '%(title)s.f%(format_id)s.%(ext)s' --no-playlist-reverse
      notify-send "YOUTUBE DOWNLOADER" "Playlist baixada com sucesso!!!" && mpv $SOUND && continue
 
    elif [ $OPTION == '6' ] || [ $OPTION == '06' ] ; then
