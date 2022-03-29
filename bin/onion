@@ -1,0 +1,31 @@
+#!/bin/env bash
+
+# Franklin Souza
+# @FranklinTech
+
+while true ; do
+  clear
+  printf "Onion Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Sair\n\n"
+  read OPTION
+  if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
+    clear
+    printf "Digite o nome do site abaixo:\n\n"
+    read SITE_NAME
+    printf "\nDigite uma descrição para o site abaixo:\n\n"
+    read DESC_SITE
+    printf "\nCole o link Onion abaixo:\n\n"
+    read ONION_LINK
+    printf "Site name: $SITE_NAME\nSite description: $DESC_SITE\nSite link: $ONION_LINK\n----------------------------------------\n" >> $HOME/.OnionLinks
+    
+  elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
+    nvim $HOME/.OnionLinks && continue
+
+  elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+    clear && exit 0
+
+  else
+    clear && read -p 'OPÇÃO INEXISTENTE... PRESSIONE ENTER PARA CONTINUAR!!!' && continue
+  fi
+done
+
+
