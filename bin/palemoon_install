@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 clear
 [ ! `command -v wget` ] && echo "wget não instalando, por favor faça a instalação" && exit 1
