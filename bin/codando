@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Script para codar
 
@@ -7,26 +7,19 @@ SH=.sh
 
 while true; do
   clear
-  echo 'Escolha uma das opções abaixo:'
-  echo
-  echo '[1] - Codar em Python'
-  echo '[2] - Codar em Shell Script'
-  echo '[3] - Sair'
-  echo
+  printf "Escolha uma das opções abaixo:\n\n[1] - Escrever em Python\n[2] - Escrever em Shell\n[3] - Sair\n\n"
   read CODE
-  if [ $CODE == '1' ] ; then
+  if [ $CODE == '1' ] || [ $CODE == '01' ] ; then
     clear
-    echo 'Digite o nome do seu programa (Sem a extensão)'
-    echo
+    printf "Digite o nome do seu programa (Sem a extensão)\n\n"
     read PROGRAMA_NOME
-    cd $HOME/Franks/Python && touch $PROGRAMA_NOME$PY && echo '#!/bin/python3' >> $PROGRAMA_NOME$PY && nvim $PROGRAMA_NOME$PY
+    cd $HOME/Franks/Python && touch $PROGRAMA_NOME$PY && echo '#!/usr/bin/python3' >> $PROGRAMA_NOME$PY && $EDITOR $PROGRAMA_NOME$PY
 
-  elif [ $CODE == '2' ] ; then
+  elif [ $CODE == '2' ] || [ $CODE == '02' ] ; then
     clear
-    echo 'Digite o nome do seu peograma (Sem a extensão)'
-    echo
+    printf "Digite o nome do seu peograma (Sem a extensão)\n\n"
     read PROGRAMA_NOME1
-    cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME1$SH && chmod +x $PROGRAMA_NOME1$SH && echo '#!/bin/env bash' >> $PROGRAMA_NOME1$SH && nvim $PROGRAMA_NOME1$SH
+    cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME1$SH && chmod +x $PROGRAMA_NOME1$SH && echo '#!/usr/bin/env bash' >> $PROGRAMA_NOME1$SH && $EDITOR $PROGRAMA_NOME1$SH
 
   elif [ $CODE == '3' ] ; then
     clear && exit 0
@@ -35,4 +28,3 @@ while true; do
     continue
   fi
 done
-
