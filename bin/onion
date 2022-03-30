@@ -27,4 +27,3 @@ while true ; do
     clear && read -p 'OPÇÃO INEXISTENTE... PRESSIONE ENTER PARA CONTINUAR!!!' && continue
   fi
 done
-
