@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 clear
 read -p 'LEMBRE-SE de usar o CABO USB E de DESBLOQUEAR O TELEFONE... (PRESSIONE ENTER PARA CONTINUAR...)'
 mkdir $HOME/.Cell
