@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/user/bin/env bash
 
 clear
 [ ! `command -v fuse` ] && echo "fuse não instalado, por favor faça a instalação" && exit 1
