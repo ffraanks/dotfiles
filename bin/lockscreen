@@ -26,6 +26,7 @@ i3lock \
 --line-color=$BLANK          \
 --separator-color=$DEFAULT   \
 \
+--greeter-color=$color3      \
 --verif-color=$TEXT          \
 --wrong-color=$TEXT          \
 --time-color=$TEXT           \
@@ -41,3 +42,10 @@ i3lock \
 --time-str="%I:%M %p"        \
 --date-str="%A, %d %b %Y"       \
 --keylayout 1                \
+--lock-text="Locking"         \
+--lockfailed-text="Lock failed"\
+--noinput-text="No Input"   \
+--verif-text="Verifying..."   \
+--wrong-text="Error..."   \
+--greeter-text="Seja livre, use Linux!"   \
+--greeter-pos="ix+10:iy+195"   \
