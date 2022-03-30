@@ -61,8 +61,8 @@ alias cpu="clear && ps -A --sort -rsz -o pid,comm,pmem,pcpu|awk 'NR<=20'"
 #Atualizar grub
 alias ug='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 #Abrir irssi
-#alias irc='irssi'
-alias irc='$HOME/Scripts/irc_down.sh'
+alias irc='irssi'
+#alias irc='$HOME/Scripts/irc_down.sh'
 #Listar fonts
 alias fonts='clear && kitty list-fonts'
 #Criar arquivo
@@ -189,7 +189,7 @@ alias binds='python3 $HOME/Scripts/i3keybinds.py'
 #Fetch2
 alias fetch2='python3 $HOME/Scripts/sysinfo.py'
 #MPV-QUALITY
-alias mq='$HOME/Scripts/mpv-quality.sh'
+alias mq='mpv_quality'
 #ppfetch
 alias pf='clear && ppfetch'
 #Baixar videos
@@ -204,3 +204,9 @@ alias alc="ohmyalias -c"
 alias alr="ohmyalias -r"
 #tox chat
 alias tox="toxic"
+#Script vid
+alias vid="~/Scripts/vid"
+#Check Onion Links
+alias co="nvim ~/.projects/Check_Onion_Links/onion.links"
+#Script Check Onion
+alias sco="~/.projects/Check_Onion_Links/check_onion.sh"
