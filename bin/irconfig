@@ -1,0 +1,37 @@
+#!/bin/env bash
+
+createPASTE(){
+  clear
+  mkdir $HOME/.irssi/scripts
+  clear
+  mkdir $home/.irssi/scripts/autorun
+  clear
+  cd $HOME/.irssi/scripts
+}
+
+ScriptsDOWN(){
+  cd $HOME/.irssi/scripts
+  wget -c "https://scripts.irssi.org/scripts/adv_windowlist.pl"
+  wget -c "https://scripts.irssi.org/scripts/nickcolor.pl"
+  wget -c "https://scripts.irssi.org/scripts/desktop-notify.pl"
+  wget -c "https://scripts.irssi.org/scripts/mouse.pl"
+  wget -c "https://scripts.irssi.org/scripts/lastfm.pl"
+  wget -c "https://scripts.irssi.org/scripts/kernel.pl"
+}
+
+SymbolicLINK(){
+  clear
+  cd $HOME/.irssi/scripts/autorun
+  ln -s ../adv_windowlist.pl
+  ln -s ../nickcolor.pl
+  ln -s ../desktop-notify.pl
+  ln -s ../mouse.pl
+  ln -s ../lastfm.pl
+  ln -s ../kernel.pl
+  clear && exit 0
+}
+
+createPASTE
+ScriptsDOWN
+SymbolicLINK
+
