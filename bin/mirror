@@ -1,12 +1,4 @@
-#!/bin/env bash
-
-######################################################################################################
-# Credit: Franklin Souza                                                                             #
-# Telegram: @FranklinTech                                                                            #
-# Script para atualizar seus mirrors de acordo com o país escolhido (PROTOCOLO USADO: https)         #
-# Pacote: reflector                                                                                  #
-# Version: v0.01                                                                                     #
-######################################################################################################
+#!/usr/bin/env bash
 
 install_package(){
 clear
