@@ -143,7 +143,7 @@ alias sts='curl -fsSL https://starship.rs/install.sh | sh'
 #Set timezone dualboot windows
 alias win='timedatectl set-local-rtc 1'
 #Downloader
-alias down='downloader'
+alias downl='downloader'
 #Apagar videos
 alias delv='rm -rf $HOME/Videos/*'
 #Radio
@@ -210,3 +210,5 @@ alias vid="~/Scripts/vid"
 alias co="nvim ~/.projects/Check_Onion_Links/onion.links"
 #Script Check Onion
 alias sco="~/.projects/Check_Onion_Links/check_onion.sh"
+#Cmatrix
+alias cm="cmatrix"
