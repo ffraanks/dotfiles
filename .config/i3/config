@@ -236,7 +236,7 @@ bindsym $win+Print exec --no-startup-id shot caa
 
 # ws using
 set $ws1 " 1:  "
-set $ws2 " 2:  "
+set $ws2 " 2:  "
 set $ws3 " 3:  "
 set $ws4 " 4: 金"
 set $ws5 " 5:  "
@@ -302,6 +302,9 @@ assign [class="(qutebrowser)"] $ws1
 
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
+
+# Thunderbird (Client Email) ws=2
+for_window [class="(Thunderbird)"] move to workspace $ws2
 
 # Telegram ws=3
 for_window [class="(Kotatogram)"] move to workspace $ws3
