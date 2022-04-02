@@ -26,12 +26,12 @@
 
 # i3 Gaps
 
-<img src="i3-GNU.png">
+<img src="i3-darling.png">
 
 # Rofi
 
-<img src="Rofi-GNU.png">
+<img src="i3rofi-darling.png">
 
 # i3-Lock
 
-<img src="i3lock-gnu.png">
+<img src="i3lock-darling.png">
