@@ -20,10 +20,10 @@ SONG=$(echo "$ARTIST - $TITLE" | awk '{ printf "%.'$max's", $0
 status=$(cmus-remote -Q | grep status)
 case "$status" in
 	"status paused"*)
-		echo " $SONG - (paused)"
+		echo " $SONG"
 		;;
 	"status playing"*)
-		echo " $SONG - (playing)"
+		echo " $SONG"
 		;;
 	""*)
 		echo " No music"
