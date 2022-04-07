@@ -86,8 +86,8 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
-modules-center = clima
+modules-left = prev-cmus play-cmus next-cmus repeat-cmus
+modules-center = statusmusic
 modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
@@ -687,6 +687,7 @@ tail = true
 interval = 0.1
 type = custom/script
 exec = ~/.local/bin/statusmusic
+click-left = ~/.config/polybar/scripts/play.sh
 click-right = killall cmus && killall next.sh && killall prev.sh
 
 [module/dolar]
