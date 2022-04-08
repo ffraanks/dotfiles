@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Franklin Souza
+# @FranklinTech
+
+while true ; do
+  clear
+  printf "Podcasts Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Sair\n\n"
+  read OPTION
+  if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
+    clear
+    printf "Digite o nome do canal abaixo:\n\n"
+    read CHANNEL
+    printf "\nDigite uma descrição para o canal abaixo:\n\n"
+    read DESC_CHANNEL
+    printf "\nCole o link Onion abaixo:\n\n"
+    read POD_LINK
+    printf "Site name: $CHANNEL\nSite description: $DESC_CHANNEL\nSite link: $POD_LINK\n----------------------------------------\n" >> $HOME/.PodCasts
+    
+  elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
+    nvim $HOME/.OnionLinks && continue
+
+  elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+    clear && exit 0
+
+  else
+    clear && read -p 'OPÇÃO INEXISTENTE... PRESSIONE ENTER PARA CONTINUAR!!!' && continue
+  fi
+done
