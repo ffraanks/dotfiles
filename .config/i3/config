@@ -134,7 +134,7 @@ bindsym $win+F3 exec --no-startup-id ~/Scripts/github.sh
 bindsym $win+F4 exec --no-startup-id killall xcompmgr
 
 #Com sombreamento
-bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+#bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
 
 #Sem sombreamento
 #bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
@@ -365,6 +365,9 @@ for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move 
 
 # SchildiChat Matrix 
 for_window [class="(SchildiChat)"]move position center
+
+# Nitrogen
+for_window [class="(Nitrogen)"]move position center floating enable
 
 # Kitty (Terminal)
 for_window [class="(kitty)"]floating enable
