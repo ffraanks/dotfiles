@@ -10,6 +10,5 @@ clear
 #$HOME/.config/mpv/scripts-opts && wget -c "https://github.com/ffraanks/dotfiles/raw/master/youtube-quality.conf"
 cd $HOME/.config/mpv/scripts-opts && wget -c "https://github.com/jgreco/mpv-youtube-quality/raw/master/youtube-quality.conf"
 cd $HOME && clear
-read -p 'CONFIGURAÇÃO FINALIZADA... PRESSIONE ENTER PARA SAIR!!!' && clear && exit 0
 }
 mpv_quality
