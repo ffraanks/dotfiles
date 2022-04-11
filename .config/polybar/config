@@ -86,9 +86,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = prev-cmus play-cmus next-cmus repeat-cmus
+modules-left = linux
 modules-center = statusmusic
-modules-right = pulse info-redshift-temp pacman calendar date powermenu
+modules-right = pulse calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -746,12 +746,6 @@ label-padding = 1
 interval = 0.1
 tail = true
 
-#[module/linux]
-#type = custom/text
-#content = "%{F${colors.foreground}%{F-} Arch Linux"
-#content-underline = ${colors.foreground}
-#click-left = rofi -show drun -theme ~/.config/rofi/drun.rasi &
-
 #[module/print]
 #type = custom/text
 #content = "%{F${colors.foreground}  %{F-}"
@@ -815,6 +809,12 @@ click-left = qutebrowser https://openweathermap.org/city/3387880
 #click-right = vimb_launch https://openweathermap.org/city/3387880
 #format-underline = #d3869b
 #format-background = #d3869b
+
+[module/linux]
+type = custom/text
+content = "%{F${colors.foreground  %{F-}Arch Linux"
+#content-underline = ${colors.foreground}
+#click-left = rofi -show drun -theme ~/.config/rofi/drun.rasi &
 
 [module/calendar]
 type = custom/script
