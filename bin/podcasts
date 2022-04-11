@@ -13,12 +13,12 @@ while true ; do
     read CHANNEL
     printf "\nDigite uma descrição para o canal abaixo:\n\n"
     read DESC_CHANNEL
-    printf "\nCole o link Onion abaixo:\n\n"
+    printf "\nCole o link do PodCast abaixo:\n\n"
     read POD_LINK
     printf "Site name: $CHANNEL\nSite description: $DESC_CHANNEL\nSite link: $POD_LINK\n----------------------------------------\n" >> $HOME/.PodCasts
     
   elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
-    nvim $HOME/.OnionLinks && continue
+    nvim $HOME/.PodCasts && continue
 
   elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
     clear && exit 0
