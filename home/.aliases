@@ -17,7 +17,7 @@ alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
 #Abrir vkcube com mangohud
 alias vk1='mangohud VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
 #Atualizar mirrors
-#alias ref='sudo reflector -n 5 --save /etc/pacman.d/mirrorlist'
+alias ref='sudo reflector --country Brazil --sort rate --protocol https,http --latest 5 --save /etc/pacman.d/mirrorlist'
 #Instalar icon theme
 alias icon1='sudo pacman -S papirus-icon-theme --noconfirm'
 #Git pull
@@ -212,3 +212,9 @@ alias co="nvim ~/.projects/Check_Onion_Links/onion.links"
 alias sco="~/.projects/Check_Onion_Links/check_onion.sh"
 #Cmatrix
 alias cm="cmatrix"
+#Podscats Script
+alias pod="podcasts"
+#Tetris Game
+alias tetris="tetriscurses"
+#Makepkg
+alias mk="clear && makepkg -sic"
