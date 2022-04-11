@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+clear
+mkdir $HOME/.BackupMobile
+clear
+[ ! `command -v adb` ] && echo "adb não instalado, por favor faça a instalação" && exit 1
+
+printf "Escolha uma das opções abaixo:\n\n[1] - Fazer backup no celular\n[2] - Restaurar backup no celular\n[3] - Sair\n\n"
+read OPTION
+if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
+  cd $HOME/.BackupMobile
+  clear && printf "Escolha um nome para a sua pasta de backup (Evite espaços e acentuações):\n\n"
+  read PASTE_NAME
+  cd $HOME/"$PASTE_NAME"
+  clear && read -p 'CONECTE O CELULAR NO USB DO PC... PRESSIONE ENTER DEPOIS DE CONECTADO!!!'
+  printf "Verifique se seu dispositivo aparece logo abaixo:\n\nCrie no seu smartphone uma senha forte para o seu backup\n\n"
+  adb devices
+  adb backup -apk -shared -all -f backup.ab
+  echo && read -p 'Backup finalzado com SUCESSO!!! PRESSIONE ENTER PARA SAIR...' && clear && exit 0
+
+elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
+  clear
+  cd $HOME/.BackupMobile
+  ls
+  printf "\n\nEscolha a pasta de backup que deseja acessar:\n\n"
+  read PASTE_ACESS
+  cd $HOME/"$PASTE_ACESS"
+  clear && read -p 'CONECTE O CELULAR NO USB DO PC... PRESSIONE ENTER DEPOIS DE CONECTADO!!!'
+  printf "Verifique se seu dispositivo aparece logo abaixo:\n\n"
+  adb devices
+  read -p 'DIGITE A SENHA CRIADA PARA RECUPERAR O BACKUP!!! PRESSIONE ENTER PARA CONTINUAR...'
+  adb restore backup.ab
+
+elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+  clear && exit 1
+
+else
+  read -p 'OPÇÃO INEXISTENTE!!! PRESSIONE ENTER PARA SAIR...' && clear && exit 1
+fi
