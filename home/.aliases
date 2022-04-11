@@ -218,3 +218,5 @@ alias pod="podcasts"
 alias tetris="tetriscurses"
 #Makepkg
 alias mk="clear && makepkg -sic"
+#Delete Paste Telegram
+alias delt="rm -rf ~/Downloads/Telegram\ Desktop"
