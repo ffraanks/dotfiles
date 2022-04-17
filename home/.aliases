@@ -220,3 +220,11 @@ alias tetris="tetriscurses"
 alias mk="clear && makepkg -sic"
 #Delete Paste Telegram
 alias delt="rm -rf ~/Downloads/Telegram\ Desktop"
+#Listar pacotes
+alias pkgl="pacman -Qq | wc -l"
+#Listando erros
+alias sf="systemctl --failed"
+#w3m
+alias img="w3m"
+#Tetris game
+alias tetris="tetriscurses"
