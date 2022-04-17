@@ -44,6 +44,9 @@ autoload -Uz compinit
 autoload -Uz async && async
 compinit
 
+# Tetris
+autoload -Uz tetriscurses
+
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 
