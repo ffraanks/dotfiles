@@ -225,6 +225,12 @@ alias pkgl="pacman -Qq | wc -l"
 #Listando erros
 alias sf="systemctl --failed"
 #w3m
-alias img="w3m"
+#alias img="w3m"
+#img
+alias img="sxiv"
 #Tetris game
 alias tetris="tetriscurses"
+#Wallpapers Download
+alias walld="~/Scripts/walld.sh"
+#Dolar cota
+alias dolar1="python3 ~/Franks/Python/dolar.py"
