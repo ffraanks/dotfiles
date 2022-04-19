@@ -227,7 +227,7 @@ alias sf="systemctl --failed"
 #w3m
 #alias img="w3m"
 #img
-alias img="sxiv"
+alias img="sxiv *"
 #Tetris game
 alias tetris="tetriscurses"
 #Wallpapers Download
