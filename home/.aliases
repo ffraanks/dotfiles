@@ -234,3 +234,9 @@ alias tetris="tetriscurses"
 alias walld="~/Scripts/walld.sh"
 #Dolar cota
 alias dolar1="python3 ~/Franks/Python/dolar.py"
+#p10k Configure
+alias p="p10k configure"
+#Source
+alias ...="source"
+#Deactivate
+alias d="deactivate"
