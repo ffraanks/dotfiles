@@ -240,3 +240,11 @@ alias p="p10k configure"
 alias ...="source"
 #Deactivate
 alias d="deactivate"
+#Python Env
+alias pyenv="~/Scripts/pyvenv.sh"
+#Systemctl status
+alias status="systemctl status"
+#Systemctl restart
+alias restart="systemctl restart"
+#Systemctl enable
+alias on="systemctl enable"
