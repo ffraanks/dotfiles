@@ -68,7 +68,7 @@ alias fonts='clear && kitty list-fonts'
 #Criar arquivo
 alias t='touch'
 #Python3
-alias py3='python'
+alias py='python3'
 #Xprop
 alias xp='xprop | grep WM_CLASS'
 #Analisar HD
@@ -248,3 +248,7 @@ alias status="systemctl status"
 alias restart="systemctl restart"
 #Systemctl enable
 alias on="systemctl enable"
+#Type
+alias ty="type"
+#Podman TUI
+alias podm="~/Scripts/pod.sh"
