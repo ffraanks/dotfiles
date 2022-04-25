@@ -16,7 +16,7 @@ main(){
              ░ ░     ░           ░         ░  ░         ░ 
                    ░                                      
 \n\n"
- printf "Escolha uma das opções abaixo:\n\n[1] - Proucurar por imagens\n[2] - Listar imagens\n[3] - Download imagem\n[4] - Remover containers\n[5] - Logs\n[6] - Executar imagem\n[7] - Pausar container\n[8] - Sair\n\n"
+ printf "Escolha uma das opções abaixo:\n\n[1] - Proucurar por imagens\n[2] - Listar imagens\n[3] - Download imagem\n[4] - Remover containers\n[5] - Logs\n[6] - Executar imagem\n[7] - Gerenciar containers\n[8] - Sair\n\n"
   read OPTION_CHOICE
 
   if [ $OPTION_CHOICE == '1' ] || [ $OPTION_CHOICE == '01' ] ; then
@@ -38,7 +38,7 @@ main(){
     image_run
 
   elif [ $OPTION_CHOICE == '7' ] || [ $OPTION_CHOICE == '07' ] ; then
-    PodmanPause
+    PodmanManager
 
   elif [ $OPTION_CHOICE == '8' ] || [ $OPTION_CHOICE == '08' ] ; then
     quitPodman
@@ -68,7 +68,6 @@ images_search(){
   else
     read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
   fi
-
 }
 
 image_list(){
@@ -143,12 +142,24 @@ image_run(){
   fi
 }
 
-PodmanPause(){
+PodmanManager(){
   clear
-  printf "Cole a ID do container para parar:\n\n"
-  read CONTAINER_STOP
-  podman pause "$CONTAINER_STOP"
-  printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+  printf "Escolha uma das opções abaixo:\n\n[1] - Pause\n[2] - Start\n\n"
+  read MANAGER_PODMAN
+  if [ $MANAGER_PODMAN == '1' ] || [ $MANAGER_PODMAN == '01' ] ; then
+    clear
+    printf "Coloque a ID do container abaixo para pause:\n\n"
+    read CONTAINER_PAUSE
+    podman pause "$CONTAINER_PAUSE"
+    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+  elif [ $MANAGER_PODMAN == '2' ] || [ $MANAGER_PODMAN == '02' ] ; then
+    clear
+    printf "Coloque a ID do container abaixo para start:\n\n"
+    read CONTAINER_START
+    podman start "$CONTAINER_START"
+    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+  fi
 }
 
 quitPodman(){
