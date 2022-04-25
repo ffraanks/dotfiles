@@ -149,7 +149,7 @@ image_run(){
 
 PodmanManager(){
   clear
-  printf "Escolha uma das opções abaixo:\n\n[1] - Pause\n[2] - Start\n\n"
+  printf "Escolha uma das opções abaixo:\n\n[1] - Pause\n[2] - Stop\n[3] - Start\n\n"
   read MANAGER_PODMAN
   if [ $MANAGER_PODMAN == '1' ] || [ $MANAGER_PODMAN == '01' ] ; then
     clear
@@ -160,10 +160,19 @@ PodmanManager(){
 
   elif [ $MANAGER_PODMAN == '2' ] || [ $MANAGER_PODMAN == '02' ] ; then
     clear
+    printf "Cole o ID do container para da stop:\n\n"
+    read CONTAINER_STOP
+    podman stop "$CONTAINER_STOP"
+
+  elif [ $MANAGER_PODMAN == '3' ] || [ $MANAGER_PODMAN == '03' ] ; then
+    clear
     printf "Coloque a ID do container abaixo para start:\n\n"
     read CONTAINER_START
     podman start "$CONTAINER_START"
     printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+  else
+    clear && read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
   fi
 }
 
