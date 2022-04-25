@@ -73,7 +73,7 @@ images_search(){
 
 image_list(){
   clear
-  podman ps -a --pod
+  podman ps -a
   printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
 }
 
