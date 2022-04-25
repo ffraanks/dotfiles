@@ -146,7 +146,7 @@ image_run(){
 
   else
     clear
-    read -p 'Opção inexistente!!! PRESSIONE ENTER PARAA CONTINUAR...' && main
+    read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
   fi
 }
 
@@ -155,20 +155,45 @@ PodmanManager(){
   printf "Escolha uma das opções abaixo:\n\n[1] - Start\n[2] - Stop\n\n"
   read MANAGER_PODMAN
 
-  if [ $MANAGER_PODMAN == '2' ] || [ $MANAGER_PODMAN == '02' ] ; then
+  if [ $MANAGER_PODMAN == '1' ] || [ $MANAGER_PODMAN == '01' ] ; then
     clear
-    printf "Cole o ID do container para da start:\n\n"
-    read CONTAINER_START
-    podman start "$CONTAINER_START"
-    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+    printf "Deseja usar o start em todos os containers? [y/n]\n\n"
+    read SELECT_PODMAN
+    
+    if [ $SELECT_PODMAN == 'y' ] || [ $SELECT_PODMAN == 'Y' ] || [ $SELECT_PODMAN == 'yes' ] || [ $SELECT_PODMAN == 'YES' ] || [ $SELECT_PODMAN == 'Yes' ] ; then
+      clear
+      podman start --all
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+    elif [ $SELECT_PODMAN == 'n' ] || [ $SELECT_PODMAN == 'N' ] || [ $SELECT_PODMAN == 'no' ] || [ $SELECT_PODMAN == 'NO' ] || [ $SELECT_PODMAN == 'No' ] ; then
+      clear
+      printf "Cole aqui a ID do container que deseja usar o start:\n\n"
+      read PODMAN_START
+      podman start "$PODMAN_START"
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+    fi
 
   elif [ $MANAGER_PODMAN == '2' ] || [ $MANAGER_PODMAN == '02' ] ; then
     clear
-    printf "Coloque a ID do container abaixo para stop:\n\n"
-    read CONTAINER_STOP
-    podman stop "$CONTAINER_STOP"
-    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
-
+    printf "Deseja usar o stop em todos os containers? [y/n]\n\n"
+    read SELECT_PODMAN1
+    
+    if [ $SELECT_PODMAN1 == 'y' ] || [ $SELECT_PODMAN1 == 'Y' ] || [ $SELECT_PODMAN1 == 'yes' ] || [ $SELECT_PODMAN1 == 'YES' ] || [ $SELECT_PODMAN1 == 'Yes' ] ; then
+      clear
+      podman stop -a
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+      
+    elif [ $SELECT_PODMAN1 == 'n' ] || [ $SELECT_PODMAN1 == 'N' ] || [ $SELECT_PODMAN1 == 'no' ] || [ $SELECT_PODMAN1 == 'NO' ] || [ $SELECT_PODMAN1 == 'No' ] ; then
+      clear
+      printf "Cole aqui a ID do container que deseja usar o stop:\n\n"
+      read PODMAN_STOP
+      podman stop "$PODMAN_STOP"
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+    
+    else
+      clear && read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
+    fi
+  
   else
     clear && read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
   fi
