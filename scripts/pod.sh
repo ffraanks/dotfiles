@@ -2,9 +2,9 @@
 clear
 [ ! `command -v podman` ] && echo "podman não instalado, por favor faça a instalação" && exit 1
 
-main(){
+title(){
   clear
-  printf " 
+  cat << Podman
  ██▓███   ▒█████  ▓█████▄  ███▄ ▄███▓ ▄▄▄       ███▄    █ 
 ▓██░  ██▒▒██▒  ██▒▒██▀ ██▌▓██▒▀█▀ ██▒▒████▄     ██ ▀█   █ 
 ▓██░ ██▓▒▒██░  ██▒░██   █▌▓██    ▓██░▒██  ▀█▄  ▓██  ▀█ ██▒
@@ -14,9 +14,14 @@ main(){
 ░▒ ░       ░ ▒ ▒░  ░ ▒  ▒ ░  ░      ░  ▒   ▒▒ ░░ ░░   ░ ▒░
 ░░       ░ ░ ░ ▒   ░ ░  ░ ░      ░     ░   ▒      ░   ░ ░ 
              ░ ░     ░           ░         ░  ░         ░ 
-                   ░                                      
-\n\n"
- printf "Escolha uma das opções abaixo:\n\n[1] - Proucurar por imagens\n[2] - Listar imagens\n[3] - Download imagem\n[4] - Remover containers\n[5] - Logs\n[6] - Executar imagem\n[7] - Gerenciar containers\n[8] - Sair\n\n"
+                   ░
+Podman
+}
+
+
+main(){
+  clear
+  title && printf "\n\nEscolha uma das opções abaixo:\n\n[1] - Proucurar por imagens\n[2] - Listar imagens\n[3] - Download imagem\n[4] - Remover containers\n[5] - Logs\n[6] - Executar imagem\n[7] - Gerenciar containers\n[8] - Sair\n\n"
   read OPTION_CHOICE
 
   if [ $OPTION_CHOICE == '1' ] || [ $OPTION_CHOICE == '01' ] ; then
