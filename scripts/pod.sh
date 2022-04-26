@@ -152,7 +152,7 @@ image_run(){
 
 PodmanManager(){
   clear
-  printf "Escolha uma das opções abaixo:\n\n[1] - Start\n[2] - Stop\n\n"
+  printf "Escolha uma das opções abaixo:\n\n[1] - Start\n[2] - Stop\n[3] - Pause\n[4] - Unpause\n\n"
   read MANAGER_PODMAN
 
   if [ $MANAGER_PODMAN == '1' ] || [ $MANAGER_PODMAN == '01' ] ; then
@@ -192,6 +192,42 @@ PodmanManager(){
     
     else
       clear && read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
+    fi
+
+  elif [ $MANAGER_PODMAN == '3' ] || [ $MANAGER_PODMAN == '03' ] ; then
+    clear
+    printf "Deseja usar o pause em todos os containers? [y/n]\n\n"
+    read PAUSE_CONTAINERS
+
+    if [ $PAUSE_CONTAINERS == 'y' ] || [ $PAUSE_CONTAINERS == 'Y' ] || [ $PAUSE_CONTAINERS == 'yes' ] || [ $PAUSE_CONTAINERS == 'YES' ] || [ $PAUSE_CONTAINERS == 'Yes' ] ; then
+      clear
+      podman pause -a
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+    elif [ $PAUSE_CONTAINERS == 'n' ] || [ $PAUSE_CONTAINERS == 'N' ] || [ $PAUSE_CONTAINERS == 'no' ] || [ $PAUSE_CONTAINERS == 'NO' ] || [ $PAUSE_CONTAINERS == 'YES' ] ; then
+      clear
+      printf "Cole aqui o ID do container que deseja usar o pause:\n\n"
+      read PAUSE_CONTAINER
+      podman pause "$PAUSE_CONTAINER"
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+    fi
+  
+  elif [ $MANAGER_PODMAN == '4' ] || [ $MANAGER_PODMAN == '04' ] ; then
+    clear
+    printf "Deseja usar o unpause em todos os containers? [y/n]\n\n"
+    read UNPAUSE_CONTAINERS
+
+    if [ $UNPAUSE_CONTAINERS == 'y' ] || [ $UNPAUSE_CONTAINERS == 'Y' ] || [ $UNPAUSE_CONTAINERS == 'yes' ] || [ $UNPAUSE_CONTAINERS == 'YES' ] || [ $UNPAUSE_CONTAINERS == 'Yes' ] ; then
+      clear
+      podman unpause -a
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+    elif [ $UNPAUSE_CONTAINERS == 'n' ] || [ $UNPAUSE_CONTAINERS == 'N' ] || [ $UNPAUSE_CONTAINERS == 'no' ] || [ $UNPAUSE_CONTAINERS == 'NO' ] || [ $UNPAUSE_CONTAINERS == 'No' ] ; then
+      clear
+      printf "Cole aqui o ID do container que deseja usar o unpause:\n\n"
+      read UNPAUSE_CONTAINER
+      podman unpause "$UNPAUSE_CONTAINER"
+      printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
     fi
   
   else
