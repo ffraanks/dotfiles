@@ -17,9 +17,24 @@ while true; do
 
   elif [ $CODE == '2' ] || [ $CODE == '02' ] ; then
     clear
-    printf "Digite o nome do seu peograma (Sem a extensão)\n\n"
-    read PROGRAMA_NOME1
-    cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME1$SH && chmod +x $PROGRAMA_NOME1$SH && echo '#!/usr/bin/env bash' >> $PROGRAMA_NOME1$SH && $EDITOR $PROGRAMA_NOME1$SH
+    printf "Qual extensão deseja usar:\n\n[1] - sh\n[2] - bash\n[3] - zsh\n\n"
+    read EXTENSION
+    if [ $EXTENSION == '1' ] || [ $EXTENSION == '01' ] ; then
+      clear && printf "Digite o nome do seu peograma (Sem a extensão)\n\n"
+      read PROGRAMA_NOME1
+      cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME1$SH && chmod +x $PROGRAMA_NOME1$SH && echo '#!/usr/bin/env sh' >> $PROGRAMA_NOME1$SH && $EDITOR $PROGRAMA_NOME1$SH
+
+    elif [ $EXTENSION == '2' ] || [ $EXTENSION == '02' ] ; then
+      clear && printf "Digite o nome do seu peograma (Sem a extensão)\n\n"
+      read PROGRAMA_NOME2
+      cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME2$SH && chmod +x $PROGRAMA_NOME2$SH && echo '#!/usr/bin/env bash' >> $PROGRAMA_NOME2$SH && $EDITOR $PROGRAMA_NOME2$SH
+
+    elif [ $EXTENSION == '3' ] || [ $EXTENSION == '03' ] ; then
+      clear && printf "Digite o nome do seu peograma (Sem a extensão)\n\n"
+      read PROGRAMA_NOME3
+      cd $HOME/Franks/Shell_Scripts && touch $PROGRAMA_NOME3$SH && chmod +x $PROGRAMA_NOME3$SH && echo '#!/usr/bin/env zsh' >> $PROGRAMA_NOME3$SH && $EDITOR $PROGRAMA_NOME3$SH
+      
+    fi
 
   elif [ $CODE == '3' ] ; then
     clear && exit 0
