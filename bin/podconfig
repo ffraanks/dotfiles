@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ "$EUID" -ne 0 ]
+  then clear && echo "Execute esse script como Root!"
+  exit
+fi
+
+clear
+sudo sysctl kernel.unprivileged_userns_clone=1
+sudo touch /etc/subuid /etc/subgid
+printf "Digite seu username logo abaixo(letra minuscula):\n\n"
+read USERNAME
+clear && sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USERNAME"
+
