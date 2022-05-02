@@ -4,7 +4,7 @@ createPASTE(){
   clear
   mkdir $HOME/.irssi/scripts
   clear
-  mkdir $home/.irssi/scripts/autorun
+  mkdir $HOME/.irssi/scripts/autorun
   clear
   cd $HOME/.irssi/scripts
 }
@@ -15,8 +15,7 @@ ScriptsDOWN(){
   wget -c "https://scripts.irssi.org/scripts/nickcolor.pl"
   wget -c "https://scripts.irssi.org/scripts/desktop-notify.pl"
   wget -c "https://scripts.irssi.org/scripts/mouse.pl"
-  wget -c "https://scripts.irssi.org/scripts/lastfm.pl"
-  wget -c "https://scripts.irssi.org/scripts/kernel.pl"
+  wget -c "https://scripts.irssi.org/scripts/uptime.pl"
 }
 
 SymbolicLINK(){
@@ -26,12 +25,10 @@ SymbolicLINK(){
   ln -s ../nickcolor.pl
   ln -s ../desktop-notify.pl
   ln -s ../mouse.pl
-  ln -s ../lastfm.pl
-  ln -s ../kernel.pl
+  ln -s ../uptime.pl
   clear && exit 0
 }
 
 createPASTE
 ScriptsDOWN
 SymbolicLINK
-
