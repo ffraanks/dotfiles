@@ -162,8 +162,6 @@ alias ytd='$HOME/Scripts/ytdown.sh'
 #alias resize='$HOME/Scripts/videoresize-gui.sh'
 #Criar snapshot
 alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
-#Criar swapfile
-alias swapf="sudo $HOME/Scripts/./swapf.sh"
 #Pastebin
 alias pasters='$HOME/Scripts/paste.sh'
 #Pipes
