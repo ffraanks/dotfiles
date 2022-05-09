@@ -1,6 +1,6 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # FranklinTech
-# Convert videos em mp3
+# Converte videos em mp3
 
 # clear terminal
 mkdir $HOME/.MusicDown
@@ -15,7 +15,7 @@ while true ; do
   clear
   printf "MP3 Download\n\n"
   # Menu
-  printf "Escolha uma das opções abaixo:\n\n[1] - Criar uma nova pasta\n[2] - Entrar em uma pasta existente\n[3] - Renomear pasta\n[4] - Sair\n\n"
+  printf "Escolha uma das opções abaixo:\n\n[1] - Criar uma nova pasta\n[2] - Entrar em uma pasta existente\n[3] - Renomear pasta\n[4] - Listar músicas\n[5] - Sair\n\n"
 
   read OPC
   if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
@@ -26,19 +26,19 @@ while true ; do
     printf "\n$PASTE_NAME criada com sucesso!!!" && cd $HOME/.MusicDown && mkdir $PASTE_NAME && cd $HOME/.MusicDown/$PASTE_NAME && ls
     printf "\n\nCole a URL da música aqui:\n\n"
     read URL_MUSIC
-    printf "\n\nBaixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $URL_MUSIC
+    clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $URL_MUSIC
     printf "\n\nListando músicas...\n\n" && ls
 
   elif [ $OPC == '2' ] || [ $OPC == '02'] ; then
     clear
     cd $HOME/.MusicDown && ls
-    printf "\n\nEvite de usar espaços, use (_) underscore/underscore para simular espaços.\n\n"
-    printf "Digite o nome da pasta: \n\n"
+    printf "\n\nEvite de usar espaços, use (_) underscore/underscore para simular espaços.\n"
+    printf "\nDigite o nome da pasta: \n\n"
     read NAME_PASTE
-    printf "\nEntrando na pasta: $NAME_PASTE\n\n" && cd $HOME/.MusicDown/$NAME_PASTE && ls
+    clear && printf "Entrando na pasta: $NAME_PASTE\n\n" && cd $HOME/.MusicDown/$NAME_PASTE && ls
     printf "\n\nCole a URL da música aqui: \n\n"
     read MUSIC_URL
-    printf "\n\nBaixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $MUSIC_URL
+    clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $MUSIC_URL
     
   elif [ $OPC == '3' ] || [ $OPC == '03' ] ; then
     clear
@@ -51,6 +51,14 @@ while true ; do
     printf "\n\nListando...\n\n" && ls
 
   elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
+    clear && cd $HOME/.MusicDown && ls
+    printf "\nEscolha uma pasta para listar as músicas:\n\n"
+    read PASTE_MUSIC
+    cd $HOME/.MusicDown/"$PASTE_MUSIC"
+    clear && ls | wc -l && printf "\n\n" && ls 
+    printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && continue
+
+  elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
     clear && exit 0
 
   else
