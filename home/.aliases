@@ -250,3 +250,9 @@ alias on="systemctl enable"
 alias ty="type"
 #Podman TUI
 alias podm="~/Scripts/pod.sh"
+#Bin
+alias bin="cd ~/.local/bin"
+#Code
+alias codee="codando"
+#Listando tarefas
+alias tls="cat ~/Documents/.todo.txt"
