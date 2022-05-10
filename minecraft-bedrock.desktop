@@ -1,0 +1,10 @@
+# Based on Arch Linux'
+[Desktop Entry]
+Name=Minecraft Bedrock
+GenericName=Game Sandbox
+Comment=Access the Internet
+Exec=/home/frank/Franks/Jogos/MinecraftBedrockLauncher_x86_64_v0.3.4.688.AppImage
+Terminal=false
+#Icon=
+Type=Application
+Categories=GTK;Network;WebBrowser;
