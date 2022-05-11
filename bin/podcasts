@@ -3,9 +3,12 @@
 # Franklin Souza
 # @FranklinTech
 
+clear
+[ ! `command -v mpv` ] && echo "mpv não instalado, por favor faça a instalação" && exit 1
+
 while true ; do
   clear
-  printf "Podcasts Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Sair\n\n"
+  printf "Podcasts Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Ouvir um podcast\n[4] - Sair\n\n"
   read OPTION
   if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
     clear
@@ -21,6 +24,12 @@ while true ; do
     nvim $HOME/.PodCasts && continue
 
   elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+    clear
+    printf "Cole abaixo o link do podcast que deseja ouvir:\n\n"
+    read PODLINK
+    clear && mpv "$PODLINK"
+    
+  elif [ $OPTION == '4' ] || [ $OPTION == '04' ] ; then
     clear && exit 0
 
   else
