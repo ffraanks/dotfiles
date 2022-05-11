@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-install_package(){
 clear
-read -p 'Dê permissão sudo para baixar o pacote REFLECTOR (PRESS ENTER TO CONTINUE)'
-clear && sudo pacman -S reflector --noconfirm
-}
+[ ! `command -v reflector` ] && echo "reflector não instalado, por favor faça a instalação" && exit 1
 
 country(){
 clear
@@ -21,6 +18,5 @@ clear && exit 0
 }
 
 # Init
-install_package
 country
 start_file
