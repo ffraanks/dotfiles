@@ -256,3 +256,5 @@ alias bin="cd ~/.local/bin"
 alias codee="codando"
 #Listando tarefas
 alias tls="cat ~/Documents/.todo.txt"
+#htop
+alias h="htop"
