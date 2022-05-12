@@ -46,6 +46,6 @@ i3lock \
 --lockfailed-text="Lock failed"\
 --noinput-text="No Input"   \
 --verif-text="Verifying..."   \
---wrong-text="Error..."   \
+--wrong-text="Erro"   \
 --greeter-text="Seja livre, use Linux!"   \
 --greeter-pos="ix+10:iy+195"   \
