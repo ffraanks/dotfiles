@@ -3,6 +3,7 @@
 clear
 mkdir $HOME/.PythonAmbienteVirtual
 clear
+printf "Para ativar o ambiente virutal: Entra no PATH na pasta bin e digite (source activate)\n\n"
 printf "Criador de ambientes virtuais Python\n\n"
 printf "Escolha uma opção abaixo:\n\n[1] - Criar ambiente virtual\n[2] - Remover ambientes\n[3] - Sair\n\n"
 read CHOICE_OPTION
@@ -25,4 +26,3 @@ elif [ $CHOICE_OPTION == '3' ] || [ $CHOICE_OPTION == '03' ] ; then
 else
   clear && exit 1
 fi
-
