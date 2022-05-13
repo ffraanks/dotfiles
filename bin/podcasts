@@ -8,7 +8,7 @@ clear
 
 while true ; do
   clear
-  printf "Podcasts Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Ouvir um podcast\n[4] - Sair\n\n"
+  printf "Podcasts Links\n\nEscolha uma das opções abaixo:\n\n[1] - Colar link\n[2] - Ver arquivo de links\n[3] - Ouvir um podcast\n[4] - Acessar Google Podcast\n[5] - Sair\n\n"
   read OPTION
   if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
     clear
@@ -28,8 +28,12 @@ while true ; do
     printf "Cole abaixo o link do podcast que deseja ouvir:\n\n"
     read PODLINK
     clear && mpv "$PODLINK"
-    
+
   elif [ $OPTION == '4' ] || [ $OPTION == '04' ] ; then
+    clear
+    $BROWSER "https://podcasts.google.com/"
+    
+  elif [ $OPTION == '5' ] || [ $OPTION == '05' ] ; then
     clear && exit 0
 
   else
