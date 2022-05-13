@@ -40,7 +40,10 @@ while true ; do
     clear && read -p 'Para usar essa opção você tem que apertar "Q" no seu MPV para ele salvar o estado atual, ae você pode escolher o formato que deseja:'
     echo && ytfzf -faH
 
-  else
+  elif [ $ALT == '6' ] || [ $ALT == '06' ] ; then
     clear && exit 0
+
+  else
+    clear && read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && continue
   fi
 done
