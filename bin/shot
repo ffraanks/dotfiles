@@ -28,7 +28,7 @@ ca(){
 caa(){
 	maim -u -m 10 -s "$PIC"
 	xclip -selection c -t image/png "$PIC"
-	notify-send -u low -i "$PIC" "Print" "Area copied to clipboard"
+	notify-send -u low -i "$PIC" "Print" "Area saved in ~/Pictures"
 }
 
 
