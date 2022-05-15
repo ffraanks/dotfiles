@@ -258,3 +258,9 @@ alias codee="codando"
 alias tls="cat ~/Documents/.todo.txt"
 #htop
 alias h="htop"
+#reboot
+alias rb="reboot"
+#stop daemon
+alias stop="systemctl stop"
+#ClamScan Clamav
+alias scan="clamscan"
