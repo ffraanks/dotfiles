@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 ##########################################################
 # Credit: Franklin Souza                                 #
@@ -94,8 +94,9 @@ printf "[05] - Sincronizar os jogos\n"
 printf "[06] - Desinstalar jogo\n"
 printf "[07] - Executar um jogo\n"
 printf "[08] - Listar jogos instalados e checar atualizações\n"
-printf "[09] - Voltar\n"
-printf "[10] - Sair do programa\n\n"
+printf "[09] - Ativar uplay\n"
+printf "[10] - Voltar\n"
+printf "[11] - Sair do programa\n\n"
 read EPIC_GAMES
 printf "\n"
 
@@ -214,9 +215,13 @@ elif [ $EPIC_GAMES == '2' ] || [ $EPIC_GAMES == '02' ] ; then
     legendary list-installed --check-updates && echo && read -p " PRESS ENTER TO CONTINUE..."
 
   elif [ $EPIC_GAMES == '9' ] || [ $EPIC_GAMES == '09' ] ; then
-    wine_install
+    legendary activate --uplay
+    printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...'
 
   elif [ $EPIC_GAMES == '10' ] ; then
+    wine_install
+
+  elif [ $EPIC_GAMES == '11' ] ; then
     clear &&  exit 0
 
   else
