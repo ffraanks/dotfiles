@@ -94,7 +94,7 @@ printf "[05] - Sincronizar os jogos\n"
 printf "[06] - Desinstalar jogo\n"
 printf "[07] - Executar um jogo\n"
 printf "[08] - Listar jogos instalados e checar atualizações\n"
-printf "[09] - Ativar uplay\n"
+printf "[09] - Jogos uplay\n"
 printf "[10] - Voltar\n"
 printf "[11] - Sair do programa\n\n"
 read EPIC_GAMES
