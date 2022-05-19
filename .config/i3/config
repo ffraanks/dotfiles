@@ -354,6 +354,12 @@ for_window [class="(StardewValley.bin.x86_64)"] move to workspace $ws10
 # Tomb Raider
 for_window [class="(TombRaider)"] move to workspace $ws10
 
+# Stumble Guys
+for_window [class="(steam_app_1677740)"] move to workspace $ws10
+
+# Paladins
+for_window [class="(steam_app_444090)"] move to workspace $ws10
+
 # Valheim
 for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center
 
