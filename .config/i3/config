@@ -147,7 +147,7 @@ bindsym $win+F9 exec --no-startup-id $HOME/Scripts/backupwall.sh
 bindsym $win+x exec --no-startup-id lockscreen
 
 # Steam Terminal
-bindsym $win+F7 exec --no-startup-id kitty -e steam
+bindsym $win+F7 exec --no-startup-id kitty -e steam-runtime
 
 # Iniciar Gravação de Tela (FFmpeg)
 #bindsym $win+F8 exec --no-startup-id ~/.config/polybar/scripts/gravar.sh
