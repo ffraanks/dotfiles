@@ -146,6 +146,9 @@ bindsym $win+F9 exec --no-startup-id $HOME/Scripts/backupwall.sh
 #bindsym $win+x exec --no-startup-id $HOME/.config/polybar/scripts/fortune.sh
 bindsym $win+x exec --no-startup-id lockscreen
 
+# Steam Terminal
+bindsym $win+F7 exec --no-startup-id kitty -e steam
+
 # Iniciar Gravação de Tela (FFmpeg)
 #bindsym $win+F8 exec --no-startup-id ~/.config/polybar/scripts/gravar.sh
 
@@ -357,11 +360,14 @@ for_window [class="(TombRaider)"] move to workspace $ws10
 # Stumble Guys
 for_window [class="(steam_app_1677740)"] move to workspace $ws10
 
+# Battlerite
+for_window [class="(steam_app_504370)"] move to workspace $ws10
+
 # Paladins
 for_window [class="(steam_app_444090)"] move to workspace $ws10
 
 # Valheim
-for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center
+for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center, move to workspace $ws10
 
 ####################################################################
 #                           R E G R A S                            #
