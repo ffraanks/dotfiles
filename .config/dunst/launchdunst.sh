@@ -9,6 +9,9 @@ sleep 0.1
 exec 1>$HOME/.config/dunst/dunstrc
 
 pr -T <<- EOF
+# User: Franklin Souza
+# Telegram: FranklinTech
+
 [global]
     ### Display ###
 
@@ -154,7 +157,7 @@ pr -T <<- EOF
     #   <u>underline</u>
     #
     
-    format = "<span foreground='$color3' weight='bold' font='Iosevka Medium 9'>%s</span>\n<span foreground='$color6' font='Iosevka Medium 9'>%b</span>"
+    format = "<span foreground='$color3' weight='bold' font='Iosevka Medium 9'>%s</span>\n<span foreground='$color3' font='Iosevka Medium 9'>%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -311,7 +314,7 @@ pr -T <<- EOF
 
 [base16_low]
     msg_urgency = low
-    frame_color = "$color8"
+    frame_color = "$color2"
     background = "$background"
     #foreground = "$foreground"
 
