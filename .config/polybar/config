@@ -86,9 +86,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = linux
-modules-center = statusmusic
-modules-right = pulse calendar date powermenu
+modules-left = statusmusic
+modules-center = linux 
+modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
