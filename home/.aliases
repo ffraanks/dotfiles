@@ -264,3 +264,15 @@ alias rb="reboot"
 alias stop="systemctl stop"
 #ClamScan Clamav
 alias scan="clamscan"
+#List subvolumes
+alias list="sudo btrfs subvolume list /"
+#Tamanho dos devices
+alias tam="df -hT"
+#Logs
+alias logs="journalctl --vacuum-time=1w"
+#Epic Games
+alias epic="epicgames"
+#Keys ArchLinux
+alias keys="sudo pacman-key --populate archlinux && sudo pacman -Syu"
+#Listar conteudos
+alias ll="ls -1"
