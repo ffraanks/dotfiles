@@ -117,7 +117,7 @@ alias m='minec'
 #Kittyicat
 alias kcat="kitty +kitten icat"
 #Free
-alias free='free -h'
+alias free='clear && free -h'
 #Clear
 alias c='clear'
 #Mpd e ncmpcpp
@@ -276,3 +276,5 @@ alias epic="epicgames"
 alias keys="sudo pacman-key --populate archlinux && sudo pacman -Syu"
 #Listar conteudos
 alias ll="ls -1"
+#Information hardware
+alias inf="inxi -bGI"
