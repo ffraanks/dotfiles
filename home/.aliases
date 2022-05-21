@@ -277,4 +277,4 @@ alias keys="sudo pacman-key --populate archlinux && sudo pacman -Syu"
 #Listar conteudos
 alias ll="ls -1"
 #Information hardware
-alias inf="inxi -bGI"
+alias inf="clear && inxi -bGI"
