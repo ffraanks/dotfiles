@@ -87,7 +87,7 @@ separator = |
 #################################################################
 
 modules-left = statusmusic
-modules-center = linux 
+modules-center = kernel 
 modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
@@ -164,7 +164,7 @@ separator = |
 
 modules-left = i3
 modules-center = usb-mount
-modules-right = xkeyboard print search mic scratchpad-indicator up
+modules-right = xkeyboard print mic grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -779,14 +779,14 @@ click-left = vimb_launch https://www.archlinux.org/ &
 [module/kernel]
 type = custom/script
 exec = uname -r
-label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
+label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
 #format-underline = ${colors.foreground}
 
 [module/btc]
 type = custom/script
 interval = 60
 exec = $HOME/Scripts/btc.py
-label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
+label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
 #format-underline = ${colors.foreground}
 
 [module/scratchpad-indicator]
@@ -794,7 +794,7 @@ type = custom/script
 interval = 0.1
 exec = python $HOME/.config/polybar/scripts/i3-scratchpad-indicator.py
 click-left = exec i3-msg scratchpad show 
-#label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
+#label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
 #format-underline = ${colors.foreground}
 
 [module/clima]
