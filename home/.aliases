@@ -243,9 +243,9 @@ alias pyenv="~/Scripts/pyvenv.sh"
 #Systemctl status
 alias status="systemctl status"
 #Systemctl restart
-alias restart="systemctl restart"
+alias restart="sudo systemctl restart"
 #Systemctl enable
-alias on="systemctl enable"
+alias on="sudo systemctl enable"
 #Type
 alias ty="type"
 #Podman TUI
@@ -278,3 +278,7 @@ alias keys="sudo pacman-key --populate archlinux && sudo pacman -Syu"
 alias ll="ls -1"
 #Information hardware
 alias inf="clear && inxi -bGI"
+#Skyrim Tradução
+alias skyrim="~/Scripts/skyrim_config.sh"
+#Log Kernel
+alias dm="sudo dmesg"
