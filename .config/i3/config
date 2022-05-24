@@ -366,6 +366,15 @@ for_window [class="(steam_app_504370)"] move to workspace $ws10
 # Paladins
 for_window [class="(steam_app_444090)"] move to workspace $ws10
 
+# DmC
+for_window [class="(steam_app_220440)"] move to workspace $ws10
+
+# Skyrim
+for_window [class="(steam_app_489830)"] move to workspace $ws10
+
+# Hitman Absolution
+for_window [class="(steam_app_203140)"] move to workspace $ws10
+
 # Valheim
 for_window [class="(steam_app_892970)"]floating enable,resize set 952 508, move position center, move to workspace $ws10
 
