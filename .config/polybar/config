@@ -86,9 +86,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = statusmusic
-modules-center = kernel 
-modules-right = pulse info-redshift-temp calendar date powermenu
+modules-left = linux
+modules-center = statusmusic
+modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -164,7 +164,7 @@ separator = |
 
 modules-left = i3
 modules-center = usb-mount
-modules-right = xkeyboard print mic grabc scratchpad-indicator up
+modules-right = xkeyboard print mic search grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -651,13 +651,13 @@ click-left = exec $HOME/Scripts/github.sh
 
 [module/search]
 type = custom/text
-content = " Search"
+content = " Search"
 content-foreground = ${colors.foreground}
 #content-underline = ${colors.foreground}
-click-middle = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
+#click-middle = exec $HOME/.palemoon/./palemoon "https://googlethatforyou.com/"
 #click-left = exec firefox "https://googlethatforyou.com/"
 click-left = exec qutebrowser "https://googlethatforyou.com/"
-click-right = exec vimb_launch "https://googlethatforyou.com/"
+#click-right = exec vimb_launch "https://googlethatforyou.com/"
 
 [module/vpn-openvpn-isrunning]
 type = custom/script
@@ -748,7 +748,7 @@ tail = true
 
 #[module/print]
 #type = custom/text
-#content = "%{F${colors.foreground}  %{F-}"
+#content = "%{F${colors.foreground  %{F-}"
 #content-underline = ${colors.foreground}
 #click-left = bash -c 'maim "$HOME/Pictures/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
 #click-left = bash -c 'scrot "$HOME/Imagens/Captura de tela de %d-%m-%Y %H:%M:%S.png"' &
@@ -758,14 +758,13 @@ tail = true
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
-#click-left = exec kitty -e chmod +x && ./.cache/wal/colors.sh && sudo pacman -Syu
-click-left = exec kitty -e sudo pacman -Syu
+#click-left = exec kitty -e sudo pacman -Syu
 
 [module/pacman]
 type = custom/script
 interval = 1
 exec = pacman -Qq | wc -l
-#label = "%{F${colors.foreground}  %{F-} %output:0:37:...%"
+#label = "%{F${colors.foreground  %{F-} %output:0:37:...%"
 label = "%{F${xrdb:color7:#222  %{F-} %output:0:37:...%"
 #format-underline = #d79921
 #format-background = #d79921
@@ -794,7 +793,7 @@ type = custom/script
 interval = 0.1
 exec = python $HOME/.config/polybar/scripts/i3-scratchpad-indicator.py
 click-left = exec i3-msg scratchpad show 
-#label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
+click-right = exec i3-msg move scratchpad 
 #format-underline = ${colors.foreground}
 
 [module/clima]
@@ -825,7 +824,7 @@ label = "%{F${colors.foreground  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
 click-left = notify-send "$(cal)"
-#click-left = yad --calendar
+click-right = yad --calendar
 
 [module/gravar]
 type = custom/script
