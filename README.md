@@ -26,12 +26,12 @@
 
 # i3 Gaps
 
-<img src="i3-darling.png">
+<img src="i3-CyberPunk.png">
 
 # Rofi
 
-<img src="i3rofi-darling.png">
+<img src="Rofi-CyberPunk.png">
 
 # i3-Lock
 
-<img src="i3lock-darling.png">
+<img src="i3Lock-CyberPunk.png">
