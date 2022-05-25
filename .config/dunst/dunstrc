@@ -146,7 +146,7 @@
     #   <u>underline</u>
     #
     
-    format = "<span foreground='#EB5D27' weight='bold' font='Iosevka Medium 9'>%s</span>\n<span foreground='#EB5D27' font='Iosevka Medium 9'>%b</span>"
+    format = "<span foreground='#2689B9' weight='bold' font='Iosevka Medium 9'>%s</span>\n<span foreground='#2689B9' font='Iosevka Medium 9'>%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -303,18 +303,18 @@
 
 [base16_low]
     msg_urgency = low
-    frame_color = "#C9533C"
-    background = "#101010"
-    #foreground = "#efcfc1"
+    frame_color = "#5266A0"
+    background = "#030915"
+    #foreground = "#d5c6d4"
 
 [base16_normal]
     msg_urgency = normal
-    frame_color = "#C9533C"
-    background = "#101010"
-    #foreground = "#efcfc1"
+    frame_color = "#5266A0"
+    background = "#030915"
+    #foreground = "#d5c6d4"
 
 [base16_critical]
     msg_urgency = critical
-    frame_color = "#9F2017"
-    background = "#101010"
-    #foreground = "#efcfc1"
+    frame_color = "#18699B"
+    background = "#030915"
+    #foreground = "#d5c6d4"
