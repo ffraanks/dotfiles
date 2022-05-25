@@ -44,8 +44,9 @@ height = 16
 #offset-x = 10%
 #pffset-y = 4px
 #override-redirect = true
-#radius = 0
+#radius = 12
 #fixed-center = true
+top = true
 enable-ipc = true
 
 background = ${colors.background}
@@ -57,8 +58,8 @@ foreground = ${colors.foreground}
 #border-size = 1
 #border-color = ${colors.foreground}
 
-#border-bottom-size = 1
-#border-bottom-color = ${colors.foreground}
+border-bottom-size = 1
+border-bottom-color = ${colors.foreground}
 
 padding-left = 0
 padding-right = 0
@@ -119,8 +120,8 @@ height = 16
 #offset-x = 10%
 #pffset-y = 4px
 #override-redirect = true
-radius = 0
-fixed-center = true
+#radius = 0
+#fixed-center = true
 bottom = true
 enable-ipc = true
 
@@ -133,8 +134,8 @@ foreground = ${colors.foreground}
 #border-size = 1
 #border-color = ${colors.foreground}
 
-#border-top-size = 1
-#border-top-color = ${colors.foreground}
+border-top-size = 1
+border-top-color = ${colors.foreground}
 
 padding-left = 0
 padding-right = 0 
