@@ -10,7 +10,7 @@
 | Status Bar     | [Polybar](https://github.com/polybar/polybar)                                                                                         |     									    |                                					     	 	    
 | Vídeo Player        | [MPV](https://mpv.io/)														    |
 | Music Player | [MPV](https://mpv.io/)                   								    |
-| Image viewer | [Viewnior](http://siyanpanayotov.com/project/viewnior)                                                                                                                                                                                             
+| Image viewer | [feh](https://github.com/derf/feh)                                                                                                                                                                                             
 | Print Screen     | [Maim](https://github.com/ffraanks/dotfiles/blob/master/bin/shot)                                                                               |
 | Screen Recorder    | [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                                                    
 | Terminal Emulator   | [Kitty](https://github.com/kovidgoyal/kitty)                                                                                 |
