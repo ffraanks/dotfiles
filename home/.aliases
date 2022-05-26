@@ -225,7 +225,7 @@ alias sf="systemctl --failed"
 #w3m
 #alias img="w3m"
 #img
-alias img="sxiv *"
+#alias img="sxiv *"
 #Tetris game
 alias tetris="tetriscurses"
 #Wallpapers Download
@@ -261,13 +261,11 @@ alias h="htop"
 #reboot
 alias rb="reboot"
 #stop daemon
-alias stop="systemctl stop"
+alias stop="sudo systemctl stop"
 #ClamScan Clamav
 alias scan="clamscan"
 #List subvolumes
 alias list="sudo btrfs subvolume list /"
-#Tamanho dos devices
-alias tam="df -hT"
 #Logs
 alias logs="journalctl --vacuum-time=1w"
 #Epic Games
@@ -282,3 +280,7 @@ alias inf="clear && inxi -bGI"
 alias skyrim="~/Scripts/skyrim_config.sh"
 #Log Kernel
 alias dm="sudo dmesg"
+#Daemon service off
+alias off="sudo systemctl disable"
+#Image
+alias img="feh -F"
