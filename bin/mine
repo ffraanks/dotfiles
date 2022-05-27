@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clear && [ ! `command -v wget` ] && echo "wget não instalado, por favor faça a instalação" && exit 1
+
 while true ; do
   clear
   printf "O que deseja baixar:\n\n[1] - Minecraft\n[2] - Minecraft Bedrock\n[3] - Sair\n\n"
