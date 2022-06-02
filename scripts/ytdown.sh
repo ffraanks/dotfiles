@@ -38,7 +38,7 @@ main(){
       clear && cd $HOME/.VideosDownload
       printf "Cole seu link abaixo:\n\n"
       read LINK_VIDEO
-      yt-dlp "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
+      yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
 
     elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
       clear
@@ -148,7 +148,8 @@ main(){
      clear
      printf "Cole o link da playlist aqui: "
      read PLAYLISY_LINK
-     yt-dlp -f 'bv*+ba' "$PLAYLISY_LINK" -o '%(title)s.f%(format_id)s.%(ext)s' --no-playlist-reverse
+     #yt-dlp -f 'bv*+ba' "$PLAYLISY_LINK" -o '%(title)s.f%(format_id)s.%(ext)s' --no-playlist-reverse
+     yt-dlp -f bestvideo*+bestaudio/best "$PLAYLISY_LINK" -o '%(title)s.f%(format_id)s.%(ext)s' --no-playlist-reverse
      notify-send "YOUTUBE DOWNLOADER" "Playlist baixada com sucesso!!!" && mpv $SOUND && continue
 
    elif [ $OPTION == '6' ] || [ $OPTION == '06' ] ; then
