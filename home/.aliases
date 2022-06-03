@@ -284,3 +284,9 @@ alias dm="sudo dmesg"
 alias off="sudo systemctl disable"
 #Image
 alias img="feh -F"
+#SpeedTest
+alias st="speedtest"
+#Translate CLI
+alias transl="$HOME/Scripts/translate.sh"
+#StockROM
+alias rom="$HOME/Scripts/StockROM.sh"
