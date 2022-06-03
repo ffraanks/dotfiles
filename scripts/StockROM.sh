@@ -66,9 +66,15 @@ while true ; do
       read FLASH_ROM
 
       if [ $FLASH_ROM == 'y' ] || [ $FLASH_ROM == 'Y' ] || [ $FLASH_ROM == 'yes' ] || [ $FLASH_ROM == 'Yes' ] || [ $FLASH_ROM == 'YES' ] ; then
-        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
-        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
-        clear && ls && exit 0
+        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
+        if [ -f gen_flash_command_heimdall.py ] ; then
+          clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+          clear && ls && exit 0
+        else
+          wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
+          clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+          clear && ls && exit 0
+        fi
 
       elif [ $FLASH_ROM == 'n' ] || [ $FLASH_ROM == 'N' ] || [ $FLASH_ROM == 'no' ] || [ $FLASH_ROM == 'No' ] || [ $FLASH_ROM == 'NO' ] ; then
         read -p "Operação cancelada, PRESSIONE ENTER PARA SAIR..." && clear && exit 0
@@ -93,7 +99,15 @@ while true ; do
       read FLASH_ROM1
 
       if [ $FLASH_ROM1 == 'y' ] || [ $FLASH_ROM1 == 'Y' ] || [ $FLASH_ROM1 == 'yes' ] || [ $FLASH_ROM1 == 'Yes' ] || [ $FLASH_ROM1 == 'YES' ] ; then
-        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
+        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
+        if [ -f gen_flash_command_heimdall.py ] ; then
+          clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+          clear && ls && exit 0
+        else
+          wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
+          clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+          clear && ls && exit 0
+        fi
         clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
         clear && ls && exit 0
 
