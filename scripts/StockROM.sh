@@ -6,6 +6,8 @@ clear
 [ ! `command -v unzip` ] && echo "unzip não instalado, por favor faça a instalação" && exit 1
 [ ! `command -v 7z` ] && echo "p7zip não instalado, por favor faça a instalação" && exit 1
 [ ! `command -v unlz4` ] && echo "unlz4 não instalado, por favor faça a instalação" && exit 1
+[ ! `command -v wget` ] && echo "wget não instalado, por favor faça a instalação" && exit 1
+[ ! `command -v python3` ] && echo "python3 não instalado, por favor faça a instalação" && exit 1
 
 while true ; do
 
@@ -24,9 +26,9 @@ while true ; do
   # Condições do menu
   if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
     clear
-    printf "Coloque o caminho onde está sua imagem recovery (ex: /home/user/Android/boot.img) LEMBRE-SE DE ESTÁ COM O CELULAR PLUGADO NO COMPUTADOR\n\n"
+    printf "Coloque o caminho onde está sua imagem recovery (ex: /home/user/Android/boot.img) LEMBRE-SE DE ESTÁ COM O CELULAR PLUGADO NO COMPUTADOR EM MODO DOWNLOAD:\n\n"
     read RECOVERY_PATH
-    sudo heimdall flash --RECOVERY "$RECOVERY_PATH" && continue
+    heimdall flash --RECOVERY "$RECOVERY_PATH" && continue
 
   elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
     mkdir $HOME/.StockROM
@@ -63,7 +65,13 @@ while true ; do
       read FLASH_ROM
 
       if [ $FLASH_ROM == 'y' ] || [ $FLASH_ROM == 'Y' ] || [ $FLASH_ROM == 'yes' ] || [ $FLASH_ROM == 'Yes' ] || [ $FLASH_ROM == 'YES' ] ; then
-        heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
+        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
+        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit pit.txt && clear && python3 gen_stock_flash_command_heindall.py pit.txt && echo
+        printf "Copie o comando do heimdall acima e cole abaixo:\n\n"
+        read COMMAND_HEIMDALL
+        bash "$COMMAND_HEIMDALL"
+        
+        #heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
 
       elif [ $FLASH_ROM == 'n' ] || [ $FLASH_ROM == 'N' ] || [ $FLASH_ROM == 'no' ] || [ $FLASH_ROM == 'No' ] || [ $FLASH_ROM == 'NO' ] ; then
         read -p "Operação cancelada, PRESSIONE ENTER PARA SAIR..." && clear && exit 0
@@ -87,7 +95,13 @@ while true ; do
       read FLASH_ROM1
 
       if [ $FLASH_ROM1 == 'y' ] || [ $FLASH_ROM1 == 'Y' ] || [ $FLASH_ROM1 == 'yes' ] || [ $FLASH_ROM1 == 'Yes' ] || [ $FLASH_ROM1 == 'YES' ] ; then
-        heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
+        cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
+        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt && clear && python3 gen_stock_flash_command_heindall.py pit.txt && echo
+        printf "Copie o comando do heimdall acima e cole abaixo:\n\n"
+        read COMMAND_HEIMDALL
+        bash "$COMMAND_HEIMDALL"
+        
+        #heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
 
       elif [ $FLASH_ROM1 == 'n' ] || [ $FLASH_ROM1 == 'N' ] || [ $FLASH_ROM1 == 'no' ] || [ $FLASH_ROM1 == 'No' ] || [ $FLASH_ROM1 == 'NO' ] ; then
         read -p "Operação cancelada, PRESSIONE ENTER PARA SAIR..." && clear && exit 0
