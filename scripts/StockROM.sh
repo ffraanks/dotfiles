@@ -59,19 +59,16 @@ while true ; do
       7z X BL_G610MUBS8CTG1_CL14381225_QB32851602_REV00_user_low_ship.tar.md5 && clear
       7z X CP_G610MUBS8CTG1_CP16298432_CL14381225_QB32851602_REV00_user_low_ship.tar.md5 && clear
       7z X CSC_ZTO_G610MZTO8CTG1_CL16390851_QB32881712_REV00_user_low_ship.tar.md5 && clear
-      mv *.lz4 $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && mv *.bin $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
+      mv *.lz4 $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
       cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && unlz4 -m * && rm -rf *.lz4
+      cd $HOME/"$FOLDER_NAME" && mv modem.bin $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
       clear && printf "Deseja flashear a StockROM agora? [y/n]\n\n"
       read FLASH_ROM
 
       if [ $FLASH_ROM == 'y' ] || [ $FLASH_ROM == 'Y' ] || [ $FLASH_ROM == 'yes' ] || [ $FLASH_ROM == 'Yes' ] || [ $FLASH_ROM == 'YES' ] ; then
         cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
-        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit pit.txt && clear && python3 gen_stock_flash_command_heindall.py pit.txt && echo
-        printf "Copie o comando do heimdall acima e cole abaixo:\n\n"
-        read COMMAND_HEIMDALL
-        bash "$COMMAND_HEIMDALL"
-        
-        #heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
+        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+        clear && ls && exit 0
 
       elif [ $FLASH_ROM == 'n' ] || [ $FLASH_ROM == 'N' ] || [ $FLASH_ROM == 'no' ] || [ $FLASH_ROM == 'No' ] || [ $FLASH_ROM == 'NO' ] ; then
         read -p "Operação cancelada, PRESSIONE ENTER PARA SAIR..." && clear && exit 0
@@ -89,19 +86,16 @@ while true ; do
       7z X BL_G610MUBS8CTG1_CL14381225_QB32851602_REV00_user_low_ship.tar.md5 && clear
       7z X CP_G610MUBS8CTG1_CP16298432_CL14381225_QB32851602_REV00_user_low_ship.tar.md5 && clear
       7z X HOME_CSC_ZTO_G610MZTO8CTG1_CL16390851_QB32881712_REV00_user_low_ship && clear
-      mv *.lz4 $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && mv *.bin $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
+      mv *.lz4 $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
       cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && unlz4 -m * && rm -rf *.lz4
+      cd $HOME/"$FOLDER_NAME" && mv modem.bin $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES"
       clear && printf "Deseja flashear a StockROM agora? [y/n]\n\n"
       read FLASH_ROM1
 
       if [ $FLASH_ROM1 == 'y' ] || [ $FLASH_ROM1 == 'Y' ] || [ $FLASH_ROM1 == 'yes' ] || [ $FLASH_ROM1 == 'Yes' ] || [ $FLASH_ROM1 == 'YES' ] ; then
         cd $HOME/.StockROM/"$FOLDER_NAME"/"$EXTRACT_FILES" && wget -c "https://github.com/VegaBobo/gen_stock_flash_command_heimdall/raw/main/gen_flash_command_heimdall.py"
-        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt && clear && python3 gen_stock_flash_command_heindall.py pit.txt && echo
-        printf "Copie o comando do heimdall acima e cole abaixo:\n\n"
-        read COMMAND_HEIMDALL
-        bash "$COMMAND_HEIMDALL"
-        
-        #heimdall flash --BOOTLOADER sboot.bin --CM cm.bin --PARAM param.bin --BOOT boot.img --RECOVERY recovery.img --RADIO modem.bin --SYSTEM system.img --CACHE cache.img --HIDDEN hidden.img --USERDATA userdata.img && continue
+        clear && read -p 'PLUGA SEU DEVICE ANTES DE CONTINUAR...(PRESSIONE ENTER SE O DEVICE ESTIVER PLUGADO EM MODO DOWNLOAD)' && heimdall print-pit > pit.txt --no-reboot
+        clear && ls && exit 0
 
       elif [ $FLASH_ROM1 == 'n' ] || [ $FLASH_ROM1 == 'N' ] || [ $FLASH_ROM1 == 'no' ] || [ $FLASH_ROM1 == 'No' ] || [ $FLASH_ROM1 == 'NO' ] ; then
         read -p "Operação cancelada, PRESSIONE ENTER PARA SAIR..." && clear && exit 0
