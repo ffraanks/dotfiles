@@ -20,10 +20,10 @@ while true ; do
   read OPC
   if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
     clear
-    printf "Evite de usar espaços, use (_) underline/underscore para simular espaços.\n\n"
+    #printf "Evite de usar espaços, use (_) underline/underscore para simular espaços.\n\n"
     printf "Qual vai ser o nome da pasta?:\n\n"
     read PASTE_NAME
-    printf "\n$PASTE_NAME criada com sucesso!!!" && cd $HOME/.MusicDown && mkdir $PASTE_NAME && cd $HOME/.MusicDown/$PASTE_NAME && ls
+    printf "\n$PASTE_NAME criada com sucesso!!!" && cd $HOME/.MusicDown && mkdir "$PASTE_NAME" && cd $HOME/.MusicDown/"$PASTE_NAME" && ls
     printf "\n\nCole a URL da música aqui:\n\n"
     read URL_MUSIC
     clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $URL_MUSIC
