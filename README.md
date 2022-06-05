@@ -5,7 +5,7 @@
 | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
 | Linux distribution        | [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux_(Portugu%C3%AAs))                                                                                            |                                                                                       
 | Window Manager  | [i3](https://github.com/Airblader/i3)                                                                                             
-| Browser           | [Qutebrowser](https://qutebrowser.org/)                                                                                |
+| Browser           | [Firefox](https://www.mozilla.org/pt-BR/firefox/new/)                                                                                |
 | Program Launcher | [Rofi](https://github.com/davatorium/rofi)                                                                                         |           
 | Status Bar     | [Polybar](https://github.com/polybar/polybar)                                                                                         |     									    |                                					     	 	    
 | Vídeo Player        | [MPV](https://mpv.io/)														    |
