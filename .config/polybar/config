@@ -58,8 +58,8 @@ foreground = ${colors.foreground}
 #border-size = 1
 #border-color = ${colors.foreground}
 
-border-bottom-size = 1
-border-bottom-color = ${colors.foreground}
+#border-bottom-size = 1
+#border-bottom-color = ${colors.foreground}
 
 padding-left = 0
 padding-right = 0
@@ -88,7 +88,7 @@ separator = |
 #################################################################
 
 modules-left = linux
-modules-center = statusmusic
+modules-center = web_spotify
 modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
@@ -134,8 +134,8 @@ foreground = ${colors.foreground}
 #border-size = 1
 #border-color = ${colors.foreground}
 
-border-top-size = 1
-border-top-color = ${colors.foreground}
+#border-top-size = 1
+#border-top-color = ${colors.foreground}
 
 padding-left = 0
 padding-right = 0 
@@ -638,6 +638,15 @@ click-left = $HOME/.config/polybar/scripts/func_repeat.sh
 exec = sh $HOME/.config/polybar/scripts/repeat.sh
 label = %output%
 interval = 1
+
+####################################################
+#                   WEB SPOTIFY                    #
+####################################################
+
+[module/web_spotify]
+type = custom/script
+interval = 1
+exec = $HOME/.config/polybar/scripts/web_spotify_status.sh
 
 #################################################################
 #                      ALGUNS MÓDULOS CRIADOS                   #
