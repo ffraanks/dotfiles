@@ -6,12 +6,12 @@ var=$(echo ${var%"https"*} | awk '{first=$1; $1=""; print $0; }')
 
 # Exit if spotify is not found
 if [[ -z $var ]] ; then
-    echo "Spotify web closed"
+    echo " Spotify web closed"
     exit 0
 fi
 
 # Print
-strMaxLen=100
+strMaxLen=50
 checkPaused=$(echo $var | awk '{print $1}')
 if [[ $checkPaused = "Spotify" ]] ; then
     echo " Spotify is paused"
