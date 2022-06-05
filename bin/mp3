@@ -2,7 +2,18 @@
 # FranklinTech
 # Converte videos do YouTube em mp3
 
-# clear terminal
+clear
+[ ! `command -v fzf` ] && echo "fzf não instalado, por favor faça a instalação" && exit 1
+[ ! `command -v yt-dlp` ] && echo "yt-dlp não instalado, por favor faça a instalação" && exit 1
+[ ! `command -v mpv` ] && echo "mpv não instalado, por favor faça a instalação" && exit 1
+
+ #check dir
+#if [ -f $HOME/.MusicDown] ; then
+  #clear
+#else
+  #mkdir $HOME/.MusicDown
+#fi
+
 mkdir $HOME/.MusicDown
 clear
 
@@ -15,7 +26,7 @@ while true ; do
   clear
   printf "MP3 Download\n\n"
   # Menu
-  printf "Escolha uma das opções abaixo:\n\n[1] - Criar uma nova pasta\n[2] - Entrar em uma pasta existente\n[3] - Renomear pasta\n[4] - Listar músicas\n[5] - Sair\n\n"
+  printf "Escolha uma das opções abaixo:\n\n[1] - Criar uma nova pasta\n[2] - Entrar em uma pasta existente\n[3] - Ouvir músicas\n[4] - Renomear pasta\n[5] - Listar músicas\n[6] - Sair\n\n"
 
   read OPC
   if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
@@ -26,23 +37,35 @@ while true ; do
     printf "\n$PASTE_NAME criada com sucesso!!!" && cd $HOME/.MusicDown && mkdir "$PASTE_NAME" && cd $HOME/.MusicDown/"$PASTE_NAME" && ls
     printf "\n\nCole a URL da música aqui:\n\n"
     read URL_MUSIC
-    clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $URL_MUSIC
+    clear && printf "Baixando a música...\n\n" && yt-dlp --extract-audio --audio-format mp3 $URL_MUSIC
     printf "\n\nListando músicas...\n\n" && ls -1
 
   elif [ $OPC == '2' ] || [ $OPC == '02'] ; then
     clear
     cd $HOME/.MusicDown && ls
-    printf "\n\nEvite de usar espaços, use (_) underscore/underscore para simular espaços.\n"
+    #printf "\n\nEvite de usar espaços, use (_) underscore/underscore para simular espaços.\n"
     printf "\nDigite o nome da pasta: \n\n"
     read NAME_PASTE
     clear && printf "Entrando na pasta: $NAME_PASTE\n\n" && cd $HOME/.MusicDown/"$NAME_PASTE" && ls -1
     printf "\n\nCole a URL da música aqui: \n\n"
     read MUSIC_URL
-    clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $MUSIC_URL
-    
+    clear && printf "Baixando a música...\n\n" && yt-dlp --extract-audio --audio-format mp3 $MUSIC_URL
+
   elif [ $OPC == '3' ] || [ $OPC == '03' ] ; then
     clear
-    cd $HOME/.MusicDown && ls -1
+    cd $HOME/.MusicDown && ls
+    printf "\nEscolha o nome da pasta que deseja entrar para ouvir a música:\n\n"
+    read PASTE_NAME_MUSIC
+    cd $HOME/.MusicDown/"$PASTE_NAME_MUSIC"
+    IFS=$'\n'
+    mapfile -t array < <(find  ~/.MusicDown/"$PASTE_NAME_MUSIC" -regextype posix-egrep -regex '.*\.(mp3)' | \
+    fzf-tmux --query="$1" --multi --select-1 --exit-0)
+    [[ -n "${array[@]}" ]] && clear && mpv "${array[@]}" && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
+    echo && read -p 'PRESS ENTER TO CONTINUE...' && continue
+    
+  elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
+    clear
+    cd $HOME/.MusicDown && ls
     printf "\n\nDigite o nome da pasta que você quer renomear: \n\n"
     read RENAME
     printf "\n\nAgora digite o nome para a renomeação: \n\n"
@@ -50,7 +73,7 @@ while true ; do
     printf "\n\nEntrando no DIR\n\n" && cd $HOME/.MusicDown && mv "$RENAME" "$RENAME1"
     printf "\n\nListando...\n\n" && ls
 
-  elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
+  elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
     clear && cd $HOME/.MusicDown && ls
     printf "\nEscolha uma pasta para listar as músicas:\n\n"
     read PASTE_MUSIC
@@ -58,7 +81,7 @@ while true ; do
     clear && ls | wc -l && printf "\n\n" && ls -1
     printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && continue
 
-  elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
+  elif [ $OPC == '6' ] || [ $OPC == '06' ] ; then
     clear && exit 0
 
   else
