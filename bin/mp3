@@ -31,11 +31,11 @@ while true ; do
 
   elif [ $OPC == '2' ] || [ $OPC == '02'] ; then
     clear
-    cd $HOME/.MusicDown && ls -1
+    cd $HOME/.MusicDown && ls
     printf "\n\nEvite de usar espaços, use (_) underscore/underscore para simular espaços.\n"
     printf "\nDigite o nome da pasta: \n\n"
     read NAME_PASTE
-    clear && printf "Entrando na pasta: $NAME_PASTE\n\n" && cd $HOME/.MusicDown/$NAME_PASTE && ls
+    clear && printf "Entrando na pasta: $NAME_PASTE\n\n" && cd $HOME/.MusicDown/"$NAME_PASTE" && ls -1
     printf "\n\nCole a URL da música aqui: \n\n"
     read MUSIC_URL
     clear && printf "Baixando a música...\n\n" && youtube-dl --extract-audio --audio-format mp3 $MUSIC_URL
@@ -47,11 +47,11 @@ while true ; do
     read RENAME
     printf "\n\nAgora digite o nome para a renomeação: \n\n"
     read RENAME1
-    printf "\n\nEntrando no DIR\n\n" && cd $HOME/.MusicDown && mv $RENAME $RENAME1
-    printf "\n\nListando...\n\n" && ls -1
+    printf "\n\nEntrando no DIR\n\n" && cd $HOME/.MusicDown && mv "$RENAME" "$RENAME1"
+    printf "\n\nListando...\n\n" && ls
 
   elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
-    clear && cd $HOME/.MusicDown && ls -1
+    clear && cd $HOME/.MusicDown && ls
     printf "\nEscolha uma pasta para listar as músicas:\n\n"
     read PASTE_MUSIC
     cd $HOME/.MusicDown/"$PASTE_MUSIC"
