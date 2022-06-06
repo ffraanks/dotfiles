@@ -11,7 +11,7 @@ if [[ -z $var ]] ; then
 fi
 
 # Print
-strMaxLen=50
+strMaxLen=100
 checkPaused=$(echo $var | awk '{print $1}')
 if [[ $checkPaused = "Spotify" ]] ; then
     echo " Spotify is paused"
