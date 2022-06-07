@@ -89,7 +89,7 @@ separator = |
 
 modules-left =
 modules-center = web_spotify
-modules-right = pulse info-redshift-temp pacman calendar date powermenu
+modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
