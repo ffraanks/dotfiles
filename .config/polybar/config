@@ -87,7 +87,7 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = linux
+modules-left =
 modules-center = web_spotify
 modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
