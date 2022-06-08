@@ -122,7 +122,7 @@ bindsym $win+b exec --no-startup-id setxkbmap br
 # Iniciar Telegram
 #bindsym $win+k exec --no-startup-id $HOME/.local/bin/kotatogram # -> Telegra Modificado
 #bindsym $win+t exec --no-startup-id $HOME/.local/bin/Telegram # -> Telegram Modificado
-#bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram # -> Telegram Deafault
+bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram # -> Telegram Deafault
 
 # Wallpaper Pywal
 bindsym $win+F1 exec --no-startup-id ~/Scripts/wall.sh
