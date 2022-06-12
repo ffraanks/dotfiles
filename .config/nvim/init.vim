@@ -53,8 +53,8 @@ Plug 'cj/vim-webdevicons'
 "Plug 'm-pilia/vim-mediawiki'
 
 "Minimap
-"Plug 'koron/minimap-vim'
-"Plug 'wfxr/minimap.vim'
+Plug 'koron/minimap-vim'
+Plug 'wfxr/minimap.vim'
 
 "AutoSave
 Plug '907th/vim-auto-save'
@@ -72,13 +72,13 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 "Indent Blank
-"Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-cheat.sh'
 
 "Dashboard
-Plug 'glepnir/dashboard-nvim'
+"Plug 'glepnir/dashboard-nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
