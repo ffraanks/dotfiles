@@ -54,28 +54,29 @@ main(){
 }
 
 images_search(){
-  clear
-  printf "https://hub.docker.com/search?image_filter=official&q=&type=image"
-  printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+  #clear
+  #printf "https://hub.docker.com/search?image_filter=official&q=&type=image"
+  #printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
 
-  #printf "Deseja ter somente a imagem oficial? [y/n]:\n\n"
-  #read IMG_OFC
-  #if [ $IMG_OFC == 'y' ] || [ $IMG_OFC == 'Y' ] || [ $IMG_OFC == 'yes' ] || [ $IMG_OFC == 'YES' ] || [ $IMG_OFC == 'Yes' ] ; then
-    #clear
-    #printf "Digite o nome da imagem (letra minuscula):\n\n"
-    #read IMAGE_SEARCH
-    #podman search "$IMAGE_SEARCH" --filter=is-official
-    #printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+  printf "Deseja ter somente a imagem oficial? [y/n]:\n\n"
+  read IMG_OFC
+  if [ $IMG_OFC == 'y' ] || [ $IMG_OFC == 'Y' ] || [ $IMG_OFC == 'yes' ] || [ $IMG_OFC == 'YES' ] || [ $IMG_OFC == 'Yes' ] ; then
+    clear
+    printf "Digite o nome da imagem (letra minuscula):\n\n"
+    read IMAGE_SEARCH
+    podman search "$IMAGE_SEARCH" --filter=is-official
+    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
 
-  #elif [ $IMG_OFC == 'n' ] || [ $IMG_OFC == 'N' ] || [ $IMG_OFC == 'no' ] || [ $IMG_OFC == 'NO' ] || [ $IMG_OFC == 'No' ] ; then
-    #clear
-    #printf "Digite o nome da imagem (letra minuscula):\n\n"
-    #read IMAGE_SEARCH
-    #podman search "$IMAGE_SEARCH"
+  elif [ $IMG_OFC == 'n' ] || [ $IMG_OFC == 'N' ] || [ $IMG_OFC == 'no' ] || [ $IMG_OFC == 'NO' ] || [ $IMG_OFC == 'No' ] ; then
+    clear
+    printf "Digite o nome da imagem (letra minuscula):\n\n"
+    read IMAGE_SEARCH
+    podman search "$IMAGE_SEARCH"
+    printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
 
-  #else
-    #read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
-  #fi
+  else
+    read -p 'Opção inexistente!!! PRESSIONE ENTER PARA CONTINUAR...' && main
+  fi
 }
 
 image_list(){
