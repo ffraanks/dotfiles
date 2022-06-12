@@ -58,7 +58,7 @@ images_search(){
   #printf "https://hub.docker.com/search?image_filter=official&q=&type=image"
   #printf "\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
 
-  printf "Deseja ter somente a imagem oficial? [y/n]:\n\n"
+  clear && printf "Deseja ter somente a imagem oficial? [y/n]:\n\n"
   read IMG_OFC
   if [ $IMG_OFC == 'y' ] || [ $IMG_OFC == 'Y' ] || [ $IMG_OFC == 'yes' ] || [ $IMG_OFC == 'YES' ] || [ $IMG_OFC == 'Yes' ] ; then
     clear
