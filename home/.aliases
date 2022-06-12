@@ -226,6 +226,8 @@ alias sf="systemctl --failed"
 #alias img="w3m"
 #img
 #alias img="sxiv *"
+#feh
+alias f="feh --scale-down --auto-zoom --image-bg black"
 #Tetris game
 alias tetris="tetriscurses"
 #Wallpapers Download
