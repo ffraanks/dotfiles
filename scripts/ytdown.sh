@@ -38,22 +38,33 @@ main(){
 
     if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
       clear
-      printf "Deseja criar uma pasta para o seu vídeo? [y/n] "
-      read FOLDER_CREATE
-      if [ $FOLDER_CREATE == 'y' ] || [ $FOLDER_CREATE == 'Y' ] || [ $FOLDER_CREATE == 'yes' ] || [ $FOLDER_CREATE == 'YES' ] || [ $FOLDER_CREATE == 'Yes' ] ; then
+      printf "Escolha uma das opções abaixo:\n\n[1] - Criar uma pasta\n[2] - Entrar numa pasta existente\n[3] - Baixar video no diretorio atual\n\n"
+      read FOLDER_OPTION
+
+      if [ $FOLDER_OPTION == '1' ] || [ $FOLDER_OPTION == '01' ] ; then
         clear && cd $HOME/.VideosDownload1
-        printf "Digite o nome da pasta abaixo:\n\n"
+        printf "\nDigite o nome da pasta abaixo:\n\n"
         read FOLDER_NAME
         mkdir $HOME/.VideosDownload1/"$FOLDER_NAME"
         printf "\nCole seu link abaixo:\n\n"
         read LINK_VIDEO
         cd $HOME/.VideosDownload1/"$FOLDER_NAME" && yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
 
-      elif [ $FOLDER_CREATE == 'n' ] || [ $FOLDER_CREATE == 'N' ] || [ $FOLDER_CREATE == 'no' ] || [ $FOLDER_CREATE == 'NO' ] || [ $FOLDER_CREATE == 'No' ] ; then
-        clear && cd $HOME/.VideosDownload
-        printf "Cole seu link abaixo:\n\n"
+      elif [ $FOLDER_OPTION == '2' ] || [ $FOLDER_OPTION == '02' ] ; then
+        clear && cd $HOME/.VideosDownload1 && ls
+        printf "\nDigite o nome da pasta que deseja acessar:\n\n"
+        read FOLDER_NAME_ENTER
+        cd $HOME/.VideosDownload1/"$FOLDER_NAME_ENTER"
+        printf "\nCole o link do video abaixo:\n\n"
         read LINK_VIDEO
         yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
+
+      elif [ $FOLDER_OPTION == '3' ] || [ $FOLDER_OPTION == '03' ] ; then
+        clear
+        cd $HOME/.VideosDownload
+        printf "Cole o link do vídeo abaixo:\n\n"
+        read DOWNLOAD_VIDEO
+        yt-dlp -f bestvideo*+bestaudio/best "$DOWNLOAD_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
 
       else
         clear && read -p 'Opção inexistente... PRESSIONE ENTER PARA CONTINUAR...' && continue
@@ -65,21 +76,23 @@ main(){
       read PLAY
       
       if [ $PLAY == '1' ] || [ $PLAY == '01' ] ; then
-        clear && printf "Deseja assistir video de alguma pasta? [y/n] "
-        read VIDEO_FOLDER
-        if [ $VIDEO_FOLDER == 'y' ] || [ $VIDEO_FOLDER == 'Y' ] || [ $VIDEO_FOLDER == 'Yes' ] || [ $VIDEO_FOLDER == 'yes' ] || [ $VIDEO_FOLDER == 'YES' ] ; then
+        clear && printf "Escolha uma das opções abaixo:\n\n[1] - Assistir vídeo a partir de uma pasta criada\n[2] - Assistir vídeo do diretorio local\n\n"
+        read CHOICE_OPTION
+
+        if [ $CHOICE_OPTION == '1' ] || [ $CHOICE_OPTION == '01' ] ; then
           clear
           cd $HOME/.VideosDownload1 && ls
           printf "\nDigite o nome da pasta que deseja entrar:\n\n"
           read FOLDER_NAMEE
-          cd $HOME/.VideosDownload/"$FOLDER_NAMEE"
+          cd $HOME/.VideosDownload1/"$FOLDER_NAMEE"
           clear
           IFS=$'\n'
           mapfile -t array < <(find  ~/.VideosDownload1/"$FOLDER_NAMEE" -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
             fzf-tmux --query="$1" --multi --select-1 --exit-0)
           [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
 
-        elif [ $VIDEO_FOLDER == 'n' ] || [ $VIDEO_FOLDER == 'N' ] || [ $VIDEO_FOLDER == 'No' ] || [ $VIDEO_FOLDER == 'no' ] || [ $VIDEO_FOLDER == 'NO' ] ; then
+        elif [ $CHOICE_OPTION == '2' ] || [ $CHOICE_OPTION == '02' ] ; then
+          clear
           cd $HOME/.VideosDownload
           clear
           IFS=$'\n'
