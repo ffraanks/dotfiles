@@ -4,7 +4,7 @@
 # github - Script para enviar automaticamente mudanças ao Github
 # LEMBRE-SE DE CONFIGURAR CORRETAMENTE SEU GIT SEM SENHA!!!
 # Sugestão de crontab:
-# */15 * * * * sh -c "~/.local/bin/github" > /dev/null 2>&1
+# */15 * * * * sh -c "~/Scripts/github.sh" > /dev/null 2>&1
 
 nome="GitHub.sh"
 dir="${HOME}/.github"
