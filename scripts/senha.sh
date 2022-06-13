@@ -3,7 +3,10 @@
 # Franklin Souza
 # Telegram: @FranklinTech
 
-# Depe: xclip
+# Dep: xclip
+
+clear
+[ ! `command -v xclip` ] && echo "xclip não instalado, por favor faça a instalação" && exit 1
 
 while true ; do
 	# Menu
@@ -14,7 +17,7 @@ while true ; do
 	read OPC
 	
 	if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
-		chars=32 # -> Caracteres
+		chars=60 # -> Caracteres
 		senha="$(openssl rand -base64 $chars)" # -> Gerando a senha
 		echo "${senha}" | xclip -selection clipboard -rmlastnl # -> Colocando a senha no xclip (clipboard)
 		printf "\n$senha\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && continue # -> Printando a senha para o(a) usuario(a)!!!
