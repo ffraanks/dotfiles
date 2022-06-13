@@ -1,11 +1,12 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Franklin Souza
 # @FranklinTech
 
-# Packages
+# Packages check
 [ ! `command -v yt-dlp` ] && echo "yt-dlp não está instalado, por favor faça a instalação" && exit 1
 [ ! `command -v fzf` ] && echo "fzf não está instalado, por favor faça a instalação" && exit 1
+[ ! `command -v mpv` ] && echo "mpv não está instalado, por favor faça a instalação" && exit 1
 
 # Functions VIDEOS and PLAYLIST
 delVid(){
@@ -29,16 +30,34 @@ main(){
   while true ; do
     cd $HOME
     mkdir $HOME/.VideosDownload
+    mkdir $HOME/.VideosDownload1
     clear
     SOUND=/usr/share/sounds/freedesktop/stereo/complete.oga
     printf "YOUTUBE DOWNLOADER\n\nEscolha uma das opções abaixo:\n\n[1] - Baixar vídeo do YouTube\n[2] - Assistir vídeo baixado\n[3] - Apagar video baixado\n[4] - Apagar playlist\n[5] - Baixar Playlist\n[6] - Sair\n\n"
     read OPTION
 
     if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
-      clear && cd $HOME/.VideosDownload
-      printf "Cole seu link abaixo:\n\n"
-      read LINK_VIDEO
-      yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
+      clear
+      printf "Deseja criar uma pasta para o seu vídeo? [y/n] "
+      read FOLDER_CREATE
+      if [ $FOLDER_CREATE == 'y' ] || [ $FOLDER_CREATE == 'Y' ] || [ $FOLDER_CREATE == 'yes' ] || [ $FOLDER_CREATE == 'YES' ] || [ $FOLDER_CREATE == 'Yes' ] ; then
+        clear && cd $HOME/.VideosDownload1
+        printf "Digite o nome da pasta abaixo:\n\n"
+        read FOLDER_NAME
+        mkdir $HOME/.VideosDownload1/"$FOLDER_NAME"
+        printf "\nCole seu link abaixo:\n\n"
+        read LINK_VIDEO
+        cd $HOME/.VideosDownload1/"$FOLDER_NAME" && yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
+
+      elif [ $FOLDER_CREATE == 'n' ] || [ $FOLDER_CREATE == 'N' ] || [ $FOLDER_CREATE == 'no' ] || [ $FOLDER_CREATE == 'NO' ] || [ $FOLDER_CREATE == 'No' ] ; then
+        clear && cd $HOME/.VideosDownload
+        printf "Cole seu link abaixo:\n\n"
+        read LINK_VIDEO
+        yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
+
+      else
+        clear && read -p 'Opção inexistente... PRESSIONE ENTER PARA CONTINUAR...' && continue
+      fi
 
     elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
       clear
@@ -46,11 +65,28 @@ main(){
       read PLAY
       
       if [ $PLAY == '1' ] || [ $PLAY == '01' ] ; then
-        clear
-        IFS=$'\n'
-        mapfile -t array < <(find  ~/.VideosDownload -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
-        fzf-tmux --query="$1" --multi --select-1 --exit-0)
-        [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
+        clear && printf "Deseja assistir video de alguma pasta? [y/n] "
+        read VIDEO_FOLDER
+        if [ $VIDEO_FOLDER == 'y' ] || [ $VIDEO_FOLDER == 'Y' ] || [ $VIDEO_FOLDER == 'Yes' ] || [ $VIDEO_FOLDER == 'yes' ] || [ $VIDEO_FOLDER == 'YES' ] ; then
+          clear
+          cd $HOME/.VideosDownload1 && ls
+          printf "\nDigite o nome da pasta que deseja entrar:\n\n"
+          read FOLDER_NAMEE
+          cd $HOME/.VideosDownload/"$FOLDER_NAMEE"
+          clear
+          IFS=$'\n'
+          mapfile -t array < <(find  ~/.VideosDownload1/"$FOLDER_NAMEE" -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
+            fzf-tmux --query="$1" --multi --select-1 --exit-0)
+          [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
+
+        elif [ $VIDEO_FOLDER == 'n' ] || [ $VIDEO_FOLDER == 'N' ] || [ $VIDEO_FOLDER == 'No' ] || [ $VIDEO_FOLDER == 'no' ] || [ $VIDEO_FOLDER == 'NO' ] ; then
+          cd $HOME/.VideosDownload
+          clear
+          IFS=$'\n'
+          mapfile -t array < <(find  ~/.VideosDownload -regextype posix-egrep -regex '.*\.(mp4|mkv|webm)' | \
+            fzf-tmux --query="$1" --multi --select-1 --exit-0)
+          [[ -n "${array[@]}" ]] && mpv "${array[@]}" && continue
+        fi
 
       elif [ $PLAY == '2' ] || [ $PLAY == '02' ] ; then
         clear
@@ -156,7 +192,7 @@ main(){
      clear && exit 0
 
    else
-     echo && read -p 'OPÇÃO INEXISTENTE!!! PRESSIONE ENTER PARA SAIR...' && clear && exit 1
+     echo && read -p 'OPÇÃO INEXISTENTE!!! PRESSIONE ENTER PARA CONTINUAR...' && continue
     fi
   done
 }
