@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Root Checker
+if [ "$EUID" -ne 0 ]
+  then echo "Execute esse script como ROOT!"
+  exit
+fi
+
 while true; do
   clear
 
@@ -21,7 +27,7 @@ while true; do
   if [ $OPC == '1' ] || [ $OPC == '01' ] ; then
     clear
     cd /mnt
-    printf "\n\nDigite o nome da pasta para o seu pendrive (Evite espações e acentuações):\n\n"
+    printf "Digite o nome da pasta para o seu pendrive (Evite espações e acentuações):\n\n"
     read NAME_PENDRIVE
     sudo mkdir $NAME_PENDRIVE
     printf "\n\nOBS: Normalmente é sdb..." && echo && lsblk
