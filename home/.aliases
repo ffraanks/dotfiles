@@ -158,8 +158,6 @@ alias sc='$HOME/Scripts/ssh-connect.sh'
 alias mc='$HOME/Scripts/mpdconf.sh'
 #Baixar videos do yt
 alias ytd='$HOME/Scripts/ytdown.sh'
-#Video resize
-#alias resize='$HOME/Scripts/videoresize-gui.sh'
 #Criar snapshot
 alias snapshot='sudo $HOME/Scripts/pacman-snapshot'
 #Pastebin
@@ -203,7 +201,7 @@ alias alr="ohmyalias -r"
 #tox chat
 alias tox="toxic"
 #Script vid
-alias vid="~/Scripts/vid"
+alias vid="~/Scripts/.vid"
 #Check Onion Links
 alias co="nvim ~/.projects/Check_Onion_Links/onion.links"
 #Script Check Onion
