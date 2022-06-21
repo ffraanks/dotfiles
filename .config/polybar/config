@@ -165,7 +165,7 @@ separator = |
 
 modules-left = i3
 modules-center = usb-mount
-modules-right = xkeyboard print mic search grabc scratchpad-indicator up
+modules-right = xkeyboard print mic grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
