@@ -190,8 +190,8 @@ nnoremap <C-l> :NERDTreeToggle<CR>
 nnoremap <c-d> <esc>:t.<cr>
 
 "Comment Code
-nmap <C-_>   <Plug>NERDCommenterToggle
-xmap <C-_>   <Plug>NERDCommenterToggle<CR>
+nmap <C-/>   <Plug>NERDCommenterToggle
+xmap <C-/>   <Plug>NERDCommenterToggle<CR>
 
 "Map
 map q :q<CR>
