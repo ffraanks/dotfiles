@@ -330,11 +330,14 @@ for_window [class="(Gimp)"] move to workspace $ws5
 # Inkscape ws=5
 for_window [class="(Inkscape)"] move to workspace $ws5
 
-# Mixxx
+# Mixxx ws=6
 for_window [class="(Mixxx)"] move to workspace $ws6
 
-# Tor Browser
+# Tor Browser ws=7
 for_window [class="(Tor Browser)"] move to workspace $ws7
+
+# Freetube ws=7
+for_window [class="(FreeTube)"]move to workspace $ws7
 
 # qBittorrent ws=8
 for_window [class="(qBittorrent)"] move to workspace $ws8
@@ -342,8 +345,6 @@ for_window [class="(qBittorrent)"] move to workspace $ws8
 # SchildiChat Matrix ws=9
 for_window [class="(SchildiChat)"]move to workspace $ws9
 
-# Freetube ws=7
-for_window [class="(FreeTube)"]move to workspace $ws7
 
 # Steam (Loja de games) ws=10
 for_window [class="(Steam)"] move to workspace $ws10 floating enable, move position center
