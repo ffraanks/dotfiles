@@ -250,7 +250,8 @@ set $ws3 " 3:  "
 set $ws4 " 4: 金"
 set $ws5 " 5:  "
 set $ws6 " 6:  "
-set $ws7 " 7:  "
+set $ws7 " 7:  "
+#set $ws7 " 7:  "
 set $ws8 " 8:  "
 set $ws9 " 9:  "
 set $ws10 " 10:  "
@@ -340,6 +341,9 @@ for_window [class="(qBittorrent)"] move to workspace $ws8
 
 # SchildiChat Matrix ws=9
 for_window [class="(SchildiChat)"]move to workspace $ws9
+
+# Freetube ws=7
+for_window [class="(FreeTube)"]move to workspace $ws7
 
 # Steam (Loja de games) ws=10
 for_window [class="(Steam)"] move to workspace $ws10 floating enable, move position center
