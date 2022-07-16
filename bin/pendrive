@@ -20,7 +20,8 @@ while true; do
   printf "[02] - Desmontar pendrive\n"
   printf "[03] - Formatar\n"
   printf "[04] - Listar pastas montadas\n"
-  printf "[05] - Sair\n\n"
+  printf "[05] - Listar Pendrive\n"
+  printf "[06] - Sair\n\n"
   read OPC
 
   # Condições
@@ -56,9 +57,14 @@ while true; do
   elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
     clear
     ls /mnt
-    read -p 'PRESS ENTER TO CONTINUE...'
+    read -p 'PRESS ENTER TO CONTINUE...' && continue
 
   elif [ $OPC == '5' ] || [ $OPC == '05' ] ; then
+    clear
+    lsblk
+    echo && read -p 'PRESS ENTER TO CONTINUE...' && continue
+
+  elif [ $OPC == '6' ] || [ $OPC == '06' ] ; then
     clear && exit 0
   else
     clear && read -p 'Opção inexistente...(PRESS ENTER TO CONTINUE...)'
