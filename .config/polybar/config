@@ -87,9 +87,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left =
-modules-center = web_spotify
-modules-right = pulse info-redshift-temp calendar date powermenu
+modules-left = prev-cmus next-cmus play-cmus repeat-cmus
+modules-center = statusmusic
+modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -405,8 +405,7 @@ time = %I:%M:%S %p
 #time = %H: %M: %S
 #time-alt = %H:%M:%S
 
-#format-prefix = "  "
-#format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 #format-underline = #cc241d
 #format-background = #cc241d
