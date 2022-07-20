@@ -309,6 +309,7 @@ assign [class="(Vimb)"] $ws1
 assign [class="(Pale moon)"] $ws1
 assign [class="(firefox)"] $ws1
 assign [class="(qutebrowser)"] $ws1
+assign [class="(Chromium)"] $ws1
 
 # Kitty (Terminal) ws=2
 #for_window [class="(kitty)"] move to workspace $ws2
@@ -357,6 +358,9 @@ for_window [instance="PCSX2"] move to workspace $ws10
 
 # PPSSPP
 for_window [instance="PPSSPPSDL"] move to workspace $ws10
+
+# GeforceNOW
+for_window [instance="crx_egmafekfmcnknbdlbfbhafbllplmjlhn"] move to workspace $ws10
 
 ####################################################################
 #                           G A M E S                              #
