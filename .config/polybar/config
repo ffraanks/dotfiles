@@ -87,8 +87,8 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = prev-cmus next-cmus play-cmus repeat-cmus
-modules-center = statusmusic
+modules-left = linux
+modules-center = clima
 modules-right = pulse info-redshift-temp pacman calendar date powermenu
 
 #################################################################
@@ -165,7 +165,7 @@ separator = |
 
 modules-left = i3
 modules-center = usb-mount
-modules-right = xkeyboard print mic grabc scratchpad-indicator up
+modules-right = xkeyboard mic grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
