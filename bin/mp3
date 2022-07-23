@@ -53,15 +53,27 @@ while true ; do
 
   elif [ $OPC == '3' ] || [ $OPC == '03' ] ; then
     clear
-    cd $HOME/.MusicDown && ls
-    printf "\nEscolha o nome da pasta que deseja entrar para ouvir a música:\n\n"
-    read PASTE_NAME_MUSIC
-    cd $HOME/.MusicDown/"$PASTE_NAME_MUSIC"
-    IFS=$'\n'
-    mapfile -t array < <(find  ~/.MusicDown/"$PASTE_NAME_MUSIC" -regextype posix-egrep -regex '.*\.(mp3)' | \
-    fzf-tmux --query="$1" --multi --select-1 --exit-0)
-    [[ -n "${array[@]}" ]] && clear && mpv "${array[@]}" && $HOME/.config/dunst/./launchdunst.sh && i3-msg restart
-    echo && read -p 'PRESS ENTER TO CONTINUE...' && continue
+    printf "Deseja ouvir músicas unicas ou automatizadas?\n\n[1] - Únicas\n[2] - Automatizadas\n\n"
+    read MUSIC_PLAY
+    if [ $MUSIC_PLAY == '1' ] || [ $MUSIC_PLAY == '01' ] ; then
+      cd $HOME/.MusicDown && ls
+      printf "\nEscolha o nome da pasta que deseja entrar para ouvir a música:\n\n"
+      read PASTE_NAME_MUSIC
+      cd $HOME/.MusicDown/"$PASTE_NAME_MUSIC"
+      IFS=$'\n'
+      mapfile -t array < <(find  ~/.MusicDown/"$PASTE_NAME_MUSIC" -regextype posix-egrep -regex '.*\.(mp3)' | \
+      fzf-tmux --query="$1" --multi --select-1 --exit-0)
+      [[ -n "${array[@]}" ]] && clear && mpv "${array[@]}"
+      echo && read -p 'PRESS ENTER TO CONTINUE...' && continue
+
+    elif [ $MUSIC_PLAY == '2' ] || [ $MUSIC_PLAY == '02' ] ; then
+      clear
+      cd $HOME/.MusicDown && ls
+      printf "\nEscolha o nome da pasta que deseja entrar para ouvir a música:\n\n"
+      read PASTE_NAME_MUSIC1
+      cd $HOME/.MusicDown/"$PASTE_NAME_MUSIC1" && clear && mpv *
+      echo && read -p 'PRESS ENTER TO CONTINUE...' && continue
+    fi
     
   elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
     clear
