@@ -87,9 +87,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = linux
-modules-center = clima
-modules-right = pulse info-redshift-temp pacman calendar date powermenu
+modules-left = linux 
+modules-center = statusmusic minutes-cmus 
+modules-right = pulse  info-redshift-temp pacman calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -165,7 +165,7 @@ separator = |
 
 modules-left = i3
 modules-center = usb-mount
-modules-right = xkeyboard mic grabc scratchpad-indicator up
+modules-right = clima xkeyboard mic grabc scratchpad-indicator up
 
 #################################################################
 #                        TRAY BARRA BAIXO                       #
@@ -637,6 +637,13 @@ click-left = $HOME/.config/polybar/scripts/func_repeat.sh
 exec = sh $HOME/.config/polybar/scripts/repeat.sh
 label = %output%
 interval = 1
+
+[module/minutes-cmus]
+type = custom/script
+#click-left = $HOME/.config/polybar/scripts/minutes-cmus.sh
+exec = sh $HOME/.config/polybar/scripts/minutes-cmus.sh
+label = %output%
+interval =
 
 ####################################################
 #                   WEB SPOTIFY                    #
