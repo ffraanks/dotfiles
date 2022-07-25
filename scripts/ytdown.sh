@@ -51,7 +51,7 @@ main(){
         cd $HOME/.VideosDownload1/"$FOLDER_NAME" && yt-dlp -f bestvideo*+bestaudio/best "$LINK_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
 
       elif [ $FOLDER_OPTION == '2' ] || [ $FOLDER_OPTION == '02' ] ; then
-        clear && cd $HOME/.VideosDownload1 && ls
+        clear && cd $HOME/.VideosDownload1 && pwd && echo && ls
         printf "\nDigite o nome da pasta que deseja acessar:\n\n"
         read FOLDER_NAME_ENTER
         cd $HOME/.VideosDownload1/"$FOLDER_NAME_ENTER"
@@ -61,7 +61,7 @@ main(){
 
       elif [ $FOLDER_OPTION == '3' ] || [ $FOLDER_OPTION == '03' ] ; then
         clear
-        cd $HOME/.VideosDownload
+        cd $HOME/.VideosDownload && pwd && echo && ls
         printf "Cole o link do vídeo abaixo:\n\n"
         read DOWNLOAD_VIDEO
         yt-dlp -f bestvideo*+bestaudio/best "$DOWNLOAD_VIDEO" && notify-send "YOUTUBE DOWNLOADER" "Vídeo baixado com sucesso!!!" && mpv $SOUND && continue
