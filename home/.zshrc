@@ -3,7 +3,7 @@ source "$HOME"/.aliases # My Aliases
 source "$HOME"/.scripts # My Scripts
 
 # Starship
-#eval "$(starship init zsh)"  # Theme Starship
+eval "$(starship init zsh)"  # Theme Starship
 
 # Powerlevel10k
 #source ~/.projects/powerlevel10k/powerlevel10k.zsh-theme
